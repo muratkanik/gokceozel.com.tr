@@ -1,0 +1,57 @@
+# Robots.txt for Prof. Dr. Gökçe Özel Clinic
+# Updated: 2026-02-11
+
+User-agent: *
+Allow: /
+
+# Disallow admin and backend areas
+Disallow: /yonetim/
+Disallow: /baglanti/
+Disallow: /ajax/
+Disallow: /migration/
+Disallow: /vendor/
+
+# Disallow duplicate content (old URL parameters)
+Disallow: /*?detay=
+Disallow: /*?LN=
+Disallow: /*?kat=
+
+# Disallow system files
+Disallow: /*.sql
+Disallow: /*.log
+Disallow: /*.bak
+Disallow: /*.sh
+
+# Allow important resources
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /vendor/bootstrap/
+Allow: /dist/
+
+# Crawl delay (optional, be nice to servers)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://gokceozel.com.tr/sitemap.xml
+Sitemap: https://www.gokceozel.com.tr/sitemap.xml
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

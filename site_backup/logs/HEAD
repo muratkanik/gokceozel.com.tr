@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 760b59195f6a5616d6f12c036a0c7234289d7285 Radoslav Petkov <radipirate@gmail.com> 1461076407 +0300	clone: from https://github.com/radpet/ckeditor-dropdownmenumanager.git
+760b59195f6a5616d6f12c036a0c7234289d7285 bc865f0b5a62eb9ea743015283fdcd9cb3453009 Radoslav Petkov <radipirate@gmail.com> 1461091732 +0300	commit (amend): Add promise support for the menu items labels
+bc865f0b5a62eb9ea743015283fdcd9cb3453009 760b59195f6a5616d6f12c036a0c7234289d7285 Radoslav Petkov <radipirate@gmail.com> 1461091773 +0300	reset: moving to 760b59195f6a5616d6f12c036a0c7234289d7285
+760b59195f6a5616d6f12c036a0c7234289d7285 8df1af6d040af0505aabc001983dfb750f8d41fb Radoslav Petkov <radipirate@gmail.com> 1461091819 +0300	commit: Add promise support for the menu items labels
