@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.3",
-    "@prisma/client": "^7.7.0",
+    "@prisma/client": "6.4.1",
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.104.0",
     "dotenv": "^17.4.2",
@@ -36,7 +36,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "postcss": "^8.5.10",
-    "prisma": "^7.7.0",
+    "prisma": "6.4.1",
     "tailwindcss": "^3.4.19",
     "typescript": "^5"
   }
