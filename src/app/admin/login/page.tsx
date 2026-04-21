@@ -2,11 +2,12 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 
-export default function LoginPage({
+export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: { message: string }
+  searchParams: Promise<{ message: string }>
 }) {
+  const resolvedParams = await searchParams;
   const signIn = async (formData: FormData) => {
     'use server';
 
@@ -105,9 +106,9 @@ export default function LoginPage({
             Giriş Yap
           </button>
 
-          {searchParams?.message && (
+          {resolvedParams?.message && (
             <p style={{ color: '#ff6b6b', textAlign: 'center', marginTop: '10px', fontSize: '0.9rem' }}>
-              {searchParams.message}
+              {resolvedParams.message}
             </p>
           )}
         </form>
