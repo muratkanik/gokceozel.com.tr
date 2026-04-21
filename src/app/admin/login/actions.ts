@@ -4,29 +4,18 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 
 export async function signIn(formData: FormData) {
-  try {
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    
-    console.log('signIn action started for email:', email);
-    const supabase = await createClient();
-    console.log('supabase client created successfully');
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
+  const supabase = await createClient();
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    console.log('signInWithPassword result error:', error);
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
-    if (error) {
-      console.log('Redirecting to login with error');
-      redirect('/admin/login?message=Giriş başarısız. Bilgileri kontrol edin.');
-    }
-
-    console.log('Redirecting to /admin on success');
-    redirect('/admin');
-  } catch (error) {
-    console.error('SERVER ACTION ERROR:', error);
-    throw error;
+  if (error) {
+    redirect('/admin/login?message=Giriş başarısız. Bilgileri kontrol edin.');
   }
+
+  redirect('/admin');
 }
