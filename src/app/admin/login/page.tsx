@@ -1,6 +1,5 @@
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { signIn } from './actions';
 
 export default async function LoginPage({
   searchParams,
@@ -8,24 +7,6 @@ export default async function LoginPage({
   searchParams: Promise<{ message: string }>
 }) {
   const resolvedParams = await searchParams;
-  const signIn = async (formData: FormData) => {
-    'use server';
-
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    const supabase = await createClient();
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return redirect('/admin/login?message=Giriş başarısız. Bilgileri kontrol edin.');
-    }
-
-    return redirect('/admin');
-  };
 
   return (
     <div style={{
