@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import RichTextEditor from './RichTextEditor';
-import { saveTranslations } from '@/app/admin/blocks/[id]/actions';
+import { saveTranslations } from '@/app/admin/(dashboard)/blocks/[id]/actions';
 
 interface TranslationEditorProps {
   blockId: string;
