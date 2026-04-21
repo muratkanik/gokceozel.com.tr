@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabase/client";
 import HeroSlider from "@/components/ui/HeroSlider";
 
+export const revalidate = 60; // ISR cache for 60 seconds
+
 export default async function Home() {
   // Fetch Maintenance Mode
   const { data: maintenanceData } = await supabase
@@ -42,9 +44,9 @@ export default async function Home() {
     .single();
 
   const heroContent = heroData?.translations?.tr || {
-    title: "DOĞAL GÜZELLİĞİNİZİ YENİDEN TASARLAYIN.",
-    subtitle: "Ankara'nın Yüz Estetiği ve Plastik Cerrahi Merkezi",
-    button: "Tedavileri Keşfet"
+    title: "Prof. Dr. Gökçe Özel",
+    subtitle: "Ankara'nın KBB ve Rinoplasti Merkezi",
+    button: "Hizmetlerimiz"
   };
 
   // Fetch Services
