@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
 export default async function AdminDashboard() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Fetch maintenance mode
   const { data: maintenanceData } = await supabase
@@ -15,7 +15,7 @@ export default async function AdminDashboard() {
 
   const toggleMaintenance = async (formData: FormData) => {
     'use server';
-    const supabase = createClient();
+    const supabase = await createClient();
     
     const { data } = await supabase
       .from('content_entries')
