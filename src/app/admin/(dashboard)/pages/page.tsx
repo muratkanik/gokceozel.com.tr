@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
+import DeleteForm from '@/components/admin/DeleteForm';
 import { createPage, deletePage } from './actions';
 
 export default async function PagesManagement() {
@@ -66,16 +67,9 @@ export default async function PagesManagement() {
                   <Link href={`/admin/blocks?pageId=${page.id}`} style={{ background: '#000', color: '#fff', textDecoration: 'none', padding: '8px 15px', borderRadius: '4px', fontSize: '14px' }}>
                     Blokları Yönet
                   </Link>
-                  <form action={deletePage}>
+                  <DeleteForm action={deletePage} confirmMessage="Sayfayı ve içindeki tüm blokları silmek istediğinize emin misiniz?">
                     <input type="hidden" name="id" value={page.id} />
-                    <button type="submit" onClick={(e) => {
-                      if (!confirm('Sayfayı ve içindeki tüm blokları silmek istediğinize emin misiniz?')) {
-                        e.preventDefault();
-                      }
-                    }} style={{ background: '#ff4757', color: '#fff', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}>
-                      Sil
-                    </button>
-                  </form>
+                  </DeleteForm>
                 </td>
               </tr>
             ))}

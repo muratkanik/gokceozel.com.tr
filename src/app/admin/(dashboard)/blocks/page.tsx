@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
+import DeleteForm from '@/components/admin/DeleteForm';
 import { createBlock, deleteBlock, selectPageAction } from './actions';
 
 export default async function BlocksManagementPage({ searchParams }: { searchParams: Promise<{ pageId?: string }> }) {
@@ -94,17 +95,10 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
                       <Link href={`/admin/blocks/${block.id}`} style={{ background: '#000', color: '#fff', textDecoration: 'none', padding: '8px 15px', borderRadius: '4px', fontSize: '14px' }}>
                         İçeriği Düzenle
                       </Link>
-                      <form action={deleteBlock}>
+                      <DeleteForm action={deleteBlock} confirmMessage="Bu bloğu ve içindeki tüm çevirileri silmek istediğinize emin misiniz?">
                         <input type="hidden" name="id" value={block.id} />
                         <input type="hidden" name="pageId" value={pageId} />
-                        <button type="submit" onClick={(e) => {
-                          if (!confirm('Bu bloğu ve içindeki tüm çevirileri silmek istediğinize emin misiniz?')) {
-                            e.preventDefault();
-                          }
-                        }} style={{ background: '#ff4757', color: '#fff', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', fontSize: '14px' }}>
-                          Sil
-                        </button>
-                      </form>
+                      </DeleteForm>
                     </td>
                   </tr>
                 ))}
