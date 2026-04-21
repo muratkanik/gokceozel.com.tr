@@ -5,8 +5,8 @@ import { supabase } from "@/lib/supabase/client";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Prof. Dr. Gökçe Özel | Ankara Yüz Estetiği ve Rinoplasti",
-  description: "Ankara'da ameliyatsız yüz germe, gıdı eritme, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
+  title: "Prof. Dr. Gökçe Özel | Ankara KBB ve Rinoplasti Uzmanı",
+  description: "Ankara'da ameliyatsız estetik uygulamaları, gıdı eritme, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
 };
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
     "@type": "MedicalClinic",
     "name": "Prof. Dr. Gökçe Özel Klinik",
     "image": "https://gokceozel.com.tr/images/logo.png",
-    "description": "Ankara'nın en iyi KBB ve Yüz Estetiği kliniği. Rinoplasti, Endolift Lazer ve ameliyatsız yüz germe hizmetleri.",
+    "description": "Ankara'nın en iyi KBB kliniği. Rinoplasti, Endolift Lazer ve estetik hizmetleri.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ankara",
@@ -64,13 +64,13 @@ export default async function RootLayout({
       <body className={themeClass}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           {/* Navigation Bar */}
-          <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
+          <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '15px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
+            <div style={{ flexShrink: 0 }}>
               <a href={`/${locale}`}>
-                <img src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                <img src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" style={{ height: 'min(50px, 10vw)', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
               </a>
             </div>
-            <div style={{ display: 'flex', gap: '25px', fontSize: '15px', fontWeight: 500, letterSpacing: '0.5px' }}>
+            <div style={{ display: 'flex', gap: '15px', fontSize: 'clamp(12px, 3vw, 15px)', fontWeight: 500, letterSpacing: '0.5px', flexWrap: 'wrap', justifyContent: 'center' }}>
               <a href={`/${locale}/hizmetler`} className="nav-link">Hizmetler</a>
               <a href={`/${locale}/blog`} className="nav-link">Blog</a>
               <a href={`/${locale}/kurumsal`} className="nav-link">Kurumsal</a>
@@ -94,7 +94,7 @@ export default async function RootLayout({
               {/* Brand / Logo */}
               <div>
                 <img src="/images/logo.png" alt="Gökçe Özel" style={{ height: '50px', filter: 'brightness(0) invert(1)', marginBottom: '20px' }} />
-                <p style={{ lineHeight: 1.6, marginBottom: '20px' }}>Ankara'nın Yüz Estetiği ve Plastik Cerrahi Merkezi. Doğal güzelliğinizi uzman ellerde yeniden tasarlayın.</p>
+                <p style={{ lineHeight: 1.6, marginBottom: '20px' }}>Ankara'nın KBB ve Rinoplasti Merkezi. Doğal güzelliğinizi uzman ellerde yeniden tasarlayın.</p>
               </div>
 
               {/* Contact Info */}

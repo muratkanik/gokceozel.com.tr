@@ -33,16 +33,16 @@ export default function HeroSlider({ heroContent }: HeroSliderProps) {
     <section className="hero-container" style={{ position: 'relative', width: '100%', height: 'min(70vh, 800px)', minHeight: '500px', overflow: 'hidden' }}>
       
       {/* Embla Carousel Viewport */}
-      <div className="embla" ref={emblaRef} style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
-        <div className="embla__container" style={{ display: 'flex', height: '100%' }}>
+      <div className="embla" ref={emblaRef} style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1, overflow: 'hidden' }}>
+        <div className="embla__container" style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
           {slideImages.map((img, index) => (
-            <div className="embla__slide" key={index} style={{ flex: '0 0 100%', position: 'relative', height: '100%' }}>
+            <div className="embla__slide" key={index} style={{ flex: '0 0 100%', minWidth: 0, position: 'relative', height: '100%' }}>
               <Image 
                 src={img.src} 
                 alt={img.alt}
                 fill
                 priority={index === 0}
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
                 sizes="100vw"
                 quality={90}
               />
