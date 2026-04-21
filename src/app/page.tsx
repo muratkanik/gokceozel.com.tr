@@ -22,7 +22,7 @@ export default async function Home() {
         padding: '20px',
         background: 'var(--color-bg-dark)'
       }}>
-        <img src="/images/logo.png" alt="Gökçe Özel Logo" style={{ height: '80px', marginBottom: '30px' }} />
+        <img src="/images/logo.png" alt="Gökçe Özel Logo" style={{ height: '80px', marginBottom: '30px', filter: 'brightness(0) invert(1)' }} />
         <h1 className="gold-gradient-text" style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '20px' }}>
           Yapım Aşamasında
         </h1>
