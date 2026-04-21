@@ -1,7 +1,6 @@
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { createBlock, deleteBlock, selectPageAction } from './actions';
 
 export default async function BlocksManagementPage({ searchParams }: { searchParams: Promise<{ pageId?: string }> }) {
   const params = await searchParams;
@@ -19,35 +18,6 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
     }
   }) : [];
 
-  const createBlock = async (formData: FormData) => {
-    'use server';
-    const targetPageId = formData.get('pageId') as string;
-    const componentType = formData.get('componentType') as string;
-    const sortOrder = parseInt(formData.get('sortOrder') as string) || 0;
-
-    if (!targetPageId || !componentType) return;
-
-    await prisma.contentBlock.create({
-      data: {
-        pageId: targetPageId,
-        componentType,
-        sortOrder
-      }
-    });
-
-    revalidatePath(`/admin/blocks?pageId=${targetPageId}`);
-  };
-
-  const deleteBlock = async (formData: FormData) => {
-    'use server';
-    const id = formData.get('id') as string;
-    const currentPageId = formData.get('pageId') as string;
-    if (!id) return;
-
-    await prisma.contentBlock.delete({ where: { id } });
-    revalidatePath(`/admin/blocks?pageId=${currentPageId}`);
-  };
-
   return (
     <div>
       <h1 style={{ fontSize: '2rem', marginBottom: '30px', color: '#111' }}>İçerik Blokları Yönetimi</h1>
@@ -56,11 +26,7 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
       <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', marginBottom: '40px' }}>
         <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Sayfa Seçimi</h2>
         
-        <form action={async (formData: FormData) => {
-          'use server';
-          const pId = formData.get('selectedPageId');
-          if (pId) redirect(`/admin/blocks?pageId=${pId}`);
-        }} style={{ display: 'flex', gap: '15px' }}>
+        <form action={selectPageAction} style={{ display: 'flex', gap: '15px' }}>
           <select name="selectedPageId" defaultValue={pageId || ''} style={{ flex: 1, padding: '10px', borderRadius: '6px', border: '1px solid #ddd' }}>
             <option value="" disabled>Düzenlemek istediğiniz sayfayı seçin...</option>
             {pages.map(p => (

@@ -1,36 +1,10 @@
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
+import { saveSetting, deleteSetting } from './actions';
 
 export default async function SettingsPage() {
   const settings = await prisma.setting.findMany({
     orderBy: { key: 'asc' }
   });
-
-  const saveSetting = async (formData: FormData) => {
-    'use server';
-    const key = formData.get('key') as string;
-    const value = formData.get('value') as string;
-
-    if (!key) return;
-
-    await prisma.setting.upsert({
-      where: { key },
-      update: { value },
-      create: { key, value }
-    });
-
-    revalidatePath('/admin/settings');
-    revalidatePath('/', 'layout');
-  };
-
-  const deleteSetting = async (formData: FormData) => {
-    'use server';
-    const key = formData.get('key') as string;
-    if (!key) return;
-
-    await prisma.setting.delete({ where: { key } });
-    revalidatePath('/admin/settings');
-  };
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
+import { createPage, deletePage } from './actions';
 
 export default async function PagesManagement() {
   const pages = await prisma.page.findMany({
@@ -11,34 +11,6 @@ export default async function PagesManagement() {
       }
     }
   });
-
-  const createPage = async (formData: FormData) => {
-    'use server';
-    const slug = formData.get('slug') as string;
-    const titleInternal = formData.get('titleInternal') as string;
-    const seoScore = parseInt(formData.get('seoScore') as string) || 0;
-
-    if (!slug || !titleInternal) return;
-
-    await prisma.page.create({
-      data: {
-        slug: slug.toLowerCase().replace(/[^a-z0-9/-]/g, '-'),
-        titleInternal,
-        seoScore
-      }
-    });
-
-    revalidatePath('/admin/pages');
-  };
-
-  const deletePage = async (formData: FormData) => {
-    'use server';
-    const id = formData.get('id') as string;
-    if (!id) return;
-
-    await prisma.page.delete({ where: { id } });
-    revalidatePath('/admin/pages');
-  };
 
   return (
     <div>
