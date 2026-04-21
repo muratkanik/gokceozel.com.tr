@@ -1,38 +1,44 @@
-import { createClient } from '@/lib/supabase/server';
+import prisma from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
 export default async function AdminDashboard() {
-  const supabase = await createClient();
   
   // Fetch maintenance mode
-  const { data: maintenanceData } = await supabase
-    .from('content_entries')
-    .select('translations')
-    .eq('slug', 'maintenance_mode')
-    .single();
+  const maintenanceSetting = await prisma.setting.findUnique({
+    where: { key: 'maintenance_mode' }
+  });
 
-  const isMaintenanceActive = maintenanceData?.translations?.is_active === true;
+  let isMaintenanceActive = false;
+  try {
+    if (maintenanceSetting?.value) {
+      const parsed = JSON.parse(maintenanceSetting.value);
+      isMaintenanceActive = parsed.isActive === true;
+    }
+  } catch (e) {
+    // ignore parse error
+  }
 
   const toggleMaintenance = async (formData: FormData) => {
     'use server';
-    const supabase = await createClient();
     
-    const { data } = await supabase
-      .from('content_entries')
-      .select('translations')
-      .eq('slug', 'maintenance_mode')
-      .single();
-      
-    const currentStatus = data?.translations?.is_active === true;
+    const currentSetting = await prisma.setting.findUnique({
+      where: { key: 'maintenance_mode' }
+    });
+
+    let currentStatus = false;
+    if (currentSetting?.value) {
+      try {
+        currentStatus = JSON.parse(currentSetting.value).isActive === true;
+      } catch (e) {}
+    }
     
-    await supabase
-      .from('content_entries')
-      .update({
-        translations: {
-          is_active: !currentStatus
-        }
-      })
-      .eq('slug', 'maintenance_mode');
+    const newStatus = !currentStatus;
+
+    await prisma.setting.upsert({
+      where: { key: 'maintenance_mode' },
+      update: { value: JSON.stringify({ isActive: newStatus }) },
+      create: { key: 'maintenance_mode', value: JSON.stringify({ isActive: newStatus }) }
+    });
       
     revalidatePath('/', 'layout');
     revalidatePath('/admin');

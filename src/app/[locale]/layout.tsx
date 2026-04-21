@@ -65,9 +65,12 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           {/* Navigation Bar */}
           <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '15px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
-            <div style={{ flexShrink: 0 }}>
-              <a href={`/${locale}`}>
+            <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+              <a href={`/${locale}`} style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none' }}>
                 <img src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" style={{ height: 'min(50px, 10vw)', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                <span className="gold-gradient-text hidden md:block" style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 600, letterSpacing: '0.5px' }}>
+                  Prof. Dr. Gökçe Özel
+                </span>
               </a>
             </div>
             <div style={{ display: 'flex', gap: '15px', fontSize: 'clamp(12px, 3vw, 15px)', fontWeight: 500, letterSpacing: '0.5px', flexWrap: 'wrap', justifyContent: 'center' }}>
