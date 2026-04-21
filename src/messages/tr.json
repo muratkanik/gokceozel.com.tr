@@ -1,0 +1,17 @@
+{
+  "Common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu.",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle"
+  },
+  "Navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetlerimiz",
+    "contact": "İletişim",
+    "blog": "Blog"
+  }
+}

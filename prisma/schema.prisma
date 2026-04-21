@@ -1,13 +1,100 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String
+  role          String   @default("admin")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   // Stores JSON or text (e.g. SEO metadata, Site Name)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Page {
+  id             String         @id @default(cuid())
+  slug           String         @unique // e.g. "home", "hizmetler/endolift"
+  titleInternal  String
+  seoScore       Int            @default(0)
+  blocks         ContentBlock[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model ContentBlock {
+  id            String        @id @default(cuid())
+  pageId        String
+  page          Page          @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  componentType String        // e.g. "hero", "text_block", "services_grid"
+  sortOrder     Int           @default(0)
+  isActive      Boolean       @default(true)
+  schemaDef     String        @default("{}") // Stores component-specific layout info
+  translations  Translation[]
+  createdAt     DateTime      @default(now())
+}
+
+model Translation {
+  id          String       @id @default(cuid())
+  blockId     String
+  block       ContentBlock @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  locale      String       // "tr", "en"
+  contentData String       @default("{}") // Store localized JSON payload (WYSIWYG HTML, images)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@unique([blockId, locale])
+}
+
+// Analytics (from camiihalisi)
+model ClickEvent {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  fromPage    String   
+  toUrl       String   
+  label       String   
+  category    String   @default("outbound")
+  referer     String?  
+  refDomain   String?  
+  ua          String?  
+  device      String?  
+  browser     String?  
+  ip          String?  
+  country     String?  
+  city        String?  
+
+  @@index([createdAt])
+  @@index([fromPage])
+  @@index([category])
+  @@index([country])
+  @@index([device])
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  page      String   
+  referer   String?  
+  refDomain String?  
+  country   String?  
+  city      String?  
+  device    String?  
+  ip        String?  
+
+  @@index([createdAt])
+  @@index([page])
+  @@index([country])
 }
