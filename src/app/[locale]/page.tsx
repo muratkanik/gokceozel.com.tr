@@ -1,9 +1,13 @@
 import { supabase } from "@/lib/supabase/client";
+import prisma from "@/lib/prisma";
 import HeroSlider from "@/components/ui/HeroSlider";
+import { HeroSlide } from "@/components/admin/HeroSlideManager";
 
 export const revalidate = 60; // ISR cache for 60 seconds
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
   // Fetch Maintenance Mode
   const { data: maintenanceData } = await supabase
     .from('content_entries')
@@ -36,30 +40,77 @@ export default async function Home() {
     );
   }
 
-  // Fetch Hero translations
-  const { data: heroData } = await supabase
-    .from('content_entries')
-    .select('translations')
-    .eq('slug', 'hero_section')
-    .single();
+  // Fetch Hero from Prisma blocks for the home page
+  const homePage = await prisma.page.findUnique({
+    where: { slug: 'home' },
+    include: {
+      blocks: {
+        where: { componentType: 'hero', isActive: true },
+        include: {
+          translations: {
+            where: { locale }
+          }
+        }
+      }
+    }
+  });
 
-  const heroContent = heroData?.translations?.tr || {
-    title: "Prof. Dr. Gökçe Özel",
-    subtitle: "Ankara'nın KBB ve Rinoplasti Merkezi",
-    button: "Hizmetlerimiz"
-  };
+  const heroBlock = homePage?.blocks[0];
+  let heroSlides: HeroSlide[] = [];
+  
+  if (heroBlock && heroBlock.translations.length > 0) {
+    try {
+      heroSlides = JSON.parse(heroBlock.translations[0].contentData);
+    } catch (e) {
+      console.error('Failed to parse hero slides JSON');
+    }
+  }
 
-  // Fetch Services
+  // Fallback to old Supabase method if no Prisma blocks are configured yet
+  if (heroSlides.length === 0) {
+    const { data: heroData } = await supabase
+      .from('content_entries')
+      .select('translations')
+      .eq('slug', 'hero_section')
+      .single();
+
+    const oldContent = heroData?.translations?.[locale] || heroData?.translations?.tr || {
+      title: "Prof. Dr. Gökçe Özel",
+      subtitle: "Ankara'nın KBB ve Rinoplasti Merkezi",
+      button: "Hizmetlerimiz"
+    };
+
+    heroSlides = [
+      {
+        id: '1',
+        image: '/images/gokcebanner.jpg',
+        title: oldContent.title,
+        subtitle: oldContent.subtitle,
+        buttonText: oldContent.button,
+        buttonLink: `/${locale}/hizmetler`
+      },
+      {
+        id: '2',
+        image: '/images/drgo_21.jpg',
+        title: oldContent.title,
+        subtitle: oldContent.subtitle,
+        buttonText: oldContent.button,
+        buttonLink: `/${locale}/hizmetler`
+      }
+    ];
+  }
+
+  // Fetch Services (Old Method)
   const { data: services } = await supabase
     .from('content_entries')
     .select('*')
     .eq('type', 'service')
-    .contains('visible_locales', ['tr'])
+    .contains('visible_locales', [locale])
     .limit(6);
 
   return (
     <main>
-      <HeroSlider heroContent={heroContent} />
+      <HeroSlider slides={heroSlides} />
 
       <section id="treatments" style={{ padding: '100px 40px', maxWidth: '1200px', margin: '0 auto' }}>
         <h2 className="gold-gradient-text" style={{ fontSize: '2.5rem', fontFamily: 'var(--font-serif)', marginBottom: '50px', textAlign: 'center' }}>

@@ -42,7 +42,7 @@ export default async function BlockEditPage({ params }: { params: Promise<{ id: 
       </p>
 
       {/* Client Component to handle tabs and RichTextEditor state */}
-      <TranslationEditor blockId={block.id} initialTranslations={translationMap} locales={locales} />
+      <TranslationEditor blockId={block.id} componentType={block.componentType} initialTranslations={translationMap} locales={locales} />
     </div>
   );
 }

@@ -21,9 +21,13 @@ export async function saveTranslations(blockId: string, translations: Record<str
     });
   }
 
-  revalidatePath('/admin/blocks');
-  revalidatePath('/admin/blocks/[id]', 'page');
-  revalidatePath('/', 'layout'); // clear all frontend cache just in case
-  
-  return { success: true };
+  try {
+    revalidatePath('/admin/blocks');
+    revalidatePath(`/admin/blocks/${blockId}`);
+    revalidatePath('/', 'layout'); // clear all frontend cache just in case
+    return { success: true };
+  } catch (err: any) {
+    console.error('saveTranslations error:', err);
+    throw new Error('Server component revalidation failed.');
+  }
 }
