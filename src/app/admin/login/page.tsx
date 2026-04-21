@@ -92,8 +92,8 @@ export default async function LoginPage({
           <button 
             type="submit"
             style={{
-              background: 'linear-gradient(45deg, var(--color-gold), var(--color-gold-muted))',
-              color: 'var(--color-bg-dark)',
+              background: 'var(--color-gold)',
+              color: '#000',
               border: 'none',
               padding: '14px',
               borderRadius: '6px',
