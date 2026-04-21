@@ -1,56 +1,65 @@
 const { createClient } = require('@supabase/supabase-js');
-require('dotenv').config({ path: '.env.local' });
-require('dotenv').config({ path: '.env' });
+require('dotenv').config({ path: '.env.production' });
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL.trim(), process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY.trim());
 
-async function run() {
-  const { data, error } = await supabase.from('content_entries').select('id, slug, type, translations').in('type', ['service', 'hero_section', 'page']);
+async function fix() {
+  const { data, error } = await supabase.from('content_entries').select('*');
   if (error) {
     console.error(error);
     return;
   }
-  
-  let needsUpdate = false;
-  
-  for (const row of data) {
-    if (row.translations && row.translations.tr) {
-      let tr = row.translations.tr;
-      let originalStr = JSON.stringify(tr);
-      
-      // Basic UTF-8 artifact fixing
-      let newStr = originalStr
-        .replace(/Ä±/g, 'ı')
-        .replace(/Ä°/g, 'İ')
-        .replace(/Ã§/g, 'ç')
-        .replace(/Ã‡/g, 'Ç')
-        .replace(/ÅŸ/g, 'ş')
-        .replace(/Åž/g, 'Ş')
-        .replace(/Ã¶/g, 'ö')
-        .replace(/Ã–/g, 'Ö')
-        .replace(/Ã¼/g, 'ü')
-        .replace(/Ãœ/g, 'Ü')
-        .replace(/ÄŸ/g, 'ğ')
-        .replace(/Äž/g, 'Ğ')
-        .replace(/Ã¢/g, 'â')
-        .replace(/Ã»/g, 'û')
-        .replace(/Ã®/g, 'î')
-        .replace(/â€™/g, "'")
-        .replace(/â€œ/g, '"')
-        .replace(/â€\x9D/g, '"')
-        .replace(/â€“/g, '-')
-        .replace(/Â/g, '');
 
-      if (newStr !== originalStr) {
-        console.log(`Fixing row: ${row.slug}`);
-        const { error: updateError } = await supabase.from('content_entries').update({ translations: { ...row.translations, tr: JSON.parse(newStr) } }).eq('id', row.id);
-        if (updateError) console.error(`Error updating ${row.slug}:`, updateError);
-        else needsUpdate = true;
-      }
+  for (const entry of data) {
+    if (!entry.translations || !entry.translations.tr) continue;
+    
+    let title = entry.translations.tr.title || '';
+    let content = entry.translations.tr.content || '';
+    
+    // Fix common encoding issues
+    const replacements = [
+      { bad: 'Ã\u0013zel', good: 'Özel' },
+      { bad: 'Ã!ene', good: 'Çene' },
+      { bad: 'Ã§', good: 'ç' },
+      { bad: 'Ã¶', good: 'ö' },
+      { bad: 'Ã¼', good: 'ü' },
+      { bad: 'ÄŸ', good: 'ğ' },
+      { bad: 'ÅŸ', good: 'ş' },
+      { bad: 'Ä±', good: 'ı' },
+      { bad: 'Ä°', good: 'İ' },
+      { bad: 'Ã–', good: 'Ö' },
+      { bad: 'Ã‡', good: 'Ç' },
+      { bad: 'Ãœ', good: 'Ü' },
+      { bad: 'Ã\u0093zel', good: 'Özel' },
+      { bad: 'Ã\x13zel', good: 'Özel' }
+    ];
+
+    let updatedTitle = title;
+    let updatedContent = content;
+
+    for (const {bad, good} of replacements) {
+      updatedTitle = updatedTitle.split(bad).join(good);
+      updatedContent = updatedContent.split(bad).join(good);
+    }
+
+    if (updatedTitle !== title || updatedContent !== content) {
+      console.log('Fixing:', entry.slug);
+      console.log('Old title:', title);
+      console.log('New title:', updatedTitle);
+      
+      const newTranslations = {
+        ...entry.translations,
+        tr: {
+          ...entry.translations.tr,
+          title: updatedTitle,
+          content: updatedContent
+        }
+      };
+
+      await supabase.from('content_entries').update({ translations: newTranslations }).eq('id', entry.id);
     }
   }
-  console.log(needsUpdate ? "Fixed broken characters in DB." : "No broken characters found in DB.");
+  console.log('Done');
 }
-run();
+
+fix();

@@ -29,8 +29,58 @@ export default async function SettingsPage() {
         </form>
       </div>
 
+      {/* Global SEO Settings */}
+      <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', marginBottom: '40px' }}>
+        <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Global SEO Ayarları</h2>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+          <tbody>
+            {['seo_meta_title', 'seo_meta_description', 'seo_meta_keywords'].map(key => {
+              const setting = settings.find(s => s.key === key);
+              return (
+                <tr key={key} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ padding: '15px 10px', fontWeight: 'bold', width: '200px' }}>{key}</td>
+                  <td style={{ padding: '15px 10px' }}>
+                    <form action={saveSetting} style={{ display: 'flex', gap: '10px' }}>
+                      <input type="hidden" name="key" value={key} />
+                      <input type="text" name="value" defaultValue={setting?.value || ''} placeholder={key.replace(/_/g, ' ')} style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }} />
+                      <button type="submit" style={{ background: '#2ed573', color: '#fff', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}>Kaydet</button>
+                    </form>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Multi-Language Settings */}
+      <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', marginBottom: '40px' }}>
+        <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Aktif Diller (Multi-Language)</h2>
+        <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+          {['tr', 'en', 'de', 'ar', 'fr', 'ru'].map(lang => {
+            const key = `lang_${lang}_active`;
+            const setting = settings.find(s => s.key === key);
+            const isActive = setting?.value === 'true';
+            
+            return (
+              <form key={lang} action={saveSetting} style={{ background: '#f9f9f9', padding: '15px', borderRadius: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', minWidth: '100px' }}>
+                <strong style={{ textTransform: 'uppercase' }}>{lang}</strong>
+                <span style={{ fontSize: '12px', color: isActive ? '#2ed573' : '#ff4757' }}>
+                  {isActive ? 'Aktif' : 'Pasif'}
+                </span>
+                <input type="hidden" name="key" value={key} />
+                <input type="hidden" name="value" value={isActive ? 'false' : 'true'} />
+                <button type="submit" style={{ background: isActive ? '#ff4757' : '#000', color: '#fff', border: 'none', padding: '5px 10px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px' }}>
+                  {isActive ? 'Kapat' : 'Aç'}
+                </button>
+              </form>
+            );
+          })}
+        </div>
+      </div>
+
       <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-        <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Mevcut Ayarlar</h2>
+        <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Diğer Tüm Ayarlar</h2>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
           <thead>
             <tr style={{ borderBottom: '2px solid #eee' }}>

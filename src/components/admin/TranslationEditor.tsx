@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import RichTextEditor from './RichTextEditor';
+import SeoScoreBadge from './SeoScoreBadge';
 import { saveTranslations } from '@/app/admin/(dashboard)/blocks/[id]/actions';
 
 interface TranslationEditorProps {
@@ -56,15 +57,113 @@ export default function TranslationEditor({ blockId, initialTranslations, locale
 
       {/* Editor Content */}
       <div style={{ marginBottom: '30px' }}>
-        <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>
-          {activeTab.toUpperCase()} Dili İçin İçerik
-        </label>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+          <label style={{ fontWeight: 'bold' }}>
+            {activeTab.toUpperCase()} Dili İçin İçerik
+          </label>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button 
+              type="button"
+              onClick={async () => {
+                const currentHtml = translations[activeTab] || '';
+                if (!currentHtml || currentHtml.trim() === '') {
+                  alert('Önce çevrilecek bir içerik olmalı! (Başka bir dildeki içeriği buraya yapıştırabilir veya sıfırdan oluşturabilirsiniz)');
+                  return;
+                }
+                
+                const oldVal = currentHtml;
+                setTranslations(prev => ({ ...prev, [activeTab]: '<p><em>✨ Yapay zeka içeriği çeviriyor, lütfen bekleyin...</em></p>' }));
+                
+                try {
+                  const res = await fetch('/api/ai/generate-content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                      prompt: `Lütfen verilen HTML içeriğini ${activeTab.toUpperCase()} diline profesyonel bir şekilde çevir. Sadece çevrilmiş HTML'i döndür.`, 
+                      currentHtml: oldVal, 
+                      locale: activeTab 
+                    })
+                  });
+                  
+                  const data = await res.json();
+                  if (data.error) throw new Error(data.error);
+                  
+                  setTranslations(prev => ({ ...prev, [activeTab]: data.content }));
+                } catch (e: any) {
+                  alert('AI Çevirisi başarısız oldu: ' + e.message);
+                  setTranslations(prev => ({ ...prev, [activeTab]: oldVal }));
+                }
+              }}
+              style={{
+                background: '#ff9ff3',
+                color: '#fff',
+                border: 'none',
+                padding: '8px 15px',
+                borderRadius: '20px',
+                cursor: 'pointer',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+            >
+              🌍 AI Çeviri
+            </button>
+
+            <button 
+              type="button"
+              onClick={async () => {
+                const prompt = window.prompt('Ne hakkında bir içerik üretmek istiyorsunuz? (Örn: Endolift tedavisinin faydaları hakkında 300 kelimelik SEO uyumlu makale)');
+                if (!prompt) return;
+                
+                const currentHtml = translations[activeTab] || '';
+                const oldVal = currentHtml;
+                setTranslations(prev => ({ ...prev, [activeTab]: '<p><em>✨ Yapay zeka içerik üretiyor, lütfen bekleyin...</em></p>' }));
+                
+                try {
+                  const res = await fetch('/api/ai/generate-content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt, currentHtml, locale: activeTab })
+                  });
+                  
+                  const data = await res.json();
+                  if (data.error) throw new Error(data.error);
+                  
+                  setTranslations(prev => ({ ...prev, [activeTab]: data.content }));
+                } catch (e: any) {
+                  alert('AI Üretimi başarısız oldu: ' + e.message);
+                  setTranslations(prev => ({ ...prev, [activeTab]: oldVal }));
+                }
+              }}
+              style={{
+                background: 'linear-gradient(135deg, #6c5ce7, #a29bfe)',
+                color: '#fff',
+                border: 'none',
+                padding: '8px 15px',
+                borderRadius: '20px',
+                cursor: 'pointer',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+            >
+              ✨ AI ile Oluştur
+            </button>
+          </div>
+        </div>
         
         {/* We mount the editor for the active tab */}
         <RichTextEditor 
           value={translations[activeTab] || ''} 
           onChange={(val) => setTranslations(prev => ({ ...prev, [activeTab]: val }))} 
         />
+        
+        {/* SEO Score Helper */}
+        <SeoScoreBadge content={translations[activeTab] || ''} />
       </div>
 
       {/* Save Button */}
