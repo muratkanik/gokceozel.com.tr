@@ -1,0 +1,801 @@
+Return-path: <info@m.turksoydanismanlik.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Tue, 07 Apr 2026 15:09:38 +0300
+Received: from mxcstmp0134.imdlv.net ([77.245.145.134])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <info@m.turksoydanismanlik.com>)
+	id 1wA5FO-005deg-2n
+	for info@gokceozel.com.tr;
+	Tue, 07 Apr 2026 15:09:38 +0300
+Date: Tue, 7 Apr 2026 15:08:59 +0300 (TRT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=imdlv.net;
+	s=imdlv_net; t=1775563773;
+	bh=OQ3XNlLzpS6VQJ8cffljSjDa0xb6SetX7SvoMEPPZkY=;
+	h=Date:From:Reply-To:To:Subject:List-Unsubscribe:From;
+	b=ZRI2QVpaxPJB4eyKpf7+JxSnkqiNR0mlvopwlDCzM5O0K+hzcsDGqE+s/BBFuYgBR
+	 ln27QuQc5uAfWj/S8gZqDk48sXmnYySSXYlt5qEiRKP/HGhHyMLE2TzvyWxl14SEcg
+	 PntGUl2O5j0YFB293DGl08JOmQ2TdDK6ulpdtfMM=
+From: =?UTF-8?B?VMO8cmtzb3kgVWx1c2xhcmFyYXPEsSA=?= =?UTF-8?B?WcO2bmV0aW0gRGFuxLHFn21hbmzEscSfxLEg?= <info@m.turksoydanismanlik.com>
+Reply-To: info@turksoydanismanlik.com
+To: info@gokceozel.com.tr
+Message-ID: <152501448.6991135.1775563773032.JavaMail.root@mail-sender>
+Subject: =?utf-8?B?RGVzdGVrIFnDtm5ldGltIFNpc3RlbWkgRG9zeWEgR8O2bmQ=?=
+ =?utf-8?B?ZXJpbSBTw7xyZcOnbGVyaW5pemRlIFlhbsSxbsSxemRhecSxeiE=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_6991133_1007380233.1775563773032"
+X-EMAIL-TRANSACTION-ID: 6836137
+X-EMAIL-PACKET-ID: 1570439598
+Feedback-ID: 2285692:18177:6836137:VasTelekomX1
+List-Unsubscribe: <mailto:MTU3MDQzOTU5OCZpbmZvQGdva2Nlb3plbC5jb20udHI=@lus.imdlv.net?subject=unsubscribe>, <https://m.turksoydanismanlik.com/oo/?packetId=1570439598&destination=info@gokceozel.com.tr&listunsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-CSA-Complaints: csa-complaints@eco.de
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Destek Yönetim Sistemi Hk. Dosya Gönderimlerinde Yeni Dönem:
+    Destek Yönetim Sistemi Kullanımı Sağlık turizmi yapan sağlık kuruluşları
+    ve aracı kuruluşlar için, teşvik dosyalarının De [...] 
+ 
+ Content analysis details:   (0.0 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                         [77.245.145.134 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [77.245.145.134 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [77.245.145.134 listed in bl.score.senderscore.com]
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+
+------=_Part_6991133_1007380233.1775563773032
+Content-Type: text/plain;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Destek Y=C3=B6netim Sistemi Hk. Dosya G=C3=B6nderimlerinde Yeni D=C3=B6nem:=
+ Destek Y=C3=B6netim Sistemi Kullan=C4=B1m=C4=B1 =C2=A0 Sa=C4=9Fl=C4=B1k tu=
+rizmi yapan sa=C4=9Fl=C4=B1k kurulu=C5=9Flar=C4=B1 ve arac=C4=B1 kurulu=C5=
+=9Flar i=C3=A7in, te=C5=9Fvik dosyalar=C4=B1n=C4=B1n Destek Y=C3=B6netim Si=
+stemi =C3=BCzerinden g=C3=B6nderilmesi zorunlulu=C4=9Fu getirilmi=C5=9Ftir.=
+ 1/01/2026 tarihi itibariyle g=C3=B6nderilen t=C3=BCm dosyalar 1/06/2026 ta=
+rihine kadar Destek Y=C3=B6netim Sistemi =C3=BCzerinden tekrar g=C3=B6nderi=
+lmelidir. Aksi halde dosyalar=C4=B1n ge=C3=A7ersiz say=C4=B1laca=C4=9F=C4=
+=B1 bildirilmi=C5=9Ftir. G=C3=B6nderilen/g=C3=B6nderilmeyi bekleyen dosyala=
+r=C4=B1n=C4=B1z zaman kayb=C4=B1na u=C4=9Framadan bizlere ula=C5=9Fabilir, =
+s=C3=BCre=C3=A7 ile ilgili bilgilendirme talep edebilirsiniz. =C2=A0 Te=C5=
+=9Fvik dosyalar=C4=B1n=C4=B1zda 360 derece dan=C4=B1=C5=9Fmanl=C4=B1k hizme=
+timiz ve detayl=C4=B1 bilgilendirme i=C3=A7in bizlere a=C5=9Fa=C4=9F=C4=B1d=
+aki ileti=C5=9Fim bilgilerimiz =C3=BCzerinden=C2=A0 ula=C5=9Fabilirsiniz. =
+=F0=9F=93=9E 0 (312) 577 76 71 / 0 (536) 526 09 80 =E2=9C=89=EF=B8=8F info@=
+turksoydanismanlik.com =F0=9F=8C=90T=C3=BCrksoy Dan=C4=B1=C5=9Fmanl=C4=B1k =
+=E2=80=93 Uluslararas=C4=B1 Y=C3=B6netim Dan=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=
+=B1=C2=A0 =C2=A0 Bu maili d=C3=BCzg=C3=BCn g=C3=B6r=C3=BCnt=C3=BCleyemiyors=
+an=C4=B1z t=C4=B1klay=C4=B1n=C4=B1z T=C3=BCrksoy Uluslararas=C4=B1 Y=C3=B6n=
+etim Dan=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=B1 A.=C5=9E. Tel: Mail: K=C4=B1z=C4=
+=B1l=C4=B1rmak Mahallesi Ufuk =C3=9Cniversitesi Cad. Arma Kule:11B =C4=B0=
+=C3=A7 Kap=C4=B1 No:M4 =C3=87ankaya/Ankara Mersis No: 0881053993600001 Bu m=
+ailin size yanl=C4=B1=C5=9Fl=C4=B1kla geldi=C4=9Fini d=C3=BC=C5=9F=C3=BCn=
+=C3=BCyorsan=C4=B1z veya listeden ayr=C4=B1lmak istiyorsan=C4=B1z buraya t=
+=C4=B1klay=C4=B1n=C4=B1z G=C3=BCnl=C3=BCk e-postalar=C4=B1n Gelen Kutusuna =
+d=C3=BC=C5=9Ft=C3=BC=C4=9F=C3=BCnden emin olmak i=C3=A7in info@m.turksoydan=
+ismanlik.com adresini Adres Defterinize ekleyebilirsiniz. Bu mesaj size Her=
+mes =C4=B0leti=C5=9Fim arac=C4=B1 hizmet sa=C4=9Flay=C4=B1c=C4=B1s=C4=B1 ku=
+llan=C4=B1larak iletilmi=C5=9Ftir.
+------=_Part_6991133_1007380233.1775563773032
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=20
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">=20
+ <head>=20
+  <!--[if gte mso 9]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+=20
+   <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">=20
+    <meta name=3D"x-apple-disable-message-reformatting">=20
+     <!--[if !mso]><!-->
+     <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+      <!--<![endif]-->=20
+      <title>Destek Y&ouml;netim Sistemi Dosya G&ouml;nderim S&uuml;re&cced=
+il;lerinizde Yan=C4=B1n=C4=B1zday=C4=B1z!</title>=20
+      <style type=3D"text/css"> @media only screen and (min-width: 520px) {=
+ .u-row { width: 500px !important; } .u-row .u-col { vertical-align: top; }=
+ .u-row .u-col-50 { width: 250px !important; } .u-row .u-col-100 { width: 5=
+00px !important; } } @media only screen and (max-width: 520px) { .u-row-con=
+tainer { max-width: 100% !important; padding-left: 0px !important; padding-=
+right: 0px !important; } .u-row { width: 100% !important; } .u-row .u-col {=
+ display: block !important; width: 100% !important; min-width: 320px !impor=
+tant; max-width: 100% !important; } .u-row .u-col img { max-width: 100% !im=
+portant; } } body{margin:0;padding:0}table,td,tr{border-collapse:collapse;v=
+ertical-align:top}p{margin:0}.ie-container table,.mso-container table{table=
+-layout:fixed}*{line-height:inherit}a[x-apple-data-detectors=3Dtrue]{color:=
+inherit!important;text-decoration:none!important} table, td { color: #00000=
+0; } #u_body a { color: #0000ee; text-decoration: underline; } </style>=20
+    =20
+   =20
+  =20
+ =20
+ </head>=20
+ <body class=3D"clean-body u_body" style=3D"margin: 0;padding: 0;-webkit-te=
+xt-size-adjust: 100%;background-color: #e7e7e7;color: #000000">
+  <span style=3D"display:none;font-size:0px;line-height:0px;max-height:0px;=
+max-width:0px;opacity:0;overflow:hidden">Destek Y&ouml;netim Sistemi Hk.</s=
+pan>
+  <div>
+   <!--[if IE]><div class=3D"ie-container"><![endif]-->=20
+   <!--[if mso]><div class=3D"mso-container"><![endif]-->=20
+   <table role=3D"presentation" id=3D"u_body" style=3D"border-collapse: col=
+lapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background=
+-color: #e7e7e7;width:100%" cellpadding=3D"0" cellspacing=3D"0">=20
+    <tbody>=20
+     <tr style=3D"vertical-align: top">=20
+      <td style=3D"word-break: break-word;border-collapse: collapse !import=
+ant;vertical-align: top">=20
+       <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" cell=
+padding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td align=3D"center" style=
+=3D"background-color: #e7e7e7;"><![endif]-->=20
+       <div class=3D"u-row-container" style=3D"padding: 30px 0px 0px;backgr=
+ound-color: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: #ffffff;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 3=
+0px 0px 0px;background-color: transparent;" align=3D"center"><table role=3D=
+"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"wi=
+dth:500px;"><tr style=3D"background-color: #ffffff;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"250" style=3D"w=
+idth: 250px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border=
+-radius: 0px;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-50" style=3D"max-width: 320px;min-width=
+: 250px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;border-radius:=
+ 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;border=
+-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <table role=3D"presentation" width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0">=20
+                  <tbody>
+                   <tr>=20
+                    <td style=3D"padding-right: 0px;padding-left: 0px;" ali=
+gn=3D"center"> <img align=3D"center" border=3D"0" src=3D"https://m.turksoyd=
+anismanlik.com/dl/?type=3D6&amp;id=3D83563f1e-d3db-4407-a50d-d802acc0dab5.p=
+ng&amp;w=3D460px" alt=3D"" title=3D"" style=3D"outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !=
+important;border: none;height: auto;float: none;width: 100%;max-width: 230p=
+x;" width=3D"230" /> </td>=20
+                   </tr>=20
+                  </tbody>
+                 </table> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"250" style=3D"w=
+idth: 250px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border=
+-radius: 0px;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-50" style=3D"max-width: 320px;min-width=
+: 250px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;border-radius:=
+ 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;border=
+-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+             <!--<![endif]-->=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <div class=3D"u-row-container" style=3D"padding: 0px;background-colo=
+r: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: #ffffff;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0=
+px;background-color: transparent;" align=3D"center"><table role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:500px=
+;"><tr style=3D"background-color: #ffffff;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"500" style=3D"w=
+idth: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border=
+-radius: 0px;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-widt=
+h: 500px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;border-radius:=
+ 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;border=
+-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <!--[if mso]><table role=3D"presentation" width=3D"100%"><=
+tr><td><![endif]--> <h3 style=3D"margin: 0px; line-height: 140%; text-align=
+: center; word-wrap: break-word; font-family: georgia,palatino; font-size: =
+18px; font-weight: 400;"><span>Dosya G&ouml;nderimlerinde Yeni D&ouml;nem: =
+<br />Destek Y&ouml;netim Sistemi Kullan=C4=B1m=C4=B1</span></h3>=20
+                 <!--[if mso]></td></tr></table><![endif]--> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <table role=3D"presentation" aria-label=3D"divider" height=
+=3D"0px" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" style=3D"border-collapse: collapse;table-layout: fixed;borde=
+r-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: to=
+p;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%">=20
+                  <tbody>=20
+                   <tr style=3D"vertical-align: top">=20
+                    <td style=3D"word-break: break-word;border-collapse: co=
+llapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%"> <span>&nbsp;</span> </td>=20
+                   </tr>=20
+                  </tbody>=20
+                 </table> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <table role=3D"presentation" width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0">=20
+                  <tbody>
+                   <tr>=20
+                    <td style=3D"padding-right: 0px;padding-left: 0px;" ali=
+gn=3D"center"> <img align=3D"center" border=3D"0" src=3D"https://m.turksoyd=
+anismanlik.com/dl/?type=3D6&amp;id=3D39750f3d-9686-48c6-9bdd-fa78e9e17fd0.j=
+peg&amp;w=3D960px" alt=3D"" title=3D"" style=3D"outline: none;text-decorati=
+on: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block =
+!important;border: none;height: auto;float: none;width: 100%;max-width: 480=
+px;" width=3D"480" /> </td>=20
+                   </tr>=20
+                  </tbody>
+                 </table> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <div style=3D"font-size: 14px; line-height: 140%; text-ali=
+gn: left; word-wrap: break-word;">=20
+                  <ul>=20
+                   <li style=3D"line-height: 19.6px;">Sa=C4=9Fl=C4=B1k turi=
+zmi yapan sa=C4=9Fl=C4=B1k kurulu=C5=9Flar=C4=B1 ve arac=C4=B1 kurulu=C5=9F=
+lar i&ccedil;in, te=C5=9Fvik dosyalar=C4=B1n=C4=B1n Destek Y&ouml;netim Sis=
+temi &uuml;zerinden g&ouml;nderilmesi zorunlulu=C4=9Fu getirilmi=C5=9Ftir.<=
+/li>=20
+                   <li style=3D"line-height: 19.6px;">1/01/2026 tarihi itib=
+ariyle g&ouml;nderilen t&uuml;m dosyalar 1/06/2026 tarihine kadar Destek Y&=
+ouml;netim Sistemi &uuml;zerinden tekrar g&ouml;nderilmelidir. Aksi halde d=
+osyalar=C4=B1n ge&ccedil;ersiz say=C4=B1laca=C4=9F=C4=B1 bildirilmi=C5=9Fti=
+r.</li>=20
+                   <li style=3D"line-height: 19.6px;">G&ouml;nderilen/g&oum=
+l;nderilmeyi bekleyen dosyalar=C4=B1n=C4=B1z zaman kayb=C4=B1na u=C4=9Frama=
+dan bizlere ula=C5=9Fabilir, s&uuml;re&ccedil; ile ilgili bilgilendirme tal=
+ep edebilirsiniz. </li>=20
+                  </ul>=20
+                 </div> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <table role=3D"presentation" aria-label=3D"divider" height=
+=3D"0px" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" style=3D"border-collapse: collapse;table-layout: fixed;borde=
+r-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: to=
+p;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%">=20
+                  <tbody>=20
+                   <tr style=3D"vertical-align: top">=20
+                    <td style=3D"word-break: break-word;border-collapse: co=
+llapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%"> <span>&nbsp;</span> </td>=20
+                   </tr>=20
+                  </tbody>=20
+                 </table> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <div class=3D"u-row-container" style=3D"padding: 0px 0px 7px;backgro=
+und-color: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: #ffffff;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0=
+px 0px 7px;background-color: transparent;" align=3D"center"><table role=3D"=
+presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"wid=
+th:500px;"><tr style=3D"background-color: #ffffff;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"500" style=3D"w=
+idth: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border=
+-radius: 0px;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-widt=
+h: 500px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;border-radius:=
+ 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;border=
+-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <div style=3D"font-size: 14px; line-height: 140%; text-ali=
+gn: left; word-wrap: break-word;">=20
+                  <p style=3D"line-height: 140%;">Te=C5=9Fvik dosyalar=C4=
+=B1n=C4=B1zda 360 derece dan=C4=B1=C5=9Fmanl=C4=B1k hizmetimiz ve detayl=C4=
+=B1 bilgilendirme i&ccedil;in bizlere a=C5=9Fa=C4=9F=C4=B1daki ileti=C5=9Fi=
+m bilgilerimiz &uuml;zerinden&nbsp; ula=C5=9Fabilirsiniz.</p>=20
+                 </div> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <div class=3D"u-row-container" style=3D"padding: 0px;background-colo=
+r: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: transparent;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0=
+px;background-color: transparent;" align=3D"center"><table role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:500px=
+;"><tr style=3D"background-color: transparent;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"500" style=3D"w=
+idth: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border=
+-radius: 0px;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-widt=
+h: 500px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;border-radius:=
+ 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;border=
+-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <div style=3D"font-size: 14px; line-height: 140%; text-ali=
+gn: center; word-wrap: break-word;">=20
+                  <p style=3D"line-height: 140%;">=F0=9F=93=9E <em><strong>=
+0 (312) 577 76 71 / 0 (536) 526 09 80 </strong></em><br />=E2=9C=89=EF=B8=
+=8F <span style=3D"line-height: 19.6px;"><a rel=3D"noopener" href=3D"mailto=
+:info@turksoydanismanlik.com" target=3D"_blank">info@turksoydanismanlik.com=
+</a></span><br />=F0=9F=8C=90<a href=3D"https://m.turksoydanismanlik.com/mt=
+/?p=3D7e11ee2a15393bb7b7715f4eca02941249e05507df90dfe3f183a1bb8baf8e6c/0147=
+955e5783b8bc0f899c854b9596529704ac5c3a5b62385bdf70f9e870031f1570439598">T&u=
+uml;rksoy Dan=C4=B1=C5=9Fmanl=C4=B1k =E2=80=93 Uluslararas=C4=B1 Y&ouml;net=
+im Dan=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=B1</a>&nbsp;</p>=20
+                 </div> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <div class=3D"u-row-container" style=3D"padding: 0px;background-colo=
+r: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: transparent;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0=
+px;background-color: transparent;" align=3D"center"><table role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:500px=
+;"><tr style=3D"background-color: transparent;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"500" style=3D"w=
+idth: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-widt=
+h: 500px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <table role=3D"presentation" aria-label=3D"divider" height=
+=3D"0px" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" style=3D"border-collapse: collapse;table-layout: fixed;borde=
+r-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: to=
+p;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%">=20
+                  <tbody>=20
+                   <tr style=3D"vertical-align: top">=20
+                    <td style=3D"word-break: break-word;border-collapse: co=
+llapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%"> <span>&nbsp;</span> </td>=20
+                   </tr>=20
+                  </tbody>=20
+                 </table> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <div align=3D"center" style=3D"direction: ltr;" aria-label=
+=3D"social">=20
+                  <div style=3D"display: table; max-width:65px;">=20
+                   <!--[if (mso)|(IE)]><table role=3D"presentation" width=
+=3D"65" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"b=
+order-collapse:collapse;" align=3D"center"><table role=3D"presentation" wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"borde=
+r-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:65p=
+x;"><tr><![endif]-->=20
+                   <!--[if (mso)|(IE)]><td width=3D"17" style=3D"width:17px=
+; padding-right: 5px;" valign=3D"top"><![endif]-->=20
+                   <table role=3D"presentation" aria-label=3D"WhatsApp icon=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"17" height=3D"1=
+7" style=3D"width: 17px !important;height: 17px !important;display: inline-=
+block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-t=
+able-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5p=
+x">=20
+                    <tbody>=20
+                     <tr style=3D"vertical-align: top">=20
+                      <td valign=3D"middle" style=3D"word-break: break-word=
+;border-collapse: collapse !important;vertical-align: top"> <a href=3D"http=
+s://m.turksoydanismanlik.com/mt/?p=3D0a0360b33b5687a801615573e3a71c4aa6413e=
+fd42f484c0f91600447128f6a4/0147955e5783b8bc0f899c854b9596529704ac5c3a5b6238=
+5bdf70f9e870031f1570439598" title=3D"WhatsApp" target=3D"_blank"> <img src=
+=3D"https://cdn.tools.unlayer.com/social/icons/circle/whatsapp.png" alt=3D"=
+WhatsApp icon" title=3D"WhatsApp" width=3D"17" style=3D"outline: none;text-=
+decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block=
+ !important;border: none;height: auto;float: none;max-width: 17px !importan=
+t" /> </a> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table>=20
+                   <!--[if (mso)|(IE)]></td><![endif]-->=20
+                   <!--[if (mso)|(IE)]><td width=3D"17" style=3D"width:17px=
+; padding-right: 5px;" valign=3D"top"><![endif]-->=20
+                   <table role=3D"presentation" aria-label=3D"Instagram ico=
+n" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"17" height=3D"=
+17" style=3D"width: 17px !important;height: 17px !important;display: inline=
+-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5=
+px">=20
+                    <tbody>=20
+                     <tr style=3D"vertical-align: top">=20
+                      <td valign=3D"middle" style=3D"word-break: break-word=
+;border-collapse: collapse !important;vertical-align: top"> <a href=3D"http=
+s://m.turksoydanismanlik.com/mt/?p=3D417011d431c32e73f3a19c7208bf95105fe337=
+1091c268e5d7232519619228f8/0147955e5783b8bc0f899c854b9596529704ac5c3a5b6238=
+5bdf70f9e870031f1570439598" title=3D"Instagram" target=3D"_blank"> <img src=
+=3D"https://cdn.tools.unlayer.com/social/icons/circle/instagram.png" alt=3D=
+"Instagram icon" title=3D"Instagram" width=3D"17" style=3D"outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: bl=
+ock !important;border: none;height: auto;float: none;max-width: 17px !impor=
+tant" /> </a> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table>=20
+                   <!--[if (mso)|(IE)]></td><![endif]-->=20
+                   <!--[if (mso)|(IE)]><td width=3D"17" style=3D"width:17px=
+; padding-right: 0px;" valign=3D"top"><![endif]-->=20
+                   <table role=3D"presentation" aria-label=3D"Facebook icon=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"17" height=3D"1=
+7" style=3D"width: 17px !important;height: 17px !important;display: inline-=
+block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-t=
+able-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0p=
+x">=20
+                    <tbody>=20
+                     <tr style=3D"vertical-align: top">=20
+                      <td valign=3D"middle" style=3D"word-break: break-word=
+;border-collapse: collapse !important;vertical-align: top"> <a href=3D"http=
+s://m.turksoydanismanlik.com/mt/?p=3D078982197d8a5ea8939980f06b14bf6e567aca=
+6388566434f8eec4c9d1f413e5/0147955e5783b8bc0f899c854b9596529704ac5c3a5b6238=
+5bdf70f9e870031f1570439598" title=3D"Facebook" target=3D"_blank"> <img src=
+=3D"https://cdn.tools.unlayer.com/social/icons/circle/facebook.png" alt=3D"=
+Facebook icon" title=3D"Facebook" width=3D"17" style=3D"outline: none;text-=
+decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block=
+ !important;border: none;height: auto;float: none;max-width: 17px !importan=
+t" /> </a> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table>=20
+                   <!--[if (mso)|(IE)]></td><![endif]-->=20
+                   <!--[if (mso)|(IE)]></tr></table></td></tr></table><![en=
+dif]-->=20
+                  </div>=20
+                 </div> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <div class=3D"u-row-container" style=3D"padding: 0px;background-colo=
+r: transparent">=20
+        <div class=3D"u-row" style=3D"margin: 0 auto;min-width: 320px;max-w=
+idth: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: bre=
+ak-word;background-color: transparent;">=20
+         <div style=3D"border-collapse: collapse;display: table;width: 100%=
+;height: 100%;background-color: transparent;">=20
+          <!--[if (mso)|(IE)]><table role=3D"presentation" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0=
+px;background-color: transparent;" align=3D"center"><table role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:500px=
+;"><tr style=3D"background-color: transparent;"><![endif]-->=20
+          <!--[if (mso)|(IE)]><td align=3D"center" width=3D"500" style=3D"w=
+idth: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px=
+ solid transparent;border-right: 0px solid transparent;border-bottom: 0px s=
+olid transparent;" valign=3D"top"><![endif]-->=20
+          <div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-widt=
+h: 500px;display: table-cell;vertical-align: top;">=20
+           <div style=3D"height: 100%;width: 100% !important;">=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+            <div style=3D"box-sizing: border-box; height: 100%; padding: 0p=
+x;border-top: 0px solid transparent;border-left: 0px solid transparent;bord=
+er-right: 0px solid transparent;border-bottom: 0px solid transparent;">=20
+             <!--<![endif]-->=20
+             <table style=3D"font-family:arial,helvetica,sans-serif;" role=
+=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=
+=3D"0">=20
+              <tbody>=20
+               <tr>=20
+                <td style=3D"overflow-wrap:break-word;word-break:break-word=
+;padding:10px;font-family:arial,helvetica,sans-serif;" align=3D"left">=20
+                 <div style=3D"font-size: 14px; line-height: 140%; text-ali=
+gn: left; word-wrap: break-word;">=20
+                  <p style=3D"line-height: 140%;">Bu maili d&uuml;zg&uuml;n=
+ g&ouml;r&uuml;nt&uuml;leyemiyorsan=C4=B1z <a rel=3D"noopener" href=3D"http=
+s://m.turksoydanismanlik.com/emailpreviewnew/previewService?p=3DK9mvW-uEuak=
+XPpTMH7YcTQ" target=3D"_blank">t=C4=B1klay=C4=B1n=C4=B1z</a></p>=20
+                 </div> </td>=20
+               </tr>=20
+              </tbody>=20
+             </table>=20
+             <!--[if (!mso)&(!IE)]><!-->=20
+            </div>=20
+            <!--<![endif]-->=20
+           </div>=20
+          </div>=20
+          <!--[if (mso)|(IE)]></td><![endif]-->=20
+          <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->=
+=20
+         </div>=20
+        </div>=20
+       </div>=20
+       <!--[if (mso)|(IE)]></td></tr></table><![endif]--> </td>=20
+     </tr>=20
+    </tbody>=20
+   </table>=20
+   <!--[if mso]></div><![endif]-->=20
+   <!--[if IE]></div><![endif]-->
+  </div>
+  <table align=3D"center" border=3D"0" cellpadding=3D"8" cellspacing=3D"0" =
+width=3D"100%">
+   <tbody>
+    <tr>
+     <td><img src=3D"https://m.turksoydanismanlik.com/mr/?packetId=3D157043=
+9598&amp;destination=3Dinfo@gokceozel.com.tr" height=3D"1" width=3D"1" alt=
+=3D"" /></td>
+    </tr>
+    <tr>
+     <td data-link-style=3D"text-decoration:none; color:#08A9FD;" data-min=
+=3D"12" data-max=3D"36" align=3D"center" valign=3D"top" style=3D"font-famil=
+y: Helvetica, Arial, sans-serif;font-size: 13px;color: rgb(0, 0, 0);backgro=
+und-color:  white;line-height: 22px;"><b style=3D"color:#3d561a">T&uuml;rks=
+oy Uluslararas=C4=B1 Y&ouml;netim Dan=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=B1 A.=
+=C5=9E.</b><br /><a href=3D"" style=3D"text-decoration:none; color:#08A9FD;=
+"></a><br />Tel: Mail: <a href=3D"mailto:" style=3D"text-decoration:none; c=
+olor:#08A9FD;"></a><br />K=C4=B1z=C4=B1l=C4=B1rmak Mahallesi Ufuk &Uuml;niv=
+ersitesi Cad. Arma Kule:11B =C4=B0&ccedil; Kap=C4=B1 No:M4 &Ccedil;ankaya/A=
+nkara<br />Mersis No: 0881053993600001<br /></td>
+    </tr>
+    <tr>
+     <td>
+      <hr style=3D"color:#BDBDBD;background-color:#BDBDBD;height:1px;border=
+:none;" /></td>
+    </tr>
+    <tr>
+     <td>
+      <div style=3D"text-align:center;font-size:10px;color:#22353d">
+       Bu mailin size yanl=C4=B1=C5=9Fl=C4=B1kla geldi=C4=9Fini d&uuml;=C5=
+=9F&uuml;n&uuml;yorsan=C4=B1z veya listeden ayr=C4=B1lmak istiyorsan=C4=B1z=
+=20
+       <a style=3D"color:#22353d;font-weight:bold" href=3D"https://m.turkso=
+ydanismanlik.com/oo/?packetId=3D1570439598&amp;destination=3Dinfo@gokceozel=
+.com.tr">buraya t=C4=B1klay=C4=B1n=C4=B1z</a>
+      </div></td>
+    </tr>
+    <tr>
+     <td>
+      <div style=3D"text-align:center;font-size:10px;color:#22353d">
+       G&uuml;nl&uuml;k e-postalar=C4=B1n=20
+       <b>Gelen Kutusu</b>na d&uuml;=C5=9Ft&uuml;=C4=9F&uuml;nden emin olma=
+k i&ccedil;in=20
+       <a style=3D"color:#ffa23e;text-decoration:none">info@m.turksoydanism=
+anlik.com</a> adresini=20
+       <b>Adres Defteri</b>nize ekleyebilirsiniz.
+      </div></td>
+    </tr>
+    <tr>
+     <td align=3D"center">
+      <hr style=3D"color:#BDBDBD;background-color:#BDBDBD;height:1px;border=
+:none;" /></td>
+    </tr>
+    <tr>
+     <td align=3D"center"><a href=3D"https://iletisimmakinesi.com/"><img st=
+yle=3D"display:block;font-size:0px;line-height:0px;border:0px" src=3D"https=
+://m.turksoydanismanlik.com/dl/?type=3D6&amp;id=3D0b6fcfc2-609e-4c5c-94db-1=
+b56fba699d0.png" alt=3D"img" class=3D"CToWUd" /></a>
+      <div style=3D"text-align:center;font-size:10px;color:#22353d">
+       Bu mesaj size Hermes =C4=B0leti=C5=9Fim arac=C4=B1 hizmet sa=C4=9Fla=
+y=C4=B1c=C4=B1s=C4=B1 kullan=C4=B1larak iletilmi=C5=9Ftir.
+      </div></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>=20
+</html>
+------=_Part_6991133_1007380233.1775563773032--

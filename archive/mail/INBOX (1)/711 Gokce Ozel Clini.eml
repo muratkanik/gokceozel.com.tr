@@ -1,0 +1,149 @@
+Return-path: <emilyparks.work@gmail.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Thu, 16 Apr 2026 19:34:15 +0300
+Received: from mail-pj1-f65.google.com ([209.85.216.65])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <emilyparks.work@gmail.com>)
+	id 1wDPfS-00DhuW-2K
+	for info@gokceozel.com.tr;
+	Thu, 16 Apr 2026 19:34:15 +0300
+Received: by mail-pj1-f65.google.com with SMTP id 98e67ed59e1d1-3567e2b4159so5113123a91.0
+        for <info@gokceozel.com.tr>; Thu, 16 Apr 2026 09:34:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776357250; x=1776962050; darn=gokceozel.com.tr;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=B72ounJ170ufVRkNFEX8T7ZzVhv5dhJS9DoQRpppTf8=;
+        b=e+F/ogn7XEXRtoAhrZOSHVsUibYQzriJK34r6SDnlsqyTkll4LdBMsjdXnW0Z1pZwk
+         K5QqEj4BG4+q5vmoawYc+u0dMytTysFrkZMBMbv/w3HwvXrkT0mzQVS2eZCkgI7UhRs3
+         D3+mDS+wpxKaLZew2EyTrdMssdgnGzcTR6ELexAZHAxySpDgcX81hXpiKbXH6V82Y68l
+         HwW+C/8zqWF42jYRP7TjmXsroDGHWD0SMcRYjd7gnMExSGMp+0Tl1RE0aieEX+ByS2T8
+         PJLQx80QZ2QrqTfu+tsDgRu+HdKUd7JsQS9zOJggzIcCdk59N16vNR6guBHQD/nTDOJE
+         68vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776357250; x=1776962050;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B72ounJ170ufVRkNFEX8T7ZzVhv5dhJS9DoQRpppTf8=;
+        b=EDjZumovTtb8M98MzuzDbUoXe9wRgYX75bU8iMbKx5km2NsT7uwhuMcbewJ+xyMgb/
+         P/S8e7G0eAjlr+YJEAhag0PfjeOp5YHmczZQBq2hfs0OlR2owb3Q+28klTugAYY/gUiR
+         meKWNOVcxQJzB59qkvFfptKlXbU1vTVjiDMvAPszq+0Xexm0UUb3PNiFWEzP70wR7LI9
+         fk1jb8Jv7Frk4l2FituIcL/ML2Dn5ik2QI+gZF4+yLxzzRBRppA1q2fO6+lGbsuhCdXZ
+         8N59SqBUWyNnCAPa1alLSVz0hDlFGmDhGHG+m9lWiut/kAkFb8gvaE5FIu22MeqXsJ47
+         Aoqg==
+X-Gm-Message-State: AOJu0YwzVUedc+alH2SaD9BdUOV2fl1fR6YbxAbk57xXjmeqjTHeGJ9Z
+	H3KE/HtjaFaEqoSCy+tPl5A8PUuCzs4nggjsp1WqfMeI1FTpLwKjHBA8gWCJeVjAUb//vQ==
+X-Gm-Gg: AeBDies1nKQoWh8e45VfGYa2r0mSzWekd7KxdPDeWe7MBw0r0W/phFCu6l9UxhMJk0t
+	OIGphw0LMFUJthYbNWxoNcIeTih+dEdY4h3xJt6FwZkNtfyNo7e+MsV4t0YDf9WyrA62wV18Bev
+	y4GTRDcRoKafZSD83iAFZs2p2Jec3Kurxb/ttqi2ZwqMaI+2ChBGF+xTAsF0KtK+/MTj3jAYilA
+	0ddR4SOdSGhqYuKNQzrzfbRxl+NRdUsOm5ipSadv0G0LX7jdnihMLAGl5+2boOE77T9Buq2sLEw
+	SoDUqAcmEWvVI/oza2qq3NoL0VPLpJq+2pL48uia1K9+hnAKCX/JlfBt0kY4OR12h4cWEqFk3Tq
+	4t4SdpJjwu94lNc+3k7KrYgRW1yR/oCZre9XZlM5+l7224Ev5OPuO+5BjpBm1Xl2/sDvAH8ZHbl
+	J+3DipC5iInJT5XY6jInKmU60xmGkhHp8Hlgl7jDMgB69p/p0bCrn5KBl9JIE=
+X-Received: by 2002:a17:90b:4d01:b0:359:f6f8:57b8 with SMTP id 98e67ed59e1d1-3613df0c601mr85438a91.1.1776357249978;
+        Thu, 16 Apr 2026 09:34:09 -0700 (PDT)
+Received: from DESKTOP0V7TOS7 ([122.171.17.202])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b478130350sm59821035ad.34.2026.04.16.09.34.08
+        for <info@gokceozel.com.tr>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Apr 2026 09:34:09 -0700 (PDT)
+From: "Emily Parks" <emilyparks.work@gmail.com>
+To: <info@gokceozel.com.tr>
+Subject: Gokce Ozel Clinic, Healthcare Providers / Primary Care Physicians
+Date: Thu, 16 Apr 2026 12:34:07 -0400
+Message-ID: <365a01dccdbe$d9e6bc90$8db435b0$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_365B_01DCCD9D.52D51C90"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdzNvthmbkkKF89dQFS55u8lZUY7lg==
+Content-Language: en-us
+X-Spam-Score: 4
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Hi. I wanted to see whether a contact database of Vitamin
+   & Supplement Stores / Skilled Nursing Care Facilities / Fitness and Recreational
+    Sports Centers / Health and Dietetic Food Stores across the USA w [...] 
+ 
+ Content analysis details:   (0.4 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail provider
+                             [emilyparks.work(at)gmail.com]
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [209.85.216.65 listed in wl.mailspike.net]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_EXTRA_CLOSE       BODY: HTML contains far too many close tags
+  0.6 FORGED_OUTLOOK_TAGS    Outlook can't send HTML in this format
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.216.65 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.216.65 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.216.65 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.216.65 listed in bl.score.senderscore.com]
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_365B_01DCCD9D.52D51C90
+Content-Type: text/plain;
+	charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+
+Hi.
+
+I wanted to see whether a contact database of Vitamin & Supplement Stores /
+Skilled Nursing Care Facilities / Fitness and Recreational Sports Centers /
+Health and Dietetic Food Stores across the USA would be relevant to your
+outreach.
+
+If so, Please let me know so that i can provide additional details including
+sample records, counts, and pricing.
+
+Best regards,
+Emily Parks
+Online Marketing Manager | USAEmailLists | NY
+
+
+------=_NextPart_000_365B_01DCCD9D.52D51C90
+Content-Type: text/html;
+	charset="US-ASCII"
+Content-Transfer-Encoding: quoted-printable
+
+<p style=3D'font-family:Calibri; font-size:11pt; color:rgb(31, 73, =
+125);'>Hi.<br><br>I wanted to see whether a contact database of =
+<b>Vitamin & Supplement Stores / Skilled Nursing Care Facilities / =
+Fitness and Recreational Sports Centers / Health and Dietetic Food =
+Stores</b> across the <b>USA</b> would be relevant to your =
+outreach.<br><br>If so, Please let me know so that i can provide =
+additional details including <b>sample records</b>, <b>counts</b>, and =
+<b>pricing</b>.<br><br>Best regards,<br><b>Emily Parks</b><br>Online =
+Marketing Manager</b> | USAEmailLists | NY</b></p></p>
+------=_NextPart_000_365B_01DCCD9D.52D51C90--
+

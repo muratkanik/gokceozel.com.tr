@@ -1,0 +1,286 @@
+Return-path: <info@h7vens.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Thu, 09 Apr 2026 11:06:18 +0300
+Received: from rusty.birch.relay.mailchannels.net ([23.83.209.252])
+	by eyalcin.com.tr with smtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <info@h7vens.com>)
+	id 1wAkP3-007FcW-2y
+	for info@gokceozel.com.tr;
+	Thu, 09 Apr 2026 11:06:18 +0300
+X-Sender-Id: hostingeremail|x-authuser|info@h7vens.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id EE02C6169E
+	for <info@gokceozel.com.tr>; Thu, 09 Apr 2026 08:06:14 +0000 (UTC)
+Received: from fr-int-smtpout29.hostinger.io (100-96-100-230.trex-nlb.outbound.svc.cluster.local [100.96.100.230])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 2825361C0D
+	for <info@gokceozel.com.tr>; Thu, 09 Apr 2026 08:06:13 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1775721974;
+	b=asp2CnljkPw7SyyINLAn0V59e/8+K5JRgzcKiB2qDgBTeL+hUKgOZfO2ojwTFId88xgxJf
+	A5C7RckuCFfVA77pb8btx2CtdL1fNGimAjwsXOvgJZY1gElrfFfDwcZlrZXdKVZ/fVg+/q
+	cRmiCOZkFOnmKonW0+xD/PFKOOUCZEsaWzYuupj39Sv8dI283CkKFxKOQr5DOO3+e3MiBo
+	DZI72qzh3aJBCyWF/M2HWu5VCnoHZYuJUEodZetubSFhGTzpC6JN328OvUb+LSCOANbSpl
+	NmvFl0RLbRNd9SY8BrYDP1okr6xorJN6UOxDnUCJe2b5O24EaIoJrVZmVHPoeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1775721974;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=OxQ9VZQpbYuoVrdtIPLp3xD0VSJS7qgeoDevgRxsdr8=;
+	b=DmkhYWFiLl6UHs5NbNbYiEBgrfXP2CJc6yx5y84W0DcW2cISjcQobFCnZSISAMSK5+lANz
+	Pql4V0C8BBxkCUC53sRJ9UayHTxowOgiJqXl09Uilg6++XBFi0J5NkFysANnj20EuPORfL
+	iHLptTd2xDsX/A5Z+AzTEoI6VtIVbuorPJUaOU35n768r7ZuVp/GSVKI0q5/jMlNoEbYCS
+	u00SbZxc6ybIewWe6x4X4veEit42XRG/DE6hlJp3s2TH10ynsXW/nrN1D0Cj9St72RcKnH
+	5TYZM7PeFXvkzB5u11miIpIbCJLodhV3/npwA8wUHmSf1M5ZqPhJn6ZBk6LCZw==
+ARC-Authentication-Results: i=1;
+	rspamd-6c65dd77f-csbkq;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=info@h7vens.com
+X-Sender-Id: hostingeremail|x-authuser|info@h7vens.com
+X-MC-Relay: Bad
+X-MailChannels-SenderId: hostingeremail|x-authuser|info@h7vens.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Lonely-Eyes: 546aa0be7424a891_1775721974848_2443012570
+X-MC-Loop-Signature: 1775721974848:577679777
+X-MC-Ingress-Time: 1775721974848
+Received: from fr-int-smtpout29.hostinger.io (fr-int-smtpout29.hostinger.io
+ [148.222.54.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.96.100.230 (trex/7.1.5);
+	Thu, 09 Apr 2026 08:06:14 +0000
+Received: from localhost (117.138.230.35.bc.googleusercontent.com [IPv6:2405:201:2031:5873:c146:44be:56af:1237])
+	(Authenticated sender: info@h7vens.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4frsvS26tFz31NQ
+	for <info@gokceozel.com.tr>; Thu,  9 Apr 2026 08:06:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=h7vens.com;
+	s=hostingermail-a; t=1775721972;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OxQ9VZQpbYuoVrdtIPLp3xD0VSJS7qgeoDevgRxsdr8=;
+	b=YoA+iUXllOzra3EL1J6Xd8d2nLtGFu9ODQSUK9vGt4yu3X2kTQa4iyRVkvmAMlrxT+likr
+	FFCL7SaUGN/LDp0kg2sXTMLWe9nS9MOULYDp/sIVWqDDHk8xiN6mD3YyTLiUEsJKeVVTKm
+	dJ+y5BQ5jo/aJjMpsBTclV3rHjxQgVD1XjcI8tRVY0vL/Xb0qxxNjCUALkLZwqmt6oCJyk
+	dQa0hl+O2tYQ41aLmnn45t9DBJW0nhkdMGDGxPGNteeNMEzl/Em/r//bACELt92Nj9Mfx2
+	hVmyjXiUhZDENwoydLTBI1xua8YjEfTThSzhtRSeeCDMedWn5Q3VE5Kuq8A/4g==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+From: "HILLSPIRE PVT. LTD." <info@h7vens.com>
+Message-Id: <1775721971985336968.1775721971@h7vens.com>
+Mime-Version: 1.0
+Subject: KIM & CARDI B CAMPAIGN!
+To: <info@gokceozel.com.tr>
+Date: Thu,  9 Apr 2026 08:06:12 +0000 (UTC)
+X-CM-Envelope: MS4xfDixV07fMCXTjF8SOR9Z48bYeb7aSSkEI81k4eQ5MMPFnOT0ykp4WJxElzZaKsdRIxNAuvGnHo8o5/LQ/GP7U5wtJzgdTcuNC2hUWWqpJpQZajfQ2qGe KfQcJ2UOSxyAOQto0K8TzNWQLyNnFgl8zDsrWTrru14gOHyZQ55xtba3Qy92x4EhgPzHLg8AKilSQiBlj8gqIaIl/6ePrkfaSny3ESzSmRtx4iKvu32cw0nq Wjcs/wUelYrC4F+7arabZw==
+X-CM-Analysis: v=2.4 cv=Gq4Q+V1C c=1 sm=1 tr=0 ts=69d75df4 a=C+kzL0CwJsh7aR+g0oU88g==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=MKtGQD3n3ToA:10 a=Gb4LjKTv-AdbzmG2Rv4A:9 a=TL9AQt0BHNnYvc_j:21 a=QEXdDO2ut3YA:10 a=Zl7CQRLk3Al1LpJFn2Bz:22 a=NWVoK91CQySWRX1oVYDe:22
+X-AuthUser: info@h7vens.com
+X-Spam-Score: 10
+X-Spam-Bar: +
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Hello, We’re excited to share a golden occasion to elevate
+    your brand / business with our exclusive Kim Kardashian & Cardi B campaigns
+    launching in April 2026. This is your moment to reach a massive audien [...]
+    
+ 
+ Content analysis details:   (1.0 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [23.83.209.252 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [23.83.209.252 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [23.83.209.252 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [23.83.209.252 listed in bl.score.senderscore.com]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.5 SUBJ_ALL_CAPS          Subject is all capitals
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.6 HTML_MIME_NO_HTML_TAG  HTML-only message, but there is no HTML tag
+
+<div style=3D"font-style: normal; font-variant-ligatures: normal; font-vari=
+ant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; tex=
+t-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spa=
+cing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-=
+color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decorat=
+ion-style: initial; text-decoration-color: initial; line-height: 1.5; color=
+: rgb(38, 40, 49); font-family: system-ui, sans-serif; font-size: 14px;"><s=
+pan style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span cla=
+ss=3D"font" style=3D"font-family:arial, sans-serif"><span style=3D"line-hei=
+ght: 1.5;">Hello,</span></span></span></span></div><div dir=3D"ltr" style=
+=3D"font-style: normal; font-variant-ligatures: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: s=
+tart; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px;=
+ -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb=
+(255, 255, 255); text-decoration-thickness: initial; text-decoration-style:=
+ initial; text-decoration-color: initial; line-height: 1.5; color: rgb(38, =
+40, 49); font-family: system-ui, sans-serif; font-size: 14px;"><div dir=3D"=
+ltr" style=3D"line-height: 1.5;"><div dir=3D"ltr" style=3D"line-height: 1.5=
+;"><div dir=3D"ltr" style=3D"line-height: 1.5;"><div dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><div style=3D"line-height: 1.5;"><div style=3D"line-heigh=
+t: 1.5;"><br></div><div dir=3D"auto" style=3D"line-height: 1.5;"><span styl=
+e=3D"line-height: 1.5;"><span class=3D"font" style=3D"font-family:arial, sa=
+ns-serif">We=E2=80=99re excited to share a golden occasion to elevate your =
+brand / business with our exclusive&nbsp;<span style=3D"line-height: 1.5; b=
+ackground-color: rgb(255, 255, 0);">Kim Kardashian &amp; Cardi B</span>&nbs=
+p;campaigns launching in&nbsp;<span style=3D"line-height: 1.5; background-c=
+olor: rgb(255, 255, 0);">April 2026</span>. This is your moment to reach a =
+massive audience and gain over&nbsp;<span style=3D"line-height: 1.5; backgr=
+ound-color: rgb(255, 255, 0);">500K</span>&nbsp;fresh followers on Instagra=
+m through our targeted promotion. There are just 20 spots available for the=
+se both&nbsp;campaigns, ensuring immense growth potential for your brand / =
+business.</span></span></div><div dir=3D"auto" style=3D"line-height: 1.5;">=
+<br></div><div dir=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line=
+-height: 1.5;"><span class=3D"font" style=3D"font-family:arial, sans-serif"=
+>Specific Availability:&nbsp;<span style=3D"line-height: 1.5; background-co=
+lor: rgb(255, 255, 0);">Currently 5 Spots Left!</span>&nbsp;Both of these c=
+ampaigns are set to go live in&nbsp;<span style=3D"line-height: 1.5; backgr=
+ound-color: rgb(255, 255, 0);">April 2026</span>&nbsp;and we=E2=80=99re dow=
+n to the<span style=3D"line-height: 1.5; background-color: rgb(255, 255, 0)=
+;">&nbsp;final 5 spots</span>. If you=E2=80=99re interested in learning mor=
+e or securing your spot, we encourage you to respond swiftly!</span></span>=
+</div><div dir=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"a=
+uto" style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span cl=
+ass=3D"font" style=3D"font-family:arial, sans-serif">In addition to the&nbs=
+p;<span style=3D"line-height: 1.5; background-color: rgb(255, 255, 0);">Kim=
+ Kardashian &amp; Cardi B</span>&nbsp;campaigns,&nbsp;<span style=3D"line-h=
+eight: 1.5; background-color: rgb(255, 255, 0);">we give a wide range of pr=
+emium services across every social media platforms and beyond</span>, inclu=
+ding:</span></span></div><div dir=3D"auto" style=3D"line-height: 1.5;"><br>=
+</div><div dir=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line-hei=
+ght: 1.5;"><span class=3D"font" style=3D"font-family:arial, sans-serif">PR =
+&amp; Press Articles: Over 17,000 magazine placements, including top names =
+like Forbes, Vogue, Cosmopolitan, Variety, GQ &amp; more.</span></span></di=
+v><div dir=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"auto"=
+ style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif">TV Advertising: Ads on ov=
+er 700 channels such as ABC, FOX, CBS &amp; more.</span></span></div><div d=
+ir=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"auto" style=
+=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span class=3D"fon=
+t" style=3D"font-family:arial, sans-serif">Google Services: SEO, Ads, Revie=
+ws &amp; much more.</span></span></div><div dir=3D"auto" style=3D"line-heig=
+ht: 1.5;"><br></div><div dir=3D"auto" style=3D"line-height: 1.5;"><span sty=
+le=3D"line-height: 1.5;"><span class=3D"font" style=3D"font-family:arial, s=
+ans-serif">Billboard &amp; Taxi Ads: Worldwide coverage.</span></span></div=
+><div dir=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"auto" =
+style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif">Website &amp; Domain Serv=
+ices: Full spectrum of support for your digital presence.</span></span></di=
+v><div dir=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"auto"=
+ style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif">We give A to Z services t=
+o help you grow your brand &amp; reach fresh audiences, no matter your need=
+s.</span></span></div><div dir=3D"auto" style=3D"line-height: 1.5;"><br></d=
+iv><div dir=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line-height=
+: 1.5;"><span class=3D"font" style=3D"font-family:arial, sans-serif">For qu=
+icker response reach out directly via WhatsApp&nbsp;<span style=3D"line-hei=
+ght: 1.5; background-color: rgb(255, 255, 0);"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;">+917777972073</span></span></span></span></span></=
+span></span></span></span></span></span></span></span></span></span></span>=
+</span></span></span></span></span></span></span></span></span></span></spa=
+n></span></span></span></span></span></span></span></span></span></span></s=
+pan></span></span></span></span></span></span></span></span>&nbsp;or Email =
+us directly at:&nbsp;<span style=3D"line-height: 1.5; background-color: rgb=
+(255, 255, 0);">info&nbsp;@ h7ii . com</span></span></span></div><div dir=
+=3D"auto" style=3D"line-height: 1.5;"><br></div><div dir=3D"auto" style=3D"=
+line-height: 1.5;"><span style=3D"line-height: 1.5;"><span class=3D"font" s=
+tyle=3D"font-family:arial, sans-serif">Awaiting your prompt response.</span=
+></span></div><div dir=3D"auto" style=3D"line-height: 1.5;"><br></div><div =
+dir=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;">=
+<span class=3D"font" style=3D"font-family:arial, sans-serif">Regards,</span=
+></span></div><div style=3D"line-height: 1.5;"><span style=3D"line-height: =
+1.5;"><span class=3D"font" style=3D"font-family:arial, sans-serif">The HILL=
+SPIRE PVT. LTD. Team</span></span></div><div dir=3D"auto" style=3D"line-hei=
+ght: 1.5;"><span style=3D"line-height: 1.5;"><span class=3D"font" style=3D"=
+font-family:arial, sans-serif">Instagram: @ h7vens</span></span></div><div =
+dir=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;">=
+<span class=3D"font" style=3D"font-family:arial, sans-serif">Website: www .=
+ h7biz . com</span></span></div><div dir=3D"auto" style=3D"line-height: 1.5=
+;"><span style=3D"line-height: 1.5;"><span class=3D"font" style=3D"font-fam=
+ily:arial, sans-serif">Email: info @ h7ii . com</span></span></div><div dir=
+=3D"auto" style=3D"line-height: 1.5;"><span style=3D"line-height: 1.5;"><sp=
+an class=3D"font" style=3D"font-family:arial, sans-serif">WhatsApp:&nbsp;<s=
+pan dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line=
+-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"l=
+tr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5=
+;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D=
+"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"l=
+ine-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=
+=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height=
+: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" sty=
+le=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><spa=
+n dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-h=
+eight: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"><span dir=3D"ltr=
+" style=3D"line-height: 1.5;"><span dir=3D"ltr" style=3D"line-height: 1.5;"=
+><span dir=3D"ltr" style=3D"line-height: 1.5;">+917777972073</span></span><=
+/span></span></span></span></span></span></span></span></span></span></span=
+></span></span></span></span></span></span></span></span></span></span></sp=
+an></span></span></span></span></span></span></span></span></span></span></=
+span></span></span></span></span></span></span></span></span></span></span>=
+</span></span></div></div></div></div></div></div></div><div><br></div>

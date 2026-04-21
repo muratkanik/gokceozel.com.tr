@@ -1,0 +1,178 @@
+Return-path: <yasemin.aral@learnly.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Thu, 16 Apr 2026 01:36:33 +0300
+Received: from s2.learnly.com.tr ([31.210.69.180])
+	by eyalcin.com.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <yasemin.aral@learnly.com.tr>)
+	id 1wD8qW-00D2Lu-1b
+	for info@gokceozel.com.tr;
+	Thu, 16 Apr 2026 01:36:33 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; d=learnly.com.tr;
+ h=From:Subject:To:Content-Type:MIME-Version:Date:Message-ID;
+ i=yasemin.aral@learnly.com.tr;
+ bh=JucnrbXN/GX4ajbJqIUCyjz3PuvU154QGeclE/E6+dg=;
+ b=cMNHX6cnx9MlokHkvkGdTCDT0kQj6fgVYYIrsvoLSkxTeu/puKKRJxqUUhbW9rqgsEW552I/fyB6
+   Weh5iAXLGKfcttgJXxB3oQmJReMidt5C2Jvss3ybHBuDoCYek9+/Wpbgesdrf9U96hgTccybJbTF
+   FAanyiOy24TZKItHkOgZip/USKinMJbWCGvgS9JhNWLDOKKAXSqmy5cuhQdgnKbWdNqzfb7amY62
+   rJX2sFIVDTQ/YnsOFFNp7Yo/qwBaGnjT7FvYjIo8YmKeC7/Cozmm789US5nGLEw+5QGnuGXcS8hx
+   JXTgRqXTGuDfBNh2CUx1Wd19kUWrqVYzGas9Bg==
+From: "Yasemin Aral" <yasemin.aral@learnly.com.tr>
+Subject:
+ =?utf-8?B?WcO2bmV0aWNpIEFzaXN0YW5sxLHEn8SxbmRhIFByb2Zlc3lvbmVsIFRlbXNpbCB2ZSDEsG1haiBZw7ZuZXRpbWkgUHJvZ3JhbcSxIEhsLg==?=
+To: "info" <info@gokceozel.com.tr>
+Content-Type: multipart/alternative; boundary="pGX6f=_wTEZkbBqXlAfXBIzfrLRhGNbjo0"
+MIME-Version: 1.0
+Date: Thu, 16 Apr 2026 01:36:31 +0300
+Message-ID: <0.0.1.51.1DCCD284E92E72C.0@s2.learnly.com.tr>
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, Günümüz kurumsal yapılarında yönetici asistanlığı;
+    yalnızca idari süreçleri takip eden bir görev alanı değil, aynı zamanda
+    temsil, koordinasyon, iletişim ve organizasyon kabiliyetiyle [...] 
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.180 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.180 listed in bl.score.senderscore.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [31.210.69.180 listed in sa-trusted.bondedsender.org]
+
+This is a multi-part message in MIME format
+
+--pGX6f=_wTEZkbBqXlAfXBIzfrLRhGNbjo0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Merhaba,
+
+G=C3=BCn=C3=BCm=C3=BCz kurumsal yap=C4=B1lar=C4=B1nda y=C3=B6netici as=
+istanl=C4=B1=C4=9F=C4=B1; yaln=C4=B1zca idari s=C3=BCre=C3=A7leri taki=
+p eden bir g=C3=B6rev alan=C4=B1 de=C4=9Fil, ayn=C4=B1 zamanda temsil,=
+ koordinasyon, ileti=C5=9Fim ve organizasyon kabiliyetiyle y=C3=B6nets=
+el s=C3=BCre=C3=A7lere do=C4=9Frudan katk=C4=B1 sunan kritik bir pozis=
+yondur.
+
+Bu kapsamda, Banka Y=C3=B6netim Kurulu Asistan=C4=B1 Sn. Ye=C5=9Fim Ay=
+ G=C3=BCveli taraf=C4=B1ndan ger=C3=A7ekle=C5=9Ftirilecek =C3=9Cst D=C3=
+=BCzey Y=C3=B6netici Asistanl=C4=B1=C4=9F=C4=B1 Profesyonellik Program=
+=C4=B1 hakk=C4=B1nda k=C4=B1saca bilgi payla=C5=9Fmak isterim.
+
+=F0=9F=93=85 Tarih: 19 Nisan Pazar
+=E2=8F=B0 Saat: 12:00 =E2=80=93 17:00
+=F0=9F=92=BB Yer: Zoom (Online)
+
+Program kapsam=C4=B1nda;
+=E2=80=A2 y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1nda profesyonel yakl=
+a=C5=9F=C4=B1m ve kurumsal temsil,
+=E2=80=A2 etkili ileti=C5=9Fim, protokol ve i=C5=9F ili=C5=9Fkilerinin=
+ y=C3=B6netimi,
+=E2=80=A2 toplant=C4=B1, seyahat ve davet s=C3=BCre=C3=A7lerinde planl=
+ama ve koordinasyon,
+=E2=80=A2 zaman y=C3=B6netimi, stres y=C3=B6netimi ve kriz anlar=C4=B1=
+nda do=C4=9Fru tutum ba=C5=9Fl=C4=B1klar=C4=B1 ele al=C4=B1nacakt=C4=B1=
+r.
+
+Y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1 g=C3=B6revini daha g=C3=BC=C3=
+=A7l=C3=BC bir yetkinlik setiyle y=C3=BCr=C3=BCtmek ve kurumsal katk=C4=
+=B1s=C4=B1n=C4=B1 art=C4=B1rmak isteyen kat=C4=B1l=C4=B1mc=C4=B1lar i=C3=
+=A7in nitelikli bir geli=C5=9Fim program=C4=B1d=C4=B1r.
+
+=F0=9F=91=89 Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=A7in: 216 606 40 93=
+
+
+=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar.
+
+
+
+
+
+
+
+
+
+
+
+
+MasterClass T=C3=BCrkiye
+
+Yasemin Aral
+Organizasyon Sorumlusu
+
+Ac=C4=B1badem. =C3=87e=C3=A7en Sok.
+Akasya AVM Kule=20
+=C3=9Csk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye
+0216 606 40 93
+
+Size gereksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel.com.tr ad=
+resinizden bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zaman mail alma=
+k istemedi=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.
+
+
+--pGX6f=_wTEZkbBqXlAfXBIzfrLRhGNbjo0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<html><head></head><body><p>Merhaba,</p><p>G=C3=BCn=C3=BCm=C3=BCz kuru=
+msal yap=C4=B1lar=C4=B1nda y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1; y=
+aln=C4=B1zca idari s=C3=BCre=C3=A7leri takip eden bir g=C3=B6rev alan=C4=
+=B1 de=C4=9Fil, ayn=C4=B1 zamanda temsil, koordinasyon, ileti=C5=9Fim =
+ve organizasyon kabiliyetiyle y=C3=B6netsel s=C3=BCre=C3=A7lere do=C4=9F=
+rudan katk=C4=B1 sunan kritik bir pozisyondur.</p><p>Bu kapsamda, Bank=
+a Y=C3=B6netim Kurulu Asistan=C4=B1 Sn. Ye=C5=9Fim Ay G=C3=BCveli tara=
+f=C4=B1ndan ger=C3=A7ekle=C5=9Ftirilecek =C3=9Cst D=C3=BCzey Y=C3=B6ne=
+tici Asistanl=C4=B1=C4=9F=C4=B1 Profesyonellik Program=C4=B1 hakk=C4=B1=
+nda k=C4=B1saca bilgi payla=C5=9Fmak isterim.</p><p>=F0=9F=93=85 Tarih=
+: 19 Nisan Pazar<br>=E2=8F=B0 Saat: 12:00 =E2=80=93 17:00<br>=F0=9F=92=
+=BB Yer: Zoom (Online)</p><p>Program kapsam=C4=B1nda;<br>=E2=80=A2 y=C3=
+=B6netici asistanl=C4=B1=C4=9F=C4=B1nda profesyonel yakla=C5=9F=C4=B1m=
+ ve kurumsal temsil,<br>=E2=80=A2 etkili ileti=C5=9Fim, protokol ve i=C5=
+=9F ili=C5=9Fkilerinin y=C3=B6netimi,<br>=E2=80=A2 toplant=C4=B1, seya=
+hat ve davet s=C3=BCre=C3=A7lerinde planlama ve koordinasyon,<br>=E2=80=
+=A2 zaman y=C3=B6netimi, stres y=C3=B6netimi ve kriz anlar=C4=B1nda do=
+=C4=9Fru tutum ba=C5=9Fl=C4=B1klar=C4=B1 ele al=C4=B1nacakt=C4=B1r.</p=
+><p>Y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1 g=C3=B6revini daha g=C3=BC=
+=C3=A7l=C3=BC bir yetkinlik setiyle y=C3=BCr=C3=BCtmek ve kurumsal kat=
+k=C4=B1s=C4=B1n=C4=B1 art=C4=B1rmak isteyen kat=C4=B1l=C4=B1mc=C4=B1la=
+r i=C3=A7in nitelikli bir geli=C5=9Fim program=C4=B1d=C4=B1r.</p><p>=F0=
+=9F=91=89 Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=A7in: 216 606 40 93</p=
+><p>=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar.</p><p></p><p></p><p></p><p></p=
+><p></p><p></p><p></p><p></p><p><hr id=3D"undefined"><p></p><p>MasterC=
+lass T=C3=BCrkiye</p><p>Yasemin Aral<br>Organizasyon Sorumlusu<br><br>=
+Ac=C4=B1badem. =C3=87e=C3=A7en Sok.<br>Akasya AVM Kule <br>=C3=9Csk=C3=
+=BCdar / =C4=B0stanbul / T=C3=BCrkiye<br>0216 606 40 93</p><p>Size ger=
+eksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel.com.tr adresinizd=
+en bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zaman mail almak isteme=
+di=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.</p></body></html>
+
+
+--pGX6f=_wTEZkbBqXlAfXBIzfrLRhGNbjo0--
+

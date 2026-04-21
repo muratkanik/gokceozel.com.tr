@@ -1,0 +1,206 @@
+Return-path: <nesrin.ozer@skillup.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 06 Apr 2026 02:14:38 +0300
+Received: from s1.skillup.com.tr ([31.210.69.3])
+	by eyalcin.com.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <nesrin.ozer@skillup.com.tr>)
+	id 1w9Wft-004I7J-0N
+	for info@gokceozel.com.tr;
+	Mon, 06 Apr 2026 02:14:38 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; d=skillup.com.tr;
+ h=From:Subject:To:Content-Type:MIME-Version:Date:Message-ID;
+ i=nesrin.ozer@skillup.com.tr;
+ bh=P5R7FTNC8hLlG4mGQaA02Yjm+4pSstqqdIlnW/408e4=;
+ b=nrLB7bZHc0cCvKcuJFcvLIMGM+rQ43Kw30WOGZJglj5Sa2Cf6hJrauQTwU06JL2cXXmtg+3QRy6p
+   SvlROdsWYm4B1X4w9fOVukLkfX/7oZxmNsVuGg6LZblXvpiSelHuoStBnpRXhXCQ7+gQBfFFhnqV
+   GVJbSYk7ANPnaDl2QgHkNkxa5tZbS7OH+3TXQkc3pPOxsOFZqjZuruudFKrn80/faTB1dfFIzx7n
+   zH+AU0QHsys5cqVsc6LlW6cG0PoY6xxGnRUSWSQ+Nd+48m57O8W/Q/PL2uesCTrX9ZSD3eXLhHbm
+   d2V//hUOJdvKwHJ3Ue9murdbPI3cSJRhxbejlQ==
+From: "Nesrin Y. Ozer" <nesrin.ozer@skillup.com.tr>
+Subject:
+ =?utf-8?B?S0VQIGt1bGxhbsSxbcSxLCBkaWppdGFsIGJvcmRyb2xhbWEsIGZlc2loIHPDvHJlw6dsZXJpIHZlIFNHSyBiaWxkaXJpbWxlcmkgaGsu?=
+To: "info" <info@gokceozel.com.tr>
+Content-Type: multipart/alternative; boundary="XJClXOM4=_nEMZe9aGcRwpFpCxEwJuEmE4"
+MIME-Version: 1.0
+Date: Mon, 6 Apr 2026 02:14:35 +0300
+Message-ID: <0.0.0.100.1DCC551F7936CE0.0@s1.skillup.com.tr>
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhabalar. 10 Nisan Cuma günü, birçok kurumun fark etmeden
+    risk biriktirdiği kritik bir konuyu SGK Baş Müfettişi Sn. İsa Karakaş
+    ile ele alacağımız bir program hazırladık. KEP kullanımı, dijital
+   bordrolama, fesih süreçleri ve SGK bildirimleri… Hepsi artık sadece operasyon
+    değil, doğrudan hukuki sonuç doğuran alanlar. 
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.3 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [31.210.69.3 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.3 listed in bl.score.senderscore.com]
+
+This is a multi-part message in MIME format
+
+--XJClXOM4=_nEMZe9aGcRwpFpCxEwJuEmE4
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Merhabalar.
+
+10 Nisan Cuma g=C3=BCn=C3=BC, bir=C3=A7ok kurumun fark etmeden risk bi=
+riktirdi=C4=9Fi kritik bir konuyu SGK Ba=C5=9F M=C3=BCfetti=C5=9Fi Sn.=
+ =C4=B0sa Karaka=C5=9F ile ele alaca=C4=9F=C4=B1m=C4=B1z bir program h=
+az=C4=B1rlad=C4=B1k.
+
+KEP kullan=C4=B1m=C4=B1, dijital bordrolama, fesih s=C3=BCre=C3=A7leri=
+ ve SGK bildirimleri=E2=80=A6
+Hepsi art=C4=B1k sadece operasyon de=C4=9Fil, do=C4=9Frudan hukuki son=
+u=C3=A7 do=C4=9Furan alanlar.
+
+Yap=C4=B1lan k=C3=BC=C3=A7=C3=BCk bir hata,
+=E2=80=A2 =C4=B0=C5=9Fe iade davas=C4=B1
+=E2=80=A2 SGK te=C5=9Fvik kayb=C4=B1
+=E2=80=A2 =C4=B0dari para cezas=C4=B1
+=E2=80=A2 Ge=C3=A7ersiz say=C4=B1lan fesih s=C3=BCreci
+
+olarak geri d=C3=B6n=C3=BCyor.
+
+Bu y=C3=BCzden bu e=C4=9Fitim =E2=80=9Cbilgi edinme=E2=80=9D de=C4=9Fi=
+l, do=C4=9Frudan risk kapatma program=C4=B1d=C4=B1r.
+
+10:00 =E2=80=93 14:00 saatleri aras=C4=B1nda Zoom=E2=80=99da ger=C3=A7=
+ekle=C5=9Fecek bu =C3=B6zel oturumda:
+
+=E2=80=A2 Hangi i=C5=9Flemler KEP ile ge=C3=A7erli, hangileri riskli?
+=E2=80=A2 SGK =C3=A7=C4=B1k=C4=B1=C5=9F kodlar=C4=B1nda en s=C4=B1k ya=
+p=C4=B1lan kritik hatalar neler?
+=E2=80=A2 Dijital ibraname, ihtar ve savunma s=C3=BCre=C3=A7leri nas=C4=
+=B1l =E2=80=9Cge=C3=A7erli=E2=80=9D hale getirilir?
+=E2=80=A2 =C4=B0=C5=9Fe iade sonras=C4=B1 bordrolama ve SGK uygulamala=
+r=C4=B1nda yeni d=C3=B6nem nas=C4=B1l i=C5=9Fliyor?
+
+t=C3=BCm detaylar=C4=B1yla ele al=C4=B1nacak.
+
+E=C4=9Fitimi, sahadan gelen ger=C3=A7ek denetim tecr=C3=BCbesiyle
+Sn. =C4=B0sa Karaka=C5=9F (SGK Eski Ba=C5=9F M=C3=BCfetti=C5=9Fi) bizz=
+at aktaracak.
+
+=C3=9Cstelik sadece anlat=C4=B1m de=C4=9Fil:
+
+=E2=80=A2 Kendi dosyalar=C4=B1n=C4=B1zla soru sorabilece=C4=9Finiz a=C3=
+=A7=C4=B1k Q&A
+=E2=80=A2 E=C4=9Fitim sonras=C4=B1 3 ay destek
+=E2=80=A2 G=C3=BCncel SGK & =C4=B0=C5=9F mevzuat=C4=B1 sirk=C3=BCler r=
+aporu eri=C5=9Fimi
+
+Bu noktada karar basit:
+
+Ya mevcut s=C3=BCre=C3=A7lerin do=C4=9Fru oldu=C4=9Funu varsayacaks=C4=
+=B1n=C4=B1z,
+ya da ger=C3=A7ekten do=C4=9Fru olup olmad=C4=B1=C4=9F=C4=B1n=C4=B1 te=
+st edeceksiniz.
+
+Kat=C4=B1l=C4=B1m ve detaylar i=C3=A7in bu maili yan=C4=B1tlayabilir v=
+eya do=C4=9Frudan 0216 606 40 93 numaral=C4=B1 telefondan ula=C5=9Fabi=
+lirsiniz.
+
+
+
+
+Kolayl=C4=B1klar dilerim.
+
+
+
+
+MasterClass T=C3=BCrkiye
+
+Nesrin Y=C4=B1lmaz =C3=96zer
+Organizasyon Sorumlusu
+
+Ac=C4=B1badem. =C3=87e=C3=A7en Sok.
+Akasya AVM Kule=20
+=C3=9Csk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye
+0216 606 40 93
+
+Size istemedi=C4=9Finiz mesajlar g=C3=B6ndermek istemeyiz. Diledi=C4=9F=
+iniz zaman bu maili .... adresinizden yan=C4=B1tlayarak mail almay=C4=B1=
+ durdurabilirsiniz. Esen kal=C4=B1n.
+
+
+--XJClXOM4=_nEMZe9aGcRwpFpCxEwJuEmE4
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<html><head></head><body><p>Merhabalar.</p><p>10 Nisan Cuma g=C3=BCn=C3=
+=BC, bir=C3=A7ok kurumun fark etmeden risk biriktirdi=C4=9Fi kritik bi=
+r konuyu SGK Ba=C5=9F M=C3=BCfetti=C5=9Fi Sn. =C4=B0sa Karaka=C5=9F il=
+e ele alaca=C4=9F=C4=B1m=C4=B1z bir program haz=C4=B1rlad=C4=B1k.</p><=
+p>KEP kullan=C4=B1m=C4=B1, dijital bordrolama, fesih s=C3=BCre=C3=A7le=
+ri ve SGK bildirimleri=E2=80=A6<br>Hepsi art=C4=B1k sadece operasyon d=
+e=C4=9Fil, do=C4=9Frudan hukuki sonu=C3=A7 do=C4=9Furan alanlar.</p><p=
+>Yap=C4=B1lan k=C3=BC=C3=A7=C3=BCk bir hata,<br>=E2=80=A2 =C4=B0=C5=9F=
+e iade davas=C4=B1<br>=E2=80=A2 SGK te=C5=9Fvik kayb=C4=B1<br>=E2=80=A2=
+ =C4=B0dari para cezas=C4=B1<br>=E2=80=A2 Ge=C3=A7ersiz say=C4=B1lan f=
+esih s=C3=BCreci</p><p>olarak geri d=C3=B6n=C3=BCyor.</p><p>Bu y=C3=BC=
+zden bu e=C4=9Fitim =E2=80=9Cbilgi edinme=E2=80=9D de=C4=9Fil, do=C4=9F=
+rudan risk kapatma program=C4=B1d=C4=B1r.</p><p>10:00 =E2=80=93 14:00 =
+saatleri aras=C4=B1nda Zoom=E2=80=99da ger=C3=A7ekle=C5=9Fecek bu =C3=B6=
+zel oturumda:</p><p>=E2=80=A2 Hangi i=C5=9Flemler KEP ile ge=C3=A7erli=
+, hangileri riskli?<br>=E2=80=A2 SGK =C3=A7=C4=B1k=C4=B1=C5=9F kodlar=C4=
+=B1nda en s=C4=B1k yap=C4=B1lan kritik hatalar neler?<br>=E2=80=A2 Dij=
+ital ibraname, ihtar ve savunma s=C3=BCre=C3=A7leri nas=C4=B1l =E2=80=9C=
+ge=C3=A7erli=E2=80=9D hale getirilir?<br>=E2=80=A2 =C4=B0=C5=9Fe iade =
+sonras=C4=B1 bordrolama ve SGK uygulamalar=C4=B1nda yeni d=C3=B6nem na=
+s=C4=B1l i=C5=9Fliyor?</p><p>t=C3=BCm detaylar=C4=B1yla ele al=C4=B1na=
+cak.</p><p>E=C4=9Fitimi, sahadan gelen ger=C3=A7ek denetim tecr=C3=BCb=
+esiyle<br>Sn. =C4=B0sa Karaka=C5=9F (SGK Eski Ba=C5=9F M=C3=BCfetti=C5=
+=9Fi) bizzat aktaracak.</p><p>=C3=9Cstelik sadece anlat=C4=B1m de=C4=9F=
+il:</p><p>=E2=80=A2 Kendi dosyalar=C4=B1n=C4=B1zla soru sorabilece=C4=9F=
+iniz a=C3=A7=C4=B1k Q&amp;A<br>=E2=80=A2 E=C4=9Fitim sonras=C4=B1 3 ay=
+ destek<br>=E2=80=A2 G=C3=BCncel SGK &amp; =C4=B0=C5=9F mevzuat=C4=B1 =
+sirk=C3=BCler raporu eri=C5=9Fimi</p><p>Bu noktada karar basit:</p><p>=
+Ya mevcut s=C3=BCre=C3=A7lerin do=C4=9Fru oldu=C4=9Funu varsayacaks=C4=
+=B1n=C4=B1z,<br>ya da ger=C3=A7ekten do=C4=9Fru olup olmad=C4=B1=C4=9F=
+=C4=B1n=C4=B1 test edeceksiniz.</p><p>Kat=C4=B1l=C4=B1m ve detaylar i=C3=
+=A7in bu maili yan=C4=B1tlayabilir veya do=C4=9Frudan 0216 606 40 93 n=
+umaral=C4=B1 telefondan ula=C5=9Fabilirsiniz.</p><p><br></p><p>Kolayl=C4=
+=B1klar dilerim.</p><p><hr id=3D"undefined"><p></p><p>MasterClass T=C3=
+=BCrkiye</p><p>Nesrin Y=C4=B1lmaz =C3=96zer<br>Organizasyon Sorumlusu<=
+br><br>Ac=C4=B1badem. =C3=87e=C3=A7en Sok.<br>Akasya AVM Kule <br>=C3=9C=
+sk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye<br>0216 606 40 93</p><p>Siz=
+e istemedi=C4=9Finiz mesajlar g=C3=B6ndermek istemeyiz. Diledi=C4=9Fin=
+iz zaman bu maili .... adresinizden&nbsp;yan=C4=B1tlayarak mail almay=C4=
+=B1 durdurabilirsiniz. Esen kal=C4=B1n.</p></body></html>
+
+
+--XJClXOM4=_nEMZe9aGcRwpFpCxEwJuEmE4--
+

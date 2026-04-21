@@ -1,0 +1,253 @@
+Return-path: <0100019d692bdba7-7d403b05-ad54-43ba-b49f-b9d85aa4cfd9-000000@send.info.valquirico.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Tue, 07 Apr 2026 21:19:40 +0300
+Received: from a9-112.smtp-out.amazonses.com ([54.240.9.112])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <0100019d692bdba7-7d403b05-ad54-43ba-b49f-b9d85aa4cfd9-000000@send.info.valquirico.com>)
+	id 1wAB1V-005pdv-0q
+	for info@gokceozel.com.tr;
+	Tue, 07 Apr 2026 21:19:40 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=info.valquirico.com; t=1775585975;
+	h=From:To:Subject:Message-ID:Date:MIME-Version:Content-Type;
+	bh=rH1Cu5FoOByTW1zPlRhPXsM0aHabg2HUrnN2mRO4Qzw=;
+	b=P56kgUa+LwISfsygCvsGD+rIs22bagxDlTi+q+OZLrlWu7qKo5AuVQCHd5Hwsvjc
+	ksP0V4BfH3DgOSHnrVaYp7fvU69Izo2nhWdW46fMqH9Yh+qqLwWaKypf4VuIpML79MW
+	DXLXk24ISlLCn9P99l21MciThpscp/RCBOzqZuCo=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1775585975;
+	h=From:To:Subject:Message-ID:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=rH1Cu5FoOByTW1zPlRhPXsM0aHabg2HUrnN2mRO4Qzw=;
+	b=VH7s4j7eVRYhZnMMvHL44eHgvlGOqojFjLDNgkUrCVokxCxCYGuO7VzhyfHeWx47
+	tbqii/6+wG3unLUUjtt6bSydi2LeSsLftTppQQc3hyJBlRVMg9PS6DCHbhQx28d7bNc
+	V8yfYtfECRPM6tKWRsQ90ow2EMYH3CUGM5H/HhDc=
+X-Custom-ID: 08136697903117
+X-Mailer: Python FedEx Engine
+X-Priority: 1
+From: =?UTF-8?Q?Aras_Kargo_G=C3=BCmr=C3=BCk_=C4=B0=C5=9F?= =?UTF-8?Q?lemleri?= <no-reply@info.valquirico.com>
+To: info@gokceozel.com.tr
+Subject: =?UTF-8?Q?Aras_Kargo_Fatura_ve_=C3=96deme_Bildirim?= =?UTF-8?Q?i?=
+Message-ID: <0100019d692bdba7-7d403b05-ad54-43ba-b49f-b9d85aa4cfd9-000000@email.amazonses.com>
+Date: Tue, 7 Apr 2026 18:19:35 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--_NmP-c520ddb41871826c-Part_1"
+Feedback-ID: :1.us-east-1.6RNPlARJCR80+Mu5k6/8mzoEeCNjOMUDRORIo6LY55GtLKYyblixVSZbwJbnYGeHMHJx30a2+078emVGy5ka6P0B/QXruYay8HOSlqVQP1GBXj+X95qXa2dk1kFQlaCZxoErr/qiSLeX3ZS8PzOPu/p+SjCEtmwvLaahPwlXX5c=:1.us-east-1.pAEstvQcjyhQNKGKcgSlzI7SVR8ZSG5wSmKwiz/A8Dg=:AmazonSES
+X-SES-Outgoing: 2026.04.07-54.240.9.112
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  GÜMRÜK ÜCRETI BILDIRIMI Takip Kodu: ARS-TR-2024-876543
+   Durum: Gümrükte Bekliyor 
+ 
+ Content analysis details:   (-0.1 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [54.240.9.112 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [54.240.9.112 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [54.240.9.112 listed in bl.score.senderscore.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                           [54.240.9.112 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [54.240.9.112 listed in sa-accredit.habeas.com]
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+
+----_NmP-c520ddb41871826c-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+G=C3=9CMR=C3=9CK =C3=9CCRETI BILDIRIMI
+
+Takip Kodu: ARS-TR-2024-876543
+
+Durum: G=C3=BCmr=C3=BCkte Bekliyor
+
+Bekleyen =C3=9Ccret: 478,50 =E2=82=BA =
+TL
+
+Say=C4=B1n M=C3=BC=C5=9Fterimiz,
+2026-04-07 11:19:34 tarihinde =
+kaydedilenARS-TR-2024-876543 takip numaral=C4=B1 g=C3=B6nderiniz =
+g=C3=BCmr=C3=BCk i=C5=9Flemleri nedeniyle beklemeye =
+al=C4=B1nm=C4=B1=C5=9Ft=C4=B1r. Paketinizin teslimat=C4=B1na devam =
+edilebilmesi i=C3=A7in g=C3=BCmr=C3=BCk masraf=C4=B1 ve i=C5=9Flem =
+=C3=BCcretinin =C3=B6denmesi gerekmektedir.
+
+=E2=9A=A0=EF=B8=8F =C3=96nemli=
+ Uyar=C4=B1: =C3=96demeniz 48 saat i=C3=A7erisinde tamamlanmad=C4=B1=
+=C4=9F=C4=B1 takdirde, g=C3=B6nderiniz g=C3=B6ndericiye iade edilecektir.
+
+G=C3=BCmr=C3=BCk =C3=9Ccretini =C3=96de https://cutt.ly/JtDbGPMO
+
+=F0=9F=94=92 =C3=96demeniz 256-bit SSL sertifikas=C4=B1 ile g=C3=BCvenli =
+bir =C5=9Fekilde i=C5=9Flenir.
+
+Kabul edilen =C3=B6deme y=C3=B6ntemleri: =
+=F0=9F=92=B3 Kredi Kart=C4=B1 | =F0=9F=8F=A6 Banka Havalesi | =F0=9F=93=B1 =
+Mobil =C3=96deme
+
+Bu mesaj otomatik olarak g=C3=B6nderilmi=C5=9Ftir, =
+l=C3=BCtfen yan=C4=B1tlamay=C4=B1n=C4=B1z.
+
+Sorular=C4=B1n=C4=B1z i=C3=A7in=
+ m=C3=BC=C5=9Fteri hizmetlerimizle ileti=C5=9Fime ge=C3=A7in:
+
+musteri@araskargo.com.tr musterihizmetleri@araskargo.com.tr | Telefon: 444 =
+1 272
+
+Aras Kargo
+
+=C2=A9 2026-04-07 Aras Kargo. T=C3=BCm haklar=C4=B1 =
+sakl=C4=B1d=C4=B1r.
+----_NmP-c520ddb41871826c-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"tr">
+<head>
+    <meta charset=3D"UTF-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, =
+initial-scale=3D1.0">
+    <title>Aras Kargo =E2=80=93 G=C3=BCmr=C3=BCk =
+=C3=9Ccreti Bildirimi</title>
+</head>
+<body style=3D"margin:0;padding:0;bac=
+kground:#f8f8f8;font-family:Arial,sans-serif;color:#333;">
+   =20
+    <div style=3D"max-width:600px;margin:auto;background:#ffffff;border-rad=
+ius:10px;padding:20px;
+                box-shadow:0 3px 10px rgba(0,0,0,0.=
+1);">
+
+        <!-- Header -->
+        <div style=3D"text-align:center;marg=
+in-bottom:20px;">
+            <img src=3D"https://araskargos.com/aras.png"
+                 alt=3D"Aras Kargo" width=3D"160" style=3D"display:block;ma=
+rgin:auto;">
+            <h1 style=3D"color:#D71A28;font-size:22px;margin:1=
+5px 0;">G=C3=BCmr=C3=BCk =C3=9Ccreti Bildirimi</h1>
+        </div>
+
+        <!-- Package Information -->
+        <div style=3D"background:#f9f9=
+f9;border-radius:8px;padding:20px;margin-bottom:20px;">
+            <p style=3D"margin:5px 0;color:#555;font-size:14px;">
+                <strong>Takip Kodu:</strong> <span style=3D"color:#D71A28;"=
+>ARS-TR-2024-876543
+</span>
+            </p>
+            <p =
+style=3D"margin:5px 0;color:#555;font-size:14px;">
+                =
+<strong>Durum:</strong> <span style=3D"color:#ff6600;font-weight:bold;">G=
+=C3=BCmr=C3=BCkte Bekliyor</span>
+            </p>
+            <p =
+style=3D"margin:5px 0;color:#555;font-size:14px;">
+                =
+<strong>Bekleyen =C3=9Ccret:</strong> <span style=3D"color:#D71A28;font-wei=
+ght:bold;">478,50 =E2=82=BA TL</span>
+            </p>
+        </div>
+
+        <!-- Message -->
+        <p style=3D"font-size:14px;line-height:1.=
+5;">
+            Say=C4=B1n M=C3=BC=C5=9Fterimiz,<br>
+            2026-04-07 11:19:34 tarihinde kaydedilenARS-TR-2024-876543 =
+takip numaral=C4=B1 g=C3=B6nderiniz <strong>g=C3=BCmr=C3=BCk i=C5=9Flemleri=
+ nedeniyle beklemeye al=C4=B1nm=C4=B1=C5=9Ft=C4=B1r</strong>.
+            Paketinizin teslimat=C4=B1na devam edilebilmesi i=C3=A7in =
+<strong>g=C3=BCmr=C3=BCk masraf=C4=B1 ve i=C5=9Flem =C3=BCcretinin =
+=C3=B6denmesi gerekmektedir</strong>.
+        </p>
+       =20
+        <p style=3D"font-size:14px;line-height:1.5;background:#fff3cd;paddi=
+ng:12px;border-radius:8px;margin:15px 0;">
+            =E2=9A=A0=EF=B8=8F =
+<strong>=C3=96nemli Uyar=C4=B1:</strong> =C3=96demeniz 48 saat =
+i=C3=A7erisinde tamamlanmad=C4=B1=C4=9F=C4=B1 takdirde, g=C3=B6nderiniz =
+g=C3=B6ndericiye iade edilecektir.
+        </p>
+
+        <!-- Payment =
+Button -->
+        <div style=3D"text-align:center;margin:20px 0;">
+            <a href=3D"https://cutt.ly/JtDbGPMO"=20
+               style=3D"display:inline-block;padding:15px =
+25px;background:#D71A28;color:#fff;font-weight:bold;
+                      text-decoration:none;border-radius:8px;font-size:16px=
+;">
+                G=C3=BCmr=C3=BCk =C3=9Ccretini =C3=96de
+            </a>
+        </div>
+
+        <!-- Payment Info -->
+        <div style=3D"background:#f8f9fa;border-radius:8px;padding:15px;mar=
+gin-top:15px;text-align:center;">
+            <p style=3D"margin:5px =
+0;color:#555;font-size:12px;">
+                =F0=9F=94=92 =C3=96demeniz =
+256-bit SSL sertifikas=C4=B1 ile g=C3=BCvenli bir =C5=9Fekilde i=C5=9Flenir=
+.
+            </p>
+            <p style=3D"margin:5px =
+0;color:#555;font-size:12px;">
+                Kabul edilen =C3=B6deme =
+y=C3=B6ntemleri: =F0=9F=92=B3 Kredi Kart=C4=B1 | =F0=9F=8F=A6 Banka =
+Havalesi | =F0=9F=93=B1 Mobil =C3=96deme
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div style=3D"text-align:center;color:#888;=
+font-size:12px;border-top:1px solid #eee;padding-top:15px;margin-top:20px;"=
+>
+            <p>Bu mesaj otomatik olarak g=C3=B6nderilmi=C5=9Ftir, =
+l=C3=BCtfen yan=C4=B1tlamay=C4=B1n=C4=B1z.</p>
+            =
+<p>Sorular=C4=B1n=C4=B1z i=C3=A7in m=C3=BC=C5=9Fteri hizmetlerimizle =
+ileti=C5=9Fime ge=C3=A7in:</p>
+            <p><a href=3D"mailto:musterihizm=
+etleri@araskargo.com.tr"=20
+                  style=3D"color:#D71A28;text-d=
+ecoration:none;font-weight:bold;">
+                musteri@araskargo.com.=
+tr</a> | Telefon: 444 1 272</p>
+            <p><strong>Aras =
+Kargo</strong></p>
+            <p>=C2=A9 2026-04-07 Aras Kargo. T=C3=BCm =
+haklar=C4=B1 sakl=C4=B1d=C4=B1r.</p>
+        </div>
+
+    </div>
+</body>
+</html>
+----_NmP-c520ddb41871826c-Part_1--

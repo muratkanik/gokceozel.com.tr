@@ -1,0 +1,229 @@
+Return-path: <abdulenesdursun@gmail.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 06 Apr 2026 15:54:02 +0300
+Received: from mail-yw1-f173.google.com ([209.85.128.173])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <abdulenesdursun@gmail.com>)
+	id 1w9jSr-004o7q-1p
+	for info@gokceozel.com.tr;
+	Mon, 06 Apr 2026 15:54:02 +0300
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-79cb99982c4so2915947b3.0
+        for <info@gokceozel.com.tr>; Mon, 06 Apr 2026 05:54:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775480040; cv=none;
+        d=google.com; s=arc-20240605;
+        b=E49gkJn03LVypVtnRuBIXS3Qtk8+NeqI9dx8k+PJem2dzn2IlSjWIbpXZFwkPXOLnq
+         c8kfBXp5ZFFvkzG1DzEjy18kwQJt3DFeyDe9hhxQV4Jv7EdI1UemeT0z4uYyEMvDudln
+         edPZfuAs7//R0HzOaU8oG+i4Ew16IgtByr+T36BvsEFssu6ZlfaxShnRvFYcoE7f6YrT
+         ppFEVxUSXP2uAjhzf9VrywiVH2tpcfvOMGTjJlIxkXuUPzY5EzmT7VAe7BudgNLQIw/Q
+         kZ3yB67DxyyxI9ma8oYsKHRBXPvgX8jwgaBTu95BVcpLCi/R/6NWL38ZzBb4dZpk3CH3
+         cPkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=lhMye7XRFa8AjHH5vb/7edEFwYdz4bINskUHIcr/vpo=;
+        fh=QdS35G+x5swB6/NgdVI+L5nqLRo+xD0nmK9GYWwCn/8=;
+        b=emezrYOdst80Jp+oeNeVPL9YPx+/dlLx/8HRzgTEQxvkpt/lqeWR/ocMDnJvjswaKU
+         nIPZCWVW6DvGx0x8rGu9fvJSrytAk62GrwVsQRhNDwTzPI38UJXfTFI8BTu6JQIeJ4Q4
+         0nKixnWcAkbPNVsoel+KzxddLwf/UMxqDNnPjf32CweZqDcL7ZGH43iDogL1I/KY2ca/
+         c3MTFMkrHcBAVQ+Em4y3Yw/dBwIV2IG0+Lj//QLdtD3MZ3XkXUMChVAuDkQinNoJtco8
+         fNShlI0rpAUn1sIKQeHavtzwAXgncL5tYfVKBsaRcjLjLUPZxInEqgL3kT79wF1jVwRi
+         Yq8g==;
+        darn=gokceozel.com.tr
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775480040; x=1776084840; darn=gokceozel.com.tr;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lhMye7XRFa8AjHH5vb/7edEFwYdz4bINskUHIcr/vpo=;
+        b=FEMSEcdtYHcjWVo0b8j8l7Xjn32ThbQv0t+XGvBCIM0bBJg3puZ8Wr4kg9c2GOmqDc
+         bXd8pPMH8CJlgJj72s5b+3nslU0KKLgsyCn9JYc/3E2Bs4a0O0Mu21FCsq32KJIJpuXa
+         b+e9ke2j9fWGzt/2ivUdRbvQOyDyy1stMKaoYujVs2bjoxsKJkLMhUceRkkfNqDEsL9+
+         5bN62Y2QuWl5htUtVGrAsTUh5Mg9u+90Gt36WI5dRkkuAHDAkCwqw0gicGsIGji2qpkL
+         TNUT73LlE917ih3N7IcpO0cZCPcD8pGoPsBv6s+nXJokRf6fkco7f+0p8PZAfW4uo/8C
+         fn9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775480040; x=1776084840;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lhMye7XRFa8AjHH5vb/7edEFwYdz4bINskUHIcr/vpo=;
+        b=NQmgzxr1fQlE/DwY1p9EAlYWlcVOZ9tYcLkGARgOoXmqSzsec4KaI35PXNBPZcLGBe
+         f2HnwhyS0dH7dmL5ykw0PzlZsg4yvTF4+P7C/6bsfd0Y3UBBzuv5gshgvbIktql6yVqI
+         Hq/JrHxZrri30n8+dY6I5IQuOTMYj/wVi4djvSS/SBkYS8IbQSJtboieneaLS84jo5Wu
+         Sn+fvMK23pw2lawF6QobjT25tg0aYNMPKXhoY3qbV3zUbF3e+VioQkKoz9L/6j1yZ1it
+         8N1UMADmJxE/+RS1hc2ty5WuBDn5rp26SzYVYm4W4jHRVhI2miBHWEWsjqfFKMdMMdbK
+         pjlQ==
+X-Gm-Message-State: AOJu0Yx8r4lSSe6g/b5ChnOhLcALUzPHlvD/QQ+13HCdBLwL2XOhkdA2
+	WTWFnOKs1jJEa+xxDoFw+hbVncC4teboDCEXbv6SBiGRPbW4uxcxI7Ql+8X8QLu+JXjoeu6Lqr3
+	izDUwIh92G8ww6acd/PE42BbbmAygJJWAEQ==
+X-Gm-Gg: AeBDievcJxy0f9LMvmdBLZrxmuWsLh0kI8f8UzmAFo19Oj1FRFS0/g2+GyQ7+SEQ5Rv
+	PPsV/Mjkn2up4Phxwrell55AwffScwBP0kAIg2IuFFahjrNyJ4Y1HyzP+sP8v1BCzPB/AYqQ2b1
+	P8AdV0bTto6S5RR5GJGJfpwH9tkYo4miRhQZIZp4II0BAv9kpbqxzM5BADHfX6izebBTE6loaw4
+	rhf8e+CCDOp+e6ujkymgyXl+eBnpCixFSTh6vBAXVcLGdZpzD6Ebn8JIFZhhZiyZy57Lm9AUaWA
+	yASWSoiSM8EVHAuRg/n9LtMFqRx6KoAhbM5lrw==
+X-Received: by 2002:a05:690c:62c3:b0:79e:72bb:1e30 with SMTP id
+ 00721157ae682-7a4d03bf504mr80733317b3.0.1775480039694; Mon, 06 Apr 2026
+ 05:53:59 -0700 (PDT)
+MIME-Version: 1.0
+References: <CADrwADiDpDk0vW2QmPJa2XrTUauYn-KJs9cbOBDFYVpyVuEuZA@mail.gmail.com>
+ <a204cb9767a4681b4588d71b96fa7ff1@gokceozel.com.tr>
+In-Reply-To: <a204cb9767a4681b4588d71b96fa7ff1@gokceozel.com.tr>
+From: Enes Dursun <abdulenesdursun@gmail.com>
+Date: Mon, 6 Apr 2026 15:53:48 +0300
+X-Gm-Features: AQROBzBbNrj9xiIZb1jSW62R2zDTntqN6T17lr32188j01dJrytuT55j1TbceJ0
+Message-ID: <CADrwADhrPdhVprg5Xx+RSFwkewGN8nWfX1KRb2SDDnrm-e-rYQ@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IEJ1cnVuIEFtZWxpeWF0xLEgSGsu?=
+To: info@gokceozel.com.tr
+Content-Type: multipart/alternative; boundary="0000000000001262ff064eca298c"
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, 0537 995 19 95 cep numaram, müsait olduğunuz bir
+    zamanda görüşebiliriz. Saygılarımla. adresine sahip kullanıcı 6 Nis
+    2026 Pzt, 01:31 tarihinde şunu yazdı: 
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.128.173 listed in list.dnswl.org]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail provider
+                             [abdulenesdursun(at)gmail.com]
+  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.128.173 listed in wl.mailspike.net]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.128.173 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                         [209.85.128.173 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [209.85.128.173 listed in bl.score.senderscore.com]
+
+--0000000000001262ff064eca298c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Merhaba, 0537 995 19 95 cep numaram, m=C3=BCsait oldu=C4=9Funuz bir  zamand=
+a
+g=C3=B6r=C3=BC=C5=9Febiliriz.
+
+Sayg=C4=B1lar=C4=B1mla.
+
+<info@gokceozel.com.tr> adresine sahip kullan=C4=B1c=C4=B1 6 Nis 2026 Pzt, =
+01:31
+tarihinde =C5=9Funu yazd=C4=B1:
+
+> Emrah bey merhabalar
+> Ac=C4=B1badem Sigorta ile anla=C5=9Fmam=C4=B1z =C5=9Fu =C5=9Fekilde: bili=
+yorsunuz ki sadece
+> Ac=C4=B1badem de=C4=9Fil hi=C3=A7bir sigorta =C5=9Firketi estetik ameliya=
+t=C4=B1 =C3=B6demekte. bizim
+> bu konuda bir indirimimiz ya da sigortadan ald=C4=B1=C4=9F=C4=B1m=C4=B1z =
+bir geri =C3=B6deme
+> bulunmamaktad=C4=B1r.  Ameliyat =C3=BCcretini =C3=B6dedikten sonra burund=
+an nefes alma
+> problemi ile ilgili olan =C3=BCcreti daha sonra siz kendiniz sigortan=C4=
+=B1zdan
+> talep ediyorsunuz. Sigorta anla=C5=9Fman=C4=B1zla ilgili geri =C3=B6demey=
+i
+> sigorta=C4=B1n=C4=B1zla g=C3=B6r=C3=BC=C5=9Fmeniz gerekiyor.
+> =C4=B0leti=C5=9Fim numaran=C4=B1z=C4=B1 b=C4=B1rak=C4=B1rsan=C4=B1z araya=
+rak detayl=C4=B1 bilgilendirme
+> yapabilir muayene randevusu olu=C5=9Fturabiliriz. =C4=B0yi g=C3=BCnler di=
+leriz.
+>
+>
+>
+>
+> 2026-04-01 18:35, Enes Dursun yazm=C4=B1=C5=9F:
+> > Merhaba,  Ben Abdul Enes Dursun, burnumda kemik e=C4=9Frili=C4=9Finden =
+dolay=C4=B1
+> > nefes almakta zorlan=C4=B1yorum ve ameliyat olmak istiyorum, =C3=B6zel
+> > sa=C4=9Fl=C4=B1k sigortam bulunmakta, (Bupa Ac=C4=B1badem Sigorta),  sa=
+hip
+> > oldu=C4=9Fum poli=C3=A7eme =C3=B6zel anla=C5=9Fmal=C4=B1 kurumlar=C4=B1=
+ ara=C5=9Ft=C4=B1rd=C4=B1=C4=9F=C4=B1mda
+> > sizi buldum ve  sizden de bilgi almak istiyorum s=C3=BCre=C3=A7 hakk=C4=
+=B1nda.
+> >
+> > =C4=B0lginiz i=C3=A7in te=C5=9Fekk=C3=BCr eder iyi =C3=A7al=C4=B1=C5=9F=
+malar dilerim.
+> >
+> > Sayg=C4=B1lar=C4=B1mla.
+>
+
+--0000000000001262ff064eca298c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Merhaba, 0537 995 19 95 cep numaram, m=C3=BCsait oldu=C4=
+=9Funuz bir=C2=A0 zamanda g=C3=B6r=C3=BC=C5=9Febiliriz.<div><br></div><div>=
+Sayg=C4=B1lar=C4=B1mla.</div></div><br><div class=3D"gmail_quote gmail_quot=
+e_container"><div dir=3D"ltr" class=3D"gmail_attr">&lt;<a href=3D"mailto:in=
+fo@gokceozel.com.tr">info@gokceozel.com.tr</a>&gt; adresine sahip kullan=C4=
+=B1c=C4=B1 6 Nis 2026 Pzt, 01:31 tarihinde =C5=9Funu yazd=C4=B1:<br></div><=
+blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-l=
+eft:1px solid rgb(204,204,204);padding-left:1ex">Emrah bey merhabalar<br>
+Ac=C4=B1badem Sigorta ile anla=C5=9Fmam=C4=B1z =C5=9Fu =C5=9Fekilde: biliyo=
+rsunuz ki sadece <br>
+Ac=C4=B1badem de=C4=9Fil hi=C3=A7bir sigorta =C5=9Firketi estetik ameliyat=
+=C4=B1 =C3=B6demekte. bizim <br>
+bu konuda bir indirimimiz ya da sigortadan ald=C4=B1=C4=9F=C4=B1m=C4=B1z bi=
+r geri =C3=B6deme <br>
+bulunmamaktad=C4=B1r.=C2=A0 Ameliyat =C3=BCcretini =C3=B6dedikten sonra bur=
+undan nefes alma <br>
+problemi ile ilgili olan =C3=BCcreti daha sonra siz kendiniz sigortan=C4=B1=
+zdan <br>
+talep ediyorsunuz. Sigorta anla=C5=9Fman=C4=B1zla ilgili geri =C3=B6demeyi =
+<br>
+sigorta=C4=B1n=C4=B1zla g=C3=B6r=C3=BC=C5=9Fmeniz gerekiyor.<br>
+=C4=B0leti=C5=9Fim numaran=C4=B1z=C4=B1 b=C4=B1rak=C4=B1rsan=C4=B1z arayara=
+k detayl=C4=B1 bilgilendirme <br>
+yapabilir muayene randevusu olu=C5=9Fturabiliriz. =C4=B0yi g=C3=BCnler dile=
+riz.<br>
+<br>
+<br>
+<br>
+<br>
+2026-04-01 18:35, Enes Dursun yazm=C4=B1=C5=9F:<br>
+&gt; Merhaba,=C2=A0 Ben Abdul Enes Dursun, burnumda kemik e=C4=9Frili=C4=9F=
+inden dolay=C4=B1<br>
+&gt; nefes almakta zorlan=C4=B1yorum ve ameliyat olmak istiyorum, =C3=B6zel=
+<br>
+&gt; sa=C4=9Fl=C4=B1k sigortam bulunmakta, (Bupa Ac=C4=B1badem Sigorta),=C2=
+=A0 sahip<br>
+&gt; oldu=C4=9Fum poli=C3=A7eme =C3=B6zel anla=C5=9Fmal=C4=B1 kurumlar=C4=
+=B1 ara=C5=9Ft=C4=B1rd=C4=B1=C4=9F=C4=B1mda<br>
+&gt; sizi buldum ve=C2=A0 sizden de bilgi almak istiyorum s=C3=BCre=C3=A7 h=
+akk=C4=B1nda.<br>
+&gt; <br>
+&gt; =C4=B0lginiz i=C3=A7in te=C5=9Fekk=C3=BCr eder iyi =C3=A7al=C4=B1=C5=
+=9Fmalar dilerim.<br>
+&gt; <br>
+&gt; Sayg=C4=B1lar=C4=B1mla.<br>
+</blockquote></div>
+
+--0000000000001262ff064eca298c--

@@ -1,0 +1,422 @@
+Return-path: <reminders@facebookmail.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Thu, 16 Apr 2026 22:12:53 +0300
+Received: from 66-220-144-149.mail-mail.facebook.com ([66.220.144.149])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <reminders@facebookmail.com>)
+	id 1wDS8v-00Dmi0-1J
+	for info@gokceozel.com.tr;
+	Thu, 16 Apr 2026 22:12:53 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=facebookmail.com;
+	s=s1024-2013-q3; t=1776366767;
+	bh=j2bxzl5PYA1xWp7IYsnZjzAyTYF1LM9F2u6w6VjgzNo=;
+	h=Date:To:Subject:From:MIME-Version:Content-Type;
+	b=AAzUZPAyAAlyzP2p1rQwgoFRj4RJAWVgReD+0AuQTid/tBYH9kKK2/YoH8NcTUZ3d
+	 kgtKRBkxq4RKgpOVNp9Vpee4YXSVh5PyekmX9l3GBlG++ZHGT0UnI/TlJO3HqSw3vD
+	 eAYSCXJjUAwmSl8Zn6uBFxC9n5E4q8zFrYcyd9q8=
+X-Facebook: from 2803:6084:24:19e6:ceb2:91f0:14c1:a00 ([MTI3LjAuMC4x]) 
+	by thrift.facebook.com with HTTPS (ZuckMail);
+Date: Thu, 16 Apr 2026 12:12:47 -0700
+To: =?UTF-8?B?R8O2a8OnZSDDlnplbA==?= <info@gokceozel.com.tr>
+Subject: =?UTF-8?B?S2FyaXRvIHZlIGRpxJ9lcg==?=
+ =?UTF-8?B?bGVyaSBoYWtrxLFuZGEgNg==?=
+ =?UTF-8?B?OCBiaWxkaXJpbWluIHZh?=
+ =?UTF-8?B?cg==?=
+X-Priority: 3
+X-Mailer: ZuckMail [version 1.00]
+From: "Facebook" <reminders@facebookmail.com>
+Reply-to: noreply <noreply@facebookmail.com>
+Errors-To: reminders@facebookmail.com
+X-Facebook-Notify: stale_notifications; mailid=U1U64f98542b0239G37fc8c8113acG64f989dc1050bG32b
+List-Unsubscribe: <https://www.facebook.com/email/oneclick/unsubscribe?identifier=AeKGHbpu_MatfqtTRhkg1xeBT7GmbZpEcY22qCKOQofKtCB_YYhkol7riha2_fvTpQ9alh5Hgx8SrCmBMnNn0RvHawshcVjEsiVGLNknhjQDlGPWen5E-EM8fgsUiee5-9U9RqXI352aAufcj_fqH4Tn9T86OCYlvsw3XnA-NlogZW-XvPLc0gjk93RLK2ZHXpG9123Aj7UUz9tTcv1qpv-SzxPNmsBaZvEUkvZa5pHz1A8RT0aZXMVYVGxeiD2Et_ULvmy3JOfaKQqY9KS2l3AxFme23rBAcxdeqMS6o2k8-5xBZNGqkF14033wONFyxVQt_QnJwT96NK13-VydP74vQw>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-FB-Internal-Notiftype: stale_notifications
+BIMI-Selector: v=BIMI1; s=fb2023q1v3;
+Feedback-ID: very_stale_stale_notif:stale_notifications:Facebook
+X-FB-Internal-MID: U1U64f98542b0239G37fc8c8113acG64f989dc1050bG32b
+X-FB-Internal-NotifID: 1776366760559883
+X-FB-Internal-RecipID: 61557828555692
+X-FACEBOOK-PRIORITY: 0
+X-Auto-Response-Suppress: All
+Require-Recipient-Valid-Since: info@gokceozel.com.tr; Monday,  8 Apr 2024 12:29:46 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="b1_0f23e801749680d717484748b5bd672c"
+Message-ID: <830d0ed0-2acc-4fb9-846c-2d65b5d1da29@facebookmail.com>
+X-Spam-Score: -79
+X-Spam-Bar: --------
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  ======================================== Bildirimlerini gör
+    https://www.facebook.com/nd/?notifications%2F&aref=1776366760559883&medium=email&mid=64f98542b0239G37fc8c8113acG64f989dc1050bG32b&bcode=2.1
+    [...] 
+ 
+ Content analysis details:   (-8.0 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM welcome-list
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 TVD_RCVD_IP            Message was received from an IP address
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [66.220.144.149 listed in wl.mailspike.net]
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or identical to
+                             background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.2 HELO_MISC_IP           Looking for more Dynamic IP Relays
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                         [66.220.144.149 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [66.220.144.149 listed in bl.score.senderscore.com]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [66.220.144.149 listed in sa-accredit.habeas.com]
+ -0.5 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+
+
+--b1_0f23e801749680d717484748b5bd672c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Bildirimlerini g=C3=B6r
+https://www.facebook.com/nd/?notifications%2F&aref=3D1776366760559883&medi=
+um=3Demail&mid=3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b&bcode=3D2.17=
+76366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&n_m=3Dinfo%40gokceozel.com.tr&n_sg=3D=
+Q6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg&lloc=3Dprimary_cta_view=
+_notifications_text&rms=3Dv2&irms=3D1
+
+
+Facebook'a Git
+https://www.facebook.com/nd/?aref=3D1776366760559883&medium=3Demail&mid=3D=
+64f98542b0239G37fc8c8113acG64f989dc1050bG32b&bcode=3D2.1776366765.Ab1vlDnB=
+5C-VVp-yf4u4dy_D_aY&n_m=3Dinfo%40gokceozel.com.tr&n_sg=3DQ6bPBAJ0LJccdXNog=
+ynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg&lloc=3Dcta_feed_2nd_text&rms=3Dv2&irms=
+=3D1
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Merhaba G=C3=B6k=C3=A7e,
+
+De=C4=9Ferlendirilmesi gereken 68 okunmam=C4=B1=C5=9F bildirimin var
+
+=C2=A0=C2=A0=C2=A068 yeni bildirim=C2=A0
+
+Te=C5=9Fekk=C3=BCrler,
+Facebook ekibi
+
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Bu mesaj info@gokceozel.com.tr adresine g=C3=B6nderilmi=C5=9Ftir. =
+Gelecekte Meta'dan bu t=C3=BCr e-postalar almak istemiyorsan=C4=B1z, =
+a=C5=9Fa=C4=9F=C4=B1daki ba=C4=9Flant=C4=B1ya t=C4=B1klayarak abonelikten =
+=C3=A7=C4=B1kabilirsiniz.
+https://www.facebook.com/o.php?k=3DAe8Hl-S2zJP7Fs8i4VQ&u=3D61557828555692&=
+mid=3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b&ee=3DAQDwi8fbMNat1dUyco=
+TpDHG6VDtiPcBDlkxu8wNzbmu7hDdH3MPM0QF1Yhm-JPTJ9DLSfCk9cXx1ldIWT4fr
+Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo =
+Park, CA 94025
+Profilinizi g=C3=BCvende tutmak i=C3=A7in l=C3=BCtfen bu e-postay=C4=B1 =
+iletmeyin. Daha fazla bilgi almak i=C3=A7in a=C5=9Fa=C4=9F=C4=B1daki =
+ba=C4=9Flant=C4=B1ya t=C4=B1klay=C4=B1n.
+https://www.facebook.com/email_forward_notice/?mid=3D64f98542b0239G37fc8c8=
+113acG64f989dc1050bG32b
+
+
+--b1_0f23e801749680d717484748b5bd672c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional =
+//EN"><html><head><title>Facebook</title><meta http-equiv=3D"Content-Type" =
+content=3D"text/html; charset=3Dutf-8" /><style nonce=3D"wN2yCJEv">@media =
+all and (max-width: 480px){*[class].ib_t{min-width:100%!important}*[class]=
+.ib_row{display:block!important}*[class].ib_ext{display:block!important;pa=
+dding:10px 0 5px;vertical-align:top!important;width:100%!important}*[class=
+].ib_img,*[class].ib_mid{vertical-align:top!important}*[class].mb_blk{disp=
+lay:block!important;padding-bottom:10px;width:100%!important}*[class].mb_h=
+ide{display:none!important}*[class].mb_inl{display:inline!important}*[clas=
+s].d_mb_flex{display:block!important}}.d_mb_show{display:none}.d_mb_flex{d=
+isplay:flex}@media only screen and (max-device-width: =
+480px){.d_mb_hide{display:none!important}.d_mb_show,.d_mb_flex{display:blo=
+ck!important}}.mb_text h1,.mb_text h2,.mb_text h3,.mb_text h4,.mb_text =
+h5,.mb_text h6{line-height:normal}.mb_work_text =
+h1{font-size:18px;line-height:normal;margin-top:4px}.mb_work_text =
+h2,.mb_work_text =
+h3{font-size:16px;line-height:normal;margin-top:4px}.mb_work_text =
+h4,.mb_work_text h5,.mb_work_text =
+h6{font-size:14px;line-height:normal}.mb_work_text =
+a{color:#1270e9}.mb_work_text p{margin-top:4px}
+@font-face{font-family:Roboto-Regular;font-style:normal;font-weight:400;sr=
+c:local("Roboto"),local("Roboto-Regular"),url(https://static.xx.fbcdn.net/=
+rsrc.php/yH/r/c_1vdG88uNh.woff2) format("woff2"),url(https://static.xx.fbc=
+dn.net/rsrc.php/yN/r/KKlOyJQcRfr.woff) format("woff")}@font-face{font-fami=
+ly:Roboto-Medium;font-style:normal;font-weight:500;src:local("Roboto =
+Medium"),local("Roboto-Medium"),url(https://static.xx.fbcdn.net/rsrc.php/y=
+R/r/RuiWHQ9HuZ-.woff2) format("woff2"),url(https://static.xx.fbcdn.net/rsr=
+c.php/ya/r/5vZjyJccuEw.woff) format("woff")}@font-face{font-family:Roboto-=
+Bold;font-style:normal;font-weight:700;src:local("Roboto =
+Bold"),local("Roboto-Bold"),url(https://static.xx.fbcdn.net/rsrc.php/yU/r/=
+zSaFQ46AO2w.woff2) format("woff2"),url(https://static.xx.fbcdn.net/rsrc.ph=
+p/yR/r/_gCoI-iROin.woff) format("woff")}
+</style></head><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr><td =
+width=3D"100%" align=3D"center" style=3D""><table border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" align=3D"center" =
+style=3D"border-collapse:collapse;"><tr><td width=3D"840" align=3D"center" =
+style=3D""><body style=3D"max-width:420px;margin:0 auto;" dir=3D"ltr" =
+bgcolor=3D"#ffffff"><table border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"center" id=3D"email_table" =
+style=3D"border-collapse:collapse;max-width:420px;margin:0 auto;"><tr><td =
+id=3D"email_content" style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;background:#ffffff;"><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr style=3D""><td height=3D"20" =
+style=3D"line-height:20px;" colspan=3D"3">&nbsp;</td></tr><tr><td =
+height=3D"1" colspan=3D"3" style=3D"line-height:1px;"><span =
+style=3D"color:#FFFFFF;font-size:1px;opacity:0;">G=C3=B6k=C3=A7e; Karito =
+Bedon ve DM Tania hakk=C4=B1ndaki okunmam=C4=B1=C5=9F bildirimlerinize =
+bak=C4=B1n.</span></td></tr><tr><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr style=3D""><td =
+height=3D"15" style=3D"line-height:15px;" =
+colspan=3D"3">&nbsp;</td></tr><tr><td width=3D"32" align=3D"left" =
+valign=3D"middle" style=3D"height:32;line-height:0px;"><a =
+href=3D"https://www.facebook.com/nd/?61557828555692&amp;aref=3D17763667605=
+59883&amp;medium=3Demail&amp;mid=3D64f98542b0239G37fc8c8113acG64f989dc1050=
+bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&amp;n_m=3Dinfo%=
+40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO28=
+X-N9Yg&amp;lloc=3Dlogo&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;"><img width=3D"32" =
+src=3D"https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/kX-NgGrUL6n.png" =
+height=3D"32" style=3D"border:0;" /></a></td><td width=3D"32" =
+align=3D"right" valign=3D"middle" =
+style=3D"height:32;line-height:0px;"><table border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><td style=3D""><a =
+style=3D"color:#141823;text-decoration:none;font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16p=
+x;line-height:21px;">G=C3=B6k=C3=A7e =C3=96zel</a></td><td width=3D"5" =
+style=3D"display:block;width:5px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><a href=3D"https://www.facebook.com/nd/?61557828555692&amp;aref=
+=3D1776366760559883&amp;medium=3Demail&amp;mid=3D64f98542b0239G37fc8c8113a=
+cG64f989dc1050bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&a=
+mp;n_m=3Dinfo%40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY=
+6YeolRMp5KIO28X-N9Yg&amp;lloc=3Dlogo&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;"><img width=3D"32" =
+src=3D"https://scontent-sea1-1.xx.fbcdn.net/v/t1.30497-1/453178253_4715064=
+65671661_2781666950760530985_n.png?stp=3Ddst-png_mk1-ffffff-0.00&amp;_nc_c=
+at=3D110&amp;ccb=3D1-7&amp;_nc_sid=3Ddc3a22&amp;_nc_ohc=3DLyaBCQe282UQ7kNv=
+wFZMGWD&amp;_nc_oc=3DAdqxt5sjWu6QEhjQ8dsauHB4B5juhWtzGSiy-mnkltD6foARYvgl0=
+wSSNHQVbYauwSmVCBzYMaIQeHnOZFcLAeXC&amp;_nc_ad=3Dz-m&amp;_nc_cid=3D0&amp;_=
+nc_zt=3D24&amp;_nc_ht=3Dscontent-sea1-1.xx&amp;_nc_ss=3D7a32e&amp;oh=3D00_=
+Af0KVd4YuxpRcBZkPUkso5BzQFWsdQNZhkNlHtojhyMeEA&amp;oe=3D6A08A13A" =
+height=3D"32" style=3D"border:0;" /></a></td></table></td></tr><tr =
+style=3D"border-bottom:solid 1px #E8EAEE;"><td =
+style=3D"line-height:0;font-size:0;padding-top:15px;" =
+colspan=3D"100">&nbsp;</td></tr></table></td><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr style=3D""><td =
+height=3D"20" style=3D"line-height:20px;">&nbsp;</td></tr><tr><td =
+style=3D""><span class=3D"mb_text" style=3D"font-family:Roboto-Medium,Robo=
+to,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-se=
+rif;font-size:17px;line-height:21px;font-weight:500;color:#080809;">De=C4=
+=9Ferlendirilmesi gereken 68 okunmam=C4=B1=C5=9F bildirimin =
+var</span></td></tr><tr style=3D""><td height=3D"20" =
+style=3D"line-height:20px;">&nbsp;</td></tr><tr><td style=3D""><div =
+style=3D""><div style=3D"color:#5C5E62;font-size:14px;line-height:24px;tex=
+t-transform:uppercase;white-space:nowrap;font-weight:500;font-family:Robot=
+o-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Arial,sans-serif;">Bildirimler</div><a =
+style=3D"color:#1b74e4;text-decoration:none;margin-top:8px;display:block;" =
+href=3D"https://www.facebook.com/nd/?notifications%2F&amp;aref=3D177636676=
+0559883&amp;medium=3Demail&amp;mid=3D64f98542b0239G37fc8c8113acG64f989dc10=
+50bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&amp;n_m=3Dinf=
+o%40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO=
+28X-N9Yg&amp;lloc=3Dnum-all-unseen-notifications&amp;rms=3Dv2&amp;irms=3D1=
+"><table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td style=3D"font-size:11px;font-f=
+amily:Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Arial,sans-serif;background:#FFFFFF;border:solid 1px =
+#E8EAEE;border-radius:6px;padding:16px;display:block;"><table border=3D"0" =
+width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td valign=3D"top" style=3D""><img =
+width=3D"24px" =
+src=3D"https://static.xx.fbcdn.net/rsrc.php/v4/yT/r/6h4mlWaIRAh.png" =
+height=3D"24px" style=3D"border:0;display:block;" /></td><td width=3D"12" =
+style=3D"display:block;width:12px;">&nbsp;&nbsp;&nbsp;</td><td =
+width=3D"100%" style=3D""><table border=3D"0" width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td align=3D"left" =
+style=3D""><span class=3D"mb_text" style=3D"font-family:Roboto-Regular,Rob=
+oto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-s=
+erif;font-size:14px;line-height:18px;font-weight:400;color:#080809;"><b>68=
+</b> yeni bildirim</span></td></tr><tr style=3D""><td height=3D"2" =
+style=3D"line-height:2px;">&nbsp;</td></tr></table></td></tr></table></td>=
+</tr></table></a></div></td></tr><tr style=3D""><td height=3D"20" =
+style=3D"line-height:20px;">&nbsp;</td></tr></table></td><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr style=3D""><td =
+height=3D"0" style=3D"line-height:0px;">&nbsp;</td></tr><tr><td =
+align=3D"middle" style=3D""><a href=3D"https://www.facebook.com/nd/?notifi=
+cations%2F&amp;aref=3D1776366760559883&amp;medium=3Demail&amp;mid=3D64f985=
+42b0239G37fc8c8113acG64f989dc1050bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C=
+-VVp-yf4u4dy_D_aY&amp;n_m=3Dinfo%40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJc=
+cdXNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg&amp;lloc=3Dprimary_cta_view_notifi=
+cations&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;"><table border=3D"0" =
+width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:initial;"><tr><td style=3D"border-collapse:collap=
+se;border-radius:6px;text-align:center;display:block;background:#1877f2;pa=
+dding:8px 20px 8px 20px;"><a href=3D"https://www.facebook.com/nd/?notifica=
+tions%2F&amp;aref=3D1776366760559883&amp;medium=3Demail&amp;mid=3D64f98542=
+b0239G37fc8c8113acG64f989dc1050bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C-V=
+Vp-yf4u4dy_D_aY&amp;n_m=3Dinfo%40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccd=
+XNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg&amp;lloc=3Dprimary_cta_view_notifica=
+tions&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;display:block;"><center><font =
+size=3D"3"><span style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold=
+;vertical-align:middle;color:#FFFFFF;text-shadow:none;font-weight:500;font=
+-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Arial,sans-serif;font-size:17px;">Bildirimlerini&nbsp;g=C3=
+=B6r</span></font></center></a></td></tr></table></a></td></tr><tr =
+style=3D""><td height=3D"8" =
+style=3D"line-height:8px;">&nbsp;</td></tr><tr><td align=3D"middle" =
+style=3D""><a href=3D"https://www.facebook.com/nd/?aref=3D1776366760559883=
+&amp;medium=3Demail&amp;mid=3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b=
+&amp;bcode=3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&amp;n_m=3Dinfo%40gok=
+ceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Y=
+g&amp;lloc=3Dcta_feed_2nd&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;"><table border=3D"0" =
+width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:initial;"><tr><td style=3D"border-collapse:collap=
+se;border-radius:6px;text-align:center;display:block;background:#e4e6eb;pa=
+dding:8px 20px 8px 20px;"><a href=3D"https://www.facebook.com/nd/?aref=3D1=
+776366760559883&amp;medium=3Demail&amp;mid=3D64f98542b0239G37fc8c8113acG64=
+f989dc1050bG32b&amp;bcode=3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY&amp;n=
+_m=3Dinfo%40gokceozel.com.tr&amp;n_sg=3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6Yeo=
+lRMp5KIO28X-N9Yg&amp;lloc=3Dcta_feed_2nd&amp;rms=3Dv2&amp;irms=3D1" =
+style=3D"color:#1b74e4;text-decoration:none;display:block;"><center><font =
+size=3D"3"><span style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold=
+;vertical-align:middle;color:#080809;font-size:17px;text-shadow:none;font-=
+weight:500;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFo=
+nt,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:17px;">Facebook&#03=
+9;a&nbsp;Git</span></font></center></a></td></tr></table></a></td></tr><tr =
+style=3D""><td height=3D"8" style=3D"line-height:8px;">&nbsp;</td></tr><tr =
+style=3D""><td height=3D"42" =
+style=3D"line-height:42px;">&nbsp;</td></tr></table></td><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"left" =
+style=3D"border-collapse:collapse;"><tr><td =
+style=3D"font-size:14px;color:#5C5E62;"><span =
+style=3D"padding-right:12px;font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;">Bu e-posta hakk=C4=B1ndaki =
+d=C3=BC=C5=9F=C3=BCnceleriniz:</span><span style=3D"color:#141823;font-siz=
+e:14px;font-weight:normal;line-height:24px;font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;"><a =
+style=3D"color:#1b74e4;text-decoration:none;" href=3D"https://www.facebook=
+.com/email_notification_feedback/?is_useful=3D1&amp;next_href=3Dhttps%3A%2=
+F%2Fwww.facebook.com%2Fnd%2F%3Fnotifications%252F%26aref%3D177636676055988=
+3%26medium%3Demail%26mid%3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b%26=
+bcode%3D2.1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY%26n_m%3Dinfo%2540gokceoze=
+l.com.tr%26n_sg%3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg&amp;n=
+did=3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b">Yararl=C4=B1</a></span=
+><span style=3D"padding:0 12px;color:#D0D3D7;font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;"> | =
+</span><span style=3D"color:#141823;font-size:14px;font-weight:normal;line=
+-height:24px;font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;"><a =
+style=3D"color:#1b74e4;text-decoration:none;" href=3D"https://www.facebook=
+.com/email_notification_feedback/?is_useful=3D0&amp;next_href=3Dhttps%3A%2=
+F%2Fwww.facebook.com%2Fnd%2F%3Fhome.php%26aref%3D1776366760559883%26medium=
+%3Demail%26mid%3D64f98542b0239G37fc8c8113acG64f989dc1050bG32b%26bcode%3D2.=
+1776366765.Ab1vlDnB5C-VVp-yf4u4dy_D_aY%26n_m%3Dinfo%2540gokceozel.com.tr%2=
+6n_sg%3DQ6bPBAJ0LJccdXNogynVvTf4PxDLlY6YeolRMp5KIO28X-N9Yg%26lloc%3D2nd_ct=
+a%26rms%3Dv2%26irms%3D1&amp;ndid=3D64f98542b0239G37fc8c8113acG64f989dc1050=
+bG32b">Yararl=C4=B1 De=C4=9Fil</a></span></td></tr><tr style=3D""><td =
+height=3D"15" style=3D"line-height:15px;">&nbsp;</td></tr></table></td><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"left" style=3D"border-collapse:collapse;"><tr =
+style=3D"border-top:solid 1px #e5e5e5;"><td height=3D"19" =
+style=3D"line-height:19px;">&nbsp;</td></tr><tr><td style=3D"font-family:R=
+oboto-Regular,Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Arial,sans-serif;font-size:11px;color:#84878B;line-height:1=
+6px;font-weight:400;">Bu mesaj <a =
+href=3D"mailto:info&#064;gokceozel.com.tr" style=3D"color:#1b74e4;text-dec=
+oration:none;">info&#064;gokceozel.com.tr</a> adresine =
+g=C3=B6nderilmi=C5=9Ftir. Gelecekte Meta&#039;dan bu t=C3=BCr e-postalar =
+almak istemiyorsan=C4=B1z, <a href=3D"https://www.facebook.com/o.php?k=3DA=
+e8Hl-S2zJP7Fs8i4VQ&amp;u=3D61557828555692&amp;mid=3D64f98542b0239G37fc8c81=
+13acG64f989dc1050bG32b&amp;ee=3DAQDwi8fbMNat1dUycoTpDHG6VDtiPcBDlkxu8wNzbm=
+u7hDdH3MPM0QF1Yhm-JPTJ9DLSfCk9cXx1ldIWT4fr" =
+style=3D"color:#1b74e4;text-decoration:none;">buraya t=C4=B1klayarak =
+abonelikten =C3=A7=C4=B1kabilirsiniz</a>.<br />Meta Platforms, Inc., =
+Attention: Community Support, 1 Meta Way, Menlo Park, CA =
+94025</td></tr></table></td><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr><td =
+style=3D"font-family:Roboto-Regular,Roboto,-apple-system,BlinkMacSystemFon=
+t,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:11px;color:#84878B;l=
+ine-height:16px;font-weight:400;"><span class=3D"mb_text" =
+style=3D"font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana=
+,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;;font-fami=
+ly:Roboto-Regular,Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Arial,sans-serif;font-size:11px;color:#84878B;line-height:1=
+6px;font-weight:400;">Profilinizi g=C3=BCvende tutmak i=C3=A7in =
+l=C3=BCtfen bu e-postay=C4=B1 iletmeyin. <a =
+style=3D"color:#1b74e4;text-decoration:none;" href=3D"https://www.facebook=
+.com/email_forward_notice/?mid=3D64f98542b0239G37fc8c8113acG64f989dc1050bG=
+32b">Daha fazla bilgi al</a></span></td></tr></table></td><td width=3D"16" =
+style=3D"display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td></tr><tr =
+style=3D""><td height=3D"20" style=3D"line-height:20px;" =
+colspan=3D"3">&nbsp;</td></tr></table><span style=3D""><img =
+src=3D"https://www.facebook.com/email_open_log_pic.php?mid=3D64f98542b0239=
+G37fc8c8113acG64f989dc1050bG32b" style=3D"border:0;width:1px;height:1px;" =
+/></span></td></tr></table></body></td></tr></table></td></tr></table></ht=
+ml>
+
+
+
+--b1_0f23e801749680d717484748b5bd672c--
+

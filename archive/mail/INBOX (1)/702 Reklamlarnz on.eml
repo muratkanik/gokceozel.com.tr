@@ -1,0 +1,629 @@
+Return-path: <noreply@business-updates.facebook.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 13 Apr 2026 17:45:33 +0300
+Received: from 66-220-144-147.mail-mail.facebook.com ([66.220.144.147])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <noreply@business-updates.facebook.com>)
+	id 1wCIXb-00AyZV-3C
+	for info@gokceozel.com.tr;
+	Mon, 13 Apr 2026 17:45:33 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=business-updates.facebook.com; s=s2048-2025-q2; t=1776091529;
+	bh=+qYQPDFTVpKzoJt/ki0qwMzjESg6iS3BxwQpBtq9NSs=;
+	h=Date:To:Subject:From:MIME-Version:Content-Type;
+	b=n8GA2+L+n4yXVWbjObeeiPBDu8XF1ZAInXAbeETT6aSLpM033Z8kSVz9K+Egjls4D
+	 z2kCHpNbvCD5Mz0uCuTEXGOg95Dk5PrkOWVBUS4BvZabQ4H76YgCZCe/e9FPH8dMQ8
+	 S0eyRWdwqh+Ep6QuB/iQWQtUsbyKUZA4NfZv+d18rEtKvP7r9psowShm29WZ5I24oq
+	 CCPVaTuPzcLhszEWm2u50yiEpyBk7WiXQ0x6LYbTkpGPaObUWbrLwZ7Jf5svIINI/O
+	 2bY5uyYLAKorbo4pjtLskUHrHb2ruPUEQ/C5QkpD11Wmolx14cK4N7ZWTPhUCmqipB
+	 1v7gLg62GW52g==
+X-Facebook: from 2803:6084:50c0:a334:d972:deb:14d8:a00 ([MTI3LjAuMC4x]) 
+	by thrift.internalfb.com with HTTPS (ZuckMail);
+Date: Mon, 13 Apr 2026 07:45:29 -0700
+To: =?UTF-8?B?R8O2a8OnZSDDlnplbA==?= <info@gokceozel.com.tr>
+Subject: =?UTF-8?B?UmVrbGFtbGFyxLFuxLF6IG8=?=
+ =?UTF-8?B?bmF5bGFuZMSx?=
+X-Priority: 3
+X-Mailer: ZuckMail [version 1.00]
+From: "Meta for Business" <noreply@business-updates.facebook.com>
+Reply-to: Meta for Business <noreply@business-updates.facebook.com>
+Errors-To: noreply@business-updates.facebook.com
+X-Facebook-Notify: aymt_ad_group_ad_review_decision_tip_v2_email:aymt_ad_group_ad_review_decision_tip_v2; mailid=U1U64f583ef592a9G37fc8c8113acG64f58888b957bG7e57
+List-Unsubscribe: <https://facebook.com/ads/manager/account/settings/?act=23849517803910786>
+X-FB-Internal-Notiftype: aymt_ad_group_ad_review_decision_tip_v2_email:aymt_ad_group_ad_review_decision_tip_v2
+BIMI-Selector: v=BIMI1; s=default;
+Feedback-ID: aymt_ad_group_ad_review_decision_tip_v2_email:Facebook
+X-FB-Internal-MID: U1U64f583ef592a9G37fc8c8113acG64f58888b957bG7e57
+X-FB-Internal-NotifID: 1776091526829435
+X-FB-Internal-RecipID: 61557828555692
+X-FACEBOOK-PRIORITY: 0
+X-Auto-Response-Suppress: All
+Require-Recipient-Valid-Since: info@gokceozel.com.tr; Monday,  8 Apr 2024 12:29:46 +0000
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+Message-ID: <eecfbe53-5f1f-48cb-9b31-7dd701db0bb2@business-updates.facebook.com>
+X-Spam-Score: 2
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Meta for Business Reklamlarınız onaylandı ve yakında
+   veya planlandığı tarihte yayınlanmaya başlayacaktır. ‌ 
+ 
+ Content analysis details:   (0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 TVD_RCVD_IP            Message was received from an IP address
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [66.220.144.147 listed in wl.mailspike.net]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.2 HELO_MISC_IP           Looking for more Dynamic IP Relays
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                         [66.220.144.147 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [66.220.144.147 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [66.220.144.147 listed in bl.score.senderscore.com]
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3DUTF-8" /><meta name=3D"viewport" =
+content=3D"width=3Ddevice-width, initial-scale=3D1.0" /><meta =
+name=3D"color-scheme" content=3D"light dark" /><meta =
+name=3D"supported-color-schemes" content=3D"light dark" /><meta =
+name=3D"x-apple-disable-message-reformatting" /><title>Meta for =
+Business</title></head><style type=3D"text/css" nonce=3D"Ss4mEiNt">
+      :root {
+        Color-scheme: light dark;
+        supported-color-schemes:light dark;
+      }
+       /* Override Android Gmail */
+      u + .body .tp_header {
+        mix-blend-mode:screen;
+      }
+
+      u + .body tp_header_div {
+        mix-blend-mode:difference;
+      }
+
+     =20
+        @font-face {
+          font-family: 'Optimistic Text Normal';
+          font-style: normal;
+          font-weight: normal;
+          src: =
+url(https://static.xx.fbcdn.net/rsrc.php/yd/r/vu9QUYy2ngT.woff2) =
+format('woff2')
+        }
+
+        @font-face {
+          font-family: 'Optimistic Display';
+          font-style: normal;
+          font-weight: normal;
+          src: =
+url(https://static.xx.fbcdn.net/rsrc.php/yL/r/jfwoHaS3i0K.woff2) =
+format('woff2')
+        }
+       =20
+
+      a {
+        color: #344854;
+      }
+
+      ul {
+        color: inherit !important;
+        list-style-type: disc !important;
+      }
+
+      .tp_headline {
+          color: #1C2B33;
+        }
+
+        .dark-image {
+          display: none;
+          mso-hide: all;
+        }
+
+        [data-ogsb] .tp_content .bg_meta-gray, .tp_content .bg_meta-gray {
+          background-color: #F1F4F7;
+        }
+
+        [data-ogsb] .tp_content .bg_fb-gray, .tp_content .bg_fb-gray {
+          background-color: #FBF9F6;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-gray, .tp_content .bg_ig-gray {
+          background-color: #F1F4F7;
+        }
+
+        [data-ogsb] .tp_content .bg_ws-gray, .tp_content .bg_ws-gray{
+          background-color: #FCF5EB;
+        }
+
+        [data-ogsb] .tp_content .bg_msg-gray, .tp_content .bg_msg-gray {
+          background-color: #F8F8F8;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-orange, .tp_content .bg_ig-orange {
+          background-color: #FF7A00;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-pink, .tp_content .bg_ig-pink {
+          background-color: #FF0069;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-purple, .tp_content .bg_ig-purple {
+          background-color: #7638FA;
+        }
+
+      @media (prefers-color-scheme: dark ) {
+        /* Override body bg in dark mode */
+
+        a {
+          color: #FFF;
+        }
+
+        .tp_body {
+          background-color: #283943 !important;
+          color: #F1F4F7;
+        }
+
+        .tp_content table,
+        .tp_content td {
+          background-color: #1C2B33 !important;
+          color: #F1F4F7;
+        }
+
+        .tp_content h1,
+        .tp_content h2,
+        .tp_content p,
+        .tp_content span,
+        .tp_content .tp_paragraph,
+        .tp_content b,
+        .tp_content div,
+        .tp_headline {
+          color: #F1F4F7 !important;
+        }
+
+        .tp_content .email-table,
+        .tp_content .email-table table,
+        .tp_content .email-table td {
+          background: #344854 !important;
+        }
+
+        .tp_header {
+          background-color: #323232 !important;
+          display: none !important;
+        }
+        .tp_dark-header {
+          background-color: #283943 !important;
+          display: block !important;
+        }
+
+        .tp_dark-header .dark-image,
+        .tp_header .light-image {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tp_dark-header .dark-image {
+          background: none !important;
+        }
+
+        .tp_footer{
+          background-color: #283943 !important;
+          color: #F1F4F7 !important;
+        }
+
+        /* Shows dark mode images */
+        .dark-image {
+          display: block !important;
+        }
+
+        /* Hides light mode images */
+        .light-image {
+          display: none !important;
+        }
+
+        [data-ogsb] .tp_content .bg_meta-gray,
+        [data-ogsb] .tp_content .bg_meta-gray td,
+        .tp_content .bg_meta-gray td,
+        .tp_content .bg_meta-gray {
+          background-color: #344854 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_fb-gray,
+        [data-ogsb] .tp_content .bg_fb-gray td,
+        .tp_content .bg_fb-gray, .tp_content .bg_fb-gray td, {
+          background-color: #303030 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-gray,
+        [data-ogsb] .tp_content .bg_ig-gray td,
+        .tp_content .bg_ig-gray, .tp_content .bg_ig-gray td {
+          background-color: #262626 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_ws-gray,
+        [data-ogsb] .tp_content .bg_ws-gray td,
+        .tp_content .bg_ws-gray,
+        .tp_content .bg_ws-gray td{
+          background-color: #111B21 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_msg-gray,
+        [data-ogsb] .tp_content .bg_msg-gray td,
+        .tp_content .bg_msg-gray, .tp_content .bg_msg-gray td {
+          background-color: #303030 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-orange,
+        [data-ogsb] .tp_content .bg_ig-orange td,
+        .tp_content .bg_ig-orange, .tp_content .bg_ig-orange td {
+          background-color: #FF7A00 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-pink,
+        [data-ogsb] .tp_content .bg_ig-pink td,
+        .tp_content .bg_ig-pink, .tp_content .bg_ig-pink td {
+          background-color: #FF0069 !important;
+        }
+
+        [data-ogsb] .tp_content .bg_ig-purple,
+        [data-ogsb] .tp_content .bg_ig-purple td,
+        .tp_content .bg_ig-purple, .tp_content .bg_ig-purple td {
+          background-color: #7638FA !important;
+        }
+
+        .tp_content .tp_button {
+          background: #0064E0 !important;
+        }
+
+        .tp_content .tp_link {
+          color: #FFF !important;;
+        }
+
+        .tp_content .tp_button.no-fill {
+          background: inherit !important;
+        }
+
+        .tp_content .tp_button td, .tp_button td {
+          background: none !important;
+          background-color: inherit !important;
+          color: #F1F4F7 !important
+        }
+
+        .tp_content .tp_button a {
+          color: #F1F4F7 !important
+        }
+
+      }
+
+      [data-ogsb] .tp_header {
+        display: none !important;
+      }
+
+      [data-ogsb] .tp_dark-header {
+        display: block !important;
+      }
+
+      [data-ogsc] .tp_body {
+        background-color: #283943 !important;
+        color: #FFF;
+      }
+
+      [data-ogsc] .dark-image {
+            display: block !important;
+            margin-left: auto;
+            margin-right: auto;
+      };
+      [data-ogsc] .light-image {
+              display: none !important;
+              margin-left: auto;
+              margin-right: auto;
+      };</style><body style=3D"padding:0;"><table align=3D"center" =
+style=3D"background-color:#e9ebee;width:100%;max-width:100%;min-width:100%=
+;" class=3D"tp_body" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%"><tr align=3D"center"><td =
+style=3D"width:100%;height:32px"></td></tr><tr align=3D"center"><td =
+align=3D"center" class=3D"tp_body_content"><!--[if (gte mso 9)|(IE)]>
+                <table
+                  align=3D"center"
+                  border=3D"0"
+                  cellspacing=3D"0"
+                  cellpadding=3D"0"
+                  width=3D"600">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" width=3D"600">
+                <![endif]--><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"background-color:#e9ebee;min-width:360px;max-wi=
+dth:600px;width:100%;" width=3D"100%"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"display:none; font-size:1px; =
+color:#1C2B33; line-height:1px; max-height:0px; max-width:0px; opacity:0; =
+overflow:hidden;background-color: #fff;" =
+width=3D"100%"><tr><td>Reklamlar=C4=B1n=C4=B1z onayland=C4=B1 ve =
+yak=C4=B1nda veya planland=C4=B1=C4=9F=C4=B1 tarihte yay=C4=B1nlanmaya =
+ba=C5=9Flayacakt=C4=B1r. =C2=A0=E2=80=8C </td></tr></table><table =
+align=3D"center" style=3D"max-width:600px;width:100%;" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0"><tr align=3D"center"><td =
+style=3D"max-width:600px;padding:50px 40px 40px 40px;width:100%;color: =
+#000000;background-color:#FFFFFF;padding:0;background-color:#e9ebee; =
+background-image:linear-gradient(#e9ebee,#e9ebee);"><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"width:100%;"><tr align=3D"center"><td style=3D"text-align:center;=
+border-spacing:0;color:#1C2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;background-color:&#123;$temp_str_6809=
+99&#125;;" class=3D"tp_header"><div class=3D"tp_header_div" =
+style=3D"background-color:&#123;$temp_str_680999&#125;;"><img =
+width=3D"150" height=3D"" src=3D"https://scontent.fadb7-1.fna.fbcdn.net/v/=
+t39.2365-6/280475574_1857876887745445_6470974999292770004_n.png?_nc_cat=3D=
+1&amp;ccb=3D1-7&amp;_nc_sid=3De280be&amp;_nc_ohc=3D08pzvh84ASYQ7kNvwERvwEe=
+&amp;_nc_oc=3DAdpOMgR7Xzpm3Gwy3oP2YoOFD5gCcmyXFMy2yVMMBpV25n6ckcw-NKSKkYuM=
+VcgSdxI&amp;_nc_ad=3Dz-m&amp;_nc_cid=3D0&amp;_nc_zt=3D14&amp;_nc_ht=3Dscon=
+tent.fadb7-1.fna&amp;_nc_gid=3Dj-cXvr8ubxt_Xk0tykFbVw&amp;_nc_ss=3D7a30f&a=
+mp;oh=3D00_Af1w7TU-LdWvRV5diVjsCuNxp46d7TxeRnVauPDzK6IHvQ&amp;oe=3D69F7509=
+7" style=3D"border:0;max-width:100%;" alt=3D"Header" class=3D"light-image" =
+title=3D"Image" /></div></td></tr><tr align=3D"center"><td =
+style=3D"width:100%;height:0;"></td></tr></table><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;"><tr =
+align=3D"center"><td style=3D"text-align:center;border-spacing:0;color:#1C=
+2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;display: none; mso-hide: all;" =
+class=3D"tp_dark-header"><img width=3D"150" height=3D"" =
+src=3D"https://scontent.fadb7-1.fna.fbcdn.net/v/t39.2365-6/326176500_70809=
+8454042810_6679550825613370363_n.png?_nc_cat=3D1&amp;ccb=3D1-7&amp;_nc_sid=
+=3De280be&amp;_nc_ohc=3DzZKCymfAqFMQ7kNvwEpfelf&amp;_nc_oc=3DAdrhLIcNBhbOW=
+LmZLR6b8pmj9fYZgLGk_VHMbOigDNxFOJPu8XHybLYzPDgsTfmMi1M&amp;_nc_ad=3Dz-m&am=
+p;_nc_cid=3D0&amp;_nc_zt=3D14&amp;_nc_ht=3Dscontent.fadb7-1.fna&amp;_nc_gi=
+d=3Dj-cXvr8ubxt_Xk0tykFbVw&amp;_nc_ss=3D7a30f&amp;oh=3D00_Af0jKCgYfLJbsf5e=
+R13SRYQap8mhFTqzkz5hCZkN3GLStw&amp;oe=3D69F73883" =
+style=3D"border:0;max-width:100%;" alt=3D"Header" class=3D"dark-image" =
+title=3D"Image" /></td></tr><tr align=3D"center"><td =
+style=3D"width:100%;height:0;"></td></tr></table></td></tr><tr =
+align=3D"center"><td =
+style=3D"width:100%;height:21px;"></td></tr></table><div =
+class=3D"tp_content"><table align=3D"center" =
+style=3D"max-width:600px;width:100%;" cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0"><tr align=3D"center"><td =
+style=3D"max-width:600px;padding:50px 40px 40px 40px;width:100%;color: =
+#000000;background-color:#FFFFFF;background-color:#ffffff; padding:40px =
+32px 10px 32px"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"width:100%;"><tr align=3D"center"><td =
+style=3D"border-spacing:0;color:#1C2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;text-align:left;font-size:27px;font-f=
+amily:ArialMT, Arial, =
+sans-serif;;font-weight:light;line-height:36px;font-family: Roboto, Arial, =
+Helvetica, Trebuchet MS, Verdana; font-size: 28px; line-height: 32px; =
+letter-spacing: 0.36px; color: #050505;" =
+class=3D"tp_headline">Reklamlar=C4=B1n=C4=B1z onayland=C4=B1</td></tr><tr =
+align=3D"center"><td =
+style=3D"width:100%;height:30px;"></td></tr></table><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"width:100%;"><tr align=3D"center"><td style=3D"text-align:left;bo=
+rder-spacing:0;color:#1C2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;line-height:24px;" =
+class=3D"tp_text-dynamic"><div style=3D"font-family: Roboto, Arial, =
+Helvetica, Trebuchet MS, Verdana"><div style=3D"font-size: 15px; =
+line-height: 20px; letter-spacing:-0.24px; color: #050505;"> Merhaba =
+Reklam, <div><p style=3D"margin-top:24px; =
+margin-bottom:24px;">Reklamlar=C4=B1n=C4=B1z onayland=C4=B1 ve =
+yak=C4=B1nda yay=C4=B1nlanmaya ba=C5=9Flayacak. Reklamlar=C4=B1 =
+y=C3=B6netmek veya performanslar=C4=B1n=C4=B1 g=C3=B6rmek i=C3=A7in =
+a=C5=9Fa=C4=9F=C4=B1da Reklamlar=C4=B1 G=C3=B6r&#039;e =
+t=C4=B1klay=C4=B1n.</p></div></div><div style=3D"font-size: 17px; =
+line-height: 20px;"><a href=3D"https://business.facebook.com/aymt/offsite/=
+?c=3D25176274215379564&amp;t=3D7068561283181292&amp;p=3DCTA_MAIN&amp;n=3D1=
+776091526829435&amp;m=3DASaTbKkY978L5AdoRjZmiETzTWg&amp;b=3DL2Fkc21hbmFnZX=
+IvbWFuYWdlL2Fkcz9hY3Q9MjM4NDk1MTc4MDM5MTA3ODYmbmF2X3NvdXJjZT1lbWFpbF9hZF9y=
+ZXZpZXcmc2VsZWN0ZWRfYWRfaWRzPTEyMDI0NDUwODA5NTg1MDc4NyUyQzEyMDI0NDUwODA5NT=
+g0MDc4Nw%3D%3D" style=3D"color:#1b74e4;text-decoration:none;"><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:initial;"><tr><td style=3D"border-collapse:collap=
+se;border-radius:6px;text-align:center;display:block;background:#1877f2;pa=
+dding:8px 16px 10px 16px;"><a href=3D"https://business.facebook.com/aymt/o=
+ffsite/?c=3D25176274215379564&amp;t=3D7068561283181292&amp;p=3DCTA_MAIN&am=
+p;n=3D1776091526829435&amp;m=3DASaTbKkY978L5AdoRjZmiETzTWg&amp;b=3DL2Fkc21=
+hbmFnZXIvbWFuYWdlL2Fkcz9hY3Q9MjM4NDk1MTc4MDM5MTA3ODYmbmF2X3NvdXJjZT1lbWFpb=
+F9hZF9yZXZpZXcmc2VsZWN0ZWRfYWRfaWRzPTEyMDI0NDUwODA5NTg1MDc4NyUyQzEyMDI0NDU=
+wODA5NTg0MDc4Nw%3D%3D" =
+style=3D"color:#1b74e4;text-decoration:none;display:block;"><center><font =
+size=3D"3"><span style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold=
+;vertical-align:middle;color:#FFFFFF;text-shadow:none;font-weight:500;font=
+-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:14p=
+x;line-height:14px;">Reklamlar=C4=B1&nbsp;g=C3=B6r</span></font></center><=
+/a></td></tr></table></a><div style=3D"margin-bottom: 32px; margin-top: =
+32px; height: 1px; background: #C9CCD1;"></div></div><div><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td =
+style=3D"vertical-align:top;width:1%;"><div style=3D"min-width:24px; =
+max-width:24px; width: 24px;"><img =
+src=3D"https://static.xx.fbcdn.net/rsrc.php/v4/ye/r/7MAnaQHy6RW.png" =
+style=3D"border:0;" /></div></td><td style=3D"width:8px;"></td><td =
+style=3D"vertical-align:top;"><div><div style=3D"font-size: 20px; =
+line-height: 24px; letter-spacing: 0.38px; color: =
+#050505;"><b>Onaylanm=C4=B1=C5=9F</b></div><div style=3D"font-size: 17px; =
+line-height: 20px; letter-spacing: -0.41px; color: #65676B;">Bu 2 reklam =
+planland=C4=B1 veya =
+yay=C4=B1nlan=C4=B1yor</div></div></td></tr></table><div =
+style=3D"padding-bottom: 16px"></div><div><div style=3D"background: =
+#F0F2F5; border-radius: 8px;"><div style=3D"padding: 16px;"><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td =
+style=3D"vertical-align:top;width:1%;"><div style=3D"border: 1px solid =
+#d8dadd; box-sizing: border-box; border-radius: 8px; overflow: hidden; =
+height: 62px; width: 62px; min-width: 62px;"><a href=3D"https://business.f=
+acebook.com/aymt/offsite/?c=3D25176274215379564&amp;t=3D7068561283181292&a=
+mp;p=3Dreview_decision_ad&amp;n=3D1776091526829435&amp;m=3DASaF1i_KcdtS-Db=
+YjNClNJnhbsA&amp;b=3DaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2Fkcy9tYW5hZ2UvZGVsZ=
+WdhdGUvYWRncm91cC8%2FYWRncm91cF9pZD0xMjAyNDQ1MDgwOTU4NTA3ODcmcmVmZXJyZXI9Z=
+W1haWxfYWRfcmV2aWV3Jm5hdl9zb3VyY2U9ZW1haWxfYWRfcmV2aWV3" =
+style=3D"color:#1b74e4;text-decoration:none;"><div style=3D"display: =
+inline-block; height: 60px; width: 60px; background-image: =
+url(https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/G2emNENTln_.png); =
+background-size: cover; background-position: center center; =
+background-repeat: no-repeat; min-width:60px; min-height:60px;"><img =
+width=3D"60" height=3D"60" src=3D"data:image/gif;base64,R0lGODlhAQABAIAAAA=
+AAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style=3D"background-image: =
+url(https://www.facebook.com/ads/image/?d=3DAQJ8KiP7wuK21hCx52VcjehEYU_ZVl=
+tSmH7Ojlf-0MYVvUaqESY_cCWCuJzbunwhyxECvCFY5d7l4E98uXTgieqlN6xyKhlZNnlzWKlQ=
+ZI0RaYbxNUf9kwdpTTBWvIX19-VDKXOwos0t5JD1evlJ1eJg); background-size: cover; =
+background-position: center center; background-repeat: no-repeat; =
+min-width:60px; min-height:60px;" /></div></a></div></td><td =
+style=3D"width:12px;"></td><td style=3D"vertical-align:top;"><div><div =
+style=3D"font-size: 17px; line-height: 20px; letter-spacing: -0.41px; =
+color: #050505; overflow: hidden; text-overflow: ellipsis; max-height: =
+20px; word-break: break-all">ADS 2</div><div style=3D"padding-bottom: =
+2px"></div><div style=3D"font-size: 15px; line-height: 20px; =
+letter-spacing: -0.24px; color: #65676B; overflow: hidden; text-overflow: =
+ellipsis; max-height: 40px; word-break: break-all">Female patient =
+=E2=80=94 6-month rhinoplasty result.
+She initially had nasal obstruction and a visibly deviated nose.
+At 6 months, she achieved both comfortable breathing and a well-aligned, =
+harmonious nasal contour.
+
+#Rhinoplasty #FunctionalRhinoplasty #NasalAesthetics #FacialHarmony =
+#6MonthResult
+
+=E2=80=A2 This informational content has been shared without any =
+additional commentary, in accordance with the Regulation on Promotional =
+and Informational Activities in Healthcare Services published in the =
+Official Gazette dated July 29, 2023 (No. 32263).
+=E2=80=A2 The content of this page is intended solely to inform third =
+parties about healthcare services, without any advertising, guidance, or =
+competitive purpose.
+Medical procedures may vary from person to person.
+Shared with the consent of the patient.
+For detailed information, examination, diagnosis,
+and treatment, please consult your =
+physician.</div></div></td></tr></table></div><div></div></div><div =
+style=3D"padding-bottom: 16px"></div><div style=3D"background: #F0F2F5; =
+border-radius: 8px;"><div style=3D"padding: 16px;"><table border=3D"0" =
+width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr><td =
+style=3D"vertical-align:top;width:1%;"><div style=3D"border: 1px solid =
+#d8dadd; box-sizing: border-box; border-radius: 8px; overflow: hidden; =
+height: 62px; width: 62px; min-width: 62px;"><a href=3D"https://business.f=
+acebook.com/aymt/offsite/?c=3D25176274215379564&amp;t=3D7068561283181292&a=
+mp;p=3Dreview_decision_ad&amp;n=3D1776091526829435&amp;m=3DASbHOiokNXFbi1j=
+ghwPsAMMEpes&amp;b=3DaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2Fkcy9tYW5hZ2UvZGVsZ=
+WdhdGUvYWRncm91cC8%2FYWRncm91cF9pZD0xMjAyNDQ1MDgwOTU4NDA3ODcmcmVmZXJyZXI9Z=
+W1haWxfYWRfcmV2aWV3Jm5hdl9zb3VyY2U9ZW1haWxfYWRfcmV2aWV3" =
+style=3D"color:#1b74e4;text-decoration:none;"><div style=3D"display: =
+inline-block; height: 60px; width: 60px; background-image: =
+url(https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/G2emNENTln_.png); =
+background-size: cover; background-position: center center; =
+background-repeat: no-repeat; min-width:60px; min-height:60px;"><img =
+width=3D"60" height=3D"60" src=3D"data:image/gif;base64,R0lGODlhAQABAIAAAA=
+AAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style=3D"background-image: =
+url(https://www.facebook.com/ads/image/?d=3DAQIk82DnUxL2TSXW9gv54f6X7zxp4_=
+CCnHN8lay9tf7OrJtSgBKsTe4DKdTans1V1ScYCebcCvaN_iX1an827V8NcI9hI0xllSeG_cKd=
+ywOAXrAGZfJoCj6gEqk7k31kFdAaFxbTawpVzXxNfHnRKOng); background-size: cover; =
+background-position: center center; background-repeat: no-repeat; =
+min-width:60px; min-height:60px;" /></div></a></div></td><td =
+style=3D"width:12px;"></td><td style=3D"vertical-align:top;"><div><div =
+style=3D"font-size: 17px; line-height: 20px; letter-spacing: -0.41px; =
+color: #050505; overflow: hidden; text-overflow: ellipsis; max-height: =
+20px; word-break: break-all">ADS 1</div><div style=3D"padding-bottom: =
+2px"></div><div style=3D"font-size: 15px; line-height: 20px; =
+letter-spacing: -0.24px; color: #65676B; overflow: hidden; text-overflow: =
+ellipsis; max-height: 40px; word-break: break-all">Profile Perfection is =
+about creating harmony between your nose and the rest of your facial =
+features. Rhinoplasty is carefully planned to enhance your natural =
+appearance while preserving your unique identity.
+
+Each procedure is fully personalized based on your facial anatomy, skin =
+structure, and aesthetic goals. The objective is not to create an =
+artificial look, but to achieve balance, symmetry, and elegance.
+
+Advanced surgical techniques allow for precise refinement of the nasal =
+bridge, tip, and overall contour. Both aesthetic improvement and =
+functional breathing can be addressed during the same procedure when =
+needed.=20
+
+The process begins with a detailed consultation and analysis to design the =
+most suitable outcome for your face. Every step is performed with a focus =
+on safety, precision, and long-term stability.
+
+The result is a refined, natural-looking profile that blends seamlessly =
+with your facial features. Profile Perfection is not about changing who =
+you are =E2=80=94 it is about revealing your best, most balanced =
+version.</div></div></td></tr></table></div><div></div></div></div><div></=
+div></div><div style=3D"margin-bottom: 32px; margin-top: 32px; height: =
+1px; background: =
+#C9CCD1;"></div><div></div><div></div><div></div></div></td></tr><tr =
+align=3D"center"><td =
+style=3D"width:100%;height:30px;"></td></tr></table></td></tr><tr =
+align=3D"center"><td =
+style=3D"width:100%;height:5px;"></td></tr></table></div><table =
+style=3D"width:100%;" align=3D"center"><tr align=3D"center"><td><table =
+align=3D"center" style=3D"max-width:600px;width:100%;" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0"><tr align=3D"center"><td =
+style=3D"max-width:600px;padding:50px 40px 40px 40px;width:100%;color: =
+#000000;background-color:#e9ebee;padding:24px 0px 64px 0px;" =
+class=3D"tp_footer"><table align=3D"center" =
+style=3D"max-width:600px;width:100%;" cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0"><tr align=3D"center"><td =
+style=3D"max-width:600px;padding:50px 40px 40px 40px;width:100%;color: =
+#000000;background-color:inherit;padding:0;" class=3D"tp_footer"><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"width:100%;"><tr align=3D"center"><td =
+style=3D"border-spacing:0;color:#1C2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;color:#67788A;font-size:12px;font-wei=
+ght:400;line-height:18px;font-family:Optimistic Text Normal, Helvetica, =
+Helvetica Neue, Arial, sans-serif;padding:0px;text-align:center;">Bu =
+e-posta gerekli g=C3=BCncellemelerle birlikte <a style=3D"color:#1b74e4;te=
+xt-decoration:none;">info&#064;gokceozel.com.tr</a> adresine =
+g=C3=B6nderildi.</td></tr><tr align=3D"center"><td =
+style=3D"width:100%;height:0px;"></td></tr></table></td></tr><tr =
+align=3D"center"><td =
+style=3D"width:100%;height:0px;"></td></tr></table><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;"><tr =
+align=3D"center"><td =
+style=3D"border-spacing:0;color:#1C2B33;font-family:ArialMT, Arial, =
+sans-serif;font-size:15px;width:100%;color:#67788A;font-size:12px;font-wei=
+ght:400;line-height:18px;font-family:Optimistic Text Normal, Helvetica, =
+Helvetica Neue, Arial, sans-serif;padding:0 20px;text-align:center;"><p =
+style=3D"color:#67788A;font-size:12px;font-weight:400;line-height:18px;fon=
+t-family:Optimistic Text Normal, Helvetica, Helvetica Neue, Arial, =
+sans-serif;text-align: center;"><span><a =
+href=3D"https://www.facebook.com/business/help/" =
+style=3D"color:#1b74e4;text-decoration:none;">Meta =C4=B0=C5=9Fletme =
+Yard=C4=B1m Merkezi</a></span></p>=C2=A9 2026 Meta. Meta Platforms, Inc., =
+1601 Willow Rd. Menlo Park, CA 94025</td></tr><tr align=3D"center"><td =
+style=3D"width:100%;height:0px;"></td></tr></table></td></tr><tr =
+align=3D"center"><td style=3D"width:100%;height:0px;"></td></tr></table></=
+td></tr></table></table><!--[if (gte mso 9)|(IE)]>
+                    </td>
+                  </tr>
+                </table>
+                <![endif]--></td></tr><tr align=3D"center"><td =
+style=3D"width:100%;height:32px"></td></tr><tr><td><span style=3D""><img =
+src=3D"https://facebook.com/aymt/aa/?e=3D%7B%22c%22%3A%22z02f_coj__o%3D9y%=
+22%2C%22t%22%3A%22f0f9sf_26c2tyy%22%2C%22n%22%3A%22vpdkw-mkuw-1m%22%7D" =
+style=3D"border:0;width:1px;height:1px;" =
+/></span></td></tr></table></body></html>
+

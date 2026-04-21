@@ -1,0 +1,181 @@
+Return-path: <serap.kelkit@skillon.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Sat, 18 Apr 2026 01:50:45 +0300
+Received: from s5.skillon.com.tr ([31.210.69.215])
+	by eyalcin.com.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <serap.kelkit@skillon.com.tr>)
+	id 1wDs1L-00EotR-2c
+	for info@gokceozel.com.tr;
+	Sat, 18 Apr 2026 01:50:45 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; d=skillon.com.tr;
+ h=From:Subject:To:Content-Type:MIME-Version:Date:Message-ID;
+ i=serap.kelkit@skillon.com.tr;
+ bh=tOCz9uvaHTtwomh6dwZHDafyaoVNcsp7pnB3AyMuSa8=;
+ b=oP3XjXa/A5s87YpWYxLLpgdPOB8LY9M6kyiUqVlciT1vqmS48O52mzlqoRgS2OSR/EEjbncyLFDd
+   rfeSL4B8AudKtKOLC3bnRdQmsXr5Gu1CqRpGNfODgTTeuZDWjCCnp1w0q8IHHCebsMfq47rxvFHY
+   i67o+yrcj3c1+nkSYgAIZcxDNa3TiAkiij9NftyWavr4hw0k0ru482zWqgP+mirpvaPbpJgXv2KV
+   9hqPjB+IESudKIdWKaYOKW8FmMpPrdkanxbX8WhjYEuqCLp+AG8yFPW7y2weiG9Ckp94PjkE4s1T
+   uSdLAMl2slsoYejrpXroNCLlGHpVHcUTak+CdQ==
+From: "Serap Kelkit" <serap.kelkit@skillon.com.tr>
+Subject:
+ =?utf-8?B?MjIgTmlzYW4gfCBLRVAsIFNHSyB2ZSBGZXNpaCBTw7xyZcOnbGVyaW5kZSBHw7xuY2VsIFV5Z3VsYW1hIFJlaGJlcmk=?=
+To: "info" <info@gokceozel.com.tr>
+Content-Type: multipart/alternative; boundary="=_osQD3LRIRM43T5LmCUcLtoMORrXxJXdg"
+MIME-Version: 1.0
+Date: Sat, 18 Apr 2026 01:50:42 +0300
+Message-ID: <0.0.1.72.1DCCEBC9E9468DC.0@s5.skillon.com.tr>
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, Dijitalleşen İK süreçlerinde KEP kullanımı,
+    bordrolama, fesih yönetimi ve SGK bildirimleri artık daha fazla dikkat
+   ve güncel bilgi gerektiriyor. Bu kapsamda, SGK Eski Baş Müfettişi Sn.
+   İsa Karakaş tarafından gerçekleştirilecek Dijital İş Kanunu & Yeni
+   Nesil İK Yönetimi: KEP, Bordrolama, Fesih Stratejileri ve SGK Bildirimleri
+    progra [...] 
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.215 listed in bl.score.senderscore.com]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.215 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [31.210.69.215 listed in sa-trusted.bondedsender.org]
+
+This is a multi-part message in MIME format
+
+--=_osQD3LRIRM43T5LmCUcLtoMORrXxJXdg
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Merhaba,
+
+Dijitalle=C5=9Fen =C4=B0K s=C3=BCre=C3=A7lerinde KEP kullan=C4=B1m=C4=B1=
+, bordrolama, fesih y=C3=B6netimi ve SGK bildirimleri art=C4=B1k daha =
+fazla dikkat ve g=C3=BCncel bilgi gerektiriyor.
+
+Bu kapsamda, SGK Eski Ba=C5=9F M=C3=BCfetti=C5=9Fi Sn. =C4=B0sa Karaka=
+=C5=9F taraf=C4=B1ndan ger=C3=A7ekle=C5=9Ftirilecek Dijital =C4=B0=C5=9F=
+ Kanunu & Yeni Nesil =C4=B0K Y=C3=B6netimi: KEP, Bordrolama, Fesih Str=
+atejileri ve SGK Bildirimleri program=C4=B1 hakk=C4=B1nda k=C4=B1sa bi=
+r bilgilendirme payla=C5=9Fmak isterim.
+
+=F0=9F=93=85 Tarih: 22 Nisan =C3=87ar=C5=9Famba
+=E2=8F=B0 Saat: 10:00 =E2=80=93 14:00
+=F0=9F=92=BB Yer: Zoom (Online)
+
+Program kapsam=C4=B1nda;
+=E2=80=A2 KEP sisteminin hukuki kullan=C4=B1m s=C4=B1n=C4=B1rlar=C4=B1=
+,
+=E2=80=A2 dijital bordro ve =C3=B6zl=C3=BCk dosyas=C4=B1 uygulamalar=C4=
+=B1nda dikkat edilmesi gereken noktalar,
+=E2=80=A2 fesih ve i=C5=9Ften =C3=A7=C4=B1k=C4=B1=C5=9F s=C3=BCre=C3=A7=
+lerinde do=C4=9Fru SGK kodlamalar=C4=B1,
+=E2=80=A2 Yarg=C4=B1tay kararlar=C4=B1 do=C4=9Frultusunda dijital =C4=B0=
+K uygulamalar=C4=B1ndaki g=C3=BCncel yakla=C5=9F=C4=B1m ele al=C4=B1na=
+cakt=C4=B1r.
+
+=C4=B0K, bordro ve personel s=C3=BCre=C3=A7lerini daha g=C3=BCvenli, d=
+aha do=C4=9Fru ve daha g=C3=BCncel =C5=9Fekilde y=C3=B6netmek isteyen =
+kurumlar i=C3=A7in faydal=C4=B1 bir programd=C4=B1r.
+
+=F0=9F=91=89 Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=A7in: 216 606 40 93=
+
+
+=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MasterClass T=C3=BCrkiye
+
+Serap Kelkit
+Organizasyon Sorumlusu
+
+Ac=C4=B1badem. =C3=87e=C3=A7en Sok.
+Akasya AVM Kule=20
+=C3=9Csk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye
+0216 606 40 93
+
+Size gereksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel.com.tr ad=
+resinizden bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zaman mail alma=
+k istemedi=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.
+
+
+--=_osQD3LRIRM43T5LmCUcLtoMORrXxJXdg
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<html><head></head><body><p>Merhaba,</p><p>Dijitalle=C5=9Fen =C4=B0K s=
+=C3=BCre=C3=A7lerinde KEP kullan=C4=B1m=C4=B1, bordrolama, fesih y=C3=B6=
+netimi ve SGK bildirimleri art=C4=B1k daha fazla dikkat ve g=C3=BCncel=
+ bilgi gerektiriyor.</p><p>Bu kapsamda, SGK Eski Ba=C5=9F M=C3=BCfetti=
+=C5=9Fi Sn. =C4=B0sa Karaka=C5=9F taraf=C4=B1ndan ger=C3=A7ekle=C5=9Ft=
+irilecek Dijital =C4=B0=C5=9F Kanunu &amp; Yeni Nesil =C4=B0K Y=C3=B6n=
+etimi: KEP, Bordrolama, Fesih Stratejileri ve SGK Bildirimleri program=
+=C4=B1 hakk=C4=B1nda k=C4=B1sa bir bilgilendirme payla=C5=9Fmak isteri=
+m.</p><p>=F0=9F=93=85 Tarih: 22 Nisan =C3=87ar=C5=9Famba<br>=E2=8F=B0 =
+Saat: 10:00 =E2=80=93 14:00<br>=F0=9F=92=BB Yer: Zoom (Online)</p><p>P=
+rogram kapsam=C4=B1nda;<br>=E2=80=A2 KEP sisteminin hukuki kullan=C4=B1=
+m s=C4=B1n=C4=B1rlar=C4=B1,<br>=E2=80=A2 dijital bordro ve =C3=B6zl=C3=
+=BCk dosyas=C4=B1 uygulamalar=C4=B1nda dikkat edilmesi gereken noktala=
+r,<br>=E2=80=A2 fesih ve i=C5=9Ften =C3=A7=C4=B1k=C4=B1=C5=9F s=C3=BCr=
+e=C3=A7lerinde do=C4=9Fru SGK kodlamalar=C4=B1,<br>=E2=80=A2 Yarg=C4=B1=
+tay kararlar=C4=B1 do=C4=9Frultusunda dijital =C4=B0K uygulamalar=C4=B1=
+ndaki g=C3=BCncel yakla=C5=9F=C4=B1m ele al=C4=B1nacakt=C4=B1r.</p><p>=
+=C4=B0K, bordro ve personel s=C3=BCre=C3=A7lerini daha g=C3=BCvenli, d=
+aha do=C4=9Fru ve daha g=C3=BCncel =C5=9Fekilde y=C3=B6netmek isteyen =
+kurumlar i=C3=A7in faydal=C4=B1 bir programd=C4=B1r.</p><p>=F0=9F=91=89=
+ Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=A7in: 216 606 40 93</p><p>=C4=B0=
+yi =C3=A7al=C4=B1=C5=9Fmalar.</p><p></p><p></p><p></p><p></p><p></p><p=
+></p><p></p><p></p><p></p><p></p><p></p><p></p><p><hr id=3D"undefined"=
+><p></p><p>MasterClass T=C3=BCrkiye</p><p>Serap Kelkit<br>Organizasyon=
+ Sorumlusu<br><br>Ac=C4=B1badem. =C3=87e=C3=A7en Sok.<br>Akasya AVM Ku=
+le <br>=C3=9Csk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye<br>0216 606 40=
+ 93</p><p>Size gereksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel=
+=2Ecom.tr adresinizden bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zam=
+an mail almak istemedi=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.<=
+/p></body></html>
+
+
+--=_osQD3LRIRM43T5LmCUcLtoMORrXxJXdg--
+

@@ -1,0 +1,953 @@
+Return-path: <0102019d87220762-6ee25214-00f6-48c0-a6d0-81afa8919dc9-000000@send.mail.miluna.health>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 13 Apr 2026 16:57:32 +0300
+Received: from a3-24.smtp-out.eu-west-1.amazonses.com ([54.240.3.24])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <0102019d87220762-6ee25214-00f6-48c0-a6d0-81afa8919dc9-000000@send.mail.miluna.health>)
+	id 1wCHn6-00AwxX-1Y
+	for info@gokceozel.com.tr;
+	Mon, 13 Apr 2026 16:57:32 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=mail.miluna.health; t=1776088647;
+	h=From:To:Subject:Message-ID:Date:MIME-Version:Content-Type;
+	bh=u87vH3QfeaaBHUBzLxcMHvPIGLKvGnKOyM/Kq5YFHv4=;
+	b=imiBcOm35iij8qkC41UgVqBR9WlVVs2bzagyrQqw1RzqrdsPUFcdP+jNuayb/Bbg
+	SYH/To2cBO2wVlfasBaRAWa1RtKNF9krzCeyWfqo0bjJc9nJbotqPbsZDuW6A7czQ/N
+	0v7/J3AmqHoBimGZxwe/IrPMWQoz0SbFiKUaVYnc=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1776088647;
+	h=From:To:Subject:Message-ID:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=u87vH3QfeaaBHUBzLxcMHvPIGLKvGnKOyM/Kq5YFHv4=;
+	b=wjetIUlHhl1xy6sVVfl5Ij5OqNerKsav2LkWMKPDN30L6WHlZg3e48EvijrWNkBU
+	wBvvGkyTqqI+FGWT3/Eg1jkDCHqUfOjmE9hB6t/cH9NgLttstisK7ksvVS1d3gVwcFS
+	8aFQnx2+CR1XlVFiXCIbI+pzDECH64MHPhRp00To=
+From: Miluna Health <iletisim@mail.miluna.health>
+To: info@gokceozel.com.tr
+Subject: =?UTF-8?Q?Klini=C4=9Finiz_hen=C3=BCz_Miluna=27da_d?=
+ =?UTF-8?Q?e=C4=9Fil?=
+Message-ID: <0102019d87220762-6ee25214-00f6-48c0-a6d0-81afa8919dc9-000000@eu-west-1.amazonses.com>
+Date: Mon, 13 Apr 2026 13:57:27 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--_NmP-b56e2184276d3831-Part_1"
+Feedback-ID: :1.eu-west-1.vYYzsZfkVy+b71iWYMRbaXBuPioIB8SpV3CN+v6Ry4goqUZZSf7r28MpV1s0d0vPyTrQlRFMk4YzpkHZihFkEqeAwne2qRgmVxqrXUpq4BMaSxRNlnAFJ+j7jNNANbyzbIVt5eMdrWikNk/AVEWoJy663RzeDfkrMZ4VpVwxUvs=:1.eu-west-1.xc5b6Z4+0WlftYwtQHAHsTtsfYdZQImSOXWypZD9BdY=:AmazonSES
+X-SES-Outgoing: 2026.04.13-54.240.3.24
+X-Spam-Score: 24
+X-Spam-Bar: ++
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  500+ estetik işlem. Yüzlerce kullanıcı. Kliniğiniz henüz
+    platformda değil. Ücretsiz profilinizi oluşturun. ﻿͏ ﻿͏ ﻿͏ Miluna
+    500+ estetik işlem ile eğitilmiş özel yapay zeka HER GÜN YÜZLERCE KIŞI
+    ESTETIK BILGI ARIYOR. KLINIĞINIZ HENÜZ MILUNA'DA DEĞIL. 
+ 
+ Content analysis details:   (2.4 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
+                             [54.240.3.24 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [54.240.3.24 listed in sa-trusted.bondedsender.org]
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or identical to
+                             background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  2.5 DIRECT_LOW_CONTRAST    Direct-to-MX + hidden text
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [54.240.3.24 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [54.240.3.24 listed in bl.score.senderscore.com]
+
+----_NmP-b56e2184276d3831-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+500+ estetik i=C5=9Flem. Y=C3=BCzlerce kullan=C4=B1c=C4=B1. Klini=C4=9Finiz=
+ hen=C3=BCz platformda de=C4=9Fil. =C3=9Ccretsiz profilinizi olu=C5=9Fturun=
+. =E2=80=87=EF=BB=BF=CD=8F =E2=80=87=EF=BB=BF=CD=8F =
+=E2=80=87=EF=BB=BF=CD=8F
+
+Miluna 500+ estetik i=C5=9Flem ile =
+e=C4=9Fitilmi=C5=9F =C3=B6zel yapay zeka
+
+
+HER G=C3=9CN Y=C3=9CZLERCE =
+KI=C5=9EI ESTETIK BILGI ARIYOR.
+KLINI=C4=9EINIZ HEN=C3=9CZ MILUNA'DA =
+DE=C4=9EIL.
+
+
+
+Burun =C2=B7 G=C3=B6z =C2=B7 Cilt =C2=B7 V=C3=BCcut =C2=B7 =
+Dudak =C2=B7 Y=C3=BCz ve 500+ di=C4=9Fer...
+
+Miluna, estetik alan=C4=B1nda =
+hastalarla klinikleri bulu=C5=9Fturan yapay zeka destekli bir platformdur. =
+Kullan=C4=B1c=C4=B1lar 500+ estetik i=C5=9Flemi ara=C5=9Ft=C4=B1r=C4=B1rken=
+ AI dan=C4=B1=C5=9Fman=C4=B1m=C4=B1z Luna onlara rehberlik ediyor ve uygun =
+klinikleri =C3=B6neriyor.
+
+=C3=9Ccretsiz klinik profilinizi =
+olu=C5=9Fturarak yerinizi al=C4=B1n. Ne kadar erken =
+kat=C4=B1l=C4=B1rsan=C4=B1z, Luna klini=C4=9Finizi o kadar iyi =
+=C3=B6=C4=9Frenir ve hastalara o kadar g=C3=BCvenle =C3=B6nerir.
+
+Sistem =C5=9Fu an https://miluna.health https://miluna.health/?=
+ref=3Doutreach&utm_source=3Demail&utm_medium=3Dcold&utm_campaign=3Dpilot_v1=
+&utm_content=3Dbody_link'te aktif, hemen inceleyebilirsiniz. Mobil uygulama=
+ da yak=C4=B1nda geliyor.
+
+=C3=9Ccretsiz Yerinizi Al=C4=B1n https://miluna.=
+health/klinikler-icin/?ref=3Doutreach&utm_source=3Demail&utm_medium=3Dcold&=
+utm_campaign=3Dpilot_v1&utm_content=3Dhero_cta
+
+2 dakika s=C3=BCrer =C2=B7 =
+Kredi kart=C4=B1 gerekmez
+
+----------------------------------------
+
+Luna, hastalar=C4=B1 kliniklerle nas=C4=B1l bulu=C5=9Fturuyor?
+
+Luna
+AI Estetik Dan=C4=B1=C5=9Fman=C4=B1 =E2=97=8F =C3=87evrim i=C3=A7i
+
+=C4=B0stanbul'da burun esteti=C4=9Fi i=C3=A7in deneyimli bir klinik =
+=C3=B6nerir misiniz?
+
+Size uygun bir klinik buldum:
+
+=C3=96rnek Klinik
+
+=E2=98=85=E2=98=85=E2=98=85=E2=98=85=E2=98=85 4.8
+
+=F0=9F=93=8D =
+=C5=9Ei=C5=9Fli, =C4=B0stanbul
+
+Burun Esteti=C4=9Fi =C2=B7 12 y=C4=B1l =
+deneyim
+
+Randevu Talep Et
+
+Burada klini=C4=9Finiz de olabilir. Hem Luna =
+=C3=B6nerilerinde, hem estetik i=C5=9Flem sayfalar=C4=B1nda.
+
+----------------------------------------
+
+1
+
+Profil Olu=C5=9Fturun
+
+Uzmanl=C4=B1klar=C4=B1n=C4=B1z=C4=B1 ve konumunuzu girin.
+
+2
+
+Luna =C3=96=C4=9Frenir
+
+Luna klini=C4=9Finizi tan=C4=B1r ve hastalara =
+=C3=B6nerir.
+
+3
+
+Hastalar Sizi Bulur
+
+Hastalar sizi hem Luna ile hem =
+estetik i=C5=9Flem sayfalar=C4=B1nda bulur.
+
+Ne kadar erken =
+kat=C4=B1l=C4=B1rsan=C4=B1z, Luna sizi o kadar iyi tan=C4=B1r.
+
+Beta D=C3=B6nemi =C2=B7 T=C3=BCm =C3=B6zellikler =C3=BCcretsiz
+
+Hemen Ba=C5=9Fla https://miluna.health/klinikler-icin/?=
+ref=3Doutreach&utm_source=3Demail&utm_medium=3Dcold&utm_campaign=3Dpilot_v1=
+&utm_content=3Dfooter_cta
+
+miluna.health klinik ileti=C5=9Fim program=C4=B1=
+ kapsam=C4=B1nda g=C3=B6nderilmi=C5=9Ftir.
+Abonelikten =C3=A7=C4=B1k =
+iletisim@mail.miluna.health?subject=3DAbonelikten%20%C3%87%C4%B1k&body=3DL%=
+C3%BCtfen%20beni%20listenizden%20%C3%A7%C4%B1kar%C4%B1n.
+----_NmP-b56e2184276d3831-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"tr" xmlns:v=3D"urn:schemas-microsoft-com:vml"=
+ xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset=3D"utf-8" />
+  <meta name=3D"viewport" =
+content=3D"width=3Ddevice-width, initial-scale=3D1.0" />
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+  <title>Miluna =E2=80=94 Klinik Profili</title>
+  <!--[if mso]>
+  <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:O=
+fficeDocumentSettings></xml>
+  <style>table, td, th {font-family: Arial, =
+sans-serif !important;}</style>
+  <![endif]-->
+  <style>
+    @media only screen and (max-width: 620px) {
+      .outer { width: 100% =
+!important; }
+      .pad { padding-left: 20px !important; padding-right: =
+20px !important; }
+      .hero-title { font-size: 24px !important; }
+      .img-row td { padding: 0 2px !important; }
+      .hero-img { width: =
+56px !important; height: 56px !important; }
+      .step-table td { display:=
+ block !important; width: 100% !important; text-align: center !important; =
+padding-bottom: 24px !important; }
+    }
+  </style>
+</head>
+<body style=3D"margin: 0; padding: 0; background-color: #f3f4f6; =
+-webkit-text-size-adjust: 100%;">
+
+  <!-- Preheader -->
+  <div style=3D"display: none; max-height: 0; overflow: hidden; font-size: =
+1px; line-height: 1px; color: #f3f4f6;">
+    500+ estetik i&#351;lem. =
+Y&#252;zlerce kullan&#305;c&#305;. Klini&#287;iniz hen&#252;z platformda =
+de&#287;il. &#220;cretsiz profilinizi olu&#351;turun.
+    &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+  </div>
+
+  <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"background-color: #f3f4f6;">
+    <tr>
+      <td align=3D"center" style=3D"padding: 24px 8px;">
+
+        <!--[if mso]>
+        <table role=3D"presentation" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center"><tr><td>
+        <![endif]-->
+        <table role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"max-width: 600px; width: 100%; border-radius: =
+16px; overflow: hidden; background-color: #ffffff;" class=3D"outer">
+
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <!-- ACCENT LINE                                                 =
+-->
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <tr>
+            <td><div style=3D"height: 3px; background: =
+linear-gradient(90deg, #2f6f6e, #5ba3a2, #D1A7B3);"></div></td>
+          </tr>
+
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 =
+-->
+          <!-- HERO                                                    =
+    -->
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <tr>
+            <td style=3D"padding: 36px 36px 32px;" =
+class=3D"pad">
+
+              <!-- Logo + tagline -->
+              <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"margin-bottom: 32px;">
+                <tr>
+                  <td style=3D"vertical-align: middle;">
+                    <img src=3D"https://miluna.health/logo-icon-teal.png" =
+alt=3D"Miluna" width=3D"28" height=3D"28" style=3D"display: block; width: =
+28px; height: 28px; border-radius: 6px;" />
+                  </td>
+                  <td style=3D"vertical-align: middle; padding-left: =
+10px;">
+                    <span style=3D"font-family: -apple-system, =
+BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 15px;=
+ font-weight: 700; color: #2f6f6e;">Miluna</span>
+                    <span=
+ style=3D"font-family: -apple-system, Arial, sans-serif; font-size: 12px; =
+color: #9ca3af; padding-left: 8px;">500+ estetik i&#351;lem ile =
+e&#287;itilmi&#351; &#246;zel yapay zeka</span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Headline =
+-->
+              <h1 class=3D"hero-title" style=3D"font-family: =
+-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; =
+font-size: 26px; font-weight: 700; color: #111827; line-height: 1.35; =
+margin: 0 0 28px;">
+                Her g&#252;n y&#252;zlerce ki&#351;i =
+estetik bilgi ar&#305;yor.<br/>
+                <span style=3D"color: =
+#2f6f6e;">Klini&#287;iniz hen&#252;z Miluna'da de&#287;il.</span>
+              </h1>
+
+              <!-- Procedure images (6 =C3=97 72px + 5=
+ =C3=97 8px gap =3D 472px, fits in 528px content area) -->
+              <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" class=3D"img-row" style=3D"margin-bottom: =
+8px;">
+                <tr>
+                        <td align=3D"center" =
+style=3D"padding: 0 3px;" width=3D"16.66%">
+                          <img =
+src=3D"https://miluna.health/procedure-images/rhinoplasty.webp" =
+alt=3D"Burun Esteti&#287;i" width=3D"72" height=3D"72" class=3D"hero-img" =
+style=3D"display: block; width: 100%; max-width: 72px; height: auto; =
+border-radius: 12px;" />
+                        </td>
+                        <td align=3D"center" style=3D"padding: 0 3px;" =
+width=3D"16.66%">
+                          <img src=3D"https://miluna.=
+health/procedure-images/eyelid-surgery.webp" alt=3D"G&#246;z =
+Kapa&#287;&#305;" width=3D"72" height=3D"72" class=3D"hero-img" =
+style=3D"display: block; width: 100%; max-width: 72px; height: auto; =
+border-radius: 12px;" />
+                        </td>
+                        <td align=3D"center" style=3D"padding: 0 3px;" =
+width=3D"16.66%">
+                          <img src=3D"https://miluna.=
+health/procedure-images/hydrafacial.webp" alt=3D"HydraFacial" width=3D"72" =
+height=3D"72" class=3D"hero-img" style=3D"display: block; width: 100%; =
+max-width: 72px; height: auto; border-radius: 12px;" />
+                        </td>
+                        <td align=3D"center" =
+style=3D"padding: 0 3px;" width=3D"16.66%">
+                          <img =
+src=3D"https://miluna.health/procedure-images/tummy-tuck.webp" =
+alt=3D"Kar&#305;n Germe" width=3D"72" height=3D"72" class=3D"hero-img" =
+style=3D"display: block; width: 100%; max-width: 72px; height: auto; =
+border-radius: 12px;" />
+                        </td>
+                        <td align=3D"center" style=3D"padding: 0 3px;" =
+width=3D"16.66%">
+                          <img src=3D"https://miluna.=
+health/procedure-images/lip-filler.webp" alt=3D"Dudak Dolgusu" width=3D"72"=
+ height=3D"72" class=3D"hero-img" style=3D"display: block; width: 100%; =
+max-width: 72px; height: auto; border-radius: 12px;" />
+                        </td>
+                        <td align=3D"center" =
+style=3D"padding: 0 3px;" width=3D"16.66%">
+                          <img =
+src=3D"https://miluna.health/procedure-images/thread-lift.webp" =
+alt=3D"&#304;p Ask&#305;" width=3D"72" height=3D"72" class=3D"hero-img" =
+style=3D"display: block; width: 100%; max-width: 72px; height: auto; =
+border-radius: 12px;" />
+                        </td>
+                </tr>
+              </table>
+              <p =
+style=3D"font-family: -apple-system, Arial, sans-serif; font-size: 11px; =
+color: #b0b0b0; margin: 0 0 28px; text-align: center; letter-spacing: 0.=
+3px;">
+                Burun &middot; G&#246;z &middot; Cilt &middot; =
+V&#252;cut &middot; Dudak &middot; Y&#252;z ve 500+ di&#287;er...
+              </p>
+
+              <p style=3D"font-family: -apple-system, =
+Arial, sans-serif; font-size: 15px; color: #374151; line-height: 1.75; =
+margin: 0 0 12px;">
+                Miluna, estetik alan&#305;nda =
+hastalarla klinikleri bulu&#351;turan yapay zeka destekli bir platformdur. =
+Kullan&#305;c&#305;lar 500+ estetik i&#351;lemi ara&#351;t&#305;r&#305;rken=
+ AI dan&#305;&#351;man&#305;m&#305;z <strong style=3D"color: =
+#2f6f6e;">Luna</strong> onlara rehberlik ediyor ve uygun klinikleri =
+&#246;neriyor.
+              </p>
+
+              <p style=3D"font-family: =
+-apple-system, Arial, sans-serif; font-size: 15px; color: #374151; =
+line-height: 1.75; margin: 0 0 12px;">
+                &#220;cretsiz klinik=
+ profilinizi olu&#351;turarak yerinizi al&#305;n. Ne kadar erken =
+kat&#305;l&#305;rsan&#305;z, Luna klini&#287;inizi o kadar iyi =
+&#246;&#287;renir ve hastalara o kadar g&#252;venle &#246;nerir.
+              </p>
+
+              <p style=3D"font-family: -apple-system, =
+Arial, sans-serif; font-size: 15px; color: #374151; line-height: 1.75; =
+margin: 0 0 28px;">
+                Sistem &#351;u an <a =
+href=3D"https://miluna.health/?ref=3Doutreach&amp;utm_source=3Demail&amp;ut=
+m_medium=3Dcold&amp;utm_campaign=3Dpilot_v1&amp;utm_content=3Dbody_link" =
+style=3D"color: #2f6f6e; text-decoration: underline; font-weight: =
+600;">https://miluna.health</a>'te aktif, hemen inceleyebilirsiniz. Mobil =
+uygulama da yak&#305;nda geliyor.
+              </p>
+
+              <!-- CTA -->
+              <table role=3D"presentation" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                <tr>
+                  <td align=3D"center">
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+href=3D"https://miluna.health/klinikler-icin/?ref=3Doutreach&amp;utm_source=
+=3Demail&amp;utm_medium=3Dcold&amp;utm_campaign=3Dpilot_v1&amp;utm_content=
+=3Dhero_cta" style=3D"height:52px;v-text-anchor:middle;width:280px;" =
+arcsize=3D"12%" fillcolor=3D"#2f6f6e" strokecolor=3D"#2f6f6e">
+                    <center style=3D"color:#ffffff;font-family:Arial,=
+sans-serif;font-size:15px;font-weight:bold;">&#220;cretsiz Yerinizi =
+Al&#305;n</center>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-->
+                    <a href=3D"https://miluna.health/klinikler-icin/?=
+ref=3Doutreach&amp;utm_source=3Demail&amp;utm_medium=3Dcold&amp;utm_campaig=
+n=3Dpilot_v1&amp;utm_content=3Dhero_cta"
+                       =
+style=3D"display: inline-block; background-color: #2f6f6e; color: #ffffff; =
+font-family: -apple-system, Arial, sans-serif; font-size: 15px; =
+font-weight: 600; padding: 15px 40px; border-radius: 10px; text-decoration:=
+ none;">
+                      &#220;cretsiz Yerinizi Al&#305;n
+                    </a>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+              </table>
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 12px; color: #b0b0b0; margin: 14px 0 0; text-align: center;">
+                2 dakika s&#252;rer &middot; Kredi kart&#305; gerekmez
+              </p>
+
+            </td>
+          </tr>
+
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <!-- LUNA CHAT =E2=80=94 LIGHT THEME                             =
+        -->
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <tr>
+            <td style=3D"padding: 0 36px 36px;" =
+class=3D"pad">
+
+              <!-- Thin divider -->
+              <hr style=3D"border: none; border-top: 1px solid #f0f0f0; =
+margin: 0 0 36px;" />
+
+              <p style=3D"font-family: -apple-system=
+, Arial, sans-serif; font-size: 13px; font-weight: 600; color: #6b7280; =
+margin: 0 0 20px; text-align: center; letter-spacing: 0.5px;">
+                Luna, hastalar&#305; kliniklerle nas&#305;l =
+bulu&#351;turuyor?
+              </p>
+
+              <!-- Light chat card =
+-->
+              <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"background-color: #f8fafc; =
+border-radius: 14px; border: 1px solid #e2e8f0;">
+
+                <!-- =
+Chat header -->
+                <tr>
+                  <td =
+style=3D"padding: 16px 20px; border-bottom: 1px solid #e2e8f0;">
+                    <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%">
+                      <tr>
+                        <td style=3D"vertical-align: middle;" width=3D"36">
+                          <img src=3D"https://miluna.=
+health/email-assets/luna-avatar.png" alt=3D"Luna" width=3D"32" =
+height=3D"32" style=3D"display: block; width: 32px; height: 32px; =
+border-radius: 50%;" />
+                        </td>
+                        <td style=3D"vertical-align: middle; padding-left: =
+10px;">
+                          <span style=3D"font-family: -apple-system=
+, Arial, sans-serif; font-size: 14px; font-weight: 600; color: =
+#1e293b;">Luna</span>
+                          <br/>
+                          <span style=3D"font-family: -apple-system, Arial,=
+ sans-serif; font-size: 11px; color: #94a3b8;">AI Estetik =
+Dan&#305;&#351;man&#305;</span>
+                        </td>
+                        <td style=3D"vertical-align: middle; text-align: =
+right;">
+                          <span style=3D"font-family: =
+-apple-system, Arial, sans-serif; font-size: 11px; color: #22c55e;">&#9679;=
+ &#199;evrim i&#231;i</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- =
+Messages -->
+                <tr>
+                  <td style=3D"padding: =
+20px;">
+
+                    <!-- User message (right) -->
+                    <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"margin-bottom: 14px;">
+                      <tr>
+                        <td width=3D"15%"></td>
+                        <td style=3D"background-color: #2f6f6e; =
+border-radius: 16px 16px 4px 16px; padding: 12px 16px;">
+                          <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; font-size: 13px; color: #ffffff; margin: 0; line-height: 1.=
+55;">
+                            &#304;stanbul'da burun esteti&#287;i =
+i&#231;in deneyimli bir klinik &#246;nerir misiniz?
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Luna response: short intro -->
+                    <table role=3D"presentation" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"margin-bottom: 10px;">
+                      <tr>
+                        <td =
+style=3D"vertical-align: top; padding-right: 8px;" width=3D"28">
+                          <img src=3D"https://miluna.=
+health/email-assets/luna-avatar.png" alt=3D"" width=3D"22" height=3D"22" =
+style=3D"display: block; width: 22px; height: 22px; border-radius: 50%;" />
+                        </td>
+                        <td =
+style=3D"background-color: #ffffff; border: 1px solid #e2e8f0; =
+border-radius: 4px 16px 16px 16px; padding: 12px 16px;">
+                          <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; font-size: 13px; color: #475569; margin: 0 0 12px; line-height:=
+ 1.5;">
+                            Size uygun bir klinik buldum:
+                          </p>
+
+                          <!-- Clinic card =
+-->
+                          <table role=3D"presentation" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-colo=
+r: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: =
+hidden;">
+                            <!-- Clinic images row -->
+                            <tr>
+                              <td =
+style=3D"padding: 0;">
+                                <table =
+role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                  <tr>
+                                    =
+<td width=3D"33%" style=3D"padding: 0 1px 0 0;">
+                          =
+            <img src=3D"https://miluna.health/procedure-images/rhinoplasty.=
+webp" alt=3D"" width=3D"140" style=3D"display: block; width: 100%; height: =
+80px; object-fit: cover; border-radius: 10px 0 0 0;" />
+                                    </td>
+                                 =
+   <td width=3D"34%" style=3D"padding: 0 1px;">
+                           =
+           <img src=3D"https://miluna.health/procedure-images/rhinoplasty_2=
+.webp" alt=3D"" width=3D"140" style=3D"display: block; width: 100%; height:=
+ 80px; object-fit: cover;" />
+                                    </td>
+                                    <td width=3D"33%" style=3D"padding: 0 0=
+ 0 1px;">
+                                      <img src=3D"https://miluna.=
+health/procedure-images/rhinoplasty_3.webp" alt=3D"" width=3D"140" =
+style=3D"display: block; width: 100%; height: 80px; object-fit: cover; =
+border-radius: 0 10px 0 0;" />
+                                    </td>
+                                  </tr>
+                                =
+</table>
+                              </td>
+                            =
+</tr>
+                            <!-- Clinic info -->
+                            <tr>
+                              <td =
+style=3D"padding: 10px 12px;">
+                                <p =
+style=3D"font-family: -apple-system, Arial, sans-serif; font-size: 14px; =
+font-weight: 600; color: #111827; margin: 0 0 4px;">&#214;rnek Klinik</p>
+                                <p style=3D"font-family: -apple-system, =
+Arial, sans-serif; font-size: 11px; color: #f59e0b; margin: 0 0 6px; =
+letter-spacing: 1px;">&#9733;&#9733;&#9733;&#9733;&#9733; <span =
+style=3D"color: #6b7280; letter-spacing: 0;">4.8</span></p>
+                                <p style=3D"font-family: -apple-system, =
+Arial, sans-serif; font-size: 12px; color: #6b7280; margin: 0 0 3px; =
+line-height: 1.4;">&#128205; &#350;i&#351;li, &#304;stanbul</p>
+                                <p style=3D"font-family: -apple-system, =
+Arial, sans-serif; font-size: 12px; color: #6b7280; margin: 0; line-height:=
+ 1.4;">Burun Esteti&#287;i &middot; 12 y&#305;l deneyim</p>
+                              </td>
+                            </tr>
+                            <!-- CTA row -->
+                            =
+<tr>
+                              <td style=3D"padding: 0 12px 10px;" =
+align=3D"center">
+                                <table =
+role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0">
+                                  <tr>
+                                    =
+<td style=3D"background-color: #2f6f6e; border-radius: 6px; padding: 7px =
+20px;">
+                                      <span style=3D"font-family: =
+-apple-system, Arial, sans-serif; font-size: 12px; font-weight: 600; color:=
+ #ffffff;">Randevu Talep Et</span>
+                                    =
+</td>
+                                  </tr>
+                             =
+   </table>
+                              </td>
+                           =
+ </tr>
+                          </table>
+
+                        </td>
+                        <td width=3D"8%"></td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Callout -->
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 14px; color: #2f6f6e; font-weight: 600; margin: 18px 0 0; =
+text-align: center;">
+                Burada klini&#287;iniz de olabilir. =
+Hem Luna &#246;nerilerinde, hem estetik i&#351;lem sayfalar&#305;nda.
+              </p>
+
+            </td>
+          </tr>
+
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <!-- 3 STEPS =E2=80=94 LIGHT, PREMIUM                            =
+        -->
+          <!-- =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <tr>
+            <td style=3D"padding: 0 36px 36px;" =
+class=3D"pad">
+
+              <hr style=3D"border: none; border-top: 1px =
+solid #f0f0f0; margin: 0 0 32px;" />
+
+              <table =
+role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+class=3D"step-table">
+                <tr>
+                  <td =
+width=3D"33%" style=3D"vertical-align: top; padding: 0 12px; text-align: =
+center;">
+                    <div style=3D"width: 36px; height: 36px; =
+border: 2px solid #2f6f6e; border-radius: 50%; text-align: center; =
+line-height: 34px; color: #2f6f6e; font-family: Georgia, serif; font-size: =
+16px; font-weight: 700; margin: 0 auto 10px; text-align: center;">1</div>
+                    <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; font-size: 14px; font-weight: 600; color: #111827; margin: 0 0 =
+4px;">Profil Olu&#351;turun</p>
+                    <p =
+style=3D"font-family: -apple-system, Arial, sans-serif; font-size: 12px; =
+color: #94a3b8; margin: 0; line-height: 1.5;">Uzmanl&#305;klar&#305;n&#305;=
+z&#305; ve konumunuzu girin.</p>
+                  </td>
+                  <td width=3D"33%" style=3D"vertical-align: top; padding: =
+0 12px; text-align: center;">
+                    <div style=3D"width: =
+36px; height: 36px; border: 2px solid #2f6f6e; border-radius: 50%; =
+text-align: center; line-height: 34px; color: #2f6f6e; font-family: Georgia=
+, serif; font-size: 16px; font-weight: 700; margin: 0 auto 10px; =
+text-align: center;">2</div>
+                    <p style=3D"font-family: =
+-apple-system, Arial, sans-serif; font-size: 14px; font-weight: 600; color:=
+ #111827; margin: 0 0 4px;">Luna &#214;&#287;renir</p>
+                    <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; font-size: 12px; color: #94a3b8; margin: 0; line-height: 1.=
+5;">Luna klini&#287;inizi tan&#305;r ve hastalara &#246;nerir.</p>
+                  </td>
+                  <td width=3D"33%" =
+style=3D"vertical-align: top; padding: 0 12px; text-align: center;">
+                    <div style=3D"width: 36px; height: 36px; border: 2px =
+solid #2f6f6e; border-radius: 50%; text-align: center; line-height: 34px; =
+color: #2f6f6e; font-family: Georgia, serif; font-size: 16px; font-weight: =
+700; margin: 0 auto 10px; text-align: center;">3</div>
+                    <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; font-size: 14px; font-weight: 600; color: #111827; margin: 0 0 =
+4px;">Hastalar Sizi Bulur</p>
+                    <p style=3D"font-family: =
+-apple-system, Arial, sans-serif; font-size: 12px; color: #94a3b8; margin: =
+0; line-height: 1.5;">Hastalar sizi hem Luna ile hem estetik i&#351;lem =
+sayfalar&#305;nda bulur.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- FOMO -->
+              <p style=3D"font-family: Georgia, serif; font-size: 15px; =
+font-style: italic; color: #374151; margin: 28px 0 0; text-align: center; =
+line-height: 1.5;">
+                Ne kadar erken kat&#305;l&#305;rsan&#30=
+5;z, Luna sizi o kadar iyi tan&#305;r.
+              </p>
+
+            </td>
+          </tr>
+
+
+          <!-- =E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90 -->
+          <!-- BETA + SECOND CTA                    =
+                       -->
+          <!-- =E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background-color: =
+#f8fafc; padding: 32px 36px; border-top: 1px solid #f0f0f0;" class=3D"pad">
+
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 13px; color: #059669; font-weight: 600; margin: 0 0 16px; =
+text-align: center;">
+                Beta D&#246;nemi &middot; T&#252;m =
+&#246;zellikler &#252;cretsiz
+              </p>
+
+              <table =
+role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                <tr>
+                  <td align=3D"center">
+                    <!--[if mso]>
+                    <v:roundrect =
+xmlns:v=3D"urn:schemas-microsoft-com:vml" href=3D"https://miluna.=
+health/klinikler-icin/?ref=3Doutreach&amp;utm_source=3Demail&amp;utm_medium=
+=3Dcold&amp;utm_campaign=3Dpilot_v1&amp;utm_content=3Dfooter_cta" =
+style=3D"height:48px;v-text-anchor:middle;width:240px;" arcsize=3D"12%" =
+fillcolor=3D"#2f6f6e" strokecolor=3D"#2f6f6e">
+                    <center =
+style=3D"color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-wei=
+ght:bold;">Hemen Ba&#351;la</center>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-->
+                    <a href=3D"https://miluna.health/klinikler-icin/?=
+ref=3Doutreach&amp;utm_source=3Demail&amp;utm_medium=3Dcold&amp;utm_campaig=
+n=3Dpilot_v1&amp;utm_content=3Dfooter_cta"
+                       =
+style=3D"display: inline-block; background-color: #2f6f6e; color: #ffffff; =
+font-family: -apple-system, Arial, sans-serif; font-size: 14px; =
+font-weight: 600; padding: 13px 36px; border-radius: 10px; text-decoration:=
+ none;">
+                      Hemen Ba&#351;la
+                    </a>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+
+          <!--
+          =E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90
+          PERSONAL NOTE (disabled for pilot, re-enable later)
+          =E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90
+          <tr>
+            <td style=3D"padding: 32px 36px;" class=3D"pad">
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 14px; color: #475569; line-height: 1.8; margin: 0 0 14px;">
+                Merhaba, ben Melih. Miluna'yi estetik sektorunde hastalarla=
+ klinikleri daha akillica bulusturmak icin kurdum. Platformumuz hizla =
+buyuyor. Luna her gun daha cok sey ogreniyor.
+              </p>
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 14px; color: #475569; line-height: 1.8; margin: 0 0 24px;">
+                Herhangi bir sorunuz varsa bu e-postayi yanitlayin, size =
+yardimci olmaktan mutluluk duyarim.
+              </p>
+              <p style=3D"font-family: -apple-system, Arial, sans-serif; =
+font-size: 13px; color: #94a3b8; line-height: 1.7; margin: 0 0 28px; =
+padding-left: 14px; border-left: 2px solid #e2e8f0;">
+                <strong style=3D"color: #64748b;">Not:</strong> Isterseniz =
+"beni onerme, sadece profilimi goster" secenegini de kullanabilirsiniz. =
+Kontrol tamamen sizde.
+              </p>
+              <table =
+role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td style=3D"padding-right: 12px; =
+vertical-align: top;">
+                    <div style=3D"width: 36px; =
+height: 36px; background: linear-gradient(135deg, #2f6f6e, #D1A7B3); =
+border-radius: 8px; text-align: center; line-height: 36px; color: #ffffff; =
+font-size: 16px; font-weight: 700; font-family: Georgia, serif;">M</div>
+                  </td>
+                  <td style=3D"vertical-align: =
+top;">
+                    <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; margin: 0; font-size: 14px; color: #111827; font-weight: =
+600;">Melih Gurgah</p>
+                    <p style=3D"font-family: =
+-apple-system, Arial, sans-serif; margin: 1px 0 0; font-size: 12px; color: =
+#94a3b8;">Kurucu, Miluna</p>
+                    <a href=3D"https://miluna.=
+health" style=3D"font-family: -apple-system, Arial, sans-serif; font-size: =
+12px; color: #2f6f6e; text-decoration: none;">miluna.health</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          -->
+
+
+          <!-- =
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <!-- FOOTER             =
+                                         -->
+          <!-- =
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=E2=95=90=
+=E2=95=90=E2=95=90=E2=95=90=E2=95=90 -->
+          <tr>
+            <td style=3D"padding: 20px 36px; border-top: 1px solid =
+#f0f0f0;">
+              <p style=3D"font-family: -apple-system, Arial, =
+sans-serif; color: #c0c0c0; font-size: 11px; line-height: 1.5; margin: 0; =
+text-align: center;">
+                miluna.health klinik ileti&#351;im =
+program&#305; kapsam&#305;nda g&#246;nderilmi&#351;tir.<br/>
+                <a href=3D"mailto:iletisim@mail.miluna.health?=
+subject=3DAbonelikten%20%C3%87%C4%B1k&amp;body=3DL%C3%BCtfen%20beni%20liste=
+nizden%20%C3%A7%C4%B1kar%C4%B1n." style=3D"color: #a0a0a0; text-decoration:=
+ underline;">Abonelikten &#231;&#305;k</a>
+              </p>
+            </td>
+          </tr>
+
+
+        </table>
+        <!--[if mso]>
+        </td></tr></table>
+        <![endif]-->
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
+----_NmP-b56e2184276d3831-Part_1--

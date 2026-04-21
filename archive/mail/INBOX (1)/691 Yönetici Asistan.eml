@@ -1,0 +1,173 @@
+Return-path: <sezin.akgul@knowly.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Sat, 11 Apr 2026 03:03:45 +0300
+Received: from s5.knowly.com.tr ([31.210.69.135])
+	by eyalcin.com.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <sezin.akgul@knowly.com.tr>)
+	id 1wBLp9-008kn4-2x
+	for info@gokceozel.com.tr;
+	Sat, 11 Apr 2026 03:03:44 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; d=knowly.com.tr;
+ h=From:Subject:To:Content-Type:MIME-Version:Date:Message-ID;
+ i=sezin.akgul@knowly.com.tr;
+ bh=KaI9RKy2khuKqyf3GmSTp9dy/pSK39J0As8Xt6TRmcA=;
+ b=Kelv9AU2Idir9o2J0QhTlwF3vBDUEgzwCaMkTRi0fDN+RWo3HiIvVLCLp3LXtHsof/8x0lCPQPGb
+   +sWP3kuU4jFybtL9hAF5Ea8NrZ1JB2v3q7EGQA0DD2jzgAM1+077rCZeKvPODiJb1+EvYE1CXgcR
+   a5GB7Rh7GTTO/RwB4FF+AC3I/66Wa5cVLeWWz4s/IlSlM57Tr3pt3Ft+QpX7z20+9hyAA54W3LQm
+   T3SzP+2pWStbnZXprwUIq57qIAwOjsh6/PluNlz9IaRw7bhV76pvDG6ELwqhQSijMGSPYK55FzAb
+   oI+XWZGlEDNZbdC2K6wq3WgkU/PeBJkPVtPdVg==
+From: "=?utf-8?B?U2V6aW4gQWtnw7xs?=" <sezin.akgul@knowly.com.tr>
+Subject:
+ =?utf-8?B?WcO2bmV0aWNpIEFzaXN0YW5sxLHEn8SxbmRhIFRlbXNpbCwgxLBsZXRpxZ9pbSB2ZSBPcmdhbml6YXN5b24gQmVjZXJpbGVyaQ==?=
+To: "info" <info@gokceozel.com.tr>
+Content-Type: multipart/alternative; boundary="6XiHUw5dl=_GwlrhdMK8suW8EqhbIa1ikr"
+MIME-Version: 1.0
+Date: Sat, 11 Apr 2026 03:03:42 +0300
+Message-ID: <0.0.3.309.1DCC946A84B9F88.0@s5.knowly.com.tr>
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, Kurumsal yapılarda yönetici asistanlığı; yalnızca
+    operasyonel destek sunan bir görev değil, temsil, iletişim, organizasyon
+    ve zaman yönetimi açısından kritik sorumluluklar taşıyan profe [...]
+    
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [31.210.69.135 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.135 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [31.210.69.135 listed in bl.score.senderscore.com]
+
+This is a multi-part message in MIME format
+
+--6XiHUw5dl=_GwlrhdMK8suW8EqhbIa1ikr
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Merhaba,
+
+Kurumsal yap=C4=B1larda y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1; yaln=
+=C4=B1zca operasyonel destek sunan bir g=C3=B6rev de=C4=9Fil, temsil, =
+ileti=C5=9Fim, organizasyon ve zaman y=C3=B6netimi a=C3=A7=C4=B1s=C4=B1=
+ndan kritik sorumluluklar ta=C5=9F=C4=B1yan profesyonel bir rold=C3=BC=
+r.
+
+Bu kapsamda, Banka Y=C3=B6netim Kurulu Asistan=C4=B1 Sn. Ye=C5=9Fim Ay=
+ G=C3=BCveli taraf=C4=B1ndan ger=C3=A7ekle=C5=9Ftirilecek =C3=9Cst D=C3=
+=BCzey Y=C3=B6netici Asistanl=C4=B1=C4=9F=C4=B1 Profesyonellik Program=
+=C4=B1 hakk=C4=B1nda k=C4=B1saca bilgi payla=C5=9Fmak isterim.
+
+=F0=9F=93=85 Tarih: 19 Nisan Pazar
+=E2=8F=B0 Saat: 12:00 =E2=80=93 17:00
+=F0=9F=92=BB Yer: Zoom (Online)
+
+Program kapsam=C4=B1nda;
+=E2=80=A2 y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1nda profesyonel duru=
+=C5=9F ve kurumsal temsil,
+=E2=80=A2 etkili ileti=C5=9Fim ve protokol uygulamalar=C4=B1,
+=E2=80=A2 toplant=C4=B1, seyahat ve organizasyon s=C3=BCre=C3=A7lerini=
+n y=C3=B6netimi,
+=E2=80=A2 zaman, stres ve kriz y=C3=B6netimi gibi i=C5=9F hayat=C4=B1n=
+da do=C4=9Frudan de=C4=9Fer yaratan ba=C5=9Fl=C4=B1klar ele al=C4=B1na=
+cakt=C4=B1r.
+
+Y=C3=B6netici asistanl=C4=B1=C4=9F=C4=B1 g=C3=B6revini daha sistemli, =
+daha g=C3=BC=C3=A7l=C3=BC ve daha profesyonel bir perspektifle y=C3=BC=
+r=C3=BCtmek isteyen kat=C4=B1l=C4=B1mc=C4=B1lar i=C3=A7in faydal=C4=B1=
+ ve g=C3=BCncel bir programd=C4=B1r.
+
+=F0=9F=91=89 Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=A7in: 216 606 40 93=
+
+
+=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar.
+
+
+
+
+
+
+
+
+
+MasterClass T=C3=BCrkiye
+
+Sezin Akg=C3=BCl
+Organizasyon Sorumlusu
+
+Ac=C4=B1badem. =C3=87e=C3=A7en Sok.
+Akasya AVM Kule=20
+=C3=9Csk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye
+0216 606 40 93
+
+Size gereksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel.com.tr ad=
+resinizden bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zaman mail alma=
+k istemedi=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.
+
+
+--6XiHUw5dl=_GwlrhdMK8suW8EqhbIa1ikr
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<html><head></head><body><p>Merhaba,</p><p>Kurumsal yap=C4=B1larda y=C3=
+=B6netici asistanl=C4=B1=C4=9F=C4=B1; yaln=C4=B1zca operasyonel destek=
+ sunan bir g=C3=B6rev de=C4=9Fil, temsil, ileti=C5=9Fim, organizasyon =
+ve zaman y=C3=B6netimi a=C3=A7=C4=B1s=C4=B1ndan kritik sorumluluklar t=
+a=C5=9F=C4=B1yan profesyonel bir rold=C3=BCr.</p><p>Bu kapsamda, Banka=
+ Y=C3=B6netim Kurulu Asistan=C4=B1 Sn. Ye=C5=9Fim Ay G=C3=BCveli taraf=
+=C4=B1ndan ger=C3=A7ekle=C5=9Ftirilecek =C3=9Cst D=C3=BCzey Y=C3=B6net=
+ici Asistanl=C4=B1=C4=9F=C4=B1 Profesyonellik Program=C4=B1 hakk=C4=B1=
+nda k=C4=B1saca bilgi payla=C5=9Fmak isterim.</p><p>=F0=9F=93=85 Tarih=
+: 19 Nisan Pazar<br>=E2=8F=B0 Saat: 12:00 =E2=80=93 17:00<br>=F0=9F=92=
+=BB Yer: Zoom (Online)</p><p>Program kapsam=C4=B1nda;<br>=E2=80=A2 y=C3=
+=B6netici asistanl=C4=B1=C4=9F=C4=B1nda profesyonel duru=C5=9F ve kuru=
+msal temsil,<br>=E2=80=A2 etkili ileti=C5=9Fim ve protokol uygulamalar=
+=C4=B1,<br>=E2=80=A2 toplant=C4=B1, seyahat ve organizasyon s=C3=BCre=C3=
+=A7lerinin y=C3=B6netimi,<br>=E2=80=A2 zaman, stres ve kriz y=C3=B6net=
+imi gibi i=C5=9F hayat=C4=B1nda do=C4=9Frudan de=C4=9Fer yaratan ba=C5=
+=9Fl=C4=B1klar ele al=C4=B1nacakt=C4=B1r.</p><p>Y=C3=B6netici asistanl=
+=C4=B1=C4=9F=C4=B1 g=C3=B6revini daha sistemli, daha g=C3=BC=C3=A7l=C3=
+=BC ve daha profesyonel bir perspektifle y=C3=BCr=C3=BCtmek isteyen ka=
+t=C4=B1l=C4=B1mc=C4=B1lar i=C3=A7in faydal=C4=B1 ve g=C3=BCncel bir pr=
+ogramd=C4=B1r.</p><p>=F0=9F=91=89 Kay=C4=B1t ve detayl=C4=B1 bilgi i=C3=
+=A7in: 216 606 40 93</p><p>=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar.</p><p><=
+/p><p></p><p></p><p></p><p></p><p><hr id=3D"undefined"><p></p><p>Maste=
+rClass T=C3=BCrkiye</p><p>Sezin Akg=C3=BCl<br>Organizasyon Sorumlusu<b=
+r><br>Ac=C4=B1badem. =C3=87e=C3=A7en Sok.<br>Akasya AVM Kule <br>=C3=9C=
+sk=C3=BCdar / =C4=B0stanbul / T=C3=BCrkiye<br>0216 606 40 93</p><p>Siz=
+e gereksiz ileti g=C3=B6ndermek istemeyiz. info@gokceozel.com.tr adres=
+inizden bu maili yan=C4=B1tlayarak diledi=C4=9Finiz zaman mail almak i=
+stemedi=C4=9Finizi bildirebilirsiniz. Esen kal=C4=B1n.</p></body></htm=
+l>
+
+
+--6XiHUw5dl=_GwlrhdMK8suW8EqhbIa1ikr--
+

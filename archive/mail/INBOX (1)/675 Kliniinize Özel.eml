@@ -1,0 +1,197 @@
+Return-path: <dyt.nurozek@gmail.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 06 Apr 2026 15:27:06 +0300
+Received: from mail-lf1-f47.google.com ([209.85.167.47])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <dyt.nurozek@gmail.com>)
+	id 1w9j2n-004n6E-2D
+	for info@gokceozel.com.tr;
+	Mon, 06 Apr 2026 15:27:06 +0300
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-59e4989dacdso4169276e87.1
+        for <info@gokceozel.com.tr>; Mon, 06 Apr 2026 05:27:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775478424; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Tw3nrTFd9l10iwU/I2dZqhXCV9EGurKNZD9wn4q2EFHH6Bq8uwAo3hHg7USISG9o08
+         dHylB2NSmwi/T3P38p5l5jzZ7uuInkXq92aco94GrSXb1b9xmEn5buHiOUycKcetHUX6
+         P0D3M2RjqVvjXCrtP/KZzYAIT3fo9YTEd6BjbPE2rna6GUnPOEm8qtL62LAcuES8v2NV
+         UpeVLMETjzuKSgMZicBR7VuQngakeFI+WICbDP1vHAF7VZdgWNsA78xNujXihH81GTfU
+         I1L4ljLlCc5/UjPYhMjMC2U/i2e7QbVkX8YHAgddoJi4U12lmaII7oXI3RmGkXxwgtTt
+         ObSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=oK14pk+N//3NoW6M6obtBmP2aWQavjxtX6nWsdT+0yo=;
+        fh=QdS35G+x5swB6/NgdVI+L5nqLRo+xD0nmK9GYWwCn/8=;
+        b=BthTw//IKdN4wRJSTdc8rD5alMGpFznEzfyKzKJj/S9ARTrA9s0i2X1zw+pbXBEzZw
+         ZvKpN9R6IFkuyGnxoY/iLDHlR1iSR3Sd5XNkIxSZ3T0pOqJK1KkFIAlxRcqXyxIvAp5i
+         SZgSu5Dju8Qe7u3L+sGTdBF2u7wyBd79kc6pct4/GeQjW+oKF2l7g9FLCjEJ3vqfkX9X
+         H9s5NJ/kntODcKMYrJKVL4bCFhKq3BAvwGoqfKHXwoJwyfNgZUflLxCzd/FhYeKyyzL7
+         EUQypRMrBTLgviZMcDU6Vu8C+InPexBfr8ycw+9+/V1qEPLsznxDosyqRrzUlTObWBE0
+         2H0g==;
+        darn=gokceozel.com.tr
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775478424; x=1776083224; darn=gokceozel.com.tr;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=oK14pk+N//3NoW6M6obtBmP2aWQavjxtX6nWsdT+0yo=;
+        b=p22kBXYo2/0VqMNAMnVzDhnbI+nb9FED8WdCoxVC9dqk9m6rxANGwub4Fh4vNtsZFb
+         Vzi61eSJ5tmj6WHTdyBZzZd1KsyIqt3Lypeh5a8EzlJjBUvnv3rPezrmnf39KYyDm9+I
+         JciORRLTvsExnfBGSnJhf0EkeWXqrN8xkEIjr6cHXbHATDz7+g4VNeaKTNDHkvoNbQpb
+         a43CBBGSCern9ejg5VG/lCSxzy5o5NJrXx6RtgEbMZ2MHbQQ+FZw4z7dyIlrlOFFVMiZ
+         BOgR/h909rsHQZr9iWqHB8YNfPrwjhCVZF8Hl8w/ivwzF2loWr8jBW73Sd3J5s0tiinq
+         KGqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775478424; x=1776083224;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oK14pk+N//3NoW6M6obtBmP2aWQavjxtX6nWsdT+0yo=;
+        b=CzzaV0rnCDYbvETksPQQk1Aatf9gRdeg5VYbA/P+VG5Xiwvhizo9s/cDptpf7oxB0p
+         TX6QLxVR0iGo8ytwGYaTdyKqL6hKPobE/JhB2svBlYVXR8YA7oKe9vC065NEXJIO0amy
+         dbJoC2QgZYGpxa+KCoutAYQ1lL7VLUP7mRU4Ai4ADzl5h6BIfo7vUzzH/QI2E4UCsVi0
+         IqoUA8hJvKrh+PBFgx315xKC1m6J5Xy39+KAxiXToS8TO0JZxPjYuafyjyFwQ+0KOqw+
+         zRe5MaB/LneBKelPbrsvW/OfqaWAOqrXJofPIHjuVJn1n2QeMwObJxC+5UZPp/TqZqub
+         i4EQ==
+X-Gm-Message-State: AOJu0YzHKGn8XyiUrixVhSmMn6rmTHgj1EjaVHvtq6auvduPywK60cnD
+	lQAhr/6f4AhpS9bKWqswMQpMM0OrvRFfm4aQCFPRlA7CjQSkXmkm1xW4FckW0PL7RuvVchDNJG9
+	Q/wXck8ixaUVH5CsRVRhwIL+Z8GXHwxpfS3A=
+X-Gm-Gg: AeBDieskVxxjM1gYkTNxOQQMszSCnP6dqtjVoFMu9A1DSmCNdMXqCAwuhTmdxnEd5F3
+	Mj1zJlZ/WRTma0Ms6hcjpd+cHyoN7LNTq2LDEtLZu+p0CzfioS6ewlKOexSlrku2ViuIxpky7NW
+	wVcuqwNNnLc09mZ50luDdKlPtz+a3NtPQqhapmDq5orrc+7uOwS8ORcyddke0L0pK9hlofQG9AW
+	2G2GRBEkyce3LxxhpjWruGmxNvyu4vUD5/961wmZonrsheeXQpTn0CwzjWOhqLRg2soX14MCYF4
+	Gvsvx/g=
+X-Received: by 2002:a05:6512:234b:b0:5a2:c1aa:1436 with SMTP id
+ 2adb3069b0e04-5a33757c12cmr4658870e87.26.1775478423951; Mon, 06 Apr 2026
+ 05:27:03 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?TnVyIMOWemVrIFDEsW5hcmzEsQ==?= <dyt.nurozek@gmail.com>
+Date: Mon, 6 Apr 2026 15:26:52 +0300
+X-Gm-Features: AQROBzA9Gn8H3M0lRSi6oNkbt4KMnk_KBCWgbl-X62Y9NKl0__ClWi1G23UH_t8
+Message-ID: <CAJVNGNP7ucPdz-Kd_Tyi0GdyZHgTP_bgbkU26FCdrZCsmxx2iA@mail.gmail.com>
+Subject: =?UTF-8?B?S2xpbmnEn2luaXplIMOWemVsIEJlc2xlbm1lIERhbsSxxZ9tYW5sxLHEn8SxIMSwxZ8gQg==?=
+	=?UTF-8?B?aXJsacSfaSBIay4=?=
+To: info@gokceozel.com.tr
+Content-Type: multipart/alternative; boundary="000000000000c41fbe064ec9c834"
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, Ben Dyt. Nur Özek Pınarlı. Bireysel ve kurumsal
+    beslenme danışmanlığı alanında aktif olarak hizmet vermekteyim. Mustafa
+    Kemal Mahallesinde yer alan birçok kurumla özel diyet süreci yürüt [...]
+    
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.167.47 listed in list.dnswl.org]
+  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.167.47 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail provider
+                             [dyt.nurozek(at)gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.167.47 listed in sa-accredit.habeas.com]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.167.47 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.167.47 listed in bl.score.senderscore.com]
+
+--000000000000c41fbe064ec9c834
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Merhaba,
+
+Ben Dyt. Nur =C3=96zek P=C4=B1narl=C4=B1. Bireysel ve kurumsal beslenme dan=
+=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=B1
+alan=C4=B1nda aktif olarak hizmet vermekteyim. Mustafa Kemal Mahallesinde y=
+er
+alan bir=C3=A7ok kurumla =C3=B6zel diyet s=C3=BCreci y=C3=BCr=C3=BCtmekteyi=
+z ve bu s=C3=BCre=C3=A7 olduk=C3=A7a
+verimli ilerlemektedir.
+
+Klini=C4=9Finizde takip edilen hastalar=C4=B1n tedavi s=C3=BCre=C3=A7lerini=
+ desteklemek ve
+ya=C5=9Fam tarz=C4=B1 de=C4=9Fi=C5=9Fikli=C4=9Fini s=C3=BCrd=C3=BCr=C3=BCle=
+bilir hale getirmek ad=C4=B1na sizlere bir i=C5=9F
+birli=C4=9Fi =C3=B6nermek istedim.
+
+Bu kapsamda;
+
+   - Hastalara =C3=B6zel *ki=C5=9Fiselle=C5=9Ftirilmi=C5=9F beslenme planla=
+r=C4=B1*
+   - Hastal=C4=B1=C4=9Fa uygun *diyet s=C3=BCreci takibi*
+   - *Online ve y=C3=BCz y=C3=BCze dan=C4=B1=C5=9Fmanl=C4=B1k se=C3=A7enekl=
+eri*
+   - Gerekli durumlarda *hekimle koordineli ilerleme*
+
+=C5=9Feklinde destek sa=C4=9Flamaktay=C4=B1m.
+
+Dilerseniz, klini=C4=9Finizden y=C3=B6nlendirilen hastalara =C3=B6zel bir d=
+an=C4=B1=C5=9Fmanl=C4=B1k
+s=C3=BCreci planlayabilir ve uygun ko=C5=9Fullar olu=C5=9Fturabilirim.
+
+Uygun g=C3=B6rmeniz halinde detaylar=C4=B1 g=C3=B6r=C3=BC=C5=9Fmek isterim.
+Sayg=C4=B1lar=C4=B1mla,
+Diyetisyen Nur =C3=96zek P=C4=B1narl=C4=B1
+Tel: 0533 468 6043
+dyt.nuroze@gmal.com
+Mustafa Kemal Mah. 2147. Sok. No:8/6 =C3=87ankaya/Ankara
+
+--000000000000c41fbe064ec9c834
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p style=3D"color:rgb(0,0,0)">Merhaba,</p><p style=3D"colo=
+r:rgb(0,0,0)">Ben Dyt. Nur =C3=96zek P=C4=B1narl=C4=B1. Bireysel ve kurumsa=
+l beslenme dan=C4=B1=C5=9Fmanl=C4=B1=C4=9F=C4=B1 alan=C4=B1nda aktif olarak=
+ hizmet vermekteyim.=C2=A0<span style=3D"color:rgb(34,34,34)">Mustafa Kemal=
+ Mahallesinde yer alan bir=C3=A7ok kurumla =C3=B6zel diyet s=C3=BCreci y=C3=
+=BCr=C3=BCtmekteyiz ve bu s=C3=BCre=C3=A7 olduk=C3=A7a verimli ilerlemekted=
+ir.=C2=A0</span></p><p style=3D"color:rgb(0,0,0)">Klini=C4=9Finizde takip e=
+dilen hastalar=C4=B1n tedavi s=C3=BCre=C3=A7lerini desteklemek ve ya=C5=9Fa=
+m tarz=C4=B1 de=C4=9Fi=C5=9Fikli=C4=9Fini s=C3=BCrd=C3=BCr=C3=BClebilir hal=
+e getirmek ad=C4=B1na sizlere bir i=C5=9F birli=C4=9Fi =C3=B6nermek istedim=
+.</p><p style=3D"color:rgb(0,0,0)">Bu kapsamda;</p><ul style=3D"color:rgb(0=
+,0,0)"><li>Hastalara =C3=B6zel<span class=3D"gmail-Apple-converted-space">=
+=C2=A0</span><strong>ki=C5=9Fiselle=C5=9Ftirilmi=C5=9F beslenme planlar=C4=
+=B1</strong></li><li>Hastal=C4=B1=C4=9Fa uygun<span class=3D"gmail-Apple-co=
+nverted-space">=C2=A0</span><strong>diyet s=C3=BCreci takibi</strong></li><=
+li><strong>Online ve y=C3=BCz y=C3=BCze dan=C4=B1=C5=9Fmanl=C4=B1k se=C3=A7=
+enekleri</strong></li><li>Gerekli durumlarda<span class=3D"gmail-Apple-conv=
+erted-space">=C2=A0</span><strong>hekimle koordineli ilerleme</strong></li>=
+</ul><p style=3D"color:rgb(0,0,0)">=C5=9Feklinde destek sa=C4=9Flamaktay=C4=
+=B1m.</p><p style=3D"color:rgb(0,0,0)">Dilerseniz, klini=C4=9Finizden y=C3=
+=B6nlendirilen hastalara =C3=B6zel bir dan=C4=B1=C5=9Fmanl=C4=B1k s=C3=BCre=
+ci planlayabilir ve uygun ko=C5=9Fullar olu=C5=9Fturabilirim.</p><p style=
+=3D"color:rgb(0,0,0)">Uygun g=C3=B6rmeniz halinde detaylar=C4=B1 g=C3=B6r=
+=C3=BC=C5=9Fmek isterim.</p><div>Sayg=C4=B1lar=C4=B1mla,</div><div>Diyetisy=
+en Nur =C3=96zek P=C4=B1narl=C4=B1=C2=A0</div><div>Tel: 0533 468 6043</div>=
+<div><a href=3D"mailto:dyt.nuroze@gmal.com" target=3D"_blank">dyt.nuroze@gm=
+al.com</a></div><div>Mustafa Kemal Mah. 2147. Sok. No:8/6 =C3=87ankaya/Anka=
+ra</div></div>
+
+--000000000000c41fbe064ec9c834--

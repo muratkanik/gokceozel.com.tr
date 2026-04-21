@@ -1,0 +1,167 @@
+Return-path: <dunya@sonitel.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Wed, 08 Apr 2026 14:20:05 +0300
+Received: from mail-lj1-f171.google.com ([209.85.208.171])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <dunya@sonitel.com.tr>)
+	id 1wAQx2-006Tnf-1b
+	for info@gokceozel.com.tr;
+	Wed, 08 Apr 2026 14:20:05 +0300
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38ddeb0f5abso34561051fa.3
+        for <info@gokceozel.com.tr>; Wed, 08 Apr 2026 04:20:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775647203; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bbJ/h9yliO51lVe3gy6F+uUp0qPGl9ehoukIb3Ea+2i1y4wm4ABtzxOm9AQIKtViWH
+         NQQfbxDXXwv/sQXJFLQuc2KO0MfscwSEbFRCt2a6zB4ZWLwbuYlnCyPNOyeTEU8Fn3Yw
+         zV8lfSdutrPmA4zu0xv/iHHFaaIVUFUj5s9svtcHONPGuLtoyQsa7M3BiAQdS5XTRun3
+         i3j5i//LCi3c/RtMhWLXB748gRPm2MmXdOrtkB7xlODA8r56d1Z2gt4+5dXL1Fq6WnbH
+         OlyI9F9/qclPCAvKiR2ljnayMxNAt+ZB7uC1GvzuSuA+Mhjl8Sj7ozE4sFf70S+1EObc
+         Eung==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=TTvQgUZ3sruK0EybRfEQbyMwRqNUVCheGQuygcmU76w=;
+        fh=QdS35G+x5swB6/NgdVI+L5nqLRo+xD0nmK9GYWwCn/8=;
+        b=GtAQg/Uc0skEIkCjHFOYsixnZGKKxXmJKfq1tasqaAa2v/4we0ZkkPsy4CaT95igIc
+         rrWbcOXufrdpJbZp36Rwy+T85/pMZqA3IDGD6gmsvB7T+lxazWZf8zoCXw1vaH40UAuu
+         HSxzQQJ0ELwHB33irWPIiMdmzb0eUeR66O9E7WyeYFKrYKIO+UU3CR7ZsLl3BR/9pmkh
+         iWoRKXO1R5au+doV9oCZN5PlIDsX+VpVyJYcuyipI0hk8Gtc4NY6gqo5N4d3AVPNVB4N
+         DbXs67tAC1vBop9Kl+iCM7XYhDvwkMUn93ZMfnPilQMCfuZTIK4EOecIQlQXCZCpvcUP
+         8Xcg==;
+        darn=gokceozel.com.tr
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sonitel-com-tr.20251104.gappssmtp.com; s=20251104; t=1775647203; x=1776252003; darn=gokceozel.com.tr;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=TTvQgUZ3sruK0EybRfEQbyMwRqNUVCheGQuygcmU76w=;
+        b=BmMUxaI85mfEjddc/ZkfKkl/kLgaChOQtM86+DiYKgO5B7lIoh+67V+zmgHCsRLWsD
+         ZPynr+RBSkdgB3X5lHkGgMB3YA+6XZtfRfeUJ5vFlipg5f1LUWGg4B2qn/9jlWLtF3mC
+         GwlkB7+b5q6+TCSl5C1z4gt04BsMwnOUOy3BFUhXKiJu5+XS2oJKOIVdHFwN2UvAxpR5
+         tRgiy/e2wxozVxl3TiptvXpP3RxR15G4GdoW1x0L4RJPXuioBebm1sF3z9TLEccoqBsI
+         uEqbw0/0jHxEh8fiIjJ8dLe/9e5AJUmlq/fYBF3e/B/39nWHYlmWxc167vYkYnp4mIFb
+         NiiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775647203; x=1776252003;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TTvQgUZ3sruK0EybRfEQbyMwRqNUVCheGQuygcmU76w=;
+        b=fU6Dlf91OswntFh/mEG8NTCmYDv4I5d4rmYgSMhJTJc5/+wfrvkJan4fQD/kKjpsyK
+         A0ZfWnJumDU8WJUvj+t/SwpCZDQsNiYnH0oEWC9ygbTd3U2b+pQlDmELugU8lvONpMET
+         Spn3sfVTgAmTN9eEFSNvgeMdhJizjiKuHrwtyqSLL3nb+kBtUNzBtPAZM6SGfQ/CWRHJ
+         lrKu06+EXJU/KrXUU+g38H5E7ocC1oKgAz5ks08f4XFYJmIwQGWQ1HD9e4/n4soTb3Dw
+         W29hmFkKt2LTUqjOP+6iSjmMGdIcmUc0ruy26Y5Xq1SQ4Io2p4ujRgxW8Ezg1aHyBYvR
+         5ONg==
+X-Gm-Message-State: AOJu0YyDExVmx2/3ZTFiKCN053vUgU0KHVFsZqKWFpVLIQG06n8BiMC1
+	Rw1dFy7QEYHoHz4CG89KOzjw6EUE0b4SldNZxgQsdNM5oAJf1FaJUN8+BD6DwTHsw8EiYB+0sHf
+	rf0XAImPr2RnIf+PfcoIb6NXMo0rQNrba7HDoW2w/LUs9Kg4U/szkr11jrA==
+X-Gm-Gg: AeBDieu+kPGzJienc02YYuLCrKdZLuH32ryxc4Sm4+DsE9+5zMNO6cfjb5wtSDh20PD
+	fiIPBxWvSYPmL3xiR4BdiEFkUt8pQv6vv2x/2tfE7i9gZMvPiLLEzyjEjVTyQtM3A6B/qOgU25o
+	moGVuU51ii3rVf6bAZiYFJhVOSO2DapBbT7ogeHSF0mkJEKaaiwWKzGm8bSNBAtVKrmzy+pOXVN
+	vZ1JGveCi7JYeRcxbdSPt9tr4vsFmc+TpV9ZUJ7m9We8eVrLhj9adRjTvJTqG4YT3pOx+KILb79
+	iDFV0oGNfoKCCx6UmqPS
+X-Received: by 2002:a05:6512:2245:b0:5a2:c80d:410e with SMTP id
+ 2adb3069b0e04-5a33755d682mr6661938e87.16.1775647203040; Wed, 08 Apr 2026
+ 04:20:03 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?RMO8bnlhIMOWWlNPWQ==?= <dunya@sonitel.com.tr>
+Date: Wed, 8 Apr 2026 14:19:52 +0300
+X-Gm-Features: AQROBzDHog1-DWs-tygfKuGA6aCH9wgzEF86jJ4APbbHabVI1xU-Fka4jRE0bO0
+Message-ID: <CANqJMm_HkPEpwuvSD9R=psSzdt1jPPBSztP=+L50hDOxY-pWew@mail.gmail.com>
+Subject: =?UTF-8?B?U29uaXRlbCAvSGFzdGEgRMO2bsO8xZ8gT3JhbmxhcsSxbsSxIEFydMSxcm1hIHZlIMSwbA==?=
+	=?UTF-8?B?ZXRpxZ9pbSBZw7ZuZXRpbWkgSGsu?=
+To: info@gokceozel.com.tr
+Content-Type: multipart/alternative; boundary="000000000000c8accb064ef114d6"
+X-Spam-Score: 11
+X-Spam-Bar: +
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Merhaba, Sağlık turizmi satış süreçlerinde sık karşılaşılan
+    bir durumu sizinle paylaşmak istedik: Gelen başvuruların önemli bir kısmı,
+    ne yazık ki geç dönüş veya dağınık iletişim nede [...] 
+ 
+ Content analysis details:   (1.1 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.208.171 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+  1.0 HTML_IMAGE_ONLY_16     BODY: HTML: images with 1200-1600 bytes of words
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 T_REMOTE_IMAGE         Message contains an external image
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                         [209.85.208.171 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.208.171 listed in sa-accredit.habeas.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.208.171 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [209.85.208.171 listed in bl.score.senderscore.com]
+
+--000000000000c8accb064ef114d6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+TWVyaGFiYSwNCg0KU2HEn2zEsWsgdHVyaXptaSBzYXTEscWfIHPDvHJlw6dsZXJpbmRlIHPEsWsg
+a2FyxZ/EsWxhxZ/EsWxhbiBiaXIgZHVydW11IHNpemlubGUNCnBheWxhxZ9tYWsgaXN0ZWRpazog
+R2VsZW4gYmHFn3Z1cnVsYXLEsW4gw7ZuZW1saSBiaXIga8Sxc23EsSwgbmUgeWF6xLFrIGtpIGdl
+w6cNCmTDtm7DvMWfIHZleWEgZGHEn8SxbsSxayBpbGV0acWfaW0gbmVkZW5peWxlIHJha2lwbGVy
+ZSBrYXliZWRpbGl5b3IuDQoNCsOWemVsbGlrbGUgecO8a3NlayBoYXN0YSB0cmFmacSfaSB5w7Zu
+ZXRlbiBrbGluaWtsZXJsZSB5YXB0xLHEn8SxbcSxeiDDp2FsxLHFn21hbGFyZGE7DQp0w7xtIGls
+ZXRpxZ9pbWluIChXaGF0c0FwcCwgw6dhxJ9yxLEsIGZvcm0gdmIuKSB0ZWsgYmlyIG5va3RhZGFu
+LCBoxLF6bMSxIHZlDQprb250cm9sbMO8IHnDtm5ldGlsbWVzaW5pbiBzYXTEscWfIGthcGF0bWEg
+b3JhbmxhcsSxbsSxIGRvxJ9ydWRhbiBhcnTEsXJkxLHEn8SxbsSxDQpnw7Z6bGVtbGl5b3J1ei4N
+Cg0KQnUgZG/En3J1bHR1ZGEgc3VuZHXEn3VtdXogw6fDtnrDvG1sZXJsZSwgaWxldGnFn2ltIGth
+bmFsbGFyxLFuxLF6xLEgdGVrIGJpciB5YXDEsQ0KYWx0xLFuZGEgdG9wbGF5YXJhayBzw7xyZWNp
+IG5hc8SxbCBvcHRpbWl6ZSBldHRpxJ9pbWl6aSB2ZSBrYXnEsXAgYmHFn3Z1cnVsYXLEsQ0KbmFz
+xLFsIGthemFuY2EgZMO2bsO8xZ90w7xyZMO8xJ/DvG3DvHrDvCBrxLFzYWNhIHBheWxhxZ9tYWsg
+aXN0ZXJpei4NCg0KQnUga29udXlsYSBpbGdpbGVuZW4geWV0a2lsaXllIHnDtm5sZW5kaXJtZSDF
+n2Fuc8SxbsSxeiBvbHVyc2EgZGV0YXlsYXLEsQ0KcGF5bGHFn21ha3RhbiBtZW1udW5peWV0IGR1
+eWFyxLF6Lg0KDQrEsHlpIMOnYWzEscWfbWFsYXIgZGlsZXJpbS4NCg0KDQoNCi0tDQo=
+--000000000000c8accb064ef114d6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div><div>Merhaba,<br><br>Sa=C4=9Fl=C4=B1k turizmi sat=C4=
+=B1=C5=9F s=C3=BCre=C3=A7lerinde s=C4=B1k kar=C5=9F=C4=B1la=C5=9F=C4=B1lan =
+bir durumu sizinle payla=C5=9Fmak istedik: Gelen ba=C5=9Fvurular=C4=B1n =C3=
+=B6nemli bir k=C4=B1sm=C4=B1, ne yaz=C4=B1k ki ge=C3=A7 d=C3=B6n=C3=BC=C5=
+=9F veya da=C4=9F=C4=B1n=C4=B1k ileti=C5=9Fim nedeniyle rakiplere kaybedili=
+yor.<br><br>=C3=96zellikle y=C3=BCksek hasta trafi=C4=9Fi y=C3=B6neten klin=
+iklerle yapt=C4=B1=C4=9F=C4=B1m=C4=B1z =C3=A7al=C4=B1=C5=9Fmalarda; t=C3=BC=
+m ileti=C5=9Fimin (WhatsApp, =C3=A7a=C4=9Fr=C4=B1, form vb.) tek bir noktad=
+an, h=C4=B1zl=C4=B1 ve kontroll=C3=BC y=C3=B6netilmesinin sat=C4=B1=C5=9F k=
+apatma oranlar=C4=B1n=C4=B1 do=C4=9Frudan art=C4=B1rd=C4=B1=C4=9F=C4=B1n=C4=
+=B1 g=C3=B6zlemliyoruz.<br><br>Bu do=C4=9Frultuda sundu=C4=9Fumuz =C3=A7=C3=
+=B6z=C3=BCmlerle, ileti=C5=9Fim kanallar=C4=B1n=C4=B1z=C4=B1 tek bir yap=C4=
+=B1 alt=C4=B1nda toplayarak s=C3=BCreci nas=C4=B1l optimize etti=C4=9Fimizi=
+ ve kay=C4=B1p ba=C5=9Fvurular=C4=B1 nas=C4=B1l kazanca d=C3=B6n=C3=BC=C5=
+=9Ft=C3=BCrd=C3=BC=C4=9F=C3=BCm=C3=BCz=C3=BC k=C4=B1saca payla=C5=9Fmak ist=
+eriz.<br><br>Bu konuyla ilgilenen yetkiliye y=C3=B6nlendirme =C5=9Fans=C4=
+=B1n=C4=B1z olursa detaylar=C4=B1 payla=C5=9Fmaktan memnuniyet duyar=C4=B1z=
+.<br><br>=C4=B0yi =C3=A7al=C4=B1=C5=9Fmalar dilerim.</div><font color=3D"#8=
+88888"></font><div><font color=3D"#888888"><br></font><br class=3D"gmail-Ap=
+ple-interchange-newline"></div></div><div><br></div><span class=3D"gmail_si=
+gnature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" da=
+ta-smartmail=3D"gmail_signature"><div dir=3D"ltr"><img src=3D"https://ci3.g=
+oogleusercontent.com/mail-sig/AIorK4x3VWgpNOXXpE6jtKXCqZ2Si-6V0KJStMnrIKEmV=
+BxEStJ4SoCfqfywFIwOVl4ICA20rx6BSMFEohYQ" width=3D"420" height=3D"69"><br></=
+div></div></div>
+
+--000000000000c8accb064ef114d6--

@@ -1,0 +1,337 @@
+Return-path: <ashishkumar89+bncBCSIN6VWXMPBB7PCQHHQMGQEZZ234PQ@digitalcreatorapp.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Thu, 16 Apr 2026 08:20:12 +0300
+Received: from mail-qv1-f70.google.com ([209.85.219.70])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <ashishkumar89+bncBCSIN6VWXMPBB7PCQHHQMGQEZZ234PQ@digitalcreatorapp.com>)
+	id 1wDF99-00DKU0-1Q
+	for info@gokceozel.com.tr;
+	Thu, 16 Apr 2026 08:20:12 +0300
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8acae7cf136sf17050026d6.1
+        for <info@gokceozel.com.tr>; Wed, 15 Apr 2026 22:20:11 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1776316810; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=WMWLpB5FYcvDNgSvjBIJN4AM4FkzaxX44W8c9Hj5I4y9YAjRQMwV6dayoYyNFTTCWM
+         R0foJvZHebpoqxsACBtCVXPyzbeqvCvLRfHuKPbTgykFED9wZ/qm/sPDlh8GyIAp3xTw
+         KGwRUGd3gD8Dygy7AgVpDq59MVJ2+t86RJdt3jnruf+ySAP5lg8E4ZRU74hufaxmC4Nq
+         wfXS6c5yN8REjYXXUt1gjTWLfvSnE1krCf4P8EEnbQLkD5LG/bHY0wawuOibbMAodB07
+         kA1HGX3538uFyAMPHo03eXVI9Zvqeqp9o6+s+LQDs0tKIZDeV0EuFuDXlqZBFQ9CREWk
+         QP0g==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=cF10iaWDLL9NhCbl+MEpP+TnMuLGjYuznEoCnvCBOjk=;
+        fh=Hb5ZAN83eb6bC3XNF+h4mvljEU2CH8nIiEFWxzec7Ug=;
+        b=UErg8o3dPCrW3cukPYBt+mnx+4Pm5inLNbyw3NrX0ojKBA5dzVycqVZV97PQ8imd67
+         9QgC1Mt3/8qJWeLJSAbvD7lY2Sjidjp79YdLJ6h0dgwt+BO9WV6tXZzHflr4jOb9za+C
+         uWHEBkWHNMwNDIR+XYHVZTFJLpjUMQGwbMz0mUGNooM9djlrXh36hMV/V0cjhxMVw0Cp
+         LS1gWALF5ZqYH51ZgHK6DaOj4X/amtHpudmKAZZH6HwyRjuyWEVtI1wciE2+7JZOT2rD
+         6tbJJnGEdFd1HD/+ZmiCLmC0UNY4P/e69HAgecw9iRi82q5LRjIN0ZK8I4FDY20Bc95q
+         hUxg==;
+        darn=gokceozel.com.tr
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=NZo76UX6;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of ashishkumar12345678978@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=ashishkumar12345678978@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@digitalcreatorapp.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=digitalcreatorapp.com; s=google; t=1776316810; x=1776921610; darn=gokceozel.com.tr;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cF10iaWDLL9NhCbl+MEpP+TnMuLGjYuznEoCnvCBOjk=;
+        b=oaJmFHpkQew1if7tUiMFUOD7kkZRFsv90vUP6Vb3+S+8rFKQuGRugpR+a4es0rvtlz
+         cN2LRlHI0ojbrE9NPUzGhNPdlxYYpAnA5Ud02XaXqV1JzKCbCu6VBGuf0PCv4Vo80GLV
+         6jI/U7ezMASGCgMnfP+oknsCSuF0OO7JRS8ko=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776316810; x=1776921610;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-beenthere:x-gm-message-state:sender:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cF10iaWDLL9NhCbl+MEpP+TnMuLGjYuznEoCnvCBOjk=;
+        b=b7poKBXBarzCwKV5SSXHkcaCsm4baGUBPAkvmI3RJwbvdg9VQyMWyctYcxGsuNw9gq
+         0JderUeq/cFotIQlHg7tpq8FsdE2zFhNHdIWB5UUs0oR/XSUZbA3uIXsmLLFEPYiH0PY
+         EPbRwjoWFVxQAB4x1t+Oo1PbBKQdWBLRTqbKTFlMp9q6iR5fk+OH7ZHE78wO120Ewbxh
+         USR3eXzotV3c8htD2YafPyI12qY/O+xKavGRIG2w1hEosAcx3uYUt5CAWCvEstjkx+2a
+         fKuQgYLxAw1clQK180fz/PkkW0q3KZpUkeFewCMrcbHHrV6APpRRV7pjuVC6DgoMdTFQ
+         uitA==
+Sender: ashishkumar89@digitalcreatorapp.com
+X-Forwarded-Encrypted: i=3; AFNElJ/UbltmtL5hJ20TyMPNbOl2DVqmCWQMTrYaxM99P/q2eH6Zp4QrYWbl7DPbrCKYUc1VfQJs@gokceozel.com.tr
+X-Gm-Message-State: AOJu0YyY5JfCyLjWT5453DFzU+HQDeYNngI/N4FsUCTHgkz4/pYyAB+W
+	PmBxhQXIloQy3lq/0eOg3cbsYFtTmV7zzT1n/wTUj1e2antZ5d7ONmq2CayJ9q6F4xI=
+X-Received: by 2002:a05:6214:e83:b0:8ac:7d7a:56fb with SMTP id 6a1803df08f44-8ac861561d5mr427069976d6.5.1776316809361;
+        Wed, 15 Apr 2026 22:20:09 -0700 (PDT)
+X-BeenThere: ashishkumar89@digitalcreatorapp.com; h="AYAyTiJwSe5ICo/jOPq7d/JC66ItLKdmaTxjwLjnRY8Ww5VCpQ=="
+Received: by 2002:a05:6214:c26:b0:8a5:6ca6:535b with SMTP id
+ 6a1803df08f44-8ae820b9b52ls7934886d6.2.-pod-prod-05-us; Wed, 15 Apr 2026
+ 22:19:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ+cU3v0rFkan8Hm+a97zanioANrr8gyJv0xy1sguaqk1VPbnN8pZUrixaFqcIwWhNfgcKvqxAn0VX5KFTqR@digitalcreatorapp.com
+X-Received: by 2002:a05:6122:81d2:b0:56f:6d27:cadc with SMTP id 71dfb90a1353d-56f6d27cdd4mr4667673e0c.7.1776316797243;
+        Wed, 15 Apr 2026 22:19:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1776316797; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=CS3wt98Fg+zXK4THDP6c7YrqdhA0IqUQ0JOCmUS6AsKFXjlA9vk/qYMvUy/ovaI2c2
+         Odak/LMbfVgg6YkBqgeDi2Q8RTpSC4ySPDI+AakG6jS8tFwpTvuvZITtD2yxEqSAO6Cp
+         WeJn9h/r+EMOV3Nf7k8P2Q2Q8F3nvQG8RSE6F/p9uYDzKRitrGlHTxeJ7YNquWlCRzNx
+         P3R79KJCjuNrfmaNUQTkERjs2ao9DpMyGiF0Uz3isLLQ4gQ6Zhwl6iL6M1+goxUWYQ9A
+         TK4XaTwG3eSRBFDaK4cecKSXrSWdPfzzTGUgZWtr55Fxc24poQxUzLe3qyOAQyKoxMvM
+         slfA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=cF10iaWDLL9NhCbl+MEpP+TnMuLGjYuznEoCnvCBOjk=;
+        fh=ZbFvDyNsZagN07U8cHdLUXGalb9jvkLo0mj7u6HcYV4=;
+        b=CnGX/Zkos5/W2D+7CE3/p+xMJm4A9yQXiswrjaqlRaEJM9rJPN0kBkbwsRr40E/Nps
+         j+YqUFGOGGNdRSZbKOc568krWo+7hP9Ao7xKA2t8oN9JzMN9kowI/XvmZbBkQQZwvSVr
+         xY5H4NYlvOCbvBjijBuUmFIE5AGD/B1MIva0Vep/yQR1UDfQuNIcqQ0/OHzL5TJ2fwE7
+         yqgGF1vm67g4h3zF+ClD4T1aJbo35ClDdajdO+UFQquW32xzQItd4bh4Ust7O1R68aG2
+         bFjfS+MHFXKgUROH8r1vJbd3eq4g0fh/NcqmxLw0X/Cm3udpcOZY2RP7DZcgloSDKN46
+         aSyA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=NZo76UX6;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of ashishkumar12345678978@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=ashishkumar12345678978@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@digitalcreatorapp.com
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 71dfb90a1353d-56f89f2057asor445423e0c.4.2026.04.15.22.19.57
+        for <ashishkumar89@digitalcreatorapp.com>
+        (Google Transport Security);
+        Wed, 15 Apr 2026 22:19:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashishkumar12345678978@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+ARC-Seal: i=1; a=rsa-sha256; t=1776316796; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EauwL9v8COtUYKQVc676/ZQhWwC4B8jD1epcc8Pc77fukXq22zcz98B0/GwQpvpF+v
+         Ytu+4+i7HyIydUIK8ETecPJfZ5LOB0RLzuqDEWVITqvhG7rS8+6j0G9Nybuo+hQ0Ju7l
+         4llc37CYskNgl/F3HrzzuccXJksd1ALosjyp/hvh74bqdnKqYtnlDTvJ0Jn30AmYQtWa
+         0u9qhwP4Sgoyww8yoyQX9JhrWJ5yF6RPJ05s/EqyAz+rjeHiRi4G9MBhyeEez7a1csqY
+         gUtoobK2qIUz8l+gIE6220r0y/UKwI+YwGoQglcPs3khiv2Ts2oM3sVpFLlFfOFNxyt0
+         etDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=cF10iaWDLL9NhCbl+MEpP+TnMuLGjYuznEoCnvCBOjk=;
+        fh=ZbFvDyNsZagN07U8cHdLUXGalb9jvkLo0mj7u6HcYV4=;
+        b=F6VDQh/UBPwDG83RV1vama3Cq6ZiWsEq6qYddl1+N5xR8LJdYl9jzyeGdpYv5ddTv+
+         wf2I/kuL6/zmkUnO1fl8f/KZjfhCGpr+OzTo/Z/jsyPeYpVSHP/J+fh/ztCchmZQUSoy
+         joyC5HifGHcAObaSgWwun0NAdkEjNf03vsoXSv+2kCImJCNdC3kXl85GjDqyBQw7qaw9
+         xzs/FBfurccPKrb6bwnTczaYp+qg29kgNCoIaYr3wJ5LcFSigTabazZYDcITPcfGCW1j
+         vW3smjg3Fz2Dw8/EUkFPE2IGORFJ7fEPAD5Z+tlOWIUR1sfj6W4V6qgn81Xwk1s8xnli
+         TTRg==;
+        darn=digitalcreatorapp.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Forwarded-Encrypted: i=1; AFNElJ+r62iPTJvb9gdIfbhebKOOxEkdLOjlOeTbc7qBhvZxj+8EiDZ4q9wa2/Ynw7kf0hr+8L1BZv7wVoaOJ8I0@digitalcreatorapp.com
+X-Gm-Gg: AeBDieuU7aNJpnyA0EF/F2UdhJjBogwii5Dg+omAiEq+UsSwjHmb0bqsINe1uD+0j6W
+	qucPYxRpQLc0EjSrDUl7GhzcF/QItoeZOxIXgbhM/82Rbp3ZatJwjhdpBrYwM9A90hxDfOJXh6N
+	9av3M5yPnP+oEUsYsd4hmMdFD0w3hqr72xmGEcbkd/niTleIR4fdNYWQk7ho3i4ASOPGiUCy40H
+	+Ea5i7bQpm+r2bcXciFnoU1vfmmXW3Es9lnY+FQ7N9y427yxcCYKqzK1fcunULGpBwOjl8V7CUn
+	U3dD3JNjsSo2Dtm63yp4
+X-Received: by 2002:a05:6122:81d2:b0:56f:6d27:cadc with SMTP id
+ 71dfb90a1353d-56f6d27cdd4mr4667669e0c.7.1776316796442; Wed, 15 Apr 2026
+ 22:19:56 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAJZ58FhTQ8UuY7K0bnEp4rP3VA3vPaZd78zYJRGt_NxTUB5ERQ@mail.gmail.com>
+In-Reply-To: <CAJZ58FhTQ8UuY7K0bnEp4rP3VA3vPaZd78zYJRGt_NxTUB5ERQ@mail.gmail.com>
+From: Ashish kumar <ashishkumar12345678978@gmail.com>
+Date: Thu, 16 Apr 2026 10:49:43 +0530
+X-Gm-Features: AQROBzDNy8MDyG-uFxJCD2TzRFy_XQEmPQlOrGhdoH3QzfpsEZ5EkpVkdQBiy8I
+Message-ID: <CAJZ58FhfO4sOy37XGG9W_eZF+xA+OsU1f8U4SEGJsgvzkEjjxw@mail.gmail.com>
+Subject: Re: #Ridesharing or taxi ride-hailing booking app......?
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000a91d2f064f8cfba5"
+Bcc: ashishkumar89@digitalcreatorapp.com
+X-Original-Sender: ashishkumar12345678978@gmail.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20251104 header.b=NZo76UX6;       arc=pass
+ (i=1);       spf=pass (google.com: domain of ashishkumar12345678978@gmail.com
+ designates 209.85.220.65 as permitted sender) smtp.mailfrom=ashishkumar12345678978@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@digitalcreatorapp.com
+Precedence: list
+Mailing-list: list ashishkumar89@digitalcreatorapp.com; contact ashishkumar89+owners@digitalcreatorapp.com
+List-ID: <ashishkumar89.digitalcreatorapp.com>
+X-Spam-Checked-In-Group: ashishkumar89@digitalcreatorapp.com
+X-Google-Group-Id: 52228691749
+List-Post: <https://groups.google.com/a/digitalcreatorapp.com/group/ashishkumar89/post>,
+ <mailto:ashishkumar89@digitalcreatorapp.com>
+List-Help: <https://support.google.com/a/digitalcreatorapp.com/bin/topic.py?topic=25838>,
+ <mailto:ashishkumar89+help@digitalcreatorapp.com>
+List-Archive: <https://groups.google.com/a/digitalcreatorapp.com/group/ashishkumar89/>
+List-Subscribe: <https://groups.google.com/a/digitalcreatorapp.com/group/ashishkumar89/subscribe>,
+ <mailto:ashishkumar89+subscribe@digitalcreatorapp.com>
+List-Unsubscribe: <mailto:googlegroups-manage+52228691749+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/digitalcreatorapp.com/group/ashishkumar89/subscribe>
+X-Spam-Score: 12
+X-Spam-Bar: +
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Hi, I’m writing to you again. I want to know if you need
+    an Android or iOS app for your business website. *We can make any kind of
+    mobile app for you!*  Taxi Booking Apps  Airport Transfers Apps 
+    Private Chauffeur Apps  Ride Sharing Apps  Bike Taxi Apps  Car Rental
+    Apps  Shuttle Servi [...] 
+ 
+ Content analysis details:   (1.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.219.70 listed in list.dnswl.org]
+  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.219.70 listed in wl.mailspike.net]
+  0.0 DKIM_ADSP_CUSTOM_MED   No valid author signature, adsp_override is
+                             CUSTOM_MED
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+  0.0 FROM_LOCAL_DIGITS      From: localpart has long digit sequence
+  0.3 FROM_LOCAL_HEX         From: localpart has long hexadecimal sequence
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+                             domains are different
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail provider
+                             [ashishkumar12345678978(at)gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+                              freemail headers are different
+ -1.0 MAILING_LIST_MULTI     Multiple indicators imply a widely-seen list
+                             manager
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.219.70 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.219.70 listed in sa-accredit.habeas.com]
+  1.7 URIBL_BLACK            Contains an URL listed in the URIBL blacklist
+                             [URI: digitalcreatorapp.com]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.219.70 listed in bl.score.senderscore.com]
+
+--000000000000a91d2f064f8cfba5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi, I=E2=80=99m writing to you again.
+
+I want to know if you need an Android or iOS app for your business website.
+
+
+*We can make any kind of mobile app for you!*
+=EF=83=9E Taxi Booking Apps
+=EF=83=9E Airport Transfers Apps
+=EF=83=9E Private Chauffeur Apps
+=EF=83=9E Ride Sharing Apps
+=EF=83=9E Bike Taxi Apps
+=EF=83=9E Car Rental Apps
+=EF=83=9E Shuttle Service Apps
+=EF=83=9E Tourist taxi booking Apps
+=EF=83=9E Peer-to-peer (P2P) ridesharing Apps
+=EF=83=9E Ridesharing or car-sharing Apps
+
+
+*If you are interested, please tell me the name of your app and the type of
+app you want for your business.*
+Then I=E2=80=99ll be happy to share examples of our work and the price list=
+.
+
+Thank you,
+
+On Fri, 19 Sept 2025 at 15:34, Ashish kumar <
+ashishkumar12345678978@gmail.com> wrote:
+
+> Hello,
+>
+> I have over 8+ years of experience developing taxi apps, both for mobile
+> devices and web platforms. I can develop apps similar to Uber, Ola,
+> InDriver, etc., with separate sections for drivers and passengers, as wel=
+l
+> as an admin panel.
+>
+> I also offer:
+>
+> =E2=80=A2 Multi-language and multi-currency support
+> =E2=80=A2 Various payment options
+> =E2=80=A2 Taxi booking app
+> =E2=80=A2 Taxi tracking and location app
+> =E2=80=A2 Management tool for taxi companies
+> =E2=80=A2 Ride-sharing app
+> =E2=80=A2 Emergency medical transport app
+> =E2=80=A2 On-demand transportation app
+> =E2=80=A2 Car rental app
+> =E2=80=A2 Electric scooter/bicycle rental app
+> =E2=80=A2 Roadside assistance app
+> =E2=80=A2 Car rental app like Zoomcar
+> =E2=80=A2 Ambulance service app
+> =E2=80=A2 GPS tracking app
+> =E2=80=A2 Limousine rental app
+>
+> Could you please tell me what type of mobile app you are looking for? Thi=
+s
+> will allow me to send you our portfolio of projects and pricing informati=
+on.
+>
+> Kind regards,
+> Ashish
+>
+
+--000000000000a91d2f064f8cfba5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><font color=3D"#000000">Hi, I=E2=80=99m writing to you aga=
+in.<br><br>I want to know if you need an Android or iOS app for your busine=
+ss website.<br><br><b>We can make any kind of mobile app for you!<br></b><b=
+r>=EF=83=9E Taxi Booking Apps<br>=EF=83=9E Airport Transfers Apps<br>=EF=83=
+=9E Private Chauffeur Apps<br>=EF=83=9E Ride Sharing Apps<br>=EF=83=9E Bike=
+ Taxi Apps<br>=EF=83=9E Car Rental Apps<br>=EF=83=9E Shuttle Service Apps<b=
+r>=EF=83=9E Tourist taxi booking Apps<br>=EF=83=9E Peer-to-peer (P2P) rides=
+haring Apps<br>=EF=83=9E Ridesharing or car-sharing Apps<br><br><b style=3D=
+"background-color:rgb(255,242,204)">If you are interested, please tell me t=
+he name of your app and the type of app you want for your business.<br></b>=
+<br>Then I=E2=80=99ll be happy to share examples of our work and the price =
+list.<br><br>Thank you,</font><br></div><br><div class=3D"gmail_quote gmail=
+_quote_container"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, 19 Sept 202=
+5 at 15:34, Ashish kumar &lt;<a href=3D"mailto:ashishkumar12345678978@gmail=
+.com">ashishkumar12345678978@gmail.com</a>&gt; wrote:<br></div><blockquote =
+class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px sol=
+id rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><font face=3D"verdan=
+a, sans-serif">Hello,<br><br>I have over 8+ years of experience developing =
+taxi apps, both for mobile devices and web platforms. I can develop apps si=
+milar to Uber, Ola, InDriver, etc., with separate sections for drivers and =
+passengers, as well as an admin panel.<br><br><span style=3D"background-col=
+or:rgb(252,229,205)">I also offer:</span><br><br>=E2=80=A2 Multi-language a=
+nd multi-currency support<br>=E2=80=A2 Various payment options<br>=E2=80=A2=
+ Taxi booking app<br>=E2=80=A2 Taxi tracking and location app<br>=E2=80=A2 =
+Management tool for taxi companies<br>=E2=80=A2 Ride-sharing app<br>=E2=80=
+=A2 Emergency medical transport app<br>=E2=80=A2 On-demand transportation a=
+pp<br>=E2=80=A2 Car rental app<br>=E2=80=A2 Electric scooter/bicycle rental=
+ app<br>=E2=80=A2 Roadside assistance app<br>=E2=80=A2 Car rental app like =
+Zoomcar<br>=E2=80=A2 Ambulance service app<br>=E2=80=A2 GPS tracking app<br=
+>=E2=80=A2 Limousine rental app<br><br>Could you please tell me what type o=
+f mobile app you are looking for? This will allow me to send you our portfo=
+lio of projects and pricing information.<br><br>Kind regards,<br>Ashish</fo=
+nt></div>
+</blockquote></div>
+
+--000000000000a91d2f064f8cfba5--

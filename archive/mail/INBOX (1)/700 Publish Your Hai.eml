@@ -1,0 +1,349 @@
+Return-path: <uttam.tricewebsolutions@gmail.com>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 13 Apr 2026 13:46:15 +0300
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <uttam.tricewebsolutions@gmail.com>)
+	id 1wCEo2-00Aq4X-16
+	for info@gokceozel.com.tr;
+	Mon, 13 Apr 2026 13:46:15 +0300
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-95695190911so91859241.2
+        for <info@gokceozel.com.tr>; Mon, 13 Apr 2026 03:46:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776077172; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QffyCN+AHHCI1cuFlciunqL1Mo87dOozx+JbIwhk4clfgMPiavHMrki9q0WXTz3rpF
+         sJmn/Kyr0B69yFwUeN1JS+9HWGTUI6q/+a+VfK+2thAbFpSUbYIikTjyX7vjjUan2N8G
+         u8TgK24l/BndccIEGSUjAuCdNzlmlhEGfr1HDK/R8g9L588eix146w5UzRAYmoWrOmel
+         1mJRDUcsnBpuzghXwAsNi0BCTZsH9jdDU6IAXKL0TnHLDvL3Y3DcZUHIe4L7MkbJXhSx
+         UY+/3gDj29YU8MC/rhq+vJIbwsnYK8yk3FktQR3nXEzSOFf5y0SsvWW+686yQlOaFNM1
+         wQog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=iPJhRriqD2NOsrAIeqGbKFDpLFKyXak+oiJYwXJ1Ri4=;
+        fh=QdS35G+x5swB6/NgdVI+L5nqLRo+xD0nmK9GYWwCn/8=;
+        b=FG2z3ttwx42zqu1yTqLZJzBwdgZVZdlxLuHLKC047ihEZFGtnDhHkkuAWXZK4wHMIL
+         xLGyW+my0tQ1XUL0U2O6aWWCUictFITs5p0d4vCow0NRM7rXhQp9qWRVlT4BH0szPgCr
+         nhCZhMfcOMWiSuGKIOPZDBcDrJRTqTVKkxpoZdqgbAjSdmJ2uK4v5aPOl4YpAlcCVI/G
+         F/i4Yac7Tg1E/jHxghtSjcOfk9yZHt9bhbUjd7nbHjiGJr4aTxpOhs2YjcnHAhZq6B8+
+         PDZqvkMzIqOzaeo2lvpLgn0JiweEb6H8SrnpvtUrc7I+jRBepb6hkhlLdgIaM5apS6Um
+         x5eA==;
+        darn=gokceozel.com.tr
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776077172; x=1776681972; darn=gokceozel.com.tr;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iPJhRriqD2NOsrAIeqGbKFDpLFKyXak+oiJYwXJ1Ri4=;
+        b=fiKVqap//Mx9A/6yseG5vWD7X1oGVMFmeonH6wTh8jVwtkjbWmo9B3KzA4Gdv4+wu9
+         C8y4AUV3WbtOcbhk8YGQlFDcIqfE3s/NfFI8xrPlZRdUvHyduuetZZMmmRR7lajIP/gl
+         g+HZZXZkU0CWmuhEpBpoFUwvoG4Ad/Ez5EEIypIru02kUPih1SlWVAxej80RdoEm07rx
+         BybitjV27PcV3GyAFnVdIdHpMCzzv0XknUTm3raYBNituZgWqzlccGE9aPQh2EKmidEE
+         9ChdPB3elcKpax8x0pqOz6XRE2ePRzdn0dmzpL9897gjLdV6mVFKZGxXy4U5d2SjeGqV
+         rF8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776077172; x=1776681972;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iPJhRriqD2NOsrAIeqGbKFDpLFKyXak+oiJYwXJ1Ri4=;
+        b=Aiym3FS2uumbvg8aVoLSHldeX0Ezrw/R3T8n5CR4fkH7jsjQ02MEr2izia8ifO07oz
+         Iy+5eLjVrElU6l+8C4rfKPpenXeAPonSJn6xNw1hFREuj0TmYuU2QA6+vLu2/tk4jrIf
+         KAah/nbjmbcI1wop5U/aiyuJa3a1fbP64la0qBJerEvH//DMQPz2thJ4/XyVZbVzaXeb
+         b+/BfMYdLcpLoez54jOiHd7epkgA2vkzm1IRc/NQEyb8ZmhmEVz/q4ys4E+dZ5YwZOB1
+         NfiYH4+DiWjILKOAizLCojmQb7BPQBESQmAMLOMTuPgwmcnF4NTm6LcucnDnjMtBGuFm
+         HeGg==
+X-Gm-Message-State: AOJu0YyatOHiVynM0IB2RYeyaElQBt+cdnjNGdE8Hg2gRx7uoXCv9M7Q
+	+mYMyjV8rzVIqpBHmD3w8WXNd1RR4kErvf0FvdwujXfOkICZfGyIX0S+jYbkmnD2yLVkHgHjGfo
+	7pgsgw9KMtesbRYRrSuTXDX8ZS4bf5wXpFWD6zMXAag==
+X-Gm-Gg: AeBDieu/TY9H9ZBCKQ87t0QSlEfSMcw7C2j+vOTBmtXFW1W4GrRQlEQgNF7HVldDc1a
+	wxwRjuJSMy2RBNQ2GNLtDED4R2pbwfszOHBD1yaLAIum2hWwW/d48ugdoG/1rtKquSCVHBEHev5
+	W0NsGGizHGqj8AnPqyukoHX1HmD3B0U8JWfRm2Y3dqYEhYvKkSJ3JqPNUrCpKMYvt4GciXhRbql
+	rpsblHl/9aKS415zLLheXlpCBQ3G2PbxGey8nLNrsNdUFDDVRqWLjBIV6iqw5ZEdnBXNTODay3f
+	52UVFS06Ukx1GXNycsp91zIMkIjepUlOOeQ/FdpZGOVFukTnv5ZWMsqbWxbR1hbTFllIALDDcMe
+	h/GJiWbMY3mngiYYusoAx/y8RtGZdS6TDQSFq
+X-Received: by 2002:a05:6102:4b85:b0:5ff:cee8:660c with SMTP id
+ ada2fe7eead31-60a01985622mr4193645137.31.1776077171968; Mon, 13 Apr 2026
+ 03:46:11 -0700 (PDT)
+MIME-Version: 1.0
+From: Uttam Singh <uttam.tricewebsolutions@gmail.com>
+Date: Mon, 13 Apr 2026 16:15:59 +0530
+X-Gm-Features: AQROBzAkHgvkcNtjRrR9ygZ68cni9PqRX8kdgpLR0wMMr_jQjPuPkX9W2e5nucQ
+Message-ID: <CABKQhpdHwDOMydtPJaAFCAypZNhAbycnoGmsaQEYd5do5gRBkw@mail.gmail.com>
+Subject: Publish Your Hair Transplant Story on Leading Health Platforms
+To: info@gokceozel.com.tr
+Content-Type: multipart/alternative; boundary="000000000000edcf35064f55306c"
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Hi, We offer professional guest posting services in the hair
+    transplant niche. With strong expertise in this industry, we help promote
+    your website on search engines and drive targeted, high-quality traff [...]
+    
+ 
+ Content analysis details:   (-0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.222.50 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail provider
+                             [uttam.tricewebsolutions(at)gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.222.50 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.222.50 listed in sa-accredit.habeas.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [209.85.222.50 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.222.50 listed in bl.score.senderscore.com]
+
+--000000000000edcf35064f55306c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+We offer professional guest posting services in the hair transplant niche.
+With strong expertise in this industry, we help promote your website on
+search engines and drive targeted, high-quality traffic. Guest posting is a
+powerful strategy to increase visibility, build authority, and attract a
+larger audience to your site.
+
+*Health Websites:*
+
+   - Hhmglobal.com
+   - Womenfitnessmag.com
+   - Emedicodiary.com
+   - Yourhealthmagazine.net
+   - Healthbeautystudio.com
+   - Healthfitnesshouse.com
+   - Healthyfitfabmoms.com
+   - Healthbenefitstimes.com
+   - Womendailymagazine.com
+   - Luxurytravelmagazine.com
+
+*Lifestyle Websites:*
+
+   - 1883magazine.com
+   - Ventsmagazine.com
+   - Miamiwire.com
+   - Newyorkstyleguide.com
+
+*Major News Platforms:*
+
+   - Yahoo
+   - Business Insider
+   - AP News
+   - Nywire
+   - Laprogressive
+   - Mirrorreview
+   - Azbigmedia
+   - Beforeitsnews
+   - Bignewsnetwork
+   - NYweekly
+   - CEOweekly
+
+
+
+Let me know if you=E2=80=99d like to proceed or need more details.
+
+Kind regards,
+
+Uttam
+
+--000000000000edcf35064f55306c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-s=
+ize:12pt;font-family:&quot;Times New Roman&quot;,serif">Hi,<span></span></s=
+pan></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-s=
+ize:12pt;font-family:&quot;Times New Roman&quot;,serif">We offer
+professional guest posting services in the hair transplant niche. With stro=
+ng
+expertise in this industry, we help promote your website on search engines =
+and
+drive targeted, high-quality traffic. Guest posting is a powerful strategy =
+to increase
+visibility, build authority, and attract a larger audience to your site.<sp=
+an></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><b><span style=3D"fon=
+t-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Health
+Websites:</span></b><span style=3D"font-size:12pt;font-family:&quot;Times N=
+ew Roman&quot;,serif"><span></span></span></p>
+
+<ul type=3D"disc" style=3D"margin-bottom:0cm"><li class=3D"MsoNormal" style=
+=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;=
+Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;T=
+imes New Roman&quot;,serif">Hhmglobal.com <span></span></span></li><li clas=
+s=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11=
+pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12p=
+t;font-family:&quot;Times New Roman&quot;,serif">Womenfitnessmag.com <span>=
+</span></span></li><li class=3D"MsoNormal" style=3D"line-height:normal;marg=
+in:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><=
+span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,serif"=
+>Emedicodiary.com <span></span></span></li><li class=3D"MsoNormal" style=3D=
+"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;Time=
+s New Roman&quot;,serif">Yourhealthmagazine.net <span></span></span></li><l=
+i class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-si=
+ze:12pt;font-family:&quot;Times New Roman&quot;,serif">Healthbeautystudio.c=
+om <span></span></span></li><li class=3D"MsoNormal" style=3D"line-height:no=
+rmal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans=
+-serif"><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quo=
+t;,serif">Healthfitnesshouse.com <span></span></span></li><li class=3D"MsoN=
+ormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-f=
+amily:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-fa=
+mily:&quot;Times New Roman&quot;,serif">Healthyfitfabmoms.com <span></span>=
+</span></li><li class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm =
+0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span st=
+yle=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Health=
+benefitstimes.com <span></span></span></li><li class=3D"MsoNormal" style=3D=
+"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;Time=
+s New Roman&quot;,serif">Womendailymagazine.com <span></span></span></li><l=
+i class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-si=
+ze:12pt;font-family:&quot;Times New Roman&quot;,serif">Luxurytravelmagazine=
+.com<span></span></span></li></ul>
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><b><span style=3D"fon=
+t-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Lifestyle
+Websites:</span></b><span style=3D"font-size:12pt;font-family:&quot;Times N=
+ew Roman&quot;,serif"><span></span></span></p>
+
+<ul type=3D"disc" style=3D"margin-bottom:0cm"><li class=3D"MsoNormal" style=
+=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;=
+Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;T=
+imes New Roman&quot;,serif"><a href=3D"http://1883magazine.com">1883magazin=
+e.com</a> <span></span></span></li><li class=3D"MsoNormal" style=3D"line-he=
+ight:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quo=
+t;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;Times New Ro=
+man&quot;,serif">Ventsmagazine.com <span></span></span></li><li class=3D"Ms=
+oNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font=
+-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-=
+family:&quot;Times New Roman&quot;,serif">Miamiwire.com <span></span></span=
+></li><li class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8p=
+t;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D=
+"font-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Newyorkstyle=
+guide.com <span></span></span></li></ul>
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><b><span style=3D"fon=
+t-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Major
+News Platforms:</span></b><span style=3D"font-size:12pt;font-family:&quot;T=
+imes New Roman&quot;,serif"><span></span></span></p>
+
+<ul type=3D"disc" style=3D"margin-bottom:0cm"><li class=3D"MsoNormal" style=
+=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;=
+Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;T=
+imes New Roman&quot;,serif">Yahoo <span></span></span></li><li class=3D"Mso=
+Normal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-=
+family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-f=
+amily:&quot;Times New Roman&quot;,serif">Business Insider <span></span></sp=
+an></li><li class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm =
+8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=
+=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,serif">AP News <=
+span></span></span></li><li class=3D"MsoNormal" style=3D"line-height:normal=
+;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans-ser=
+if"><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,s=
+erif">Nywire <span></span></span></li><li class=3D"MsoNormal" style=3D"line=
+-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&=
+quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;Times New=
+ Roman&quot;,serif">Laprogressive <span></span></span></li><li class=3D"Mso=
+Normal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-=
+family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12pt;font-f=
+amily:&quot;Times New Roman&quot;,serif">Mirrorreview <span></span></span><=
+/li><li class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;=
+font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"f=
+ont-size:12pt;font-family:&quot;Times New Roman&quot;,serif">Azbigmedia<spa=
+n></span></span></li><li class=3D"MsoNormal" style=3D"line-height:normal;ma=
+rgin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"=
+><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,seri=
+f">Beforeitsnews <span></span></span></li><li class=3D"MsoNormal" style=3D"=
+line-height:normal;margin:0cm 0cm 8pt;font-size:11pt;font-family:&quot;Cali=
+bri&quot;,sans-serif"><span style=3D"font-size:12pt;font-family:&quot;Times=
+ New Roman&quot;,serif">Bignewsnetwork <span></span></span></li><li class=
+=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-size:11p=
+t;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-size:12pt=
+;font-family:&quot;Times New Roman&quot;,serif">NYweekly<span></span></span=
+></li><li class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8p=
+t;font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D=
+"font-size:12pt;font-family:&quot;Times New Roman&quot;,serif">CEOweekly<sp=
+an></span></span></li></ul>
+
+<p class=3D"MsoNormal" style=3D"margin:0cm 0cm 8pt 36pt;line-height:normal;=
+font-size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"f=
+ont-size:12pt;font-family:&quot;Times New Roman&quot;,serif"><span>=C2=A0</=
+span></span></p>
+
+<p class=3D"MsoNormal" style=3D"line-height:normal;margin:0cm 0cm 8pt;font-=
+size:11pt;font-family:&quot;Calibri&quot;,sans-serif"><span style=3D"font-s=
+ize:12pt;font-family:&quot;Times New Roman&quot;,serif">Let me
+know if you=E2=80=99d like to proceed or need more details.<span></span></s=
+pan></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0cm 0cm 8pt;line-height:107%;font-si=
+ze:11pt;font-family:&quot;Calibri&quot;,sans-serif">Kind regards,<span></sp=
+an></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0cm 0cm 8pt;line-height:107%;font-si=
+ze:11pt;font-family:&quot;Calibri&quot;,sans-serif">Uttam<span></span></p>
+
+
+
+
+
+<br></div>
+
+--000000000000edcf35064f55306c--

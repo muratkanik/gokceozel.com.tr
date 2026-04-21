@@ -1,0 +1,39 @@
+Return-path: <info@gokceozel.com.tr>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Mon, 20 Apr 2026 20:52:31 +0300
+Received: from [92.44.169.197] (helo=MRTLPT)
+	by eyalcin.com.tr with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <info@gokceozel.com.tr>)
+	id 1wEsnP-00HBIJ-0x
+	for info@gokceozel.com.tr;
+	Mon, 20 Apr 2026 20:52:31 +0300
+From: "Microsoft Outlook" <info@gokceozel.com.tr>
+To: <info@gokceozel.com.tr>
+Subject: Microsoft Outlook Test Message
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0000_01DCD107.9AB54720"
+Message-Id: <E1wEsnP-00HBIJ-0x@eyalcin.com.tr>
+Date: Mon, 20 Apr 2026 20:52:31 +0300
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0000_01DCD107.9AB54720
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+This is an email message sent automatically by Microsoft Outlook while =
+testing the settings for your account.
+
+------=_NextPart_000_0000_01DCD107.9AB54720
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><body><p>This is an email message sent automatically by Microsoft =
+Outlook while testing the settings for your account.
+</p></body></html>
+------=_NextPart_000_0000_01DCD107.9AB54720--
+

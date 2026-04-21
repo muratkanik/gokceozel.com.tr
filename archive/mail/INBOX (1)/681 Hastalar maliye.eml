@@ -1,0 +1,1494 @@
+Return-path: <bounce-mc.us10_40057957.7786762-e7d517a4f0@mail132.atl101.mcdlv.net>
+Envelope-to: info@gokceozel.com.tr
+Delivery-date: Tue, 07 Apr 2026 21:01:32 +0300
+Received: from mail132.atl101.mcdlv.net ([198.2.130.132])
+	by eyalcin.com.tr with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounce-mc.us10_40057957.7786762-e7d517a4f0@mail132.atl101.mcdlv.net>)
+	id 1wAAjz-005pD6-06
+	for info@gokceozel.com.tr;
+	Tue, 07 Apr 2026 21:01:32 +0300
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=curapayglobal.com;
+	s=k3; t=1775584804; x=1775854804; i=newsletter@curapayglobal.com;
+	bh=fe5uGRuHbt6piE89UYciUojheFQLR5AvITx5GFnx1f4=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=bQH85D76It7En4Mt7J30hjoEC0y56rihyYeQPXx+b3BDHSYbXpJGmc1a4wtXt/Vvg
+	 Rj8bMMqvydd6MBdIWElKgWySdYgMF+d8/ucJq04uBr26dwHKlZ16VuWYXp4NDDzt9b
+	 RcaF5wfoE3WSRxSDcSFMHw9ygh5MsWjopZqvBNRN0+lgObmgKvjgpZyFpUgIiPf4dF
+	 4gf3mu6K0ofIp81ACKO7SFqUHcDsZsN5X9sA4sU+uWaOzvRLJBGNiyToEnML+QCq0G
+	 jq3FkyTFulrIasNQE5hU7CZMwf8BdNQWflwBBoXxM8BJNgjT3PdnuOIphR+Uh8rCeC
+	 OB5Q+hiVsOU2A==
+Received: from localhost (localhost [127.0.0.1])
+	by mail132.atl101.mcdlv.net (Mailchimp) with ESMTP id 4fqv9b71TSzDRT81r
+	for <info@gokceozel.com.tr>; Tue,  7 Apr 2026 18:00:03 +0000 (UTC)
+Subject: =?utf-8?Q?Hastalar=C4=B1=20maliyet=20teredd=C3=BCd=C3=BCn=20kaybetmeyin?=
+From: CuraPay Global Inc <newsletter@curapayglobal.com>
+Reply-To: =?utf-8?Q?CuraPay=20Global=20Inc?= <newsletter@curapayglobal.com>
+To: <info@gokceozel.com.tr>
+Date: Tue,  7 Apr 2026 17:59:53 +0000
+Message-ID: <a0343f0c38f498f937439ac68.e7d517a4f0.20260407175939.c58125a301.9efb45b0@mail132.atl101.mcdlv.net>
+X-Mailer: Mailchimp Mailer - **CIDc58125a301e7d517a4f0**
+X-Campaign: mailchimpa0343f0c38f498f937439ac68.c58125a301
+X-campaignid: mailchimpa0343f0c38f498f937439ac68.c58125a301
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=a0343f0c38f498f937439ac68&id=c58125a301&e=e7d517a4f0
+X-MC-User: a0343f0c38f498f937439ac68
+Feedback-ID: 40057957:40057957.7786762:us10:mc
+List-ID: a0343f0c38f498f937439ac68mc list <a0343f0c38f498f937439ac68.190685.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://curapayglobal.us10.list-manage.com/unsubscribe?u=a0343f0c38f498f937439ac68&id=1139659eca&t=h&e=e7d517a4f0&c=c58125a301>, <mailto:unsubscribe-mc.us10_a0343f0c38f498f937439ac68.c58125a301-e7d517a4f0@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_619375284"
+MIME-Version: 1.0
+X-Spam-Score: 2
+X-Spam-Bar: /
+X-Spam-Report: Spam detection software, running on the system "eyalcin.com.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  https://curapayglobal.com/providers?utm_source=email&utm_medium=cpg&utm_campaign=providers&utm_source=CPG+Cold+Outreach&utm_campaign=c58125a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=email&utm_ter
+    [...] 
+ 
+ Content analysis details:   (0.2 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+                             trust
+                             [198.2.130.132 listed in list.dnswl.org]
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+                             domains are different
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [198.2.130.132 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [198.2.130.132 listed in sa-accredit.habeas.com]
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or identical to
+                             background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 MIME_QP_LONG_LINE      RAW: Quoted-printable line longer than 76 chars
+  0.0 LOTS_OF_MONEY          Huge... sums of money
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [198.2.130.132 listed in bl.score.senderscore.com]
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_619375284
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://curapayglobal.com/providers?utm_source=3Demail&utm_medium=3Dcpg&ut=
+m_campaign=3Dproviders&utm_source=3DCPG+Cold+Outreach&utm_campaign=3Dc5812=
+5a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail&utm_term=3D0_-c58=
+125a301-481546662
+Hastalar nas=C4=B1l =C3=B6deyeceklerini se=C3=A7ebildiklerinde daha s=C4=
+=B1k evet diyor. CuraPay Global bunu m=C3=BCmk=C3=BCn k=C4=B1l=C4=B1yor.
+=F0=9F=9F=A2  KL=C4=B0N=C4=B0K BA=C5=9EVURULARI A=C3=87IK
+
+
+** Ya daha fazla hasta
+evet diyebilseydi?
+------------------------------------------------------------
+
+CuraPay Global=2C hastalar=C4=B1n=C4=B1za esnek =C3=B6deme se=C3=A7enekler=
+i sunan bir sa=C4=9Fl=C4=B1k hizmeti rezervasyon platformudur =E2=80=94 b=
+=C3=B6ylece maliyet art=C4=B1k rezervasyon yapmama sebebi olmaktan =C3=A7=
+=C4=B1kar.
+Klini=C4=9Finizi Kaydedin =E2=86=92 (https://curapayglobal.com/join-provid=
+er?utm_source=3Demail&utm_medium=3Dcold_outreach&utm_campaign=3Dproviders&=
+utm_source=3DCPG+Cold+Outreach&utm_campaign=3Dc58125a301-EMAIL_CAMPAIGN_20=
+26_04_06_08_41&utm_medium=3Demail&utm_term=3D0_-c58125a301-481546662=
+)
+
+Senaryoyu =C3=A7ok iyi biliyorsunuz: bir hasta tedaviye ihtiya=C3=A7 duyar=
+=2C ilerlemek ister ama pe=C5=9Fin maliyet onu geri tutar. =E2=80=9CD=C3=
+=BC=C5=9F=C3=BCnece=C4=9Fim=E2=80=9D der =E2=80=94 ve bir daha haber alama=
+zs=C4=B1n=C4=B1z.
+
+CuraPay Global bu denklemi de=C4=9Fi=C5=9Ftiriyor.
+
+CuraPay Global nedir?
+
+CuraPay Global=2C hastalara esnek =C3=B6deme se=C3=A7enekleri sunan global=
+ bir sa=C4=9Fl=C4=B1k hizmeti rezervasyon platformudur =E2=80=94 =C5=9Fimd=
+i rezervasyon yapma ve zaman i=C3=A7inde uygun taksitlerle =C3=B6deme imk=
+=C3=A2n=C4=B1 dahil.
+
+Klini=C4=9Finiz i=C3=A7in bu; daha fazla onaylanm=C4=B1=C5=9F rezervasyon=
+=2C daha h=C4=B1zl=C4=B1 kararlar ve ger=C3=A7ekten ihtiya=C3=A7 duyduklar=
+=C4=B1 tedaviye ba=C4=9Flanabilen hastalar anlam=C4=B1na gelir.
+
+Klini=C4=9Finiz neler kazan=C4=B1r
+=E2=9C=85 Daha y=C3=BCksek rezervasyon d=C3=B6n=C3=BC=C5=9F=C3=BCm=C3=BC=
+ =E2=80=94 maliyet konusunda teredd=C3=BCt eden hastalar art=C4=B1k esnek=
+ =C3=B6deme se=C3=A7eneklerini se=C3=A7ebilir ve g=C3=BCvenle rezervasyon=
+ yapabilir
+=E2=9C=85 Onaylanm=C4=B1=C5=9F =C3=B6demeler =E2=80=94 CuraPay Global =C3=
+=B6deme ve i=C5=9Flem s=C3=BCrecini y=C3=B6netir=2C b=C3=B6ylece tedavi ba=
+=C5=9Flamadan =C3=B6nce geliriniz g=C3=BCvence alt=C4=B1na al=C4=B1n=C4=B1=
+r
+=E2=9C=85 Global hasta eri=C5=9Fimi =E2=80=94 kaliteli sa=C4=9Fl=C4=B1k hi=
+zmeti arayan uluslararas=C4=B1 ve yerel hastalar=C4=B1 eri=C5=9Filebilir=
+ =C3=B6deme se=C3=A7enekleriyle =C3=A7ekin
+=E2=9C=85 =C3=96zel Partnership Ekibi =E2=80=94 kay=C4=B1ttan ilk hasta re=
+zervasyonunuza kadar birebir ba=C5=9Flang=C4=B1=C3=A7 deste=C4=9Fi
+
+=F0=9F=92=A1 Lansman d=C3=B6neminde=2C iyi veya m=C3=BCkemmel kredi ge=C3=
+=A7mi=C5=9Fine sahip hastalar 10.000 USD=E2=80=99ye kadar rezervasyonlarda=
+ esnek =C3=B6deme se=C3=A7eneklerine eri=C5=9Febilir.
+
+Yakla=C5=9F=C4=B1k =F0=9F=87=B9=F0=9F=87=AD =E0=B8=BF312=2C000 THB  |  =F0=
+=9F=87=B9=F0=9F=87=B7 =E2=82=BA440=2C000 TRY  |  =F0=9F=87=B2=F0=9F=87=BD=
+ $174=2C000 MXN
+*Mart 2026 itibar=C4=B1yla yakla=C5=9F=C4=B1k d=C3=B6viz kurlar=C4=B1d=C4=
+=B1r. Ger=C3=A7ek kurlar farkl=C4=B1l=C4=B1k g=C3=B6sterebilir.
+
+Sizinki gibi klinikler i=C3=A7in tasarland=C4=B1
+
+CuraPay Global; di=C5=9F klinikleri=2C t=C4=B1p merkezleri=2C estetik cerr=
+ahi muayenehaneleri=2C wellness klinikleri=2C veteriner klinikleri=2C kayr=
+opraktik ofisleri=2C fizyoterapi merkezleri ve esnek =C3=B6demelerin hasta=
+lar=C4=B1n karar vermesine yard=C4=B1mc=C4=B1 olabilece=C4=9Fi her t=C3=BC=
+rl=C3=BC sa=C4=9Fl=C4=B1k hizmeti sa=C4=9Flay=C4=B1c=C4=B1s=C4=B1yla =C3=
+=A7al=C4=B1=C5=9F=C4=B1r.
+
+Hastalar=C4=B1n=C4=B1z i=C3=A7in nas=C4=B1l =C3=A7al=C4=B1=C5=9F=C4=B1r
+
+Deneyim basit ve kesintisizdir:
+1
+Hasta tedavisini se=C3=A7er ve online rezervasyon yapar
+2
+=C3=96deme s=C4=B1ras=C4=B1nda nas=C4=B1l =C3=B6deyece=C4=9Fini se=C3=A7er=
+ =E2=80=94 pe=C5=9Fin veya esnek taksitlerle
+3
+Rezervasyon an=C4=B1nda onaylan=C4=B1r =E2=80=94 klini=C4=9Finiz =C3=B6dem=
+eyi al=C4=B1r
+
+Ekibiniz i=C3=A7in ekstra i=C5=9F yok. =C3=96deme takibi yok. CuraPay Glob=
+al t=C3=BCm =C3=B6deme s=C3=BCrecini y=C3=B6netir.
+
+Kat=C4=B1lmaya haz=C4=B1r m=C4=B1s=C4=B1n=C4=B1z? =C4=B0=C5=9Fte nas=C4=B1=
+l
+1
+Klini=C4=9Finizi curapayglobal.com/join-provider (https://curapayglobal.co=
+m/join-provider?utm_source=3Demail&utm_medium=3Dcold_outreach&utm_campaign=
+=3Dproviders&utm_source=3DCPG+Cold+Outreach&utm_campaign=3Dc58125a301-EMAI=
+L_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail&utm_term=3D0_-c58125a301-481546662) adresinden kaydedin
+2
+Partnership Ekibimiz klini=C4=9Finizi birebir sisteme dahil eder ve kurulu=
+m s=C3=BCrecinde size rehberlik eder
+3
+Yay=C4=B1na ge=C3=A7in =E2=80=94 =C3=B6deme s=C4=B1ras=C4=B1nda esnek =C3=
+=B6deme se=C3=A7enekleriyle hasta rezervasyonlar=C4=B1 almaya ba=C5=9Flay=
+=C4=B1n
+Klini=C4=9Finizi Kaydedin =E2=86=92 (https://curapayglobal.com/join-provid=
+er?utm_source=3Demail&utm_medium=3Dcold_outreach&utm_campaign=3Dproviders&=
+utm_source=3DCPG+Cold+Outreach&utm_campaign=3Dc58125a301-EMAIL_CAMPAIGN_20=
+26_04_06_08_41&utm_medium=3Demail&utm_term=3D0_-c58125a301-481546662=
+)
+
+Sorular=C4=B1n=C4=B1z m=C4=B1 var? Bu e-postay=C4=B1 yan=C4=B1tlay=C4=B1n=
+=2C Partnership Ekibimiz sizinle ileti=C5=9Fime ge=C3=A7ecek.
+
+Hastalar tedavi istemedikleri i=C3=A7in iptal etmiyor.
+
+Hepsini bir kerede kar=C5=9F=C4=B1layamad=C4=B1klar=C4=B1 i=C3=A7in iptal=
+ ediyorlar. CuraPay Global bunu =C3=A7=C3=B6zer.
+
+BA=C4=9ELANTIDA KALIN
+
+Klinikler =C4=B0=C3=A7in WhatsApp Kanal=C4=B1m=C4=B1za Kat=C4=B1l=C4=B1n
+
+=C3=9Cr=C3=BCn g=C3=BCncellemelerini=2C =C3=B6zellik duyurular=C4=B1n=C4=
+=B1 ve =C3=B6nemli haberleri do=C4=9Frudan WhatsApp =C3=BCzerinden al=C4=
+=B1n.
+=F0=9F=92=AC  WhatsApp Kanal=C4=B1na Kat=C4=B1l=C4=B1n (https://whatsapp.c=
+om/channel/0029VbAuWzWJ93wWeqE18q1c?utm_source=3DCPG+Cold+Outreach&utm_cam=
+paign=3Dc58125a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail&utm_=
+term=3D0_-c58125a301-481546662)
+
+CuraPay Global=E2=80=99=C4=B1=2C kliniklerin b=C3=BCy=C3=BCmesine ve hasta=
+lar=C4=B1n ihtiya=C3=A7 duyduklar=C4=B1 bak=C4=B1ma eri=C5=9Fmesine yard=
+=C4=B1mc=C4=B1 olmak i=C3=A7in in=C5=9Fa ediyoruz. Klini=C4=9Finizi platfo=
+rmumuzda g=C3=B6rmek bizi mutlu eder.
+
+Sayg=C4=B1lar=C4=B1m=C4=B1zla=2C
+CuraPay Global Partnership Ekibi
+
+https://www.facebook.com/curapayglobal/?utm_source=3DCPG+Cold+Outreach&utm=
+_campaign=3Dc58125a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail&=
+utm_term=3D0_-c58125a301-481546662
+https://www.instagram.com/curapayglobal/?utm_source=3DCPG+Cold+Outreach&ut=
+m_campaign=3Dc58125a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail=
+&utm_term=3D0_-c58125a301-481546662
+https://www.linkedin.com/company/curapayglobal/?utm_source=3DCPG+Cold+Outr=
+each&utm_campaign=3Dc58125a301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=
+=3Demail&utm_term=3D0_-c58125a301-481546662
+https://youtube.com/?utm_source=3DCPG+Cold+Outreach&utm_campaign=3Dc58125a=
+301-EMAIL_CAMPAIGN_2026_04_06_08_41&utm_medium=3Demail&utm_term=3D0_-c5812=
+5a301-481546662
+mailto:providers@curapayglobal.com
+
+Copyright =C2=A9 2026. CuraPay Global Inc=2C All rights reserved.
+
+Our address is:
+8 The Grn Ste R=2C Dover=2C DE 19901-3618=2C USA
+
+No longer want to receive these emails?
+unsubscribe from this list.   (https://curapayglobal.us10.list-manage.com/=
+unsubscribe?u=3Da0343f0c38f498f937439ac68&id=3D1139659eca&t=3Db&e=3De7d517a4f0&c=3Dc58125a301)
+--_----------=_MCPart_619375284
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Hastalar=C4=B1 maliyet teredd=C3=BCd=C3=BCn kaybetmeyin</title>
+<link rel=3D"preconnect" href=3D"https://fonts.googleapis.com" />
+<link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin=3D=
+"" />
+<style>img{-ms-interpolation-mode:bicubic;}
+table=2C td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+=2EmceStandardButton=2C .mceStandardButton td=2C .mceStandardButton td a{mso=
+-hide:all!important;}
+p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-adjust:100=
+%;-webkit-text-size-adjust:100%;}
+=2EmcnPreviewText{display:none!important;}
+=2EbodyCell{margin:0 auto;padding:0;width:100%;}
+=2EExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .ExternalClass=
+ div=2C .ExternalClass span=2C .ExternalClass font{line-height:100%;}
+=2EReadMsgBody=2C .ExternalClass{width:100%;}
+a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!im=
+portant;font-size:inherit!important;font-family:inherit!important;font-wei=
+ght:inherit!important;line-height:inherit!important;}
+body{height:100%;margin:0;padding:0;width:100%;background:#ffffff;}
+p{margin:0;padding:0;}
+table{border-collapse:collapse;}
+td=2C p=2C a{word-break:break-word;}
+h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block;margin:0;padding:0;}
+img=2C a img{border:0;height:auto;outline:none;text-decoration:none;}
+a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit;cursor:default;text-d=
+ecoration:none;}
+=2EmceColumn .mceButtonLink=2C
+            .mceColumn-1 .mceButtonLink=2C
+            .mceColumn-2 .mceButtonLink=2C
+            .mceColumn-3 .mceButtonLink=2C
+            .mceColumn-4 .mceButtonLink{min-width:30px;}
+div[contenteditable=3D"true"]{outline:0;}
+=2EmceImageBorder{display:inline-block;}
+=2EmceImageBorder img{border:0!important;}
+body=2C #bodyTable{background-color:rgb(255=2C 255=2C 255);}
+#bodyTable{background-image:url("undefined");background-position:center ce=
+nter;background-size:cover;background-repeat:no-repeat;}
+=2EmceText=2C .mcnTextContent=2C .mceLabel{font-family:Arial=2C "Helvetica N=
+eue"=2C Helvetica=2C sans-serif;}
+=2EmceText=2C .mcnTextContent=2C .mceLabel{color:rgb(77=2C 77=2C 77);}
+=2EmceSpacing-10 label=2C .mceSpacing-10 input{margin-bottom:10px;}
+=2EmceSpacing-10 .mceInput + .mceErrorMessage{margin-top:-5px;}
+=2EmceSpacing-20 label=2C .mceSpacing-20 input{margin-bottom:20px;}
+=2EmceSpacing-20 .mceInput + .mceErrorMessage{margin-top:-10px;}
+=2EmceInput{background-color:transparent;border:2px solid rgb(208=2C 208=2C=
+ 208);width:60%;color:rgb(77=2C 77=2C 77);display:block;}
+=2EmceInput[type=3D"radio"]=2C .mceInput[type=3D"checkbox"]{float:left;mar=
+gin-right:12px;display:inline;width:auto!important;}
+=2EmceLabel > .mceInput{margin-bottom:0;margin-top:2px;}
+=2EmceLabel{display:block;}
+=2EmceText p=2C .mcnTextContent p{color:rgb(77=2C 77=2C 77);font-family:Aria=
+l=2C "Helvetica Neue"=2C Helvetica=2C sans-serif;font-size:16px;font-weigh=
+t:normal;line-height:1.5;mso-line-height-alt:150%;text-align:left;letter-s=
+pacing:0;direction:ltr;margin:10px 0;padding:0;}
+=2EmceText a=2C .mcnTextContent a{color:rgb(53=2C 88=2C 105);font-style:norm=
+al;font-weight:normal;text-decoration:underline;direction:ltr;}
+=2EmceSection9 .mceText p=2C .mceSection9 .mcnTextContent p{color:rgb(32=2C=
+ 32=2C 32);font-size:12px;line-height:1.5;mso-line-height-alt:150%;text-al=
+ign:left;}
+=2EmceSection9 .mceText a=2C .mceSection9 .mcnTextContent a{color:rgb(32=2C=
+ 32=2C 32);font-weight:normal;text-decoration:underline;}
+body=2C table=2C td=2C a{text-size-adjust:100%;}
+img{border:0;height:auto;line-height:100%;outline:none;text-decoration:non=
+e;}
+body{background-color:rgb(244=2C 240=2C 248);height:100%!important;margin:=
+0!important;padding:0!important;width:100%!important;}
+@media only screen and (max-width: 480px) {
+body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text-size-adjust=
+:none!important;}
+body{width:100%!important;min-width:100%!important;}
+body.mobile-native{-webkit-user-select:none;user-select:none;transition:tr=
+ansform 0.2s ease-in;transform-origin:top center;}
+colgroup{display:none;}
+=2EmceLogo img=2C .mceImage img=2C .mceSocialFollowIcon img{height:auto!impo=
+rtant;}
+=2EmceWidthContainer{max-width:660px!important;}
+=2EmceColumn=2C .mceColumn-2{display:block!important;width:100%!important;}
+=2EmceColumn-forceSpan{display:table-cell!important;width:auto!important;}
+=2EmceColumn-forceSpan .mceButton a{min-width:0!important;}
+=2EmceReverseStack{display:table;width:100%;}
+=2EmceColumn-1{display:table-footer-group;width:100%!important;}
+=2EmceColumn-3{display:table-header-group;width:100%!important;}
+=2EmceColumn-4{display:table-caption;width:100%!important;}
+=2EmceKeepColumns .mceButtonLink{min-width:0;}
+=2EmceBlockContainer=2C .mceSpacing-24{padding-right:16px!important;padding-=
+left:16px!important;}
+=2EmceBlockContainerE2E{padding-right:0;padding-left:0;}
+=2EmceImage=2C .mceLogo{width:100%!important;height:auto!important;}
+=2EmceText img{max-width:100%!important;}
+=2EmceFooterSection .mceText=2C .mceFooterSection .mceText p{font-size:16px!=
+important;line-height:140%!important;}
+=2EmceText p{margin:0;font-size:16px!important;line-height:1.5!important;mso=
+-line-height-alt:150%;}
+=2EbodyCell{padding-left:16px!important;padding-right:16px!important;}
+=2EmceDividerContainer{width:100%!important;}
+#b3{padding:9px 18px!important;}
+#b3 table{margin-left:auto!important;margin-right:auto!important;float:non=
+e!important;}
+#b11 .mceTextBlockContainer{padding:7px 18px!important;}
+#gutterContainerId-11{padding:0!important;}
+#b25 .mceDividerBlock{border-top-width:1px!important;}
+#b25{padding:12px 24px!important;}
+}
+@media only screen and (max-width: 640px) {
+=2EmceClusterLayout td{padding:4px!important;}
+}
+@media screen and (max-height: 480px)=2C (max-width: 480px) {
+body{background-image:url("undefined");}
+@media screen and (-webkit-min-device-pixel-ratio: 2)=2C (min-resolution:=
+ 192dpi) {
+body{background-image:url("undefined");}
+}
+}
+@media screen and (max-height: 860px)=2C (max-width: 860px) {
+body{background-image:url("undefined");}
+@media screen and (-webkit-min-device-pixel-ratio: 2)=2C (min-resolution:=
+ 192dpi) {
+body{background-image:url("undefined");}
+}
+}
+@media screen and (max-height: 1200px)=2C (max-width: 1200px) {
+body{background-image:url("undefined");}
+@media screen and (-webkit-min-device-pixel-ratio: 2)=2C (min-resolution:=
+ 192dpi) {
+body{background-image:url("undefined");}
+}
+}
+@media screen and (max-height: 1800px)=2C (max-width: 1800px) {
+body{background-image:url("undefined");}
+@media screen and (-webkit-min-device-pixel-ratio: 2)=2C (min-resolution:=
+ 192dpi) {
+body{background-image:url("undefined");}
+}
+}
+@media only screen and (max-width: 600px) {
+=2Eemail-container{width:100%!important;max-width:100%!important;}
+=2Emobile-padding{padding-left:24px!important;padding-right:24px!important;}
+h1{font-size:28px!important;line-height:34;mso-line-height-alt:3400%px!imp=
+ortant;}
+}</style></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">Hastalar=C4=B1n=
+=C4=B1z i=C3=A7in esnek =C3=B6deme=2C klini=C4=9Finiz i=C3=A7in onaylanm=
+=C4=B1=C5=9F rezervasyonlar</span><!--<![endif]-->
+<!--
+-->
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">=CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F=
+ =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C=
+ =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0=
+ =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=
+  =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+ =CD=8F =E2=80=8C =C2=A0 =E2=80=87  =CD=8F =E2=80=8C =C2=A0 =E2=80=87=C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD</div><div styl=
+e=3D"display:none;"><img src=3D"https://curapayglobal.us10.list-manage.com=
+/track/open.php?u=3Da0343f0c38f498f937439ac68&id=3Dc58125a301&e=3De7d517a4f0" height=3D"1" width=3D"1" style=3D"display:none;" alt=3D""></div>
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" role=3D"presentation" style=3D"background-co=
+lor: rgb(255=2C 255=2C 255);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" role=3D"presentation"><tbody data-block-id=3D"2" class=3D"mceWra=
+pper"><tr><td style=3D"background-color:transparent;padding-top:10px" vali=
+gn=3D"top" align=3D"center" class=3D"mceSection2"><!--[if (gte mso 9)|(IE=
+)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"600" style=3D"width:600px;"><tr><td><![endif]--><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max-wid=
+th:600px" role=3D"presentation"><tbody><tr><td valign=3D"top" class=3D"mce=
+WrapperInner"><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"5"><tbo=
+dy><tr class=3D"mceRow"><td style=3D"background-position:center;background=
+-repeat:no-repeat;background-size:cover" valign=3D"top"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"=
+><tbody><tr><td style=3D"padding-top:0;padding-bottom:0" valign=3D"top" cl=
+ass=3D"mceColumn" id=3D"mceColumnId--7" data-block-id=3D"-7" colspan=3D"12=
+" width=3D"100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:transparent;padding-top:9px;padding-bottom:9px;padding-right:18px;paddi=
+ng-left:18px;border:0;border-radius:0" valign=3D"top" class=3D"mceImageBlo=
+ckContainer" align=3D"center" id=3D"b3"><div><!--[if !mso]><!--></div><a=
+ href=3D"https://curapayglobal.us10.list-manage.com/track/click?u=3Da0343f=
+0c38f498f937439ac68&id=3Da74dd60cf4&e=3De7d517a4f0" style=3D"display:bloc=
+k" target=3D"_blank" data-block-id=3D"3"><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-col=
+lapse:separate;margin:0;vertical-align:top;max-width:100%;width:100%;heigh=
+t:auto" role=3D"presentation" data-testid=3D"image-3"><tbody><tr><td style=
+=3D"border:0;border-radius:0;margin:0" valign=3D"top"><img alt=3D"" src=3D=
+"https://dim.mcusercontent.com/cs/a0343f0c38f498f937439ac68/images/80db20c=
+8-2875-ef35-cba2-4e58c0aadec1.jpeg?dpr=3D2&rect=3D0%2C78%2C1920%2C380&w=3D=
+564&h=3D111" width=3D"564" height=3D"auto" style=3D"display:block;max-widt=
+h:100%;height:auto;border-radius:0" class=3D"imageDropZone mceImage" /></t=
+d></tr></tbody></table></a><div><!--<![endif]--></div><div>
+<!--[if mso]>
+<a href=3D"https://curapayglobal.com/providers?utm_source=3Demail&utm_medi=
+um=3Dcpg&utm_campaign=3Dproviders"><span class=3D"mceImageBorder" style=3D=
+"border:0;border-width:2px;vertical-align:top;margin:0"><img role=3D"prese=
+ntation" class=3D"imageDropZone mceImage" src=3D"https://dim.mcusercontent=
+=2Ecom/cs/a0343f0c38f498f937439ac68/images/80db20c8-2875-ef35-cba2-4e58c0aad=
+ec1.jpeg?dpr=3D2&amp;rect=3D0%2C78%2C1920%2C380&amp;w=3D564&amp;h=3D111" a=
+lt=3D"" width=3D"564" height=3D"auto" style=3D"display:block;max-width:564=
+px;width:564px;height:auto"/></span></a>
+<![endif]-->
+</div></td></tr><tr><td style=3D"border:0;border-radius:0" valign=3D"top"=
+ id=3D"b34"><div data-block-id=3D"34" class=3D"mceCode"><title>CuraPay Glo=
+bal =E2=80=94 Hastalar=C4=B1n=C4=B1z =C4=B0=C3=A7in Esnek =C3=96deme Se=C3=
+=A7enekleri</title>
+<!-- PREVIEW TEXT (hidden) -->
+<div style=3D"display: none; font-size: 1px; line-height: 1px; max-height:=
+ 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">
+Hastalar nas=C4=B1l =C3=B6deyeceklerini se=C3=A7ebildiklerinde daha s=C4=
+=B1k evet diyor. CuraPay Global bunu m=C3=BCmk=C3=BCn k=C4=B1l=C4=B1yor.
+</div>
+<!-- WRAPPER TABLE -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"background-color: #f4f0f8;">
+<tbody><tr>
+<td align=3D"center" style=3D"padding: 24px 16px;">
+<!-- EMAIL CONTAINER - 600px -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"600" class=3D"email-container" style=3D"max-width: 600px; wid=
+th: 100%;">
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D HERO SECTION =3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D -->
+<tbody><tr>
+<td style=3D"background: linear-gradient(135deg=2C #830AD1 0%=2C #6b08ab 5=
+0%=2C #4a0680 100%); border-radius: 16px 16px 0 0; padding: 0;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td class=3D"mobile-padding" style=3D"padding: 48px 40px 40px 40px; text-a=
+lign: center;">
+<!-- Badge -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" align=3D"center">
+<tbody><tr>
+<td style=3D"background-color: #00A3B4; border-radius: 24px; padding: 8px=
+ 20px; font-family: -apple-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=
+=2C Arial=2C sans-serif; font-size: 13px; font-weight: 700; color: #ffffff=
+; letter-spacing: 1.5px; text-transform: uppercase;">
+=F0=9F=9F=A2=C2=A0 KL=C4=B0N=C4=B0K BA=C5=9EVURULARI A=C3=87IK
+</td>
+</tr>
+</tbody></table>
+<!-- Headline -->
+<h1 style=3D"margin: 24px 0 16px 0; font-family: -apple-system=2C 'SF Pro=
+ Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 34px; lin=
+e-height: 40px; font-weight: 700; color: #ffffff;">
+Ya daha fazla hasta<br />evet diyebilseydi?
+</h1>
+<!-- Subheadline -->
+<p style=3D"margin: 0 0 32px 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 17px; line-height=
+: 26px; color: rgba(255=2C255=2C255=2C0.9);">
+CuraPay Global=2C hastalar=C4=B1n=C4=B1za <strong style=3D"color: #ffffff;=
+">esnek =C3=B6deme se=C3=A7enekleri</strong> sunan bir sa=C4=9Fl=C4=B1k hi=
+zmeti rezervasyon platformudur =E2=80=94 b=C3=B6ylece maliyet art=C4=B1k r=
+ezervasyon yapmama sebebi olmaktan =C3=A7=C4=B1kar.
+</p>
+<!-- CTA BUTTON (above the fold) -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" align=3D"center" class=3D"btn-primary">
+<tbody><tr>
+<td style=3D"border-radius: 12px; background-color: #00A3B4;">
+<a href=3D"https://curapayglobal.us10.list-manage.com/track/click?u=3Da034=
+3f0c38f498f937439ac68&id=3Dd0604ad368&e=3De7d517a4f0" target=3D"_blank" s=
+tyle=3D"display: inline-block; padding: 16px 40px; font-family: -apple-sys=
+tem=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-s=
+ize: 16px; font-weight: 700; color: #ffffff; text-decoration: none; border=
+-radius: 12px; letter-spacing: 0.3px;">
+Klini=C4=9Finizi Kaydedin =E2=86=92
+</a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D BODY CONTENT =3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D -->
+<tr>
+<td style=3D"background-color: #ffffff; padding: 0;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<!-- The problem -->
+<tbody><tr>
+<td class=3D"mobile-padding" style=3D"padding: 40px 40px 8px 40px;">
+<p style=3D"margin: 0 0 20px 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height=
+: 26px; color: #333333;">
+Senaryoyu =C3=A7ok iyi biliyorsunuz: bir hasta tedaviye ihtiya=C3=A7 duyar=
+=2C ilerlemek ister ama pe=C5=9Fin maliyet onu geri tutar. =E2=80=9CD=C3=
+=BC=C5=9F=C3=BCnece=C4=9Fim=E2=80=9D der =E2=80=94 ve bir daha haber alama=
+zs=C4=B1n=C4=B1z.
+</p>
+<p style=3D"margin: 0 0 8px 0; font-family: -apple-system=2C 'SF Pro Text'=
+=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height:=
+ 26px; color: #333333;">
+CuraPay Global bu denklemi de=C4=9Fi=C5=9Ftiriyor.
+</p>
+</td>
+</tr>
+<!-- Divider -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 16px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- What is CPG -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px 8px 40px;">
+<p style=3D"margin: 0 0 16px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 20px; font-wei=
+ght: 700; color: #830AD1;">
+CuraPay Global nedir?
+</p>
+<p style=3D"margin: 0 0 20px 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height=
+: 26px; color: #333333;">
+CuraPay Global=2C hastalara esnek =C3=B6deme se=C3=A7enekleri sunan global=
+ bir sa=C4=9Fl=C4=B1k hizmeti rezervasyon platformudur =E2=80=94 =C5=9Fimd=
+i rezervasyon yapma ve zaman i=C3=A7inde uygun taksitlerle =C3=B6deme imk=
+=C3=A2n=C4=B1 dahil.
+</p>
+<p style=3D"margin: 0 0 8px 0; font-family: -apple-system=2C 'SF Pro Text'=
+=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height:=
+ 26px; color: #333333;">
+Klini=C4=9Finiz i=C3=A7in bu; daha fazla onaylanm=C4=B1=C5=9F rezervasyon=
+=2C daha h=C4=B1zl=C4=B1 kararlar ve ger=C3=A7ekten ihtiya=C3=A7 duyduklar=
+=C4=B1 tedaviye ba=C4=9Flanabilen hastalar anlam=C4=B1na gelir.
+</p>
+</td>
+</tr>
+<!-- Divider -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 16px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Benefits header -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px 8px 40px;">
+<p style=3D"margin: 0 0 16px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 20px; font-wei=
+ght: 700; color: #830AD1;">
+Klini=C4=9Finiz neler kazan=C4=B1r
+</p>
+</td>
+</tr>
+<!-- Benefit 1 -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"background-color: #F8EEFF; border-radius: 12px; padding: 20px=
+ 24px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"40" valign=3D"top" style=3D"font-size: 24px; padding-right: 1=
+2px;">=E2=9C=85</td>
+<td style=3D"font-family: -apple-system=2C 'SF Pro Text'=2C 'Helvetica Neu=
+e'=2C Arial=2C sans-serif; font-size: 15px; line-height: 24px; color: #333=
+333;">
+<strong style=3D"color: #830AD1;">Daha y=C3=BCksek rezervasyon d=C3=B6n=C3=
+=BC=C5=9F=C3=BCm=C3=BC</strong> =E2=80=94 maliyet konusunda teredd=C3=BCt=
+ eden hastalar art=C4=B1k esnek =C3=B6deme se=C3=A7eneklerini se=C3=A7ebil=
+ir ve g=C3=BCvenle rezervasyon yapabilir
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Benefit 2 -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"background-color: #EAFDFF; border-radius: 12px; padding: 20px=
+ 24px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"40" valign=3D"top" style=3D"font-size: 24px; padding-right: 1=
+2px;">=E2=9C=85</td>
+<td style=3D"font-family: -apple-system=2C 'SF Pro Text'=2C 'Helvetica Neu=
+e'=2C Arial=2C sans-serif; font-size: 15px; line-height: 24px; color: #333=
+333;">
+<strong style=3D"color: #00A3B4;">Onaylanm=C4=B1=C5=9F =C3=B6demeler</stro=
+ng> =E2=80=94 CuraPay Global =C3=B6deme ve i=C5=9Flem s=C3=BCrecini y=C3=
+=B6netir=2C b=C3=B6ylece tedavi ba=C5=9Flamadan =C3=B6nce geliriniz g=C3=
+=BCvence alt=C4=B1na al=C4=B1n=C4=B1r
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Benefit 3 -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"background-color: #F8EEFF; border-radius: 12px; padding: 20px=
+ 24px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"40" valign=3D"top" style=3D"font-size: 24px; padding-right: 1=
+2px;">=E2=9C=85</td>
+<td style=3D"font-family: -apple-system=2C 'SF Pro Text'=2C 'Helvetica Neu=
+e'=2C Arial=2C sans-serif; font-size: 15px; line-height: 24px; color: #333=
+333;">
+<strong style=3D"color: #830AD1;">Global hasta eri=C5=9Fimi</strong> =E2=
+=80=94 kaliteli sa=C4=9Fl=C4=B1k hizmeti arayan uluslararas=C4=B1 ve yerel=
+ hastalar=C4=B1 eri=C5=9Filebilir =C3=B6deme se=C3=A7enekleriyle =C3=A7eki=
+n
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Benefit 4 -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 8px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"background-color: #EAFDFF; border-radius: 12px; padding: 20px=
+ 24px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"40" valign=3D"top" style=3D"font-size: 24px; padding-right: 1=
+2px;">=E2=9C=85</td>
+<td style=3D"font-family: -apple-system=2C 'SF Pro Text'=2C 'Helvetica Neu=
+e'=2C Arial=2C sans-serif; font-size: 15px; line-height: 24px; color: #333=
+333;">
+<strong style=3D"color: #00A3B4;">=C3=96zel Partnership Ekibi</strong> =E2=
+=80=94 kay=C4=B1ttan ilk hasta rezervasyonunuza kadar birebir ba=C5=9Flang=
+=C4=B1=C3=A7 deste=C4=9Fi
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Info note: $10k -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 16px 40px 0 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"background-color: #EAFDFF; border-left: 4px solid #00A3B4; bo=
+rder-radius: 0 8px 8px 0; padding: 16px 20px;">
+<p style=3D"margin: 0; font-family: -apple-system=2C 'SF Pro Text'=2C 'Hel=
+vetica Neue'=2C Arial=2C sans-serif; font-size: 14px; line-height: 22px; c=
+olor: #333333;">
+=F0=9F=92=A1 <strong>Lansman d=C3=B6neminde</strong>=2C iyi veya m=C3=BCke=
+mmel kredi ge=C3=A7mi=C5=9Fine sahip hastalar <strong>10.000 USD</strong>=
+=E2=80=99ye kadar rezervasyonlarda esnek =C3=B6deme se=C3=A7eneklerine eri=
+=C5=9Febilir.
+</p>
+<p style=3D"margin: 8px 0 0 0; font-family: -apple-system=2C 'SF Pro Text'=
+=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 12px; line-height:=
+ 18px; color: #888888;">
+Yakla=C5=9F=C4=B1k =F0=9F=87=B9=F0=9F=87=AD =E0=B8=BF312=2C000 THB =C2=A0|=
+=C2=A0 =F0=9F=87=B9=F0=9F=87=B7 =E2=82=BA440=2C000 TRY =C2=A0|=C2=A0 =F0=
+=9F=87=B2=F0=9F=87=BD $174=2C000 MXN<br />
+<em>*Mart 2026 itibar=C4=B1yla yakla=C5=9F=C4=B1k d=C3=B6viz kurlar=C4=B1d=
+=C4=B1r. Ger=C3=A7ek kurlar farkl=C4=B1l=C4=B1k g=C3=B6sterebilir.</em>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Divider -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 24px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Who is this for -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 0 40px 8px 40px;">
+<p style=3D"margin: 0 0 16px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 20px; font-wei=
+ght: 700; color: #830AD1;">
+Sizinki gibi klinikler i=C3=A7in tasarland=C4=B1
+</p>
+<p style=3D"margin: 0; font-family: -apple-system=2C 'SF Pro Text'=2C 'Hel=
+vetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height: 26px; c=
+olor: #333333;">
+CuraPay Global; di=C5=9F klinikleri=2C t=C4=B1p merkezleri=2C estetik cerr=
+ahi muayenehaneleri=2C wellness klinikleri=2C veteriner klinikleri=2C kayr=
+opraktik ofisleri=2C fizyoterapi merkezleri ve esnek =C3=B6demelerin hasta=
+lar=C4=B1n karar vermesine yard=C4=B1mc=C4=B1 olabilece=C4=9Fi her t=C3=BC=
+rl=C3=BC sa=C4=9Fl=C4=B1k hizmeti sa=C4=9Flay=C4=B1c=C4=B1s=C4=B1yla =C3=
+=A7al=C4=B1=C5=9F=C4=B1r.
+</p>
+</td>
+</tr>
+<!-- Divider -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 24px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- How it works -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 0 40px 8px 40px;">
+<p style=3D"margin: 0 0 16px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 20px; font-wei=
+ght: 700; color: #830AD1;">
+Hastalar=C4=B1n=C4=B1z i=C3=A7in nas=C4=B1l =C3=A7al=C4=B1=C5=9F=C4=B1r
+</p>
+<p style=3D"margin: 0 0 20px 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height=
+: 26px; color: #333333;">
+Deneyim basit ve kesintisizdir:
+</p>
+<!-- Step 1 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #00A3B4; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">1<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+Hasta tedavisini se=C3=A7er ve <strong>online rezervasyon yapar</strong>
+</td>
+</tr>
+</tbody></table>
+<!-- Step 2 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #00A3B4; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">2<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+=C3=96deme s=C4=B1ras=C4=B1nda <strong>nas=C4=B1l =C3=B6deyece=C4=9Fini se=
+=C3=A7er</strong> =E2=80=94 pe=C5=9Fin veya esnek taksitlerle
+</td>
+</tr>
+</tbody></table>
+<!-- Step 3 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #00A3B4; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">3<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+Rezervasyon <strong>an=C4=B1nda onaylan=C4=B1r</strong> =E2=80=94 klini=C4=
+=9Finiz =C3=B6demeyi al=C4=B1r
+</td>
+</tr>
+</tbody></table>
+<p style=3D"margin: 12px 0 0 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #666666;">
+Ekibiniz i=C3=A7in ekstra i=C5=9F yok. =C3=96deme takibi yok. CuraPay Glob=
+al t=C3=BCm =C3=B6deme s=C3=BCrecini y=C3=B6netir.
+</p>
+</td>
+</tr>
+<!-- Divider -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 24px 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Getting started -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 0 40px 16px 40px;">
+<p style=3D"margin: 0 0 20px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 20px; font-wei=
+ght: 700; color: #830AD1;">
+Kat=C4=B1lmaya haz=C4=B1r m=C4=B1s=C4=B1n=C4=B1z? =C4=B0=C5=9Fte nas=C4=B1=
+l
+</p>
+<!-- Clinic Step 1 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #830AD1; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">1<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+Klini=C4=9Finizi <a href=3D"https://curapayglobal.us10.list-manage.com/tra=
+ck/click?u=3Da0343f0c38f498f937439ac68&id=3D7597560532&e=3De7d517a4f0" st=
+yle=3D"color: #00A3B4; text-decoration: underline;">curapayglobal.com/join=
+-provider</a> adresinden <strong>kaydedin</strong>
+</td>
+</tr>
+</tbody></table>
+<!-- Clinic Step 2 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #830AD1; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">2<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+<strong>Partnership Ekibimiz</strong> klini=C4=9Finizi birebir sisteme dah=
+il eder ve kurulum s=C3=BCrecinde size rehberlik eder
+</td>
+</tr>
+</tbody></table>
+<!-- Clinic Step 3 -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"margin-bottom: 12px;">
+<tbody><tr>
+<td width=3D"40" valign=3D"top">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+<tbody><tr>
+<td style=3D"width: 32px; height: 32px; border-radius: 50%; background-col=
+or: #830AD1; text-align: center; vertical-align: middle; font-family: -app=
+le-system=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif;=
+ font-size: 14px; font-weight: 700; color: #ffffff; line-height: 32px;">3<=
+/td>
+</tr>
+</tbody></table>
+</td>
+<td style=3D"padding-left: 8px; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height=
+: 24px; color: #333333; padding-top: 4px;">
+<strong>Yay=C4=B1na ge=C3=A7in</strong> =E2=80=94 =C3=B6deme s=C4=B1ras=C4=
+=B1nda esnek =C3=B6deme se=C3=A7enekleriyle hasta rezervasyonlar=C4=B1 alm=
+aya ba=C5=9Flay=C4=B1n
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- BOTTOM CTA -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 16px 40px 40px 40px; text-a=
+lign: center;">
+<!-- CTA Button -->
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" align=3D"center" class=3D"btn-primary">
+<tbody><tr>
+<td style=3D"border-radius: 12px; background-color: #830AD1;">
+<a href=3D"https://curapayglobal.us10.list-manage.com/track/click?u=3Da034=
+3f0c38f498f937439ac68&id=3Da9202f4737&e=3De7d517a4f0" target=3D"_blank" s=
+tyle=3D"display: inline-block; padding: 16px 44px; font-family: -apple-sys=
+tem=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-s=
+ize: 16px; font-weight: 700; color: #ffffff; text-decoration: none; border=
+-radius: 12px; letter-spacing: 0.3px;">
+Klini=C4=9Finizi Kaydedin =E2=86=92
+</a>
+</td>
+</tr>
+</tbody></table>
+<p style=3D"margin: 20px 0 0 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 14px; line-height=
+: 22px; color: #888888;">
+Sorular=C4=B1n=C4=B1z m=C4=B1 var? Bu e-postay=C4=B1 yan=C4=B1tlay=C4=B1n=
+=2C Partnership Ekibimiz sizinle ileti=C5=9Fime ge=C3=A7ecek.
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D CLOSING BANNER =3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D -->
+<tr>
+<td style=3D"background: linear-gradient(135deg=2C #00A3B4 0%=2C #008a99 1=
+00%); border-radius: 0 0 16px 16px; padding: 0;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td class=3D"mobile-padding" style=3D"padding: 32px 40px; text-align: cent=
+er;">
+<p style=3D"margin: 0 0 4px 0; font-family: -apple-system=2C 'SF Pro Displ=
+ay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 18px; font-weig=
+ht: 700; color: #ffffff;">
+Hastalar tedavi istemedikleri i=C3=A7in iptal etmiyor.
+</p>
+<p style=3D"margin: 0; font-family: -apple-system=2C 'SF Pro Text'=2C 'Hel=
+vetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height: 24px; c=
+olor: rgba(255=2C255=2C255=2C0.9);">
+Hepsini bir kerede kar=C5=9F=C4=B1layamad=C4=B1klar=C4=B1 i=C3=A7in iptal=
+ ediyorlar. CuraPay Global bunu =C3=A7=C3=B6zer.
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D WHATSAPP CHANNEL SECTION =3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D -->
+<tr>
+<td style=3D"background-color: #ffffff; padding: 0;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<!-- Divider -->
+<tbody><tr>
+<td class=3D"mobile-padding" style=3D"padding: 32px 40px 0 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%">
+<tbody><tr>
+<td style=3D"border-top: 2px solid #f4f0f8;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- WhatsApp card -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 24px 40px 0 40px;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"background: linear-gradient(135deg=2C #830AD1=
+ 0%=2C #6b08ab 100%); border-radius: 16px; overflow: hidden;">
+<tbody><tr>
+<td style=3D"padding: 32px 32px 0 32px; text-align: center;">
+<p style=3D"margin: 0 0 4px 0; font-family: -apple-system=2C 'SF Pro Displ=
+ay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 11px; font-weig=
+ht: 700; color: #00A3B4; letter-spacing: 1.5px; text-transform: uppercase;=
+">BA=C4=9ELANTIDA KALIN</p>
+<p style=3D"margin: 0 0 12px 0; font-family: -apple-system=2C 'SF Pro Disp=
+lay'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 22px; font-wei=
+ght: 700; color: #ffffff; line-height: 28px;">
+Klinikler =C4=B0=C3=A7in WhatsApp Kanal=C4=B1m=C4=B1za Kat=C4=B1l=C4=B1n
+</p>
+<p style=3D"margin: 0 0 8px 0; font-family: -apple-system=2C 'SF Pro Text'=
+=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 15px; line-height:=
+ 24px; color: rgba(255=2C255=2C255=2C0.9);">
+=C3=9Cr=C3=BCn g=C3=BCncellemelerini=2C =C3=B6zellik duyurular=C4=B1n=C4=
+=B1 ve =C3=B6nemli haberleri do=C4=9Frudan WhatsApp =C3=BCzerinden al=C4=
+=B1n.
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 20px 32px 28px 32px; text-align: center;">
+<table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" align=3D"center">
+<tbody><tr>
+<td style=3D"border-radius: 10px; background-color: #25D366;">
+<a href=3D"https://curapayglobal.us10.list-manage.com/track/click?u=3Da034=
+3f0c38f498f937439ac68&id=3D63fb7088f6&e=3De7d517a4f0" target=3D"_blank" s=
+tyle=3D"display: inline-block; padding: 12px 28px; font-family: -apple-sys=
+tem=2C 'SF Pro Display'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-s=
+ize: 14px; font-weight: 700; color: #ffffff; text-decoration: none; border=
+-radius: 10px;">
+=F0=9F=92=AC=C2=A0 WhatsApp Kanal=C4=B1na Kat=C4=B1l=C4=B1n
+</a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- Sign off -->
+<tr>
+<td class=3D"mobile-padding" style=3D"padding: 32px 40px 40px 40px;">
+<p style=3D"margin: 0 0 20px 0; font-family: -apple-system=2C 'SF Pro Text=
+'=2C 'Helvetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height=
+: 26px; color: #333333;">
+CuraPay Global=E2=80=99=C4=B1=2C kliniklerin b=C3=BCy=C3=BCmesine ve hasta=
+lar=C4=B1n ihtiya=C3=A7 duyduklar=C4=B1 bak=C4=B1ma eri=C5=9Fmesine yard=
+=C4=B1mc=C4=B1 olmak i=C3=A7in in=C5=9Fa ediyoruz. Klini=C4=9Finizi platfo=
+rmumuzda g=C3=B6rmek bizi mutlu eder.
+</p>
+<p style=3D"margin: 0; font-family: -apple-system=2C 'SF Pro Text'=2C 'Hel=
+vetica Neue'=2C Arial=2C sans-serif; font-size: 16px; line-height: 26px; c=
+olor: #333333;">
+Sayg=C4=B1lar=C4=B1m=C4=B1zla=2C<br />
+<strong>CuraPay Global Partnership Ekibi</strong>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<!-- END EMAIL CONTAINER -->
+</tbody></table>
+</td></tr></tbody></table></div></td></tr></tbody></table></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table><!--[if (gt=
+e mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody><tbody dat=
+a-block-id=3D"6" class=3D"mceWrapper"><tr><td style=3D"background-color:tr=
+ansparent" valign=3D"top" align=3D"center" class=3D"mceSection6"><!--[if=
+ (gte mso 9)|(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"600" style=3D"width:600px;"><tr><td><![endif]=
+--><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ style=3D"max-width:600px" role=3D"presentation"><tbody><tr><td valign=3D"=
+top" class=3D"mceWrapperInner"><table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation" data-bl=
+ock-id=3D"8"><tbody><tr class=3D"mceRow"><td style=3D"background-position:=
+center;background-repeat:no-repeat;background-size:cover" valign=3D"top"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0"=
+ valign=3D"top" class=3D"mceColumn" id=3D"mceColumnId--8" data-block-id=3D=
+"-8" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=
+=3D"background-color:transparent;padding-top:12px;padding-bottom:12px;padd=
+ing-right:24px;padding-left:24px;border:0;border-radius:0" valign=3D"top"=
+ class=3D"mceDividerBlockContainer" id=3D"b25"><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"back=
+ground-color:transparent;width:100%" role=3D"presentation" class=3D"mceDiv=
+iderContainer" data-block-id=3D"25"><tbody><tr><td style=3D"min-width:100%=
+;border-top-width:1px;border-top-style:solid;border-top-color:#830ad1;line=
+-height:0;font-size:0" valign=3D"top" class=3D"mceDividerBlock">=C2=A0</td=
+></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table><!--[if (gte mso 9)|(=
+IE)]></td></tr></table><![endif]--></td></tr></tbody><tbody data-block-id=
+=3D"9" class=3D"mceWrapper"><tr><td style=3D"background-color:transparent;=
+padding-bottom:10px" valign=3D"top" align=3D"center" class=3D"mceSection9"=
+><!--[if (gte mso 9)|(IE)]><table align=3D"center" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;"><tr><td><!=
+[endif]--><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"max-width:600px" role=3D"presentation"><tbody><tr><td v=
+align=3D"top" class=3D"mceWrapperInner"><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation=
+" data-block-id=3D"14"><tbody><tr class=3D"mceRow"><td style=3D"background=
+-position:center;background-repeat:no-repeat;background-size:cover" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" role=3D"presentation"><tbody><tr><td style=3D"padding-top:0;padding-=
+bottom:0" valign=3D"top" class=3D"mceColumn" id=3D"mceColumnId--9" data-bl=
+ock-id=3D"-9" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr>=
+<td style=3D"padding-top:10px;padding-bottom:10px;padding-right:0;padding-=
+left:0;border:0;border-radius:0" valign=3D"top" class=3D"mceLayoutContaine=
+r" id=3D"b35"><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"35"><tb=
+ody><tr class=3D"mceRow"><td style=3D"background-position:center;backgroun=
+d-repeat:no-repeat;background-size:cover" valign=3D"top"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"20" width=3D"100%" role=3D"presentatio=
+n"><tbody><tr><td valign=3D"top" class=3D"mceColumn" id=3D"mceColumnId--6"=
+ data-block-id=3D"-6" colspan=3D"12" width=3D"100%"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tb=
+ody><tr><td style=3D"border:0;border-radius:0" valign=3D"top" class=3D"mce=
+SocialFollowBlockContainer" id=3D"b-5"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"mceSo=
+cialFollowBlock" data-block-id=3D"-5"><tbody><tr><td valign=3D"middle" ali=
+gn=3D"center"><!--[if mso]><table align=3D"left" border=3D"0" cellspacing=
+=3D "0" cellpadding=3D"0"><tr><![endif]--><!--[if mso]><td align=3D"cent=
+er" valign=3D"top"><![endif]--><table align=3D"left" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"display:inline;float:left" role=3D"p=
+resentation"><tbody><tr><td style=3D"padding-top:3px;padding-bottom:3px;pa=
+dding-left:12px;padding-right:12px" valign=3D"top" class=3D"mceSocialFollo=
+wIcon" align=3D"center" width=3D"40"><a href=3D"https://curapayglobal.us10=
+=2Elist-manage.com/track/click?u=3Da0343f0c38f498f937439ac68&id=3D5e54b51581=
+&e=3De7d517a4f0" target=3D"_blank" rel=3D"noreferrer"><img class=3D"mceSo=
+cialFollowImage" width=3D"40" height=3D"40" alt=3D"Facebook icon" src=3D"h=
+ttps://cdn-images.mailchimp.com/icons/social-block-v3/block-icons-v3/faceb=
+ook-filled-dark-40.png" /></a></td></tr></tbody></table><!--[if mso]></td=
+><![endif]--><!--[if mso]><td align=3D"center" valign=3D"top"><![endif]=
+--><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"display:inline;float:left" role=3D"presentation"><tbody><tr><td=
+ style=3D"padding-top:3px;padding-bottom:3px;padding-left:12px;padding-rig=
+ht:12px" valign=3D"top" class=3D"mceSocialFollowIcon" align=3D"center" wid=
+th=3D"40"><a href=3D"https://curapayglobal.us10.list-manage.com/track/clic=
+k?u=3Da0343f0c38f498f937439ac68&id=3D4b9ee4094a&e=3De7d517a4f0" target=3D=
+"_blank" rel=3D"noreferrer"><img class=3D"mceSocialFollowImage" width=3D"4=
+0" height=3D"40" alt=3D"Instagram icon" src=3D"https://cdn-images.mailchim=
+p.com/icons/social-block-v3/block-icons-v3/instagram-filled-dark-40.png" /=
+></a></td></tr></tbody></table><!--[if mso]></td><![endif]--><!--[if ms=
+o]><td align=3D"center" valign=3D"top"><![endif]--><table align=3D"left"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display:inline;=
+float:left" role=3D"presentation"><tbody><tr><td style=3D"padding-top:3px;=
+padding-bottom:3px;padding-left:12px;padding-right:12px" valign=3D"top" cl=
+ass=3D"mceSocialFollowIcon" align=3D"center" width=3D"40"><a href=3D"https=
+://curapayglobal.us10.list-manage.com/track/click?u=3Da0343f0c38f498f93743=
+9ac68&id=3D4d255b0759&e=3De7d517a4f0" target=3D"_blank" rel=3D"noreferrer=
+"><img class=3D"mceSocialFollowImage" width=3D"40" height=3D"40" alt=3D"Li=
+nkedIn icon" src=3D"https://cdn-images.mailchimp.com/icons/social-block-v3=
+/block-icons-v3/linkedin-filled-dark-40.png" /></a></td></tr></tbody></tab=
+le><!--[if mso]></td><![endif]--><!--[if mso]><td align=3D"center" vali=
+gn=3D"top"><![endif]--><table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"display:inline;float:left" role=3D"presentat=
+ion"><tbody><tr><td style=3D"padding-top:3px;padding-bottom:3px;padding-le=
+ft:12px;padding-right:12px" valign=3D"top" class=3D"mceSocialFollowIcon" a=
+lign=3D"center" width=3D"40"><a href=3D"https://curapayglobal.us10.list-ma=
+nage.com/track/click?u=3Da0343f0c38f498f937439ac68&id=3Df2d29f1f9b&e=3De7d517a4f0" target=3D"_blank" rel=3D"noreferrer"><img class=3D"mceSocialFoll=
+owImage" width=3D"40" height=3D"40" alt=3D"YouTube icon" src=3D"https://cd=
+n-images.mailchimp.com/icons/social-block-v3/block-icons-v3/youtube-filled=
+-dark-40.png" /></a></td></tr></tbody></table><!--[if mso]></td><![endif=
+]--><!--[if mso]><td align=3D"center" valign=3D"top"><![endif]--><table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+display:inline;float:left" role=3D"presentation"><tbody><tr><td style=3D"p=
+adding-top:3px;padding-bottom:3px;padding-left:12px;padding-right:12px" va=
+lign=3D"top" class=3D"mceSocialFollowIcon" align=3D"center" width=3D"40"><=
+a href=3D"mailto:providers@curapayglobal.com" target=3D"_blank" rel=3D"nor=
+eferrer"><img class=3D"mceSocialFollowImage" width=3D"40" height=3D"40" al=
+t=3D"Email icon" src=3D"https://cdn-images.mailchimp.com/icons/social-bloc=
+k-v3/block-icons-v3/email-filled-dark-40.png" /></a></td></tr></tbody></ta=
+ble><!--[if mso]></td><![endif]--><!--[if mso]></tr></table><![endif]-=
+-></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:8px=
+;padding-bottom:8px;padding-right:8px;padding-left:8px;border:0;border-rad=
+ius:0" valign=3D"top" class=3D"mceLayoutContainer" id=3D"b13"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" role=3D"presentation" data-block-id=3D"13" id=3D"section_5abc976afa7ff50=
+0bcf244fc58ac3550" class=3D"mceFooterSection"><tbody><tr class=3D"mceRow">=
+<td style=3D"background-position:center;background-repeat:no-repeat;backgr=
+ound-size:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"10" width=3D"100%" role=3D"presentation"><tbody><tr><td style=
+=3D"padding-top:0;padding-bottom:0" valign=3D"top" class=3D"mceColumn" id=
+=3D"mceColumnId--3" data-block-id=3D"-3" colspan=3D"12" width=3D"100%"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0;p=
+adding-right:0;padding-left:0" valign=3D"top" class=3D"mceGutterContainer"=
+ id=3D"gutterContainerId-11"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"border-collapse:separate" role=3D"prese=
+ntation"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0;border:0;border-radius:0" valign=3D"top" align=3D"cen=
+ter" id=3D"b11"><table width=3D"100%" style=3D"border:0;background-color:t=
+ransparent;border-radius:0;border-collapse:separate"><tbody><tr><td style=
+=3D"padding-left:18px;padding-right:18px;padding-top:7px;padding-bottom:7p=
+x" class=3D"mceTextBlockContainer"><div data-block-id=3D"11" class=3D"mceT=
+ext" id=3D"d11" style=3D"display:inline-block;width:100%"><p style=3D"marg=
+in: 0px; text-align: center;" class=3D"last-child"><em>Copyright =C2=A9 20=
+26. CuraPay Global Inc=2C All rights reserved.</em><br /><br /><strong>Our=
+ address is:</strong><br /> <span style=3D"color:rgb(33=2C 38=2C 42);"><sp=
+an style=3D"font-family: 'Graphik Web'=2C 'Helvetica Neue'=2C Helvetica=2C=
+ Arial=2C Verdana=2C sans-serif"><span style=3D"background-color: rgb(255=
+=2C 255=2C 255)">8 The Grn Ste R=2C Dover=2C DE 19901-3618=2C USA</span></=
+span></span> <br /><br />No longer want to receive these emails?<br /><a h=
+ref=3D"https://curapayglobal.us10.list-manage.com/unsubscribe?u=3Da0343f0c=
+38f498f937439ac68&id=3D1139659eca&t=3Db&e=3De7d517a4f0&c=3Dc58125a301">unsub=
+scribe from this list. =C2=A0</a><br /><br /></p></div></td></tr></tbody><=
+/table></td></tr></tbody></table></td></tr><tr><td style=3D"border:0;borde=
+r-radius:0" valign=3D"top" class=3D"mceLayoutContainer" align=3D"center" i=
+d=3D"b-2"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"-2"><tbody>=
+<tr class=3D"mceRow"><td style=3D"background-position:center;background-re=
+peat:no-repeat;background-size:cover;padding-top:0px;padding-bottom:0px" v=
+align=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"20" wid=
+th=3D"100%" role=3D"presentation"><tbody></tbody></table></td></tr></tbody=
+></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+></tbody></table></td></tr></tbody></table><!--[if (gte mso 9)|(IE)]></td=
+></tr></table><![endif]--></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+</body></html>
+--_----------=_MCPart_619375284--
