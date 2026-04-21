@@ -38,9 +38,10 @@ export default async function RootLayout({
             <img src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" style={{ height: '50px', objectFit: 'contain' }} />
           </div>
           <div style={{ display: 'flex', gap: '25px', fontSize: '15px', fontWeight: 500, letterSpacing: '0.5px' }}>
-             <a href="#treatments" className="nav-link">Tedaviler</a>
-             <a href="#about" className="nav-link">Hakkında</a>
-             <a href="#contact" className="nav-link">İletişim</a>
+             <a href="/hizmetler" className="nav-link">Hizmetler</a>
+             <a href="/blog" className="nav-link">Blog</a>
+             <a href="/kurumsal" className="nav-link">Kurumsal</a>
+             <a href="/iletisim" className="nav-link">İletişim</a>
           </div>
         </nav>
 
