@@ -134,8 +134,9 @@ export default async function RootLayout({
               
             </div>
             
-            <div style={{ maxWidth: '1200px', margin: '40px auto 0', borderTop: '1px solid #222', paddingTop: '20px', textAlign: 'center', fontSize: '12px' }}>
+            <div style={{ maxWidth: '1200px', margin: '40px auto 0', borderTop: '1px solid #222', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '15px', fontSize: '12px' }}>
               <p>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel. Tüm hakları saklıdır.</p>
+              <p>Designed and Maintained by <a href="https://muratkanik.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-gold)', textDecoration: 'none', fontWeight: 'bold' }}>MK Studio</a></p>
             </div>
           </footer>
 
