@@ -144,7 +144,8 @@ async function migrate() {
     const en_baslik = fixEncoding(row[11]);
     const en_icerik = fixEncoding(row[16]) || fixEncoding(row[17]);
     
-    if (tr_icerik.length < 5 && en_icerik.length < 5) continue;
+    // Removing length filter to allow all content to be migrated
+    // if (tr_icerik.length < 5 && en_icerik.length < 5) continue;
     
     const translations = {
       tr: {

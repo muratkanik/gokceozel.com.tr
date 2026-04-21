@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase/client";
+import HeroSlider from "@/components/ui/HeroSlider";
 
 export default async function Home() {
   // Fetch Maintenance Mode
@@ -56,33 +57,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="hero-container" style={{
-        backgroundImage: "radial-gradient(circle at center, rgba(183,110,121,0.15) 0%, rgba(10,10,12,1) 70%)"
-      }}>
-        <div style={{ maxWidth: '1200px', width: '100%', padding: '0 40px', position: 'relative', zIndex: 10 }}>
-          <div style={{ maxWidth: '600px' }}>
-            <h1 style={{ 
-              fontSize: '4.5rem', 
-              fontFamily: 'var(--font-serif)', 
-              lineHeight: 1.1,
-              marginBottom: '20px',
-              color: 'var(--color-gold)'
-            }} className="gold-gradient-text">
-              {heroContent.title}
-            </h1>
-            <p style={{
-              fontSize: '1.2rem',
-              color: 'var(--color-text-secondary)',
-              marginBottom: '40px',
-              letterSpacing: '1px',
-              textTransform: 'uppercase'
-            }}>
-              {heroContent.subtitle}
-            </p>
-            <a href="#treatments" className="btn-primary">{heroContent.button}</a>
-          </div>
-        </div>
-      </section>
+      <HeroSlider heroContent={heroContent} />
 
       <section id="treatments" style={{ padding: '100px 40px', maxWidth: '1200px', margin: '0 auto' }}>
         <h2 className="gold-gradient-text" style={{ fontSize: '2.5rem', fontFamily: 'var(--font-serif)', marginBottom: '50px', textAlign: 'center' }}>
