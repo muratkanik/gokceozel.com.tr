@@ -1,12 +1,43 @@
-import { headers } from 'next/headers';
-import { signIn } from './actions';
+'use client';
 
-export default async function LoginPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ message: string }>
-}) {
-  const resolvedParams = await searchParams;
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function LoginPage() {
+  const router = useRouter();
+  const [errorMsg, setErrorMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setErrorMsg('');
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        setErrorMsg(data.error || 'Giriş başarısız. Lütfen bilgilerinizi kontrol edin.');
+        setIsLoading(false);
+      } else {
+        // Success
+        router.push('/admin');
+        router.refresh(); // Refresh the router to apply layout changes
+      }
+    } catch (err) {
+      setErrorMsg('Sunucuya bağlanılamadı. Lütfen tekrar deneyin.');
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div style={{
@@ -34,7 +65,7 @@ export default async function LoginPage({
           <p style={{ color: 'var(--color-text-secondary)' }}>Yönetim Paneli Girişi</p>
         </div>
 
-        <form action={signIn} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div>
             <label style={{ display: 'block', color: 'var(--color-text-primary)', marginBottom: '8px', fontSize: '0.9rem' }}>E-posta</label>
             <input 
@@ -72,24 +103,25 @@ export default async function LoginPage({
 
           <button 
             type="submit"
+            disabled={isLoading}
             style={{
-              background: 'var(--color-gold)',
+              background: isLoading ? '#666' : 'var(--color-gold)',
               color: '#000',
               border: 'none',
               padding: '14px',
               borderRadius: '6px',
               fontWeight: 'bold',
-              cursor: 'pointer',
+              cursor: isLoading ? 'not-allowed' : 'pointer',
               marginTop: '10px',
-              transition: 'opacity 0.2s',
+              transition: 'all 0.2s',
             }}
           >
-            Giriş Yap
+            {isLoading ? 'Giriş Yapılıyor...' : 'Giriş Yap'}
           </button>
 
-          {resolvedParams?.message && (
+          {errorMsg && (
             <p style={{ color: '#ff6b6b', textAlign: 'center', marginTop: '10px', fontSize: '0.9rem' }}>
-              {resolvedParams.message}
+              {errorMsg}
             </p>
           )}
         </form>
