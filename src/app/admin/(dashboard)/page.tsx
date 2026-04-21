@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
+import { toggleMaintenance } from './actions';
 
 export default async function AdminDashboard() {
   
@@ -17,32 +17,6 @@ export default async function AdminDashboard() {
   } catch (e) {
     // ignore parse error
   }
-
-  const toggleMaintenance = async (formData: FormData) => {
-    'use server';
-    
-    const currentSetting = await prisma.setting.findUnique({
-      where: { key: 'maintenance_mode' }
-    });
-
-    let currentStatus = false;
-    if (currentSetting?.value) {
-      try {
-        currentStatus = JSON.parse(currentSetting.value).isActive === true;
-      } catch (e) {}
-    }
-    
-    const newStatus = !currentStatus;
-
-    await prisma.setting.upsert({
-      where: { key: 'maintenance_mode' },
-      update: { value: JSON.stringify({ isActive: newStatus }) },
-      create: { key: 'maintenance_mode', value: JSON.stringify({ isActive: newStatus }) }
-    });
-      
-    revalidatePath('/', 'layout');
-    revalidatePath('/admin');
-  };
 
   return (
     <div>
