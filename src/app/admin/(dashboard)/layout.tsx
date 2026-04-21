@@ -7,6 +7,10 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   const supabase = await createClient();
   const { data: { session } } = await supabase.auth.getSession();
 
+  if (!session) {
+    redirect('/admin/login');
+  }
+
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#f5f5f5', color: '#333' }}>
       {session && (
