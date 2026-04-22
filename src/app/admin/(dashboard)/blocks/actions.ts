@@ -19,16 +19,18 @@ export async function createBlock(formData: FormData) {
     }
   });
 
-  revalidatePath(`/admin/blocks?pageId=${targetPageId}`);
+  revalidatePath('/admin/blocks');
+  revalidatePath('/', 'layout');
 }
 
 export async function deleteBlock(formData: FormData) {
   const id = formData.get('id') as string;
-  const currentPageId = formData.get('pageId') as string;
   if (!id) return;
 
   await prisma.contentBlock.delete({ where: { id } });
-  revalidatePath(`/admin/blocks?pageId=${currentPageId}`);
+  
+  revalidatePath('/admin/blocks');
+  revalidatePath('/', 'layout');
 }
 
 export async function selectPageAction(formData: FormData) {
