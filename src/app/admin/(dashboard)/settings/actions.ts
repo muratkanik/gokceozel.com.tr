@@ -16,7 +16,7 @@ export async function saveSetting(formData: FormData) {
   });
 
   revalidatePath('/admin/settings');
-  revalidatePath('/', 'layout');
+  revalidatePath('/[locale]', 'layout');
 }
 
 export async function deleteSetting(formData: FormData) {

@@ -8,13 +8,13 @@ const prismaClientSingleton = () => {
     url = `${url}${separator}pgbouncer=true&connection_limit=1`;
   }
 
-  return new PrismaClient({
+  return new PrismaClient(url ? {
     datasources: {
       db: {
         url
       }
     }
-  })
+  } : undefined);
 }
 
 declare global {

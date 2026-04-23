@@ -23,6 +23,6 @@ export async function toggleMaintenance(formData: FormData) {
     create: { key: 'maintenance_mode', value: JSON.stringify({ isActive: newStatus }) }
   });
     
-  revalidatePath('/', 'layout');
+  revalidatePath('/[locale]', 'layout');
   revalidatePath('/admin');
 }

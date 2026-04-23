@@ -5,32 +5,45 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export async function createBlock(formData: FormData) {
-  const targetPageId = formData.get('pageId') as string;
-  const componentType = formData.get('componentType') as string;
-  const sortOrder = parseInt(formData.get('sortOrder') as string) || 0;
+  try {
+    const targetPageId = formData.get('pageId') as string;
+    const componentType = formData.get('componentType') as string;
+    const sortOrder = parseInt(formData.get('sortOrder') as string) || 0;
 
-  if (!targetPageId || !componentType) return;
+    if (!targetPageId || !componentType) return;
 
-  await prisma.contentBlock.create({
-    data: {
-      pageId: targetPageId,
-      componentType,
-      sortOrder
-    }
-  });
+    await prisma.contentBlock.create({
+      data: {
+        pageId: targetPageId,
+        componentType,
+        sortOrder
+      }
+    });
 
-  revalidatePath('/admin/blocks');
-  revalidatePath('/', 'layout');
+    revalidatePath('/admin/blocks');
+    revalidatePath('/[locale]', 'layout');
+  } catch (e: any) {
+    if (e.message && e.message.includes('NEXT_REDIRECT')) throw e;
+    console.error('createBlock error:', e);
+    redirect(`/admin/blocks?pageId=${formData.get('pageId')}&error=${encodeURIComponent(e.message || 'Bilinmeyen Hata')}`);
+  }
 }
 
 export async function deleteBlock(formData: FormData) {
-  const id = formData.get('id') as string;
-  if (!id) return;
+  try {
+    const id = formData.get('id') as string;
+    if (!id) return;
 
-  await prisma.contentBlock.delete({ where: { id } });
-  
-  revalidatePath('/admin/blocks');
-  revalidatePath('/', 'layout');
+    await prisma.contentBlock.delete({ where: { id } });
+    
+    revalidatePath('/admin/blocks');
+    revalidatePath('/[locale]', 'layout');
+  } catch (e: any) {
+    if (e.message && e.message.includes('NEXT_REDIRECT')) throw e;
+    console.error('deleteBlock error:', e);
+    const pageId = formData.get('pageId') as string;
+    redirect(`/admin/blocks${pageId ? `?pageId=${pageId}&` : '?'}error=${encodeURIComponent(e.message || 'Bilinmeyen Hata')}`);
+  }
 }
 
 export async function selectPageAction(formData: FormData) {
@@ -52,5 +65,5 @@ export async function updateBlockOrder(updates: { id: string, sortOrder: number 
   );
 
   revalidatePath('/admin/blocks');
-  revalidatePath('/', 'layout');
+  revalidatePath('/[locale]', 'layout');
 }

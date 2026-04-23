@@ -3,7 +3,9 @@ import Link from 'next/link';
 import DeleteForm from '@/components/admin/DeleteForm';
 import { createPage, deletePage } from './actions';
 
-export default async function PagesManagement() {
+export default async function PagesManagement({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const params = await searchParams;
+  const errorMsg = params.error;
   const pages = await prisma.page.findMany({
     orderBy: { createdAt: 'desc' },
     include: {
@@ -16,6 +18,12 @@ export default async function PagesManagement() {
   return (
     <div>
       <h1 style={{ fontSize: '2rem', marginBottom: '30px', color: '#111' }}>Sayfalar (Pages) Yönetimi</h1>
+
+      {errorMsg && (
+        <div style={{ background: '#ffeaa7', borderLeft: '4px solid #d63031', padding: '15px', marginBottom: '30px', borderRadius: '4px', color: '#d63031', fontWeight: 'bold' }}>
+          ⚠️ Hata: {errorMsg}
+        </div>
+      )}
 
       {/* Create New Page Form */}
       <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', marginBottom: '40px' }}>
