@@ -36,7 +36,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
   // Fallback data if no blocks are configured yet
   if (!data) {
     data = {
-      image: '/images/gokcebanner.jpg',
+      image: '/images/gokceozel.png',
       title: 'Prof. Dr. Gökçe Özel',
       subtitle: 'KBB ve Yüz Plastik Cerrahi Uzmanı',
       about: '<p>Prof. Dr. Gökçe Özel, Kulak Burun Boğaz ve Baş Boyun Cerrahisi alanında uzmanlaşmış, özellikle Rinoplasti (Burun Estetiği) ve yüz plastik cerrahisi konularında derin bir tecrübeye sahip hekimdir.</p><p>Hastalarına en güncel ve güvenilir tedavi yöntemlerini sunmayı amaçlayan kliniğimizde, estetik ve fonksiyonu bir arada değerlendiren bütüncül bir yaklaşım benimsenmektedir.</p>',
