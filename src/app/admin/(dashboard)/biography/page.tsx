@@ -16,13 +16,13 @@ export default async function BiographyManagementPage() {
   });
 
   return (
-    <div>
-      <h1 style={{ fontSize: '2rem', marginBottom: '10px', color: '#111' }}>
-        Biyografi Yönetimi
-      </h1>
-      <p style={{ color: '#666', marginBottom: '30px' }}>
-        Bu sayfadaki bilgiler, web sitenizin <strong>"Gökçe Özel Kimdir?"</strong> bölümünde gösterilir.
-      </p>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Biyografi Yönetimi</h1>
+        <p className="text-slate-500 mt-1">
+          Bu sayfadaki bilgiler, web sitenizin <strong className="text-slate-700">"Gökçe Özel Kimdir?"</strong> bölümünde gösterilir.
+        </p>
+      </div>
 
       {/* Client Component to handle tabs and RichTextEditor state */}
       <TranslationEditor blockId={block.id} componentType={block.componentType} initialTranslations={translationMap} locales={locales} />

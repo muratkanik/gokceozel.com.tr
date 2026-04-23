@@ -1,0 +1,1 @@
+export default function Page() { return (<div className="p-8 bg-white rounded-xl shadow-sm border border-slate-200 mt-6"><h1 className="text-2xl font-bold text-slate-800">Blog Yazıları</h1><p className="mt-4 text-slate-600">Bu modül yapım aşamasındadır.</p></div>); }
