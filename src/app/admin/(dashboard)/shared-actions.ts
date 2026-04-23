@@ -1,8 +1,42 @@
 'use server';
 
+import prisma from '@/lib/prisma';
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
+export async function savePageContent(pageId: string, data: any) {
+  // data contains blocks and seoMeta
+  
+  if (data.blocks) {
+    // Upsert blocks
+    for (const block of data.blocks) {
+      await prisma.contentBlock.upsert({
+        where: { id: block.id || 'new' },
+        create: {
+          pageId,
+          componentType: block.componentType,
+          sortOrder: block.sortOrder,
+          isActive: block.isActive,
+          translations: {
+            create: block.translations.map((t: any) => ({
+              locale: t.locale,
+              contentData: t.contentData
+            }))
+          }
+        },
+        update: {
+          sortOrder: block.sortOrder,
+          isActive: block.isActive,
+          // Handle translations update...
+        }
+      });
+    }
+  }
+
+  revalidatePath('/', 'layout');
+}
+
+// Legacy Methods - To be removed after full migration
 export async function saveContentEntryTranslations(id: string, translations: Record<string, any>) {
   const supabase = await createClient();
 
@@ -16,7 +50,6 @@ export async function saveContentEntryTranslations(id: string, translations: Rec
     throw new Error('Failed to save translations');
   }
 
-  // Revalidate frontend and admin paths
   revalidatePath('/', 'layout');
 }
 
