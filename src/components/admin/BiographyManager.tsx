@@ -11,12 +11,19 @@ export interface TimelineItem {
   description: string;
 }
 
+export interface CertificateItem {
+  id: string;
+  image: string;
+  title: string;
+}
+
 export interface BiographyData {
   image: string;
   title: string;
   subtitle: string;
   about: string;
   timeline: TimelineItem[];
+  certificates: CertificateItem[];
 }
 
 interface BiographyManagerProps {
@@ -30,7 +37,8 @@ const defaultData: BiographyData = {
   title: 'Prof. Dr. Gökçe Özel',
   subtitle: 'KBB ve Yüz Plastik Cerrahi Uzmanı',
   about: '',
-  timeline: []
+  timeline: [],
+  certificates: []
 };
 
 export default function BiographyManager({ value, onChange, locale }: BiographyManagerProps) {
@@ -45,6 +53,7 @@ export default function BiographyManager({ value, onChange, locale }: BiographyM
 
   const [data, setData] = useState<BiographyData>(initialData);
   const [showMediaBrowser, setShowMediaBrowser] = useState(false);
+  const [activeMediaTarget, setActiveMediaTarget] = useState<{type: 'profile' | 'certificate', id?: string}>({type: 'profile'});
 
   const updateData = (newData: BiographyData) => {
     setData(newData);
@@ -56,7 +65,16 @@ export default function BiographyManager({ value, onChange, locale }: BiographyM
   };
 
   const handleMediaSelect = (url: string) => {
-    updateField('image', url);
+    if (activeMediaTarget.type === 'profile') {
+      updateField('image', url);
+    } else if (activeMediaTarget.type === 'certificate' && activeMediaTarget.id) {
+      const newCerts = [...(data.certificates || [])];
+      const index = newCerts.findIndex(c => c.id === activeMediaTarget.id);
+      if (index > -1) {
+        newCerts[index].image = url;
+        updateField('certificates', newCerts);
+      }
+    }
     setShowMediaBrowser(false);
   };
 
@@ -98,6 +116,28 @@ export default function BiographyManager({ value, onChange, locale }: BiographyM
     updateField('timeline', newTimeline);
   };
 
+  const addCertificate = () => {
+    const newItem: CertificateItem = {
+      id: Math.random().toString(36).substring(2, 9),
+      image: '',
+      title: 'Yeni Sertifika'
+    };
+    updateField('certificates', [...(data.certificates || []), newItem]);
+  };
+
+  const removeCertificate = (index: number) => {
+    if (!confirm('Bu sertifikayı silmek istediğinize emin misiniz?')) return;
+    const newCerts = [...(data.certificates || [])];
+    newCerts.splice(index, 1);
+    updateField('certificates', newCerts);
+  };
+
+  const updateCertificate = (index: number, val: string) => {
+    const newCerts = [...(data.certificates || [])];
+    newCerts[index] = { ...newCerts[index], title: val };
+    updateField('certificates', newCerts);
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
       
@@ -121,7 +161,10 @@ export default function BiographyManager({ value, onChange, locale }: BiographyM
               )}
             </div>
             <button 
-              onClick={() => setShowMediaBrowser(true)}
+              onClick={() => {
+                setActiveMediaTarget({type: 'profile'});
+                setShowMediaBrowser(true);
+              }}
               style={{ background: '#333', color: '#fff', border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px' }}
             >
               Görsel Seç / Değiştir
@@ -244,6 +287,72 @@ export default function BiographyManager({ value, onChange, locale }: BiographyM
           {data.timeline.length === 0 && (
             <div style={{ textAlign: 'center', padding: '20px', color: '#999', fontSize: '13px' }}>
               Henüz zaman çizelgesine kayıt eklenmemiş.
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Certificates Section */}
+      <div style={{ background: '#f9f9f9', border: '1px solid #ddd', borderRadius: '8px', padding: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#333' }}>Sertifika ve Belgeler</h3>
+          <button 
+            onClick={addCertificate}
+            style={{ background: 'var(--color-gold)', color: '#fff', border: 'none', padding: '8px 15px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
+          >
+            + Sertifika Ekle
+          </button>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+          {(data.certificates || []).map((cert, index) => (
+            <div key={cert.id} style={{ background: '#fff', border: '1px solid #eee', padding: '15px', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              
+              <div style={{ 
+                width: '100%', aspectRatio: '4/3', background: '#f1f2f6', borderRadius: '4px', 
+                border: '1px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                overflow: 'hidden', position: 'relative'
+              }}>
+                {cert.image ? (
+                  <img src={cert.image} alt={cert.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                ) : (
+                  <span style={{ color: '#999', fontSize: '11px', textAlign: 'center', padding: '10px' }}>Görsel Seçilmedi</span>
+                )}
+              </div>
+              
+              <button 
+                onClick={() => {
+                  setActiveMediaTarget({type: 'certificate', id: cert.id});
+                  setShowMediaBrowser(true);
+                }}
+                style={{ background: '#333', color: '#fff', border: 'none', padding: '6px', borderRadius: '4px', cursor: 'pointer', fontSize: '11px' }}
+              >
+                {cert.image ? 'Değiştir' : 'Görsel Seç'}
+              </button>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '11px', fontWeight: 'bold', marginBottom: '3px' }}>Başlık</label>
+                <input 
+                  type="text" 
+                  value={cert.title} 
+                  onChange={(e) => updateCertificate(index, e.target.value)}
+                  placeholder="Sertifika adı..."
+                  style={{ width: '100%', padding: '6px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '13px' }}
+                />
+              </div>
+
+              <button 
+                onClick={() => removeCertificate(index)}
+                style={{ background: '#ff4757', color: '#fff', border: 'none', padding: '6px', cursor: 'pointer', borderRadius: '4px', marginTop: 'auto', fontSize: '11px' }}
+              >
+                Sil
+              </button>
+            </div>
+          ))}
+
+          {(!data.certificates || data.certificates.length === 0) && (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '20px', color: '#999', fontSize: '13px' }}>
+              Henüz sertifika eklenmemiş.
             </div>
           )}
         </div>

@@ -74,6 +74,7 @@ export default async function RootLayout({
               </a>
             </div>
             <div style={{ display: 'flex', gap: '15px', fontSize: 'clamp(12px, 3vw, 15px)', fontWeight: 500, letterSpacing: '0.5px', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <a href={`/${locale}/gokce-ozel-kimdir`} className="nav-link">Gökçe Özel Kimdir?</a>
               <a href={`/${locale}/hizmetler`} className="nav-link">Hizmetler</a>
               <a href={`/${locale}/blog`} className="nav-link">Blog</a>
               <a href={`/${locale}/kurumsal`} className="nav-link">Kurumsal</a>
@@ -125,6 +126,7 @@ export default async function RootLayout({
               <div>
                 <h4 style={{ color: 'var(--color-gold)', fontSize: '18px', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Hızlı Bağlantılar</h4>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <li><a href={`/${locale}/gokce-ozel-kimdir`} className="hover:text-white" style={{ textDecoration: 'none', color: 'inherit' }}>Gökçe Özel Kimdir?</a></li>
                   <li><a href={`/${locale}/hizmetler`} className="hover:text-white" style={{ textDecoration: 'none', color: 'inherit' }}>Hizmetlerimiz</a></li>
                   <li><a href={`/${locale}/kurumsal`} className="hover:text-white" style={{ textDecoration: 'none', color: 'inherit' }}>Hakkımızda</a></li>
                   <li><a href={`/${locale}/iletisim`} className="hover:text-white" style={{ textDecoration: 'none', color: 'inherit' }}>İletişim</a></li>
