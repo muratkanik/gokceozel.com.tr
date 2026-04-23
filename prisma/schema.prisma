@@ -8,93 +8,208 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model User {
-  id            String   @id @default(cuid())
-  email         String   @unique
-  passwordHash  String
-  role          String   @default("admin")
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
 model Setting {
   id        String   @id @default(cuid())
   key       String   @unique
-  value     String   // Stores JSON or text (e.g. SEO metadata, Site Name)
+  value     String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Page {
-  id             String         @id @default(cuid())
-  slug           String         @unique // e.g. "home", "hizmetler/endolift"
-  titleInternal  String
-  seoScore       Int            @default(0)
-  blocks         ContentBlock[]
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
+  id            String         @id @default(cuid())
+  slug          String         @unique
+  titleInternal String
+  seoScore      Int            @default(0)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now()) @updatedAt
+  blocks        ContentBlock[]
+  seoMeta       SeoMeta[]
+  service       Service?
+  faqs          Faq[]
 }
 
 model ContentBlock {
   id            String        @id @default(cuid())
   pageId        String
-  page          Page          @relation(fields: [pageId], references: [id], onDelete: Cascade)
-  componentType String        // e.g. "hero", "text_block", "services_grid"
+  componentType String
   sortOrder     Int           @default(0)
   isActive      Boolean       @default(true)
-  schemaDef     String        @default("{}") // Stores component-specific layout info
-  translations  Translation[]
+  schemaDef     String        @default("{}")
   createdAt     DateTime      @default(now())
+  page          Page          @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  translations  Translation[]
 }
 
 model Translation {
   id          String       @id @default(cuid())
   blockId     String
-  block       ContentBlock @relation(fields: [blockId], references: [id], onDelete: Cascade)
-  locale      String       // "tr", "en"
-  contentData String       @default("{}") // Store localized JSON payload (WYSIWYG HTML, images)
+  locale      String
+  contentData String       @default("{}")
   createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  updatedAt   DateTime     @default(now()) @updatedAt
+  block       ContentBlock @relation(fields: [blockId], references: [id], onDelete: Cascade)
 
   @@unique([blockId, locale])
 }
 
-// Analytics (from camiihalisi)
 model ClickEvent {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  fromPage    String   
-  toUrl       String   
-  label       String   
-  category    String   @default("outbound")
-  referer     String?  
-  refDomain   String?  
-  ua          String?  
-  device      String?  
-  browser     String?  
-  ip          String?  
-  country     String?  
-  city        String?  
-
-  @@index([createdAt])
-  @@index([fromPage])
-  @@index([category])
-  @@index([country])
-  @@index([device])
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  fromPage  String
+  toUrl     String
+  label     String
+  category  String   @default("outbound")
+  referer   String?
+  refDomain String?
+  ua        String?
+  device    String?
+  browser   String?
+  ip        String?
+  country   String?
+  city      String?
 }
 
 model PageView {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  page      String   
-  referer   String?  
-  refDomain String?  
-  country   String?  
-  city      String?  
-  device    String?  
-  ip        String?  
+  page      String
+  referer   String?
+  refDomain String?
+  country   String?
+  city      String?
+  device    String?
+  ip        String?
+}
 
-  @@index([createdAt])
-  @@index([page])
-  @@index([country])
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model appointments {
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name              String    @db.VarChar(255)
+  phone             String    @db.VarChar(50)
+  email             String?   @db.VarChar(255)
+  message           String?
+  service_requested String?   @db.VarChar(255)
+  status            String?   @default("pending") @db.VarChar(50)
+  created_at        DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model content_entries {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type            String    @db.VarChar(50)
+  slug            String?   @db.VarChar(255)
+  image_url       String?
+  visible_locales String[]  @default(["tr", "en", "ru", "ar", "fr", "de", "cin"])
+  translations    Json?     @default("{}")
+  created_at      DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@index([type], map: "idx_content_entries_type")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model special_events {
+  id                 String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  event_name         String    @db.VarChar(255)
+  start_date         DateTime  @db.Date
+  end_date           DateTime  @db.Date
+  theme_class        String?   @db.VarChar(100)
+  popup_translations Json?     @default("{}")
+  is_active          Boolean?  @default(true)
+  created_at         DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+// — SEO bloğu her sayfa-dil çiftine —
+model SeoMeta {
+  id              String   @id @default(cuid())
+  pageId          String
+  page            Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  locale          String
+  metaTitle       String
+  metaDescription String
+  ogImage         String?
+  canonicalUrl    String?
+  robots          String   @default("index,follow")
+  keywords        String?  // virgülle ayrılmış
+  structuredData  String?  // JSON-LD override
+  // AEO özel alanlar
+  shortAnswer     String?  // "Rinoplasti nedir?" sorusuna tek paragraf cevap
+  faqJson         String?  // FAQPage JSON-LD
+  @@unique([pageId, locale])
+}
+
+// — 301/302 redirect yönetimi (eski siteden devir için kritik) —
+model Redirect {
+  id          String   @id @default(cuid())
+  fromPath    String   @unique
+  toPath      String
+  statusCode  Int      @default(301)
+  locale      String?  // null = tüm diller
+  hitCount    Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+// — Hizmet kataloğu (MedicalProcedure schema için) —
+model Service {
+  id          String   @id @default(cuid())
+  pageId      String   @unique
+  page        Page     @relation(fields: [pageId], references: [id])
+  category    String   // burun, goz, dudak, cerrahsiz, kulak, cilt
+  iconKey     String?
+  priceFrom   Int?
+  duration    String?  // "2 saat"
+  anesthesia  String?  // "Genel/Lokal"
+  recovery    String?  // "7-10 gün"
+  sortOrder   Int      @default(0)
+}
+
+// — FAQ (per-page, per-locale) —
+model Faq {
+  id        String   @id @default(cuid())
+  pageId    String?
+  page      Page?    @relation(fields: [pageId], references: [id])
+  locale    String
+  question  String
+  answer    String   // markdown
+  sortOrder Int      @default(0)
+}
+
+// — Öncesi/Sonrası galerisi —
+model BeforeAfter {
+  id         String  @id @default(cuid())
+  serviceId  String
+  beforeUrl  String
+  afterUrl   String
+  caption    String?
+  consent    Boolean @default(false)
+  isPublic   Boolean @default(false)
+}
+
+// — Hasta yorumları (Review schema) —
+model Testimonial {
+  id        String   @id @default(cuid())
+  author    String
+  rating    Int      // 1-5
+  locale    String
+  text      String
+  source    String?  // "Google", "GoogleMaps", vb.
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// — Medya kütüphanesi (alt text, focal point, otomatik webp) —
+model Media {
+  id         String   @id @default(cuid())
+  url        String   @unique
+  altTr      String?
+  altEn      String?
+  altAr      String?
+  altRu      String?
+  focalX     Float    @default(0.5)
+  focalY     Float    @default(0.5)
+  width      Int?
+  height     Int?
+  mime       String?
+  uploadedAt DateTime @default(now())
 }
