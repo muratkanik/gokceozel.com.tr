@@ -39,3 +39,18 @@ export async function selectPageAction(formData: FormData) {
     redirect(`/admin/blocks?pageId=${pId}`);
   }
 }
+
+export async function updateBlockOrder(updates: { id: string, sortOrder: number }[]) {
+  // Execute a transaction to update all sort orders at once
+  await prisma.$transaction(
+    updates.map(update => 
+      prisma.contentBlock.update({
+        where: { id: update.id },
+        data: { sortOrder: update.sortOrder }
+      })
+    )
+  );
+
+  revalidatePath('/admin/blocks');
+  revalidatePath('/', 'layout');
+}

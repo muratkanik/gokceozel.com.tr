@@ -2,6 +2,30 @@ import prisma from '@/lib/prisma';
 import Link from 'next/link';
 import DeleteForm from '@/components/admin/DeleteForm';
 import { createBlock, deleteBlock, selectPageAction } from './actions';
+import BlockManagerClient from '@/components/admin/BlockManagerClient';
+
+function getPreviewText(block: any) {
+  const data = block.translations?.[0]?.contentData;
+  if (!data || data === '{}' || data === '[]') return <span style={{ color: '#999', fontStyle: 'italic' }}>İçerik Yok</span>;
+  
+  try {
+    if (block.componentType === 'hero') {
+      const parsed = JSON.parse(data);
+      return <span style={{ color: '#555' }}>{Array.isArray(parsed) ? `${parsed.length} Slayt` : 'JSON Formatı'}</span>;
+    }
+    if (block.componentType === 'biography') {
+      const parsed = JSON.parse(data);
+      return <span style={{ color: '#555' }}>{parsed.title || 'Biyografi Modülü'}</span>;
+    }
+  } catch (e) {
+    // ignore
+  }
+  
+  // For text block, strip HTML
+  const stripped = data.replace(/<[^>]+>/g, '').trim();
+  if (!stripped) return <span style={{ color: '#999', fontStyle: 'italic' }}>Medya/Boş</span>;
+  return <span style={{ color: '#555' }}>{stripped.substring(0, 60)}...</span>;
+}
 
 export default async function BlocksManagementPage({ searchParams }: { searchParams: Promise<{ pageId?: string }> }) {
   const params = await searchParams;
@@ -13,6 +37,10 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
     where: { pageId },
     orderBy: { sortOrder: 'asc' },
     include: {
+      translations: {
+        where: { locale: 'tr' }, // Fetch TR locale for preview
+        select: { contentData: true }
+      },
       _count: {
         select: { translations: true }
       }
@@ -52,7 +80,8 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
                 <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', color: '#666' }}>Bileşen Türü (Component Type)</label>
                 <select name="componentType" required style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid #ddd' }}>
                   <option value="text_block">Standart Metin Bloğu (Text Block)</option>
-                  <option value="hero">Hero / Banner</option>
+                  <option value="hero">Hero / Banner Slayt Yöneticisi</option>
+                  <option value="biography">Biyografi / Özgeçmiş (CV) Yöneticisi</option>
                   <option value="services_grid">Hizmetler Grid</option>
                   <option value="custom_html">Özel HTML</option>
                 </select>
@@ -70,45 +99,9 @@ export default async function BlocksManagementPage({ searchParams }: { searchPar
           </div>
 
           {/* Blocks List */}
-          <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+          <div style={{ background: 'transparent' }}>
             <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#333' }}>Sayfadaki Bloklar</h2>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid #eee' }}>
-                  <th style={{ padding: '15px 10px', color: '#666', width: '80px' }}>Sıra</th>
-                  <th style={{ padding: '15px 10px', color: '#666' }}>Bileşen Türü</th>
-                  <th style={{ padding: '15px 10px', color: '#666' }}>Çeviriler</th>
-                  <th style={{ padding: '15px 10px', color: '#666', width: '250px' }}>İşlemler</th>
-                </tr>
-              </thead>
-              <tbody>
-                {blocks.map((block) => (
-                  <tr key={block.id} style={{ borderBottom: '1px solid #eee' }}>
-                    <td style={{ padding: '15px 10px', fontWeight: 'bold' }}>{block.sortOrder}</td>
-                    <td style={{ padding: '15px 10px', fontWeight: '500', color: 'var(--color-gold)' }}>{block.componentType}</td>
-                    <td style={{ padding: '15px 10px' }}>
-                      <span style={{ background: '#eee', padding: '4px 8px', borderRadius: '10px', fontSize: '12px' }}>
-                        {block._count.translations} dilde çeviri
-                      </span>
-                    </td>
-                    <td style={{ padding: '15px 10px', display: 'flex', gap: '10px' }}>
-                      <Link href={`/admin/blocks/${block.id}`} style={{ background: '#000', color: '#fff', textDecoration: 'none', padding: '8px 15px', borderRadius: '4px', fontSize: '14px' }}>
-                        İçeriği Düzenle
-                      </Link>
-                      <DeleteForm action={deleteBlock} confirmMessage="Bu bloğu ve içindeki tüm çevirileri silmek istediğinize emin misiniz?">
-                        <input type="hidden" name="id" value={block.id} />
-                        <input type="hidden" name="pageId" value={pageId} />
-                      </DeleteForm>
-                    </td>
-                  </tr>
-                ))}
-                {blocks.length === 0 && (
-                  <tr>
-                    <td colSpan={4} style={{ padding: '20px', textAlign: 'center', color: '#999' }}>Bu sayfada henüz blok bulunmuyor.</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <BlockManagerClient pageId={pageId} initialBlocks={blocks} />
           </div>
         </>
       )}
