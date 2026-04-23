@@ -8,11 +8,28 @@ export default async function BiographyManagementPage() {
   // Prepare standard locales
   const locales = ['tr', 'en', 'ar', 'ru'];
   
-  // Transform existing translations into an easy to use map
+  // Fallback data matching the frontend
+  const fallbackData = {
+    image: '/images/gokceozel.png',
+    title: 'Prof. Dr. Gökçe Özel',
+    subtitle: 'KBB ve Yüz Plastik Cerrahi Uzmanı',
+    about: '<p>Prof. Dr. Gökçe Özel, Kulak Burun Boğaz ve Baş Boyun Cerrahisi alanında uzmanlaşmış, özellikle Rinoplasti (Burun Estetiği) ve yüz plastik cerrahisi konularında derin bir tecrübeye sahip hekimdir.</p><p>Hastalarına en güncel ve güvenilir tedavi yöntemlerini sunmayı amaçlayan kliniğimizde, estetik ve fonksiyonu bir arada değerlendiren bütüncül bir yaklaşım benimsenmektedir.</p>',
+    timeline: [
+      { id: '1', year: '2010', title: 'Tıp Eğitimi', description: 'Hacettepe Üniversitesi Tıp Fakültesi' },
+      { id: '2', year: '2016', title: 'Uzmanlık', description: 'KBB Baş ve Boyun Cerrahisi İhtisası' },
+      { id: '3', year: '2023', title: 'Profesörlük', description: 'KBB alanında Profesör unvanı' }
+    ],
+    certificates: []
+  };
+
   const translationMap: Record<string, string> = {};
   locales.forEach(loc => {
     const existing = block.translations.find((t: any) => t.locale === loc);
-    translationMap[loc] = existing?.contentData || '';
+    let data = existing?.contentData || '';
+    if (!data || data === '{}' || data === '[]') {
+      data = loc === 'tr' ? JSON.stringify(fallbackData) : '{}';
+    }
+    translationMap[loc] = data;
   });
 
   return (
