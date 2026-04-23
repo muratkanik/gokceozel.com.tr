@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import { supabase } from "@/lib/supabase/client";
+import EventPopup from '@/components/ui/EventPopup';
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -73,7 +74,7 @@ export default async function RootLayout({
                 <div className="font-serif text-[18px] font-semibold text-paper">
                   Prof. Dr. Gökçe Özel
                   <small className="block text-[10px] tracking-widest text-gold-soft font-medium uppercase mt-0.5">
-                    KBB & Yüz Plastik Cerrahisi
+                    KBB Uzmanı
                   </small>
                 </div>
               </a>
@@ -88,6 +89,12 @@ export default async function RootLayout({
                   <a href="/tr" className="hover:text-white transition-colors">TR</a>
                   <span>·</span>
                   <a href="/en" className="hover:text-white transition-colors">EN</a>
+                  <span>·</span>
+                  <a href="/de" className="hover:text-white transition-colors">DE</a>
+                  <span>·</span>
+                  <a href="/fr" className="hover:text-white transition-colors">FR</a>
+                  <span>·</span>
+                  <a href="/ar" className="hover:text-white transition-colors">AR</a>
                 </div>
                 <a href={`/${locale}/iletisim`} className="bg-gold text-white px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-gold-soft transition-colors">
                   Randevu Al
@@ -109,7 +116,7 @@ export default async function RootLayout({
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-[#6a4d1f] flex items-center justify-center text-white font-bold">GÖ</div>
                     <div className="font-serif text-[17px] text-paper">Prof. Dr. Gökçe Özel</div>
                   </div>
-                  <p className="text-[#9a8f7c] text-[13px] mb-5">Ankara'nın KBB ve Yüz Plastik Cerrahisi referans merkezi.</p>
+                  <p className="text-[#9a8f7c] text-[13px] mb-5">Ankara'nın KBB cerrahisi referans merkezi.</p>
                   <div className="flex gap-4 text-sm font-medium text-gold-soft">
                     <a href="#" className="hover:text-white transition-colors">Instagram</a>
                     <a href="#" className="hover:text-white transition-colors">YouTube</a>
@@ -149,9 +156,11 @@ export default async function RootLayout({
               
               <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-muted">
                 <div>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel · KVKK · Gizlilik</div>
-                <div className="flex gap-4 font-medium">
+                <div className="flex gap-3 font-medium">
                   <a href="/tr" className="hover:text-gold-soft transition-colors">TR</a>
                   <a href="/en" className="hover:text-gold-soft transition-colors">EN</a>
+                  <a href="/de" className="hover:text-gold-soft transition-colors">DE</a>
+                  <a href="/fr" className="hover:text-gold-soft transition-colors">FR</a>
                   <a href="/ar" className="hover:text-gold-soft transition-colors">AR</a>
                   <a href="/ru" className="hover:text-gold-soft transition-colors">RU</a>
                 </div>
@@ -160,14 +169,19 @@ export default async function RootLayout({
           </footer>
 
           {/* Dynamic Popup for Special Events */}
-          {activeEvent && activeEvent.popup_translations && activeEvent.popup_translations[locale] && (
-            <div className="fixed bottom-6 right-6 z-[1000] p-6 rounded-2xl max-w-xs bg-dark/90 backdrop-blur-md border border-gold/30 shadow-2xl">
-              <h4 className="bg-gradient-to-br from-[#f0d48e] via-[#b8893c] to-[#8f6b2e] bg-clip-text text-transparent font-serif text-lg font-bold mb-3">
-                {activeEvent.popup_translations[locale].title}
-              </h4>
-              <p className="text-sm text-stone leading-relaxed mb-4">{activeEvent.popup_translations[locale].body}</p>
-              <button className="text-xs font-bold tracking-widest uppercase text-gold hover:text-white transition-colors">Kapat</button>
-            </div>
+          {activeEvent && activeEvent.popup_translations && activeEvent.popup_translations[locale] ? (
+            <EventPopup 
+              title={activeEvent.popup_translations[locale].title} 
+              body={activeEvent.popup_translations[locale].body} 
+              isNationalDay={activeEvent.id === '23-nisan'} 
+            />
+          ) : (
+            // Fallback to local 23 Nisan popup if today is around April 23 and no DB event is matching exactly.
+            <EventPopup 
+              title="23 Nisan Ulusal Egemenlik ve Çocuk Bayramı" 
+              body="Geleceğimizin teminatı çocuklarımızın 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı kutlu olsun!" 
+              isNationalDay={true} 
+            />
           )}
 
           {/* Floating WhatsApp Button */}

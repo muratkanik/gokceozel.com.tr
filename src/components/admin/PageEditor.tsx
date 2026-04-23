@@ -68,18 +68,24 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
         {/* CENTER: Canvas */}
         <div className="flex-1 bg-[#fafaf7] flex flex-col relative">
           <div className="flex items-center justify-between p-4 pb-0">
-            <div className="flex bg-white border border-slate-200 rounded-lg p-1 gap-1 shadow-sm">
+            <div className="flex flex-wrap bg-white border border-slate-200 rounded-lg p-1 gap-1 shadow-sm">
               <button onClick={() => setActiveTab('tr')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'tr' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> TR · Türkçe
               </button>
               <button onClick={() => setActiveTab('en')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'en' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> EN
               </button>
+              <button onClick={() => setActiveTab('de')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'de' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> DE
+              </button>
+              <button onClick={() => setActiveTab('fr')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'fr' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> FR
+              </button>
               <button onClick={() => setActiveTab('ar')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'ar' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span> AR · eksik
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span> AR
               </button>
               <button onClick={() => setActiveTab('ru')} className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors flex items-center gap-1.5 ${activeTab === 'ru' ? 'bg-[#1a1410] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}>
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> RU · yok
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> RU
               </button>
             </div>
             <div className="flex bg-white border border-slate-200 rounded-lg p-1 shadow-sm">
