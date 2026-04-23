@@ -9,8 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--color-bg-dark)",
-        foreground: "var(--color-text-primary)",
+        background: "var(--dark)",
+        foreground: "var(--paper)",
+        gold: {
+          DEFAULT: "var(--gold)",
+          soft: "var(--gold-soft)",
+        },
+        ink: "var(--ink)",
+        paper: "var(--paper)",
+        stone: "var(--stone)",
+        muted: "var(--muted)",
+        dark: "var(--dark)",
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
       },
     },
   },
