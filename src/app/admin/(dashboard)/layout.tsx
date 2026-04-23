@@ -20,12 +20,11 @@ export default async function AdminLayout({ children }: { children: ReactNode })
           </div>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <Link href="/admin" style={{ color: 'var(--color-gold)', textDecoration: 'none', fontWeight: '500' }}>Dashboard</Link>
-            <Link href="/admin/pages" style={{ color: '#fff', textDecoration: 'none' }}>Sayfalar</Link>
-            <Link href="/admin/blocks" style={{ color: '#fff', textDecoration: 'none' }}>İçerik Blokları</Link>
+            <Link href="/admin/biography" style={{ color: '#fff', textDecoration: 'none' }}>Biyografi Yönetimi</Link>
             <Link href="/admin/media" style={{ color: '#fff', textDecoration: 'none' }}>Medya Galerisi</Link>
-            <Link href="/admin/settings" style={{ color: '#fff', textDecoration: 'none' }}>Ayarlar</Link>
+            <Link href="/admin/settings" style={{ color: '#fff', textDecoration: 'none' }}>Genel Ayarlar</Link>
             <hr style={{ borderColor: '#333', margin: '10px 0' }} />
-            <Link href="/" target="_blank" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>Siteye Git</Link>
+            <Link href="/" target="_blank" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>Siteyi Görüntüle</Link>
             
             <form action="/auth/signout" method="post" style={{ marginTop: 'auto', paddingTop: '40px' }}>
               <button type="submit" style={{ 

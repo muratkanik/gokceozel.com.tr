@@ -4,7 +4,7 @@ import { useState } from 'react';
 import RichTextEditor from './RichTextEditor';
 import SeoScoreBadge from './SeoScoreBadge';
 import HeroSlideManager, { HeroSlide } from './HeroSlideManager';
-import { saveTranslations } from '@/app/admin/(dashboard)/blocks/[id]/actions';
+import { saveTranslations } from '@/components/admin/actions';
 
 interface TranslationEditorProps {
   blockId: string;

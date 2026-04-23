@@ -22,8 +22,6 @@ export async function saveTranslations(blockId: string, translations: Record<str
   }
 
   try {
-    revalidatePath('/admin/blocks');
-    revalidatePath(`/admin/blocks/${blockId}`);
     revalidatePath('/[locale]', 'layout'); // clear all frontend cache just in case
     return { success: true };
   } catch (err: any) {
