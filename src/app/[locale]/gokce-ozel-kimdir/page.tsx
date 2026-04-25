@@ -1,8 +1,51 @@
 import prisma from '@/lib/prisma';
 import { BiographyData } from '@/components/admin/BiographyManager';
-import Image from 'next/image';
+import type { Metadata } from 'next';
 
-export const revalidate = 60; // ISR cache for 60 seconds
+export const revalidate = 60;
+
+const baseUrl = 'https://gokceozel.com.tr';
+const allLocales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+
+const titles: Record<string, string> = {
+  tr: 'Prof. Dr. Gökçe Özel Kimdir? | KBB ve Rinoplasti Uzmanı Ankara',
+  en: 'About Prof. Dr. Gökçe Özel | ENT & Rhinoplasty Specialist Ankara',
+  ar: 'من هي أ.د. غوكتشه أوزيل | أخصائية أنف وأذن وحنجرة في أنقرة',
+  ru: 'О Проф. д-р Гёкче Озель | ЛОР и ринопластика в Анкаре',
+  fr: 'À propos du Prof. Dr. Gökçe Özel | Spécialiste ORL Ankara',
+  de: 'Über Prof. Dr. Gökçe Özel | HNO-Spezialistin Ankara',
+};
+
+const descriptions: Record<string, string> = {
+  tr: '15+ yıl deneyim, 100+ uluslararası yayın ve H-index 12 ile Ankara\'nın önde gelen KBB ve rinoplasti uzmanı Prof. Dr. Gökçe Özel hakkında.',
+  en: 'Learn about Prof. Dr. Gökçe Özel, Ankara\'s leading ENT and rhinoplasty specialist with 15+ years experience and 100+ international publications.',
+  ar: 'تعرفوا على أ.د. غوكتشه أوزيل، اختصاصية الأنف والأذن والحنجرة وتجميل الأنف في أنقرة.',
+  ru: 'Узнайте о проф. д-ре Гёкче Озель, ведущем специалисте по ЛОР и ринопластике в Анкаре.',
+  fr: 'Découvrez le Prof. Dr. Gökçe Özel, spécialiste ORL et rhinoplastie à Ankara.',
+  de: 'Erfahren Sie mehr über Prof. Dr. Gökçe Özel, Spezialistin für HNO und Rhinoplastik in Ankara.',
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const languages: Record<string, string> = { 'x-default': `${baseUrl}/gokce-ozel-kimdir` };
+  allLocales.forEach(loc => {
+    languages[loc] = loc === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${loc}/gokce-ozel-kimdir`;
+  });
+  return {
+    title: titles[locale] || titles.tr,
+    description: descriptions[locale] || descriptions.tr,
+    alternates: {
+      canonical: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir`,
+      languages,
+    },
+    openGraph: {
+      title: titles[locale] || titles.tr,
+      description: descriptions[locale] || descriptions.tr,
+      type: 'profile',
+      images: [{ url: `${baseUrl}/images/dr-gokce-ozel.jpg`, width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default async function BiyografiPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -49,12 +92,72 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     };
   }
 
+  // Physician JSON-LD — E-E-A-T signal for Google + AI discovery
+  const physicianJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    '@id': `${baseUrl}/#physician`,
+    name: 'Prof. Dr. Gökçe Özel',
+    givenName: 'Gökçe',
+    familyName: 'Özel',
+    honorificPrefix: 'Prof. Dr.',
+    jobTitle: 'KBB Uzmanı ve Yüz Plastik Cerrahı',
+    description: descriptions[locale] || descriptions.tr,
+    url: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir`,
+    image: `${baseUrl}/images/dr-gokce-ozel.jpg`,
+    telephone: '+90-534-209-69-35',
+    email: 'info@gokceozel.com.tr',
+    worksFor: {
+      '@type': 'MedicalClinic',
+      name: 'Prof. Dr. Gökçe Özel Klinik',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Ankara',
+        addressCountry: 'TR',
+      },
+    },
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'İstanbul Üniversitesi Cerrahpaşa Tıp Fakültesi' },
+      { '@type': 'CollegeOrUniversity', name: 'Kırıkkale Üniversitesi Tıp Fakültesi' },
+    ],
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'degree', name: 'KBB Uzmanlık Eğitimi — Dışkapı Yıldırım Beyazıt EAH' },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Doçent — 2015' },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Profesör — 2021' },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'TYPCD Yönetim Kurulu Üyesi' },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'CMAC Uluslararası Danışma Kurulu' },
+    ],
+    knowsAbout: [
+      'Rinoplasti', 'Septorinoplasti', 'Blefaroplasti', 'Endolift Lazer',
+      'Botoks', 'Hyalüronik Asit Dolgu', 'Dudak Kaldırma', 'İp Askılama',
+      'PRP', 'Mezoterapi', 'Kepçe Kulak Ameliyatı', 'KBB Cerrahisi',
+    ],
+    sameAs: [
+      'https://www.instagram.com/drgokceozel',
+      'https://www.youtube.com/@drgokceozel',
+    ],
+    numberOfPublications: '100+',
+    award: 'H-index 12',
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Prof. Dr. Gökçe Özel Kimdir?', item: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir` },
+    ],
+  };
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     <main style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: '120px 20px 80px' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* Header / Hero Profile */}
-        <div className="glass" style={{ display: 'flex', flexDirection: 'column', md: 'row', gap: '40px', padding: '40px', borderRadius: '20px', marginBottom: '60px', border: '1px solid #222' }}>
+        <div className="glass" style={{ display: 'flex', flexDirection: 'column', gap: '40px', padding: '40px', borderRadius: '20px', marginBottom: '60px', border: '1px solid #222' }}>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
             <div style={{ flexShrink: 0, width: '250px', height: '350px', position: 'relative', borderRadius: '15px', overflow: 'hidden', border: '2px solid var(--color-gold)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
@@ -135,5 +238,6 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
 
       </div>
     </main>
+    </>
   );
 }

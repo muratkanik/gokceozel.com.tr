@@ -12,6 +12,37 @@
     "about": "Hakkımızda",
     "services": "Hizmetlerimiz",
     "contact": "İletişim",
-    "blog": "Blog"
+    "blog": "Blog",
+    "faq": "Sık Sorulan Sorular",
+    "reviews": "Hasta Yorumları"
+  },
+  "Hero": {
+    "tagline": "Rinoplasti ve Yüz Estetiği Uzmanı",
+    "cta": "Randevu Al",
+    "learnMore": "Daha Fazla"
+  },
+  "Services": {
+    "title": "Hizmetlerimiz",
+    "viewAll": "Tümünü Gör",
+    "rhinoplasty": "Rinoplasti",
+    "blepharoplasty": "Blefaroplasti",
+    "endolift": "Endolift Lazer",
+    "botox": "Botoks ve Dolgu",
+    "lipLift": "Dudak Kaldırma",
+    "mesotherapy": "Mezoterapi",
+    "prp": "PRP Gençlik Aşısı",
+    "otoplasty": "Kepçe Kulak Ameliyatı"
+  },
+  "Contact": {
+    "title": "İletişim",
+    "address": "Ümitköy, Ankara, Türkiye",
+    "phone": "+90 534 209 69 35",
+    "email": "info@gokceozel.com.tr",
+    "hours": "Pzt–Cmt · 10:00–18:00",
+    "appointment": "Randevu Al"
+  },
+  "Footer": {
+    "rights": "Tüm hakları saklıdır",
+    "privacy": "Gizlilik Politikası"
   }
 }

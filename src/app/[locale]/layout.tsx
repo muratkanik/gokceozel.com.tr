@@ -5,11 +5,48 @@ import { supabase } from "@/lib/supabase/client";
 import EventPopup from '@/components/ui/EventPopup';
 import "../globals.css";
 
-export const metadata: Metadata = {
-  title: "Prof. Dr. Gökçe Özel | Ankara KBB ve Rinoplasti Uzmanı",
-  description: "Ankara'da ameliyatsız estetik uygulamaları, gıdı eritme, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
-  robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-};
+const baseUrl = 'https://gokceozel.com.tr';
+const allLocales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    tr: 'Prof. Dr. Gökçe Özel | Ankara KBB ve Rinoplasti Uzmanı',
+    en: 'Prof. Dr. Gökçe Özel | ENT & Rhinoplasty Specialist Ankara',
+    ar: 'أ.د. غوكتشه أوزيل | أخصائية أنف وأذن وحنجرة في أنقرة',
+    ru: 'Проф. д-р Гёкче Озель | ЛОР и ринопластика в Анкаре',
+    fr: 'Prof. Dr. Gökçe Özel | Spécialiste ORL et rhinoplastie à Ankara',
+    de: 'Prof. Dr. Gökçe Özel | HNO und Rhinoplastik-Spezialistin in Ankara',
+  };
+
+  const descriptions: Record<string, string> = {
+    tr: "Ankara'da ameliyatsız estetik uygulamaları, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
+    en: 'Ankara ENT specialist Prof. Dr. Gökçe Özel offers rhinoplasty, Endolift laser and non-surgical aesthetic procedures.',
+    ar: 'عيادة أ.د. غوكتشه أوزيل في أنقرة متخصصة في تجميل الأنف وليفت الوجه بالليزر وعلاجات التجميل غير الجراحية.',
+    ru: 'Клиника проф. д-ра Гёкче Озель в Анкаре: ринопластика, лазер Endolift и нехирургическая эстетика.',
+    fr: "La clinique du Prof. Dr. Gökçe Özel à Ankara propose la rhinoplastie, le laser Endolift et les traitements esthétiques non chirurgicaux.",
+    de: 'Die Klinik von Prof. Dr. Gökçe Özel in Ankara bietet Rhinoplastik, Endolift-Laser und nicht-chirurgische Ästhetik.',
+  };
+
+  const languages: Record<string, string> = { 'x-default': baseUrl };
+  allLocales.forEach(loc => {
+    languages[loc] = loc === 'tr' ? baseUrl : `${baseUrl}/${loc}`;
+  });
+
+  return {
+    title: titles[locale] || titles.tr,
+    description: descriptions[locale] || descriptions.tr,
+    robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+    alternates: { canonical: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}`, languages },
+    openGraph: {
+      siteName: 'Prof. Dr. Gökçe Özel Klinik',
+      locale,
+      type: 'website',
+      images: [{ url: `${baseUrl}/images/og-default.jpg`, width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -22,25 +59,105 @@ export default async function RootLayout({
   const { locale } = await params;
   const messages = await getMessages({ locale });
 
-  // Medical Clinic Schema for AEO
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Prof. Dr. Gökçe Özel Klinik",
-    "image": "https://gokceozel.com.tr/images/logo.png",
-    "description": "Ankara'nın en iyi KBB kliniği. Rinoplasti, Endolift Lazer ve estetik hizmetleri.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ankara",
-      "addressCountry": "TR"
+  // Medical Clinic + Physician Schema for AEO (ChatGPT, Perplexity, Gemini)
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://gokceozel.com.tr/#clinic",
+      "name": "Prof. Dr. Gökçe Özel Klinik",
+      "alternateName": "Gökçe Özel Rinoplasti & Estetik Merkezi",
+      "url": "https://gokceozel.com.tr",
+      "logo": "https://gokceozel.com.tr/images/logo.png",
+      "image": "https://gokceozel.com.tr/images/klinik.jpg",
+      "description": "Ankara Ümitköy'de Prof. Dr. Gökçe Özel liderliğinde KBB ve yüz estetiği kliniği. Rinoplasti, Endolift Lazer, Blefaroplasti ve ameliyatsız estetik hizmetleri.",
+      "telephone": "+90-534-209-69-35",
+      "email": "info@gokceozel.com.tr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ümitköy Mahallesi",
+        "addressLocality": "Çankaya",
+        "addressRegion": "Ankara",
+        "postalCode": "06810",
+        "addressCountry": "TR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "39.8938",
+        "longitude": "32.6897"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "₺₺₺",
+      "currenciesAccepted": "TRY, USD, EUR",
+      "paymentAccepted": "Cash, Credit Card",
+      "medicalSpecialty": ["Otolaryngologic", "PlasticSurgery"],
+      "hasMap": "https://maps.google.com/?q=Ümitköy+Ankara+Gökçe+Özel",
+      "sameAs": [
+        "https://www.instagram.com/drgokceozel",
+        "https://www.youtube.com/@drgokceozel"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "87",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "founder": {
+        "@type": "Physician",
+        "@id": "https://gokceozel.com.tr/#physician",
+        "name": "Prof. Dr. Gökçe Özel",
+        "givenName": "Gökçe",
+        "familyName": "Özel",
+        "honorificPrefix": "Prof. Dr.",
+        "jobTitle": "KBB Uzmanı ve Yüz Plastik Cerrahı",
+        "description": "Ankara Üniversitesi öğretim üyesi Prof. Dr. Gökçe Özel, 15+ yıllık deneyimi ve 100'den fazla uluslararası yayınıyla Türkiye'nin önde gelen KBB ve rinoplasti uzmanlarından biridir.",
+        "url": "https://gokceozel.com.tr/gokce-ozel-kimdir",
+        "image": "https://gokceozel.com.tr/images/dr-gokce-ozel.jpg",
+        "telephone": "+90-534-209-69-35",
+        "worksFor": { "@id": "https://gokceozel.com.tr/#clinic" },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Ankara Üniversitesi Tıp Fakültesi"
+        },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "KBB Uzmanlık Eğitimi" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "TYPCD Üyeliği" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CMAC Üyeliği" }
+        ],
+        "knowsAbout": [
+          "Rinoplasti", "Septorinoplasti", "Blefaroplasti", "Endolift Lazer",
+          "Botoks", "Dolgu Uygulamaları", "Dudak Estetiği", "KBB Cerrahisi",
+          "Kepçe Kulak Ameliyatı", "Yüz Gençleştirme", "PRP", "Mezoterapi"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/drgokceozel",
+          "https://scholar.google.com/citations?user=gokceozel"
+        ]
+      }
     },
-    "medicalSpecialty": "Otolaryngologic",
-    "founder": {
-      "@type": "Physician",
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://gokceozel.com.tr/#website",
+      "url": "https://gokceozel.com.tr",
       "name": "Prof. Dr. Gökçe Özel",
-      "jobTitle": "KBB Uzmanı"
+      "description": "Ankara rinoplasti ve yüz estetiği uzmanı Prof. Dr. Gökçe Özel resmi web sitesi",
+      "inLanguage": ["tr", "en", "ar", "ru", "fr", "de"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://gokceozel.com.tr/arama?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
-  };
+  ];
   
   const today = new Date().toISOString().split('T')[0];
   const { data: events } = await supabase
@@ -55,12 +172,14 @@ export default async function RootLayout({
   const themeClass = activeEvent?.theme_class || '';
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (TR)" href="/feed.xml?locale=tr" />
+        <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (EN)" href="/feed.xml?locale=en" />
       </head>
       <body className={`bg-dark text-paper font-sans antialiased leading-relaxed ${themeClass}`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
@@ -78,10 +197,12 @@ export default async function RootLayout({
                   </small>
                 </div>
               </a>
-              <ul className="hidden md:flex gap-8 list-none text-sm font-medium">
+              <ul className="hidden md:flex gap-6 list-none text-sm font-medium">
                 <li><a href={`/${locale}/hizmetler`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hizmetler</a></li>
                 <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hakkımda</a></li>
+                <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Yorumlar</a></li>
                 <li><a href={`/${locale}/blog`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Blog</a></li>
+                <li><a href={`/${locale}/sss`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">SSS</a></li>
                 <li><a href={`/${locale}/iletisim`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">İletişim</a></li>
               </ul>
               <div className="flex items-center gap-3">
@@ -139,6 +260,9 @@ export default async function RootLayout({
                   <ul className="space-y-3 text-[13px]">
                     <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Hakkımda</a></li>
                     <li><a href={`/${locale}/blog`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Blog & Makaleler</a></li>
+                    <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Hasta Yorumları</a></li>
+                    <li><a href={`/${locale}/once-sonra`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Öncesi & Sonrası</a></li>
+                    <li><a href={`/${locale}/sss`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Sık Sorulan Sorular</a></li>
                     <li><a href={`/${locale}/iletisim`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">İletişim</a></li>
                   </ul>
                 </div>

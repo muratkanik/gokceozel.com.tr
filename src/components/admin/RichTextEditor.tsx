@@ -2,10 +2,12 @@
 
 import { useState, useRef, useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import type ReactQuillType from 'react-quill-new';
 import MediaBrowser from './MediaBrowser';
 
 // Import React Quill dynamically to avoid SSR errors
-const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false }) as any;
 import 'react-quill-new/dist/quill.snow.css';
 
 interface RichTextEditorProps {
@@ -15,7 +17,7 @@ interface RichTextEditorProps {
 
 export default function RichTextEditor({ value, onChange }: RichTextEditorProps) {
   const [showMediaBrowser, setShowMediaBrowser] = useState(false);
-  const quillRef = useRef<any>(null);
+  const quillRef = useRef<ReactQuillType>(null);
 
   // Custom toolbar setup
   const modules = useMemo(() => ({
@@ -39,12 +41,12 @@ export default function RichTextEditor({ value, onChange }: RichTextEditorProps)
 
   const handleMediaSelect = (url: string) => {
     setShowMediaBrowser(false);
-    
+
     // Get the editor instance and current cursor position
     if (quillRef.current) {
       const editor = quillRef.current.getEditor();
       const range = editor.getSelection(true);
-      
+
       // Insert the image
       editor.insertEmbed(range.index, 'image', url);
       // Move cursor right after the image
@@ -54,13 +56,13 @@ export default function RichTextEditor({ value, onChange }: RichTextEditorProps)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      
+
       {/* The Editor */}
       <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #ddd', overflow: 'hidden' }}>
-        <ReactQuill 
+        <ReactQuill
           ref={quillRef}
-          theme="snow" 
-          value={value} 
+          theme="snow"
+          value={value}
           onChange={onChange}
           modules={modules}
           style={{ height: '400px' }}

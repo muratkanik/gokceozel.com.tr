@@ -40,18 +40,21 @@ export default async function AdminLayout({ children }: { children: ReactNode })
 
           {/* Group: İçerik */}
           <div>
-            <div className="text-[10px] tracking-[0.2em] uppercase text-[#7a6a52] px-3 mb-2 font-semibold">İçerik</div>
-            <Link href="/admin/pages" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] bg-gradient-to-r from-[#b8893c]/15 to-transparent text-[#f0d48e] border-l-2 border-[#b8893c] mb-0.5">
-              <span>▥</span> Sayfalar
-            </Link>
-            <Link href="/admin/blog" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
-              <span>☲</span> Blog
-            </Link>
-            <Link href="/admin/hizmetler" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
-              <span>✦</span> Hizmetler
+            <div className="text-[10px] tracking-[0.2em] uppercase text-[#7a6a52] px-3 mb-2 font-semibold">İçerik Yönetimi</div>
+            <Link href="/admin/icerikler" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] bg-gradient-to-r from-[#b8893c]/15 to-transparent text-[#f0d48e] border-l-2 border-[#b8893c] mb-0.5">
+              <span>▥</span> Tüm İçerikler
             </Link>
             <Link href="/admin/iletisim" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
               <span>★</span> İletişim Formları
+            </Link>
+            <Link href="/admin/sss" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>❓</span> SSS Yöneticisi
+            </Link>
+            <Link href="/admin/yorumlar" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>★</span> Hasta Yorumları
+            </Link>
+            <Link href="/admin/once-sonra" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>⊞</span> Öncesi &amp; Sonrası
             </Link>
           </div>
 
@@ -63,6 +66,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             </Link>
             <Link href="/admin/seo" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
               <span>⌘</span> SEO Merkezi
+            </Link>
+            <Link href="/admin/redirectler" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>↪</span> Yönlendirmeler
             </Link>
           </div>
 

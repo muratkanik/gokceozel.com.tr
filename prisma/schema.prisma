@@ -19,14 +19,15 @@ model Setting {
 model Page {
   id            String         @id @default(cuid())
   slug          String         @unique
+  type          String         @default("SERVICE") // "SERVICE", "BLOG", "PAGE", "BIOGRAPHY"
   titleInternal String
   seoScore      Int            @default(0)
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @default(now()) @updatedAt
   blocks        ContentBlock[]
+  faqs          Faq[]
   seoMeta       SeoMeta[]
   service       Service?
-  faqs          Faq[]
 }
 
 model ContentBlock {
@@ -120,85 +121,79 @@ model special_events {
   created_at         DateTime? @default(now()) @db.Timestamptz(6)
 }
 
-// — SEO bloğu her sayfa-dil çiftine —
 model SeoMeta {
-  id              String   @id @default(cuid())
+  id              String  @id @default(cuid())
   pageId          String
-  page            Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
   locale          String
   metaTitle       String
   metaDescription String
   ogImage         String?
   canonicalUrl    String?
-  robots          String   @default("index,follow")
-  keywords        String?  // virgülle ayrılmış
-  structuredData  String?  // JSON-LD override
-  // AEO özel alanlar
-  shortAnswer     String?  // "Rinoplasti nedir?" sorusuna tek paragraf cevap
-  faqJson         String?  // FAQPage JSON-LD
+  robots          String  @default("index,follow")
+  keywords        String?
+  structuredData  String?
+  shortAnswer     String?
+  faqJson         String?
+  page            Page    @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
   @@unique([pageId, locale])
 }
 
-// — 301/302 redirect yönetimi (eski siteden devir için kritik) —
 model Redirect {
-  id          String   @id @default(cuid())
-  fromPath    String   @unique
-  toPath      String
-  statusCode  Int      @default(301)
-  locale      String?  // null = tüm diller
-  hitCount    Int      @default(0)
-  createdAt   DateTime @default(now())
+  id         String   @id @default(cuid())
+  fromPath   String   @unique
+  toPath     String
+  statusCode Int      @default(301)
+  locale     String?
+  hitCount   Int      @default(0)
+  createdAt  DateTime @default(now())
 }
 
-// — Hizmet kataloğu (MedicalProcedure schema için) —
 model Service {
-  id          String   @id @default(cuid())
-  pageId      String   @unique
-  page        Page     @relation(fields: [pageId], references: [id])
-  category    String   // burun, goz, dudak, cerrahsiz, kulak, cilt
-  iconKey     String?
-  priceFrom   Int?
-  duration    String?  // "2 saat"
-  anesthesia  String?  // "Genel/Lokal"
-  recovery    String?  // "7-10 gün"
-  sortOrder   Int      @default(0)
+  id         String  @id @default(cuid())
+  pageId     String  @unique
+  category   String
+  iconKey    String?
+  priceFrom  Int?
+  duration   String?
+  anesthesia String?
+  recovery   String?
+  sortOrder  Int     @default(0)
+  page       Page    @relation(fields: [pageId], references: [id])
 }
 
-// — FAQ (per-page, per-locale) —
 model Faq {
-  id        String   @id @default(cuid())
+  id        String  @id @default(cuid())
   pageId    String?
-  page      Page?    @relation(fields: [pageId], references: [id])
   locale    String
   question  String
-  answer    String   // markdown
-  sortOrder Int      @default(0)
+  answer    String
+  sortOrder Int     @default(0)
+  page      Page?   @relation(fields: [pageId], references: [id])
 }
 
-// — Öncesi/Sonrası galerisi —
 model BeforeAfter {
-  id         String  @id @default(cuid())
-  serviceId  String
-  beforeUrl  String
-  afterUrl   String
-  caption    String?
-  consent    Boolean @default(false)
-  isPublic   Boolean @default(false)
+  id        String  @id @default(cuid())
+  serviceId String?
+  beforeUrl String
+  afterUrl  String
+  caption   String?
+  consent   Boolean @default(false)
+  isPublic  Boolean @default(false)
+  createdAt DateTime @default(now())
 }
 
-// — Hasta yorumları (Review schema) —
 model Testimonial {
   id        String   @id @default(cuid())
   author    String
-  rating    Int      // 1-5
+  rating    Int
   locale    String
   text      String
-  source    String?  // "Google", "GoogleMaps", vb.
+  source    String?
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())
 }
 
-// — Medya kütüphanesi (alt text, focal point, otomatik webp) —
 model Media {
   id         String   @id @default(cuid())
   url        String   @unique

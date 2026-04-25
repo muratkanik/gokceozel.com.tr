@@ -1,0 +1,48 @@
+{
+  "Common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten.",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten"
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "faq": "Häufige Fragen",
+    "reviews": "Patientenbewertungen"
+  },
+  "Hero": {
+    "tagline": "Spezialistin für Rhinoplastik und Gesichtsästhetik",
+    "cta": "Termin buchen",
+    "learnMore": "Mehr erfahren"
+  },
+  "Services": {
+    "title": "Unsere Leistungen",
+    "viewAll": "Alle anzeigen",
+    "rhinoplasty": "Rhinoplastik",
+    "blepharoplasty": "Blepharoplastik",
+    "endolift": "Endolift-Laser",
+    "botox": "Botox und Filler",
+    "lipLift": "Lip-Lift",
+    "mesotherapy": "Mesotherapie",
+    "prp": "PRP-Therapie",
+    "otoplasty": "Otoplastik"
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "address": "Ümitköy, Ankara, Türkei",
+    "phone": "+90 534 209 69 35",
+    "email": "info@gokceozel.com.tr",
+    "hours": "Mo–Sa · 10:00–18:00 Uhr",
+    "appointment": "Termin vereinbaren"
+  },
+  "Footer": {
+    "rights": "Alle Rechte vorbehalten",
+    "privacy": "Datenschutzerklärung"
+  }
+}

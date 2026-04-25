@@ -1,55 +1,65 @@
 import { MetadataRoute } from 'next';
-import { createClient } from '@supabase/supabase-js';
+import prisma from '@/lib/prisma';
+
+const baseUrl = 'https://gokceozel.com.tr';
+const locales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://gokceozel.com.tr';
-  
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-  const { data: entries } = await supabase
-    .from('content_entries')
-    .select('slug, type, updated_at');
+  const entries: MetadataRoute.Sitemap = [];
 
-  const locales = ['tr', 'en', 'de', 'ar', 'fr', 'ru'];
-  
-  const sitemapEntries: MetadataRoute.Sitemap = [];
+  // — Static pages —
+  const staticPages: { path: string; priority: number; freq: MetadataRoute.Sitemap[0]['changeFrequency'] }[] = [
+    { path: '',                 priority: 1.0, freq: 'weekly' },
+    { path: '/hizmetler',      priority: 0.9, freq: 'weekly' },
+    { path: '/gokce-ozel-kimdir', priority: 0.8, freq: 'monthly' },
+    { path: '/blog',           priority: 0.8, freq: 'weekly' },
+    { path: '/iletisim',       priority: 0.7, freq: 'monthly' },
+    { path: '/kurumsal',       priority: 0.7, freq: 'monthly' },
+    { path: '/sss',            priority: 0.8, freq: 'monthly' },
+    { path: '/hasta-yorumlari',priority: 0.7, freq: 'monthly' },
+  ];
 
-  // Static routes
-  const staticRoutes = ['', '/iletisim', '/kurumsal'];
-  
-  locales.forEach((locale) => {
-    staticRoutes.forEach((route) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: route === '' ? 1 : 0.8,
-      });
+  staticPages.forEach(({ path, priority, freq }) => {
+    // Turkish canonical (no prefix)
+    entries.push({ url: `${baseUrl}${path}`, lastModified: new Date(), changeFrequency: freq, priority });
+    // Other locales
+    locales.filter(l => l !== 'tr').forEach(locale => {
+      entries.push({ url: `${baseUrl}/${locale}${path}`, lastModified: new Date(), changeFrequency: freq, priority: +(priority * 0.9).toFixed(1) });
     });
   });
 
-  // Dynamic routes
-  if (entries) {
-    entries.forEach((entry) => {
-      locales.forEach((locale) => {
-        let basePath = '';
-        if (entry.type === 'blog') basePath = '/blog';
-        else if (entry.type === 'service') basePath = '/hizmetler';
-        else if (entry.type === 'page') basePath = '/kurumsal';
-
-        if (basePath) {
-          sitemapEntries.push({
-            url: `${baseUrl}/${locale}${basePath}/${entry.slug}`,
-            lastModified: new Date(entry.updated_at || new Date()),
-            changeFrequency: 'monthly',
-            priority: 0.7,
-          });
-        }
+  // — Dynamic: Services (Prisma) —
+  try {
+    const services = await prisma.page.findMany({
+      where: { type: 'SERVICE' },
+      select: { slug: true, updatedAt: true },
+    });
+    services.forEach(({ slug, updatedAt }) => {
+      entries.push({ url: `${baseUrl}/hizmetler/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.85 });
+      locales.filter(l => l !== 'tr').forEach(locale => {
+        entries.push({ url: `${baseUrl}/${locale}/hizmetler/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.75 });
       });
     });
+  } catch (e) {
+    console.error('sitemap: services fetch failed', e);
   }
 
-  return sitemapEntries;
+  // — Dynamic: Blog posts (Prisma) —
+  try {
+    const posts = await prisma.page.findMany({
+      where: { type: 'BLOG' },
+      select: { slug: true, updatedAt: true },
+      orderBy: { createdAt: 'desc' },
+    });
+    posts.forEach(({ slug, updatedAt }) => {
+      entries.push({ url: `${baseUrl}/blog/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.75 });
+      locales.filter(l => l !== 'tr').forEach(locale => {
+        entries.push({ url: `${baseUrl}/${locale}/blog/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.65 });
+      });
+    });
+  } catch (e) {
+    console.error('sitemap: blog fetch failed', e);
+  }
+
+  return entries;
 }

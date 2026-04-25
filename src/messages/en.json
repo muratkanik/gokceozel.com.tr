@@ -12,6 +12,37 @@
     "about": "About",
     "services": "Services",
     "contact": "Contact",
-    "blog": "Blog"
+    "blog": "Blog",
+    "faq": "FAQ",
+    "reviews": "Patient Reviews"
+  },
+  "Hero": {
+    "tagline": "Rhinoplasty & Facial Aesthetics Specialist",
+    "cta": "Book Appointment",
+    "learnMore": "Learn More"
+  },
+  "Services": {
+    "title": "Our Services",
+    "viewAll": "View All",
+    "rhinoplasty": "Rhinoplasty",
+    "blepharoplasty": "Blepharoplasty",
+    "endolift": "Endolift Laser",
+    "botox": "Botox & Fillers",
+    "lipLift": "Lip Lift",
+    "mesotherapy": "Mesotherapy",
+    "prp": "PRP Therapy",
+    "otoplasty": "Otoplasty"
+  },
+  "Contact": {
+    "title": "Contact",
+    "address": "Ümitköy, Ankara, Turkey",
+    "phone": "+90 534 209 69 35",
+    "email": "info@gokceozel.com.tr",
+    "hours": "Mon–Sat · 10:00–18:00",
+    "appointment": "Book an Appointment"
+  },
+  "Footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy"
   }
 }

@@ -5,31 +5,77 @@ import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
 export async function savePageContent(pageId: string, data: any) {
-  // data contains blocks and seoMeta
+  // data contains blocks, seoMeta, and type
   
+  if (data.type) {
+    await prisma.page.update({
+      where: { id: pageId },
+      data: { type: data.type }
+    });
+  }
+
   if (data.blocks) {
-    // Upsert blocks
-    for (const block of data.blocks) {
-      await prisma.contentBlock.upsert({
-        where: { id: block.id || 'new' },
-        create: {
+    // Delete missing blocks (optional, if we want to support deletion)
+    // For now, we will just upsert and create. Let's do full sync:
+    const incomingBlockIds = data.blocks.map((b: any) => b.id).filter((id: string) => !id.startsWith('temp_'));
+    
+    // Delete blocks that are no longer in the list
+    if (pageId !== 'new') {
+      await prisma.contentBlock.deleteMany({
+        where: {
           pageId,
-          componentType: block.componentType,
-          sortOrder: block.sortOrder,
-          isActive: block.isActive,
-          translations: {
-            create: block.translations.map((t: any) => ({
-              locale: t.locale,
-              contentData: t.contentData
-            }))
-          }
-        },
-        update: {
-          sortOrder: block.sortOrder,
-          isActive: block.isActive,
-          // Handle translations update...
+          id: { notIn: incomingBlockIds }
         }
       });
+    }
+
+    // Upsert blocks
+    for (const block of data.blocks) {
+      let blockId = block.id;
+      
+      if (blockId.startsWith('temp_') || !blockId) {
+        // Create new block
+        const createdBlock = await prisma.contentBlock.create({
+          data: {
+            pageId,
+            componentType: block.componentType,
+            sortOrder: block.sortOrder,
+            isActive: block.isActive !== undefined ? block.isActive : true,
+          }
+        });
+        blockId = createdBlock.id;
+      } else {
+        // Update existing block
+        await prisma.contentBlock.update({
+          where: { id: blockId },
+          data: {
+            sortOrder: block.sortOrder,
+            isActive: block.isActive !== undefined ? block.isActive : true,
+          }
+        });
+      }
+
+      // Upsert translations
+      if (block.translations) {
+        for (const t of block.translations) {
+          await prisma.translation.upsert({
+            where: {
+              blockId_locale: {
+                blockId: blockId,
+                locale: t.locale
+              }
+            },
+            update: {
+              contentData: t.contentData
+            },
+            create: {
+              blockId: blockId,
+              locale: t.locale,
+              contentData: t.contentData
+            }
+          });
+        }
+      }
     }
   }
 

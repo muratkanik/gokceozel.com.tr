@@ -94,7 +94,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   </div>
                   <h3 className="font-serif text-[22px] mb-2.5">{parsed.title}</h3>
                   <div className="text-muted text-sm mb-4.5 line-clamp-3" dangerouslySetInnerHTML={{ __html: parsed.content }} />
-                  <a href={`/${locale}/${service.page?.slug}`} className="text-gold-soft text-[13px] font-semibold tracking-wider group-hover:text-gold transition-colors mt-4 inline-block">
+                  <a href={`/${locale}/hizmetler/${service.page?.slug}`} className="text-gold-soft text-[13px] font-semibold tracking-wider group-hover:text-gold transition-colors mt-4 inline-block">
                     Keşfet →
                   </a>
                 </div>
