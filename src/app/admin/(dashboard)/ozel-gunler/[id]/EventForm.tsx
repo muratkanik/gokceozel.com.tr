@@ -17,6 +17,7 @@ export default function EventForm({ initialData }: { initialData?: any }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState('tr');
+  const [isTranslatingAll, setIsTranslatingAll] = useState(false);
 
   const defaultDate = new Date().toISOString().split('T')[0];
 
@@ -130,22 +131,78 @@ export default function EventForm({ initialData }: { initialData?: any }) {
       <div className="bg-white p-6 rounded-2xl border border-[#e9e4d8] shadow-sm">
         <h2 className="text-lg font-serif font-semibold text-[#1a1410] mb-5">Pop-up İçeriği (Dillere Göre)</h2>
         
-        {/* Language Tabs */}
-        <div className="flex gap-2 overflow-x-auto pb-4 mb-4 border-b border-[#e9e4d8]">
-          {LOCALES.map(loc => (
-            <button
-              key={loc.code}
-              type="button"
-              onClick={() => setActiveTab(loc.code)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
-                activeTab === loc.code 
-                  ? 'bg-[#b8893c] text-white' 
-                  : 'bg-[#fafaf7] text-[#6a5f54] hover:bg-[#e9e4d8]'
-              }`}
-            >
-              {loc.name}
-            </button>
-          ))}
+        {/* Language Tabs & Actions */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#e9e4d8] pb-4 mb-4">
+          <div className="flex gap-2 overflow-x-auto w-full sm:w-auto">
+            {LOCALES.map(loc => (
+              <button
+                key={loc.code}
+                type="button"
+                onClick={() => setActiveTab(loc.code)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                  activeTab === loc.code 
+                    ? 'bg-[#b8893c] text-white' 
+                    : 'bg-[#fafaf7] text-[#6a5f54] hover:bg-[#e9e4d8]'
+                }`}
+              >
+                {loc.name}
+              </button>
+            ))}
+          </div>
+          
+          <button 
+            type="button"
+            disabled={isTranslatingAll}
+            onClick={async () => {
+              const trData = formData.popup_translations['tr'];
+              if (!trData || !trData.title || !trData.body) {
+                alert('Öncelikle "Türkçe" sekmesinde başlık ve metin alanlarını doldurmalısınız!');
+                return;
+              }
+              
+              if (!confirm('Türkçe içerik diğer tüm dillere otomatik çevrilecek. Onaylıyor musunuz?')) return;
+              
+              setIsTranslatingAll(true);
+              const otherLocales = LOCALES.filter(l => l.code !== 'tr');
+              let successCount = 0;
+              
+              const newTranslations = { ...formData.popup_translations };
+              const payload = JSON.stringify({ title: trData.title, body: trData.body });
+              
+              for (const loc of otherLocales) {
+                try {
+                  const res = await fetch('/api/ai/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: payload, targetLocale: loc.code, isJson: true })
+                  });
+                  const data = await res.json();
+                  if (data.content) {
+                    const parsed = JSON.parse(data.content);
+                    newTranslations[loc.code] = {
+                      ...newTranslations[loc.code],
+                      title: parsed.title,
+                      body: parsed.body,
+                      // Preserve existing imageUrl if any, else copy TR imageUrl
+                      imageUrl: newTranslations[loc.code]?.imageUrl || trData.imageUrl
+                    };
+                    successCount++;
+                  }
+                } catch (e) {
+                  console.error(`${loc.code} çevirisi başarısız:`, e);
+                }
+              }
+              
+              setFormData(prev => ({ ...prev, popup_translations: newTranslations }));
+              setIsTranslatingAll(false);
+              alert(`Toplu çeviri tamamlandı! ${successCount}/${otherLocales.length} dil çevrildi.`);
+            }}
+            className={`px-4 py-2 rounded-full text-sm font-bold text-white transition-all flex items-center gap-2 ${
+              isTranslatingAll ? 'bg-gray-400 cursor-wait' : 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:shadow-lg hover:shadow-emerald-500/30'
+            }`}
+          >
+            {isTranslatingAll ? '⏳ Çevriliyor...' : '🌐 Tümüne Çevir'}
+          </button>
         </div>
 
         {/* Tab Content */}
