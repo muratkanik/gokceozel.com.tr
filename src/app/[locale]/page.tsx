@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import Image from "next/image";
 
 export const revalidate = 60; // ISR cache for 60 seconds
 
@@ -32,7 +33,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="max-w-7xl mx-auto px-6 relative grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
           <div>
             <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-gold/35 rounded-full text-xs text-gold-soft tracking-[0.12em] uppercase">
-              ● Ankara · KBB Uzmanı · Yüz Plastik Cerrahı
+              ● Ankara · KBB Uzmanı
             </span>
             <h1 className="font-serif text-[clamp(44px,6vw,78px)] leading-[1.05] my-5">
               Doğal güzelliğin <span className="bg-gradient-to-br from-[#f0d48e] via-gold to-[#8f6b2e] bg-clip-text text-transparent">sanatsal dokunuşu</span>
@@ -58,7 +59,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] border border-gold/20">
             <div className="absolute inset-0 bg-gradient-to-b from-[#2a2420] to-[#17130f] grid place-items-center">
               {/* Fallback image if drgo_21 doesn't load */}
-              <img src="/images/drgo_21.jpg" alt="Prof. Dr. Gökçe Özel" className="absolute inset-0 w-full h-full object-cover object-[center_top] opacity-90" />
+              <Image src="/images/drgo_21.jpg" alt="Prof. Dr. Gökçe Özel" fill className="absolute inset-0 object-cover object-[center_top] opacity-90" priority />
             </div>
             <div className="absolute bottom-5 left-5 right-5 flex gap-2.5 flex-wrap">
               <span className="bg-dark/80 backdrop-blur-md border border-gold/30 px-3.5 py-2 rounded-full text-[11px] text-gold-soft">TYPCD Yönetim Kurulu</span>
@@ -109,7 +110,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="bg-gradient-to-b from-[#0f0d0b] to-[#1a1410] py-[100px]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-20 items-center">
           <div className="aspect-[4/5] rounded-[20px] bg-gradient-to-br from-[#3d2f22] to-[#17130f] border border-gold/15 overflow-hidden relative">
-            <img src="/images/gokcebanner.jpg" alt="Prof. Dr. Gökçe Özel" className="absolute inset-0 w-full h-full object-cover object-[center_top] opacity-80" />
+            <Image src="/images/gokcebanner.jpg" alt="Prof. Dr. Gökçe Özel" fill className="absolute inset-0 object-cover object-[center_top] opacity-80" />
           </div>
           <div>
             <div className="text-left mb-5">

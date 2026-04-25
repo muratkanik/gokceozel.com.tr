@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Sparkles, Save, Layout, Settings, FileText, Image as ImageIcon, MessageCircle, Info, ChevronRight, Globe, BarChart2 } from 'lucide-react';
+import MediaInput from './MediaInput';
 
 import { savePageContent } from '@/app/admin/(dashboard)/shared-actions';
 import { useRouter } from 'next/navigation';
@@ -358,6 +359,54 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
                             className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none resize-none"
                             placeholder="Alt başlık girin..."
                           ></textarea>
+                        </div>
+                      )}
+
+                      {activeBlock.componentType === 'image_with_text' && (
+                        <div>
+                          <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Görsel</label>
+                          <MediaInput 
+                            value={content.image || ''} 
+                            onChange={(url) => updateBlockContent(activeBlock.id, activeTab, { ...content, image: url })}
+                          />
+                          <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-3 mb-1.5">Metin İçeriği</label>
+                          <textarea 
+                            rows={6} 
+                            value={content.text || ''} 
+                            onChange={(e) => updateBlockContent(activeBlock.id, activeTab, { ...content, text: e.target.value })}
+                            className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none resize-none"
+                            placeholder="Metin içeriği girin..."
+                          ></textarea>
+                        </div>
+                      )}
+
+                      {activeBlock.componentType === 'before_after' && (
+                        <div className="space-y-4">
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Öncesi Görseli</label>
+                            <MediaInput 
+                              value={content.beforeImage || ''} 
+                              onChange={(url) => updateBlockContent(activeBlock.id, activeTab, { ...content, beforeImage: url })}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Sonrası Görseli</label>
+                            <MediaInput 
+                              value={content.afterImage || ''} 
+                              onChange={(url) => updateBlockContent(activeBlock.id, activeTab, { ...content, afterImage: url })}
+                            />
+                          </div>
+                        </div>
+                      )}
+                      
+                      {activeBlock.componentType === 'video_embed' && (
+                        <div>
+                          <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Video URL</label>
+                          <MediaInput 
+                            value={content.embedUrl || ''} 
+                            onChange={(url) => updateBlockContent(activeBlock.id, activeTab, { ...content, embedUrl: url })}
+                            placeholder="Video URL"
+                          />
                         </div>
                       )}
                     </div>

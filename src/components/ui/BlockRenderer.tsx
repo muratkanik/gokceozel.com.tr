@@ -328,6 +328,145 @@ function TimelineBlock({ content, id }: { content: any; id: string }) {
   );
 }
 
+function BeforeAfterBlock({ content, id }: { content: any; id: string }) {
+  return (
+    <div className="w-full max-w-4xl mx-auto">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-6 text-center">{content.title}</h2>}
+      {content.description && <p className="text-[#9a8f7c] text-center mb-8">{content.description}</p>}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="relative rounded-2xl overflow-hidden border border-[#2a2a2a]">
+          <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white z-10">ÖNCESİ</div>
+          <img src={content.beforeImage} alt="Öncesi" className="w-full h-auto object-cover" />
+        </div>
+        <div className="relative rounded-2xl overflow-hidden border border-[#2a2a2a]">
+          <div className="absolute top-4 right-4 bg-[#b8893c]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white z-10">SONRASI</div>
+          <img src={content.afterImage} alt="Sonrası" className="w-full h-auto object-cover" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ImageWithTextBlock({ content, id }: { content: any; id: string }) {
+  const isImageRight = content.imageAlignment === 'right';
+  return (
+    <div className={`w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center ${isImageRight ? 'md:flex-row-reverse' : ''}`}>
+      <div className="flex-1 rounded-3xl overflow-hidden border border-[#2a2a2a] shadow-2xl">
+        <img src={content.image} alt={content.title || 'Görsel'} className="w-full h-auto object-cover" />
+      </div>
+      <div className="flex-1">
+        {content.tag && <p className="text-[#b8893c] text-xs tracking-[.18em] uppercase mb-4 font-semibold">{content.tag}</p>}
+        {content.title && <h2 className="font-serif text-3xl md:text-4xl text-[#f0d48e] mb-6">{content.title}</h2>}
+        <div className="prose prose-invert prose-p:text-[#9a8f7c] leading-relaxed" dangerouslySetInnerHTML={{ __html: content.text || '' }} />
+      </div>
+    </div>
+  );
+}
+
+function IconGridBlock({ content, id }: { content: any; id: string }) {
+  const items: { icon: string; title: string; text?: string }[] = content.items || [];
+  return (
+    <div className="w-full max-w-6xl mx-auto">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-10 text-center">{content.title}</h2>}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {items.map((item, i) => (
+          <div key={i} className="text-center p-6 bg-[#141414] border border-[#2a2a2a] rounded-2xl">
+            {item.icon && <img src={item.icon} alt={item.title} className="w-12 h-12 mx-auto mb-4 object-contain invert opacity-80" />}
+            <h3 className="font-semibold text-[#e9e4d8] mb-2">{item.title}</h3>
+            {item.text && <p className="text-[#9a8f7c] text-sm">{item.text}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function QuoteBlock({ content, id }: { content: any; id: string }) {
+  return (
+    <div className="w-full max-w-4xl mx-auto text-center py-12 px-6">
+      <span className="text-6xl text-[#b8893c]/20 font-serif leading-none block mb-4">"</span>
+      <p className="text-2xl md:text-3xl font-serif text-[#f0d48e] leading-relaxed mb-6 italic">{content.quote}</p>
+      {content.author && <p className="text-[#e9e4d8] font-semibold tracking-wide uppercase text-sm">{content.author}</p>}
+      {content.role && <p className="text-[#9a8f7c] text-xs mt-1">{content.role}</p>}
+    </div>
+  );
+}
+
+function NumberedStepsBlock({ content, id }: { content: any; id: string }) {
+  const steps: { title: string; description: string }[] = content.steps || [];
+  return (
+    <div className="w-full max-w-5xl mx-auto">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-10 text-center">{content.title}</h2>}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {steps.map((step, i) => (
+          <div key={i} className="relative z-10 p-8 bg-[#141414] border border-[#2a2a2a] rounded-2xl">
+            <span className="absolute -top-6 -left-4 text-7xl font-bold font-serif text-[#1a1a1a] select-none z-0">0{i + 1}</span>
+            <div className="relative z-10">
+              <h3 className="text-xl font-semibold text-[#e9e4d8] mb-3 text-[#b8893c]">{step.title}</h3>
+              <p className="text-[#9a8f7c] text-sm leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ComparisonTableBlock({ content, id }: { content: any; id: string }) {
+  const rows: { feature: string; optionA: string; optionB: string }[] = content.rows || [];
+  return (
+    <div className="w-full max-w-4xl mx-auto overflow-x-auto">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-8 text-center">{content.title}</h2>}
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-[#b8893c]/30">
+            <th className="py-4 px-6 text-[#9a8f7c] font-medium">Özellik</th>
+            <th className="py-4 px-6 text-[#e9e4d8] font-semibold">{content.headerA || 'Seçenek 1'}</th>
+            <th className="py-4 px-6 text-[#e9e4d8] font-semibold bg-[#1a1410]">{content.headerB || 'Seçenek 2'}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className="border-b border-[#2a2a2a] hover:bg-[#141414] transition-colors">
+              <td className="py-4 px-6 text-[#c9c0ae] text-sm">{row.feature}</td>
+              <td className="py-4 px-6 text-[#9a8f7c] text-sm">{row.optionA}</td>
+              <td className="py-4 px-6 text-[#e9e4d8] text-sm font-medium bg-[#1a1410]">{row.optionB}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function MapEmbedBlock({ content, id }: { content: any; id: string }) {
+  return (
+    <div className="w-full">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-6 text-center">{content.title}</h2>}
+      <div className="w-full h-96 rounded-3xl overflow-hidden border border-[#2a2a2a]">
+        <iframe src={content.mapUrl} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Map" />
+      </div>
+    </div>
+  );
+}
+
+function InstagramFeedBlock({ content, id }: { content: any; id: string }) {
+  // Placeholder for Instagram embed until real API is integrated
+  return (
+    <div className="w-full max-w-6xl mx-auto text-center py-12">
+      {content.title && <h2 className="font-serif text-3xl text-[#f0d48e] mb-4">{content.title}</h2>}
+      <a href="https://instagram.com/drgokceozel" target="_blank" rel="noopener noreferrer" className="text-[#b8893c] hover:text-white transition-colors text-sm mb-8 inline-block">@drgokceozel Instagram'da Takip Edin</a>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[1,2,3,4].map(i => (
+          <div key={i} className="aspect-square bg-[#141414] border border-[#2a2a2a] rounded-xl flex items-center justify-center text-[#9a8f7c] text-xs">
+            Instagram Post {i}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Main Renderer ────────────────────────────────────────────────────────────
 
 export default function BlockRenderer({ blocks, locale, faqs }: BlockRendererProps) {
@@ -383,6 +522,30 @@ export default function BlockRenderer({ blocks, locale, faqs }: BlockRendererPro
 
           case 'timeline':
             return <TimelineBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'before_after':
+            return <BeforeAfterBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'image_with_text':
+            return <ImageWithTextBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'icon_grid':
+            return <IconGridBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'quote_block':
+            return <QuoteBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'numbered_steps':
+            return <NumberedStepsBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'comparison_table':
+            return <ComparisonTableBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'map_embed':
+            return <MapEmbedBlock key={block.id} content={content} id={block.id} />;
+            
+          case 'instagram_feed':
+            return <InstagramFeedBlock key={block.id} content={content} id={block.id} />;
 
           default:
             return (

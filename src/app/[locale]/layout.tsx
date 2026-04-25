@@ -1,8 +1,12 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
+import Image from 'next/image';
+import Script from 'next/script';
 import { supabase } from "@/lib/supabase/client";
 import EventPopup from '@/components/ui/EventPopup';
+import MobileNav from '@/components/ui/MobileNav';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import "../globals.css";
 
 const baseUrl = 'https://gokceozel.com.tr';
@@ -171,6 +175,27 @@ export default async function RootLayout({
   const activeEvent = events && events.length > 0 ? events[0] : null;
   const themeClass = activeEvent?.theme_class || '';
 
+  let eventTitle = '';
+  let eventBody = '';
+  let eventImage = '';
+
+  if (activeEvent && activeEvent.popup_translations) {
+    try {
+      const translations = typeof activeEvent.popup_translations === 'string' 
+        ? JSON.parse(activeEvent.popup_translations) 
+        : activeEvent.popup_translations;
+        
+      const currentTranslation = translations[locale] || translations['tr'];
+      if (currentTranslation) {
+        eventTitle = currentTranslation.title;
+        eventBody = currentTranslation.body;
+        eventImage = currentTranslation.imageUrl || '';
+      }
+    } catch (e) {
+      console.error("Failed to parse event translations", e);
+    }
+  }
+
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
@@ -182,21 +207,31 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (EN)" href="/feed.xml?locale=en" />
       </head>
       <body className={`bg-dark text-paper font-sans antialiased leading-relaxed ${themeClass}`}>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'}');
+          `}
+        </Script>
         <NextIntlClientProvider messages={messages} locale={locale}>
           {/* Top Navigation */}
           <nav className="sticky top-0 z-50 backdrop-blur-md bg-dark/75 border-b border-gold/20">
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
               <a href={`/${locale}`} className="flex items-center gap-3 no-underline group">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-[#6a4d1f] flex items-center justify-center text-white font-bold group-hover:scale-105 transition-transform">
-                  GÖ
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/40 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden p-1.5">
+                  <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" width={32} height={32} className="invert opacity-85 w-full h-full object-contain" />
                 </div>
                 <div className="font-serif text-[18px] font-semibold text-paper">
                   Prof. Dr. Gökçe Özel
                   <small className="block text-[10px] tracking-widest text-gold-soft font-medium uppercase mt-0.5">
-                    KBB Uzmanı
+                    KBB Uzmanı · Rinoplasti
                   </small>
                 </div>
               </a>
+              <MobileNav locale={locale} />
               <ul className="hidden md:flex gap-6 list-none text-sm font-medium">
                 <li><a href={`/${locale}/hizmetler`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hizmetler</a></li>
                 <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hakkımda</a></li>
@@ -206,17 +241,7 @@ export default async function RootLayout({
                 <li><a href={`/${locale}/iletisim`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">İletişim</a></li>
               </ul>
               <div className="flex items-center gap-3">
-                <div className="hidden sm:flex gap-1 text-[11px] font-semibold tracking-wider px-3 py-1.5 border border-gold/30 rounded-full text-gold-soft">
-                  <a href="/tr" className="hover:text-white transition-colors">TR</a>
-                  <span>·</span>
-                  <a href="/en" className="hover:text-white transition-colors">EN</a>
-                  <span>·</span>
-                  <a href="/de" className="hover:text-white transition-colors">DE</a>
-                  <span>·</span>
-                  <a href="/fr" className="hover:text-white transition-colors">FR</a>
-                  <span>·</span>
-                  <a href="/ar" className="hover:text-white transition-colors">AR</a>
-                </div>
+                <LanguageSwitcher />
                 <a href={`/${locale}/iletisim`} className="bg-gold text-white px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-gold-soft transition-colors">
                   Randevu Al
                 </a>
@@ -226,6 +251,14 @@ export default async function RootLayout({
 
           <main className="min-h-screen">
             {children}
+            {activeEvent && eventTitle && (
+              <EventPopup 
+                title={eventTitle} 
+                body={eventBody} 
+                imageUrl={eventImage}
+                isNationalDay={activeEvent.theme_class === 'national_day'} 
+              />
+            )}
           </main>
 
           {/* Global Footer */}
@@ -234,13 +267,15 @@ export default async function RootLayout({
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-[#6a4d1f] flex items-center justify-center text-white font-bold">GÖ</div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/30 flex items-center justify-center overflow-hidden p-1.5">
+                      <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel" width={32} height={32} className="invert opacity-80 w-full h-full object-contain" />
+                    </div>
                     <div className="font-serif text-[17px] text-paper">Prof. Dr. Gökçe Özel</div>
                   </div>
                   <p className="text-[#9a8f7c] text-[13px] mb-5">Ankara'nın KBB cerrahisi referans merkezi.</p>
                   <div className="flex gap-4 text-sm font-medium text-gold-soft">
-                    <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                    <a href="#" className="hover:text-white transition-colors">YouTube</a>
+                    <a href="https://www.instagram.com/drgokceozel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.youtube.com/@drgokceozel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube</a>
                   </div>
                 </div>
                 

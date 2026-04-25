@@ -1,11 +1,19 @@
-const { Client } = require('pg');
-const client = new Client({
-  connectionString: 'postgresql://postgres:GokceOzelDB2026!+@db.dqofmirqzyoumhzlndbv.supabase.co:5432/postgres'
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL
+    }
+  }
 });
-async function test() {
-  await client.connect();
-  const res = await client.query('SELECT id, email, confirmed_at FROM auth.users');
-  console.log(res.rows);
-  await client.end();
+async function main() {
+  try {
+    const page = await prisma.page.findFirst();
+    console.log("Success:", page);
+  } catch (e) {
+    console.error("Error:", e);
+  } finally {
+    await prisma.$disconnect();
+  }
 }
-test().catch(console.error);
+main();

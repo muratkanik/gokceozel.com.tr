@@ -213,14 +213,13 @@ export default function BlockManagerClient({ pageId, initialBlocks }: BlockManag
           padding: 10px 20px;
           border-radius: 30px;
           font-size: 14px;
-          opacity: \${isSaving ? 1 : 0};
           transition: opacity 0.3s;
           pointer-events: none;
           z-index: 1000;
         }
       `}</style>
       
-      <div className="saving-indicator">
+      <div className="saving-indicator" style={{ opacity: isSaving ? 1 : 0 }}>
         Sıralama kaydediliyor...
       </div>
 

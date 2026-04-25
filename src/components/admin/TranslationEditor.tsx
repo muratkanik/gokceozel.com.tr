@@ -17,6 +17,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
   const [activeTab, setActiveTab] = useState<string>(locales[0]);
   const [translations, setTranslations] = useState<Record<string, string>>(initialTranslations);
   const [saving, setSaving] = useState(false);
+  const [isTranslatingAll, setIsTranslatingAll] = useState(false);
 
   const handleSave = async () => {
     setSaving(true);
@@ -83,18 +84,13 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                 }
                 
                 try {
-                  let prompt = `Lütfen verilen HTML içeriğini ${activeTab.toUpperCase()} diline profesyonel bir şekilde çevir. Sadece çevrilmiş HTML'i döndür.`;
-                  if (isHero) {
-                    prompt = `Aşağıda verilen JSON formatındaki slayt verisini incele. Her objenin "title", "subtitle" ve "buttonText" alanlarını ${activeTab.toUpperCase()} diline profesyonel bir şekilde çevir. Diğer alanlara ("id", "image", "buttonLink") dokunma. SADECE geçerli bir JSON dizisi döndür, markdown veya başka bir yazı KULLANMA.`;
-                  }
-
-                  const res = await fetch('/api/ai/generate-content', {
+                  const res = await fetch('/api/ai/translate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
-                      prompt, 
-                      currentHtml: oldVal, 
-                      locale: activeTab 
+                      content: oldVal, 
+                      targetLocale: activeTab,
+                      isJson: isHero
                     })
                   });
                   
@@ -102,7 +98,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                   if (data.error) throw new Error(data.error);
                   
                   setTranslations(prev => ({ ...prev, [activeTab]: data.content }));
-                  if (isHero) alert('Çeviri başarıyla tamamlandı!');
+                  alert(`${data.provider} üzerinden çeviri başarıyla tamamlandı!`);
                 } catch (e: any) {
                   alert('AI Çevirisi başarısız oldu: ' + e.message);
                   setTranslations(prev => ({ ...prev, [activeTab]: oldVal }));
@@ -123,6 +119,62 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
               }}
             >
               🌍 AI Çeviri
+            </button>
+
+            <button 
+              type="button"
+              disabled={isTranslatingAll}
+              onClick={async () => {
+                const trContent = translations['tr'];
+                if (!trContent || trContent.trim() === '' || trContent === '[]') {
+                  alert('Öncelikle "TR" dilinde içerik oluşturmalısınız!');
+                  return;
+                }
+                
+                if (!confirm('TR içeriği diğer tüm dillere çevrilecek. Onaylıyor musunuz?')) return;
+                
+                setIsTranslatingAll(true);
+                const otherLocales = locales.filter(l => l !== 'tr');
+                
+                const newTranslations = { ...translations };
+                let successCount = 0;
+                
+                for (const loc of otherLocales) {
+                  try {
+                    const res = await fetch('/api/ai/translate', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ content: trContent, targetLocale: loc, isJson: isHero })
+                    });
+                    const data = await res.json();
+                    if (data.content) {
+                      newTranslations[loc] = data.content;
+                      successCount++;
+                    }
+                  } catch (e) {
+                    console.error(`${loc} çevirisi başarısız:`, e);
+                  }
+                }
+                
+                setTranslations(newTranslations);
+                setIsTranslatingAll(false);
+                alert(`Toplu çeviri tamamlandı! ${successCount}/${otherLocales.length} dil çevrildi.`);
+              }}
+              style={{
+                background: isTranslatingAll ? '#ccc' : '#10b981',
+                color: '#fff',
+                border: 'none',
+                padding: '8px 15px',
+                borderRadius: '20px',
+                cursor: isTranslatingAll ? 'wait' : 'pointer',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+            >
+              {isTranslatingAll ? '⏳ Çevriliyor...' : '🌐 Tümüne Çevir'}
             </button>
 
             {!isHero && (

@@ -6,10 +6,11 @@ import Image from 'next/image';
 interface EventPopupProps {
   title: string;
   body: string;
+  imageUrl?: string;
   isNationalDay?: boolean;
 }
 
-export default function EventPopup({ title, body, isNationalDay = false }: EventPopupProps) {
+export default function EventPopup({ title, body, imageUrl, isNationalDay = false }: EventPopupProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -41,25 +42,30 @@ export default function EventPopup({ title, body, isNationalDay = false }: Event
           </button>
           
           <div className="relative h-48 w-full bg-[#E30A17]">
-            {/* 23 Nisan / Turkish Flag Theme */}
+            {/* 23 Nisan / Dynamic Theme Image */}
             <Image 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1200px-Flag_of_Turkey.svg.png"
-              alt="Türk Bayrağı"
+              src={imageUrl || "https://images.unsplash.com/photo-1558025211-1db5e324c431?q=80&w=1200&auto=format&fit=crop"}
+              alt="Etkinlik Görseli"
               fill
               className="object-cover opacity-80"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
             
-            {/* Logo */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-20 h-20 rounded-full bg-white p-1.5 shadow-lg">
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E30A17] to-[#A00000] flex items-center justify-center text-white font-serif text-2xl font-bold">
-                GÖ
+            {/* Logo and Name */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-2">
+              <div className="w-20 h-20 rounded-full bg-white p-2 shadow-xl border-2 border-white">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                  <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel" width={56} height={56} className="w-12 h-12 object-contain" />
+                </div>
               </div>
+              <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#E30A17] shadow-md">
+                Prof. Dr. Gökçe Özel
+              </span>
             </div>
           </div>
           
-          <div className="pt-14 pb-8 px-8 text-center">
+          <div className="pt-20 pb-8 px-8 text-center">
             <h3 className="text-2xl font-serif font-bold text-[#E30A17] mb-3 leading-tight">
               {title}
             </h3>
