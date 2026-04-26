@@ -14,7 +14,8 @@
     "contact": "Kontakt",
     "blog": "Blog",
     "faq": "Häufige Fragen",
-    "reviews": "Patientenbewertungen"
+    "reviews": "Patientenbewertungen",
+    "beforeAfter": "Vorher & Nachher"
   },
   "Hero": {
     "tagline": "Spezialistin für Rhinoplastik und Gesichtsästhetik",
@@ -43,6 +44,8 @@
   },
   "Footer": {
     "rights": "Alle Rechte vorbehalten",
-    "privacy": "Datenschutzerklärung"
+    "privacy": "Datenschutzrichtlinie",
+    "description": "Ankaras Referenzzentrum für HNO-Chirurgie.",
+    "clinic": "Klinik"
   }
 }

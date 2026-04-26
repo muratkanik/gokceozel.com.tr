@@ -44,6 +44,12 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             <Link href="/admin/icerikler" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] bg-gradient-to-r from-[#b8893c]/15 to-transparent text-[#f0d48e] border-l-2 border-[#b8893c] mb-0.5">
               <span>▥</span> Tüm İçerikler
             </Link>
+            <Link href="/admin/global-ui" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>🌐</span> Genel Metinler
+            </Link>
+            <Link href="/admin/home-strings" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>🏠</span> Ana Sayfa Metinleri
+            </Link>
             <Link href="/admin/iletisim" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
               <span>★</span> İletişim Formları
             </Link>

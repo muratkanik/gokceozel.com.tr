@@ -1,83 +1,196 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+
+const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
+  tr: [
+    { label: 'Hizmetlerimiz', href: '/hizmetler' },
+    { label: 'Hakkımızda', href: '/gokce-ozel-kimdir' },
+    { label: 'Hasta Yorumları', href: '/hasta-yorumlari' },
+    { label: 'Öncesi & Sonrası', href: '/once-sonra' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Sık Sorulan Sorular', href: '/sss' },
+    { label: 'İletişim', href: '/iletisim' },
+  ],
+  en: [
+    { label: 'Services', href: '/en/hizmetler' },
+    { label: 'About', href: '/en/gokce-ozel-kimdir' },
+    { label: 'Patient Reviews', href: '/en/hasta-yorumlari' },
+    { label: 'Before & After', href: '/en/once-sonra' },
+    { label: 'Blog', href: '/en/blog' },
+    { label: 'FAQ', href: '/en/sss' },
+    { label: 'Contact', href: '/en/iletisim' },
+  ],
+  ar: [
+    { label: 'الخدمات', href: '/ar/hizmetler' },
+    { label: 'من نحن', href: '/ar/gokce-ozel-kimdir' },
+    { label: 'آراء المرضى', href: '/ar/hasta-yorumlari' },
+    { label: 'قبل وبعد', href: '/ar/once-sonra' },
+    { label: 'المدونة', href: '/ar/blog' },
+    { label: 'الأسئلة الشائعة', href: '/ar/sss' },
+    { label: 'اتصل بنا', href: '/ar/iletisim' },
+  ],
+  ru: [
+    { label: 'Услуги', href: '/ru/hizmetler' },
+    { label: 'О нас', href: '/ru/gokce-ozel-kimdir' },
+    { label: 'Отзывы', href: '/ru/hasta-yorumlari' },
+    { label: 'До и после', href: '/ru/once-sonra' },
+    { label: 'Блог', href: '/ru/blog' },
+    { label: 'ЧаВо', href: '/ru/sss' },
+    { label: 'Контакты', href: '/ru/iletisim' },
+  ],
+  fr: [
+    { label: 'Services', href: '/fr/hizmetler' },
+    { label: 'À propos', href: '/fr/gokce-ozel-kimdir' },
+    { label: 'Avis patients', href: '/fr/hasta-yorumlari' },
+    { label: 'Avant & Après', href: '/fr/once-sonra' },
+    { label: 'Blog', href: '/fr/blog' },
+    { label: 'FAQ', href: '/fr/sss' },
+    { label: 'Contact', href: '/fr/iletisim' },
+  ],
+  de: [
+    { label: 'Leistungen', href: '/de/hizmetler' },
+    { label: 'Über uns', href: '/de/gokce-ozel-kimdir' },
+    { label: 'Patientenbewertungen', href: '/de/hasta-yorumlari' },
+    { label: 'Vorher & Nachher', href: '/de/once-sonra' },
+    { label: 'Blog', href: '/de/blog' },
+    { label: 'FAQ', href: '/de/sss' },
+    { label: 'Kontakt', href: '/de/iletisim' },
+  ],
+};
+
+const LANG_CONFIG = [
+  { code: 'tr', label: 'Türkçe', flag: '🇹🇷', href: '/' },
+  { code: 'en', label: 'English', flag: '🇬🇧', href: '/en' },
+  { code: 'ar', label: 'العربية', flag: '🇸🇦', href: '/ar' },
+  { code: 'ru', label: 'Русский', flag: '🇷🇺', href: '/ru' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷', href: '/fr' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪', href: '/de' },
+];
+
+const CTA: Record<string, string> = {
+  tr: 'Randevu Al', en: 'Book Appointment', ar: 'احجز موعداً',
+  ru: 'Записаться', fr: 'Prendre RDV', de: 'Termin buchen',
+};
 
 interface MobileNavProps {
   locale: string;
 }
 
 export default function MobileNav({ locale }: MobileNavProps) {
-  const [open, setOpen] = useState(false);
-  
-  const links = [
-    { href: `/${locale}/hizmetler`, label: 'Hizmetler' },
-    { href: `/${locale}/gokce-ozel-kimdir`, label: 'Hakkımda' },
-    { href: `/${locale}/hasta-yorumlari`, label: 'Yorumlar' },
-    { href: `/${locale}/blog`, label: 'Blog' },
-    { href: `/${locale}/sss`, label: 'SSS' },
-    { href: `/${locale}/iletisim`, label: 'İletişim' }
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+
+  const close = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [close]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  const links = NAV_LINKS[locale] || NAV_LINKS.tr;
+  const ctaLabel = CTA[locale] || CTA.tr;
+  const contactHref = locale === 'tr' ? '/iletisim' : `/${locale}/iletisim`;
+  const isRtl = locale === 'ar';
 
   return (
     <>
-      <button 
-        className="md:hidden p-2 text-paper focus:outline-none focus:ring-2 focus:ring-gold-soft rounded" 
-        onClick={() => setOpen(true)} 
+      {/* Hamburger button */}
+      <button
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/5 transition-colors"
+        onClick={() => setIsOpen(true)}
         aria-label="Menüyü aç"
+        aria-expanded={isOpen}
       >
-        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
+        <span className="w-5 h-[2px] bg-[#e9e4d8] rounded-full" />
+        <span className="w-5 h-[2px] bg-[#e9e4d8] rounded-full" />
+        <span className="w-3.5 h-[2px] bg-[#b8893c] rounded-full" />
       </button>
-      
-      {open && (
-        <div className="fixed inset-0 z-[200] md:hidden flex">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <aside className="absolute right-0 top-0 bottom-0 w-72 bg-[#0f0d0b] border-l border-gold/20 flex flex-col p-8 pt-16 shadow-2xl animate-in slide-in-from-right duration-300">
-            <button 
-              className="absolute top-4 right-4 text-paper p-2 hover:text-white transition-colors" 
-              onClick={() => setOpen(false)}
-              aria-label="Menüyü kapat"
-            >
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
 
-            <div className="flex items-center gap-3 mb-8 pb-8 border-b border-gold/10">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/40 flex items-center justify-center overflow-hidden p-1.5">
-                <Image src="/images/logo.png" alt="Logo" width={32} height={32} className="invert w-full h-full object-contain" />
-              </div>
-              <div className="font-serif text-[16px] font-semibold text-paper leading-tight">
-                Prof. Dr. Gökçe Özel
-              </div>
-            </div>
-
-            <nav className="flex flex-col gap-6">
-              {links.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-                   className="text-lg font-serif text-[#e9e4d8] hover:text-gold-soft transition-colors tracking-wide">
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <div className="mt-auto pt-8 border-t border-gold/20 flex flex-col gap-4">
-              <div className="flex justify-center gap-3 text-xs font-semibold tracking-widest text-gold-soft mb-2">
-                <a href="/tr" className="hover:text-white transition-colors p-2">TR</a>
-                <a href="/en" className="hover:text-white transition-colors p-2">EN</a>
-                <a href="/de" className="hover:text-white transition-colors p-2">DE</a>
-                <a href="/fr" className="hover:text-white transition-colors p-2">FR</a>
-                <a href="/ar" className="hover:text-white transition-colors p-2">AR</a>
-              </div>
-              <a href={`/${locale}/iletisim`} onClick={() => setOpen(false)} className="block bg-gold text-white hover:bg-gold-soft transition-colors px-6 py-3.5 rounded-full font-bold text-sm text-center shadow-[0_0_15px_rgba(212,175,55,0.3)]">
-                Randevu Al
-              </a>
-            </div>
-          </aside>
-        </div>
+      {/* Backdrop */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-[990] bg-black/60 backdrop-blur-sm md:hidden"
+          onClick={close}
+          aria-hidden="true"
+        />
       )}
+
+      {/* Drawer */}
+      <div
+        className={`fixed top-0 ${isRtl ? 'left-0' : 'right-0'} h-full w-[300px] max-w-[85vw] z-[995] bg-[#0d0b08] flex flex-col shadow-2xl transition-transform duration-300 ease-in-out md:hidden border-${isRtl ? 'r' : 'l'} border-[#b8893c]/20
+          ${isOpen ? 'translate-x-0' : isRtl ? '-translate-x-full' : 'translate-x-full'}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigasyon menüsü"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#b8893c]/15">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/40 flex items-center justify-center overflow-hidden p-1">
+              <Image src="/images/logo.png" alt="Logo" width={24} height={24} className="invert opacity-85 w-full h-full object-contain" />
+            </div>
+            <span className="font-serif text-[14px] text-[#e9e4d8]">Prof. Dr. Gökçe Özel</span>
+          </div>
+          <button
+            onClick={close}
+            className="w-8 h-8 flex items-center justify-center rounded-full text-[#9a8f7c] hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Menüyü kapat"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <nav className="flex-1 overflow-y-auto py-4 px-2">
+          <ul className="space-y-0.5">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={close}
+                  className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-[#e9e4d8] hover:text-[#d4b97a] hover:bg-white/5 transition-all text-[15px] font-medium group"
+                >
+                  <span className="w-1 h-1 rounded-full bg-[#b8893c]/40 group-hover:bg-[#b8893c] transition-colors flex-shrink-0" />
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Footer: CTA + language switcher */}
+        <div className="px-5 py-4 border-t border-[#b8893c]/15">
+          <a
+            href={contactHref}
+            onClick={close}
+            className="block w-full text-center bg-[#b8893c] hover:bg-[#d4b97a] text-white font-bold text-[13px] tracking-widest uppercase py-3 rounded-full transition-colors"
+          >
+            {ctaLabel}
+          </a>
+          <div className="flex justify-center gap-3 mt-4 flex-wrap">
+            {LANG_CONFIG.map((lang) => (
+              <a
+                key={lang.code}
+                href={lang.href}
+                onClick={close}
+                className={`text-[11px] font-semibold tracking-widest uppercase transition-colors px-1
+                  ${locale === lang.code ? 'text-[#b8893c]' : 'text-[#9a8f7c] hover:text-[#e9e4d8]'}`}
+              >
+                {lang.flag} {lang.code.toUpperCase()}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import RichTextEditor from './RichTextEditor';
 import SeoScoreBadge from './SeoScoreBadge';
 import HeroSlideManager, { HeroSlide } from './HeroSlideManager';
+import KeyValueManager from './KeyValueManager';
 import { saveTranslations } from '@/components/admin/actions';
 
 interface TranslationEditorProps {
@@ -33,6 +34,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
   };
 
   const isHero = componentType === 'hero';
+  const isJsonBlock = componentType === 'hero' || componentType === 'global_ui_strings' || componentType === 'home_page_strings';
 
   return (
     <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
@@ -64,7 +66,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
       <div style={{ marginBottom: '30px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
           <label style={{ fontWeight: 'bold' }}>
-            {activeTab.toUpperCase()} Dili İçin {isHero ? 'Slayt İçerikleri' : 'İçerik'}
+            {activeTab.toUpperCase()} Dili İçin {isJsonBlock ? 'Metin İçerikleri' : 'İçerik'}
           </label>
           <div style={{ display: 'flex', gap: '10px' }}>
             <button 
@@ -77,8 +79,8 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                 }
                 
                 const oldVal = currentData;
-                if (isHero) {
-                  alert('Yapay zeka slaytları çeviriyor, lütfen bekleyin...');
+                if (isJsonBlock) {
+                  alert('Yapay zeka json metinlerini çeviriyor, lütfen bekleyin...');
                 } else {
                   setTranslations(prev => ({ ...prev, [activeTab]: '<p><em>✨ Yapay zeka içeriği çeviriyor, lütfen bekleyin...</em></p>' }));
                 }
@@ -90,7 +92,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                     body: JSON.stringify({ 
                       content: oldVal, 
                       targetLocale: activeTab,
-                      isJson: isHero
+                      isJson: isJsonBlock
                     })
                   });
                   
@@ -144,7 +146,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                     const res = await fetch('/api/ai/translate', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ content: trContent, targetLocale: loc, isJson: isHero })
+                      body: JSON.stringify({ content: trContent, targetLocale: loc, isJson: isJsonBlock })
                     });
                     const data = await res.json();
                     if (data.content) {
@@ -177,7 +179,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
               {isTranslatingAll ? '⏳ Çevriliyor...' : '🌐 Tümüne Çevir'}
             </button>
 
-            {!isHero && (
+            {!isJsonBlock && (
               <button 
                 type="button"
                 onClick={async () => {
@@ -231,6 +233,12 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
             onChange={(val) => setTranslations(prev => ({ ...prev, [activeTab]: val }))} 
             locale={activeTab}
           />
+        ) : isJsonBlock ? (
+          <KeyValueManager 
+            value={translations[activeTab] || ''} 
+            onChange={(val) => setTranslations(prev => ({ ...prev, [activeTab]: val }))} 
+            locale={activeTab}
+          />
         ) : (
           <RichTextEditor 
             value={translations[activeTab] || ''} 
@@ -239,7 +247,7 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
         )}
         
         {/* SEO Score Helper only for text blocks */}
-        {!isHero && <SeoScoreBadge content={translations[activeTab] || ''} />}
+        {!isJsonBlock && <SeoScoreBadge content={translations[activeTab] || ''} />}
       </div>
 
       {/* Save Button */}

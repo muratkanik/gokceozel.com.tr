@@ -14,7 +14,8 @@
     "contact": "Contact",
     "blog": "Blog",
     "faq": "FAQ",
-    "reviews": "Patient Reviews"
+    "reviews": "Patient Reviews",
+    "beforeAfter": "Before & After"
   },
   "Hero": {
     "tagline": "Rhinoplasty & Facial Aesthetics Specialist",
@@ -43,6 +44,8 @@
   },
   "Footer": {
     "rights": "All rights reserved",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "description": "Ankara's reference center for ENT surgery.",
+    "clinic": "Clinic"
   }
 }

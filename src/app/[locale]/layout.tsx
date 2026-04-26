@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import Image from 'next/image';
 import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { supabase } from "@/lib/supabase/client";
 import EventPopup from '@/components/ui/EventPopup';
 import MobileNav from '@/components/ui/MobileNav';
@@ -62,6 +63,11 @@ export default async function RootLayout({
   
   const { locale } = await params;
   const messages = await getMessages({ locale });
+  const { getTranslations } = await import('next-intl/server');
+  const tNav = await getTranslations({ locale, namespace: 'Navigation' });
+  const tContact = await getTranslations({ locale, namespace: 'Contact' });
+  const tFooter = await getTranslations({ locale, namespace: 'Footer' });
+  const tServices = await getTranslations({ locale, namespace: 'Services' });
 
   // Medical Clinic + Physician Schema for AEO (ChatGPT, Perplexity, Gemini)
   const jsonLd = [
@@ -207,15 +213,7 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (EN)" href="/feed.xml?locale=en" />
       </head>
       <body className={`bg-dark text-paper font-sans antialiased leading-relaxed ${themeClass}`}>
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'}`} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'}');
-          `}
-        </Script>
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
         <NextIntlClientProvider messages={messages} locale={locale}>
           {/* Top Navigation */}
           <nav className="sticky top-0 z-50 backdrop-blur-md bg-dark/75 border-b border-gold/20">
@@ -233,17 +231,17 @@ export default async function RootLayout({
               </a>
               <MobileNav locale={locale} />
               <ul className="hidden md:flex gap-6 list-none text-sm font-medium">
-                <li><a href={`/${locale}/hizmetler`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hizmetler</a></li>
-                <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Hakkımda</a></li>
-                <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Yorumlar</a></li>
-                <li><a href={`/${locale}/blog`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">Blog</a></li>
-                <li><a href={`/${locale}/sss`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">SSS</a></li>
-                <li><a href={`/${locale}/iletisim`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">İletişim</a></li>
+                <li><a href={`/${locale}/hizmetler`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('services')}</a></li>
+                <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('about')}</a></li>
+                <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('reviews')}</a></li>
+                <li><a href={`/${locale}/blog`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('blog')}</a></li>
+                <li><a href={`/${locale}/sss`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('faq')}</a></li>
+                <li><a href={`/${locale}/iletisim`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('contact')}</a></li>
               </ul>
               <div className="flex items-center gap-3">
                 <LanguageSwitcher />
                 <a href={`/${locale}/iletisim`} className="bg-gold text-white px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-gold-soft transition-colors">
-                  Randevu Al
+                  {tContact('appointment')}
                 </a>
               </div>
             </div>
@@ -272,7 +270,7 @@ export default async function RootLayout({
                     </div>
                     <div className="font-serif text-[17px] text-paper">Prof. Dr. Gökçe Özel</div>
                   </div>
-                  <p className="text-[#9a8f7c] text-[13px] mb-5">Ankara'nın KBB cerrahisi referans merkezi.</p>
+                  <p className="text-[#9a8f7c] text-[13px] mb-5">{tFooter('description')}</p>
                   <div className="flex gap-4 text-sm font-medium text-gold-soft">
                     <a href="https://www.instagram.com/drgokceozel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
                     <a href="https://www.youtube.com/@drgokceozel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube</a>
@@ -280,41 +278,41 @@ export default async function RootLayout({
                 </div>
                 
                 <div>
-                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">Hizmetler</h4>
+                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tNav('services')}</h4>
                   <ul className="space-y-3 text-[13px]">
-                    <li><a href={`/${locale}/hizmetler/rinoplasti`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Rinoplasti</a></li>
-                    <li><a href={`/${locale}/hizmetler/gz-kapa-estetii`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Blefaroplasti</a></li>
-                    <li><a href={`/${locale}/hizmetler/endolift`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Endolift Lazer</a></li>
-                    <li><a href={`/${locale}/hizmetler/botoks`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Botoks & Dolgu</a></li>
-                    <li><a href={`/${locale}/hizmetler`} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">Tümünü Gör →</a></li>
+                    <li><a href={`/${locale}/hizmetler/rinoplasti`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
+                    <li><a href={`/${locale}/hizmetler/gz-kapa-estetii`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
+                    <li><a href={`/${locale}/hizmetler/endolift`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
+                    <li><a href={`/${locale}/hizmetler/botoks`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
+                    <li><a href={`/${locale}/hizmetler`} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">Klinik</h4>
+                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tFooter('clinic')}</h4>
                   <ul className="space-y-3 text-[13px]">
-                    <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Hakkımda</a></li>
-                    <li><a href={`/${locale}/blog`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Blog & Makaleler</a></li>
-                    <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Hasta Yorumları</a></li>
-                    <li><a href={`/${locale}/once-sonra`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Öncesi & Sonrası</a></li>
-                    <li><a href={`/${locale}/sss`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">Sık Sorulan Sorular</a></li>
-                    <li><a href={`/${locale}/iletisim`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">İletişim</a></li>
+                    <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('about')}</a></li>
+                    <li><a href={`/${locale}/blog`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('blog')}</a></li>
+                    <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('reviews')}</a></li>
+                    <li><a href={`/${locale}/once-sonra`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('beforeAfter')}</a></li>
+                    <li><a href={`/${locale}/sss`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('faq')}</a></li>
+                    <li><a href={`/${locale}/iletisim`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('contact')}</a></li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">İletişim</h4>
+                  <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tContact('title')}</h4>
                   <ul className="space-y-3 text-[13px] text-[#9a8f7c]">
-                    <li>Ümitköy · Ankara</li>
-                    <li><a href="tel:+905342096935" className="hover:text-gold-soft transition-colors">+90 534 209 69 35</a></li>
-                    <li><a href="mailto:info@gokceozel.com.tr" className="hover:text-gold-soft transition-colors">info@gokceozel.com.tr</a></li>
-                    <li className="pt-2 text-stone/50">Pzt-Cmt · 10:00-18:00</li>
+                    <li>{tContact('address')}</li>
+                    <li><a href={`tel:${tContact('phone').replace(/\s+/g, '')}`} className="hover:text-gold-soft transition-colors">{tContact('phone')}</a></li>
+                    <li><a href={`mailto:${tContact('email')}`} className="hover:text-gold-soft transition-colors">{tContact('email')}</a></li>
+                    <li className="pt-2 text-stone/50">{tContact('hours')}</li>
                   </ul>
                 </div>
               </div>
               
               <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-muted">
-                <div>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel · KVKK · Gizlilik</div>
+                <div>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel · {tFooter('privacy')}</div>
                 <div className="flex gap-3 font-medium">
                   <a href="/tr" className="hover:text-gold-soft transition-colors">TR</a>
                   <a href="/en" className="hover:text-gold-soft transition-colors">EN</a>
@@ -327,21 +325,7 @@ export default async function RootLayout({
             </div>
           </footer>
 
-          {/* Dynamic Popup for Special Events */}
-          {activeEvent && activeEvent.popup_translations && activeEvent.popup_translations[locale] ? (
-            <EventPopup 
-              title={activeEvent.popup_translations[locale].title} 
-              body={activeEvent.popup_translations[locale].body} 
-              isNationalDay={activeEvent.id === '23-nisan'} 
-            />
-          ) : (
-            // Fallback to local 23 Nisan popup if today is around April 23 and no DB event is matching exactly.
-            <EventPopup 
-              title="23 Nisan Ulusal Egemenlik ve Çocuk Bayramı" 
-              body="Geleceğimizin teminatı çocuklarımızın 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı kutlu olsun!" 
-              isNationalDay={true} 
-            />
-          )}
+
 
           {/* Floating WhatsApp Button */}
           <a 

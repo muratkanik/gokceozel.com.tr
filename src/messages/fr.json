@@ -14,7 +14,8 @@
     "contact": "Contact",
     "blog": "Blog",
     "faq": "Questions fréquentes",
-    "reviews": "Avis patients"
+    "reviews": "Avis patients",
+    "beforeAfter": "Avant et Après"
   },
   "Hero": {
     "tagline": "Spécialiste en rhinoplastie et esthétique faciale",
@@ -43,6 +44,8 @@
   },
   "Footer": {
     "rights": "Tous droits réservés",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "description": "Le centre de référence d'Ankara pour la chirurgie ORL.",
+    "clinic": "Clinique"
   }
 }

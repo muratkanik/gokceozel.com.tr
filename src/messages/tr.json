@@ -14,7 +14,8 @@
     "contact": "İletişim",
     "blog": "Blog",
     "faq": "Sık Sorulan Sorular",
-    "reviews": "Hasta Yorumları"
+    "reviews": "Hasta Yorumları",
+    "beforeAfter": "Öncesi & Sonrası"
   },
   "Hero": {
     "tagline": "Rinoplasti ve Yüz Estetiği Uzmanı",
@@ -43,6 +44,8 @@
   },
   "Footer": {
     "rights": "Tüm hakları saklıdır",
-    "privacy": "Gizlilik Politikası"
+    "privacy": "KVKK · Gizlilik Politikası",
+    "description": "Ankara'nın KBB cerrahisi referans merkezi.",
+    "clinic": "Klinik"
   }
 }
