@@ -8,7 +8,7 @@ async function translateWithOpenAI(content: string, targetLocale: string, isJson
   if (!OPENAI_API_KEY) throw new Error('OPENAI_API_KEY missing');
   
   const systemPrompt = isJson 
-    ? `Translate the "title", "subtitle", "text", "description", and "buttonText" values in this JSON string to ${targetLocale.toUpperCase()}. Leave keys and other fields untouched. Return ONLY valid JSON.`
+    ? `Translate all the string values in this JSON object to ${targetLocale.toUpperCase()}. DO NOT change any of the JSON keys, only translate the values. Return ONLY valid JSON without any markdown formatting or explanation.`
     : `Translate the following HTML/text content to ${targetLocale.toUpperCase()}. Preserve all HTML tags and attributes exactly as they are. Return ONLY the translated HTML.`;
 
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -37,7 +37,7 @@ async function translateWithXAI(content: string, targetLocale: string, isJson: b
   if (!XAI_API_KEY) throw new Error('XAI_API_KEY missing');
   
   const systemPrompt = isJson 
-    ? `Translate the "title", "subtitle", "text", "description", and "buttonText" values in this JSON string to ${targetLocale.toUpperCase()}. Leave keys and other fields untouched. Return ONLY valid JSON.`
+    ? `Translate all the string values in this JSON object to ${targetLocale.toUpperCase()}. DO NOT change any of the JSON keys, only translate the values. Return ONLY valid JSON without any markdown formatting or explanation.`
     : `Translate the following HTML/text content to ${targetLocale.toUpperCase()}. Preserve all HTML tags and attributes exactly as they are. Return ONLY the translated HTML.`;
 
   const res = await fetch('https://api.x.ai/v1/chat/completions', {
@@ -66,7 +66,7 @@ async function translateWithGemini(content: string, targetLocale: string, isJson
   if (!GEMINI_API_KEY) throw new Error('GEMINI_API_KEY missing');
   
   const systemPrompt = isJson 
-    ? `Translate the "title", "subtitle", "text", "description", and "buttonText" values in this JSON string to ${targetLocale.toUpperCase()}. Leave keys and other fields untouched. Return ONLY valid JSON.`
+    ? `Translate all the string values in this JSON object to ${targetLocale.toUpperCase()}. DO NOT change any of the JSON keys, only translate the values. Return ONLY valid JSON without any markdown formatting or explanation.`
     : `Translate the following HTML/text content to ${targetLocale.toUpperCase()}. Preserve all HTML tags and attributes exactly as they are. Return ONLY the translated HTML.`;
 
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
