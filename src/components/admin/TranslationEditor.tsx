@@ -19,6 +19,13 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
   const [translations, setTranslations] = useState<Record<string, string>>(initialTranslations);
   const [saving, setSaving] = useState(false);
   const [isTranslatingAll, setIsTranslatingAll] = useState(false);
+  const [terminalOpen, setTerminalOpen] = useState(false);
+  const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
+  const [terminalStatus, setTerminalStatus] = useState<'running' | 'success' | 'error'>('running');
+
+  const addLog = (msg: string) => {
+    setTerminalLogs(prev => [...prev, msg]);
+  };
 
   const handleSave = async () => {
     setSaving(true);
@@ -79,13 +86,19 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                 }
                 
                 const oldVal = currentData;
-                if (isJsonBlock) {
-                  alert('Yapay zeka json metinlerini çeviriyor, lütfen bekleyin...');
-                } else {
+                
+                setTerminalLogs([]);
+                setTerminalStatus('running');
+                setTerminalOpen(true);
+                addLog('> AI Agent başlatılıyor...');
+                addLog(`> Hedef dil: ${activeTab.toUpperCase()}`);
+                
+                if (!isJsonBlock) {
                   setTranslations(prev => ({ ...prev, [activeTab]: '<p><em>✨ Yapay zeka içeriği çeviriyor, lütfen bekleyin...</em></p>' }));
                 }
                 
                 try {
+                  addLog('> Sunucularla bağlantı kuruluyor (OpenAI / xAI / Gemini)...');
                   const res = await fetch('/api/ai/translate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -100,9 +113,11 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                   if (data.error) throw new Error(data.error);
                   
                   setTranslations(prev => ({ ...prev, [activeTab]: data.content }));
-                  alert(`${data.provider} üzerinden çeviri başarıyla tamamlandı!`);
+                  addLog(`> Başarılı! Çeviri [${data.provider}] üzerinden tamamlandı.`);
+                  setTerminalStatus('success');
                 } catch (e: any) {
-                  alert('AI Çevirisi başarısız oldu: ' + e.message);
+                  addLog(`> HATA: ${e.message}`);
+                  setTerminalStatus('error');
                   setTranslations(prev => ({ ...prev, [activeTab]: oldVal }));
                 }
               }}
@@ -136,12 +151,18 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                 if (!confirm('TR içeriği diğer tüm dillere çevrilecek. Onaylıyor musunuz?')) return;
                 
                 setIsTranslatingAll(true);
+                setTerminalLogs([]);
+                setTerminalStatus('running');
+                setTerminalOpen(true);
+                
                 const otherLocales = locales.filter(l => l !== 'tr');
+                addLog(`> Toplu çeviri başlatıldı. Toplam hedef dil: ${otherLocales.length}`);
                 
                 const newTranslations = { ...translations };
                 let successCount = 0;
                 
                 for (const loc of otherLocales) {
+                  addLog(`> [${loc.toUpperCase()}] diline çevriliyor...`);
                   try {
                     const res = await fetch('/api/ai/translate', {
                       method: 'POST',
@@ -151,16 +172,20 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
                     const data = await res.json();
                     if (data.content) {
                       newTranslations[loc] = data.content;
+                      addLog(`> [${loc.toUpperCase()}] Başarılı! (${data.provider})`);
                       successCount++;
+                    } else if (data.error) {
+                      addLog(`> [${loc.toUpperCase()}] HATA: ${data.error}`);
                     }
-                  } catch (e) {
-                    console.error(`${loc} çevirisi başarısız:`, e);
+                  } catch (e: any) {
+                    addLog(`> [${loc.toUpperCase()}] Kritik Hata: ${e.message}`);
                   }
                 }
                 
                 setTranslations(newTranslations);
                 setIsTranslatingAll(false);
-                alert(`Toplu çeviri tamamlandı! ${successCount}/${otherLocales.length} dil çevrildi.`);
+                addLog(`> İşlem tamamlandı: ${successCount}/${otherLocales.length} dil çevrildi.`);
+                setTerminalStatus(successCount === otherLocales.length ? 'success' : 'error');
               }}
               style={{
                 background: isTranslatingAll ? '#ccc' : '#10b981',
@@ -269,6 +294,38 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
           {saving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}
         </button>
       </div>
+
+      {/* Terminal Overlay */}
+      {terminalOpen && (
+        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="w-full max-w-2xl bg-[#0a0a0a] rounded-xl border border-green-500/30 shadow-[0_0_50px_rgba(34,197,94,0.1)] overflow-hidden font-mono flex flex-col h-[400px]">
+            <div className="bg-[#111] px-4 py-3 border-b border-green-500/20 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                <span className="text-green-500/50 text-xs ml-3 tracking-widest uppercase">root@ai-core ~</span>
+              </div>
+              {terminalStatus !== 'running' && (
+                <button 
+                  onClick={() => setTerminalOpen(false)}
+                  className="text-xs text-green-500 hover:text-white px-3 py-1 border border-green-500/30 rounded hover:bg-green-500/20 transition-colors"
+                >
+                  [KAPAT]
+                </button>
+              )}
+            </div>
+            <div className="p-5 flex-1 overflow-y-auto space-y-2 text-[13px] text-green-400">
+              {terminalLogs.map((log, i) => (
+                <div key={i} className={`${log.includes('HATA') ? 'text-red-400' : 'text-green-400'}`}>{log}</div>
+              ))}
+              {terminalStatus === 'running' && (
+                <div className="animate-pulse inline-block">_</div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

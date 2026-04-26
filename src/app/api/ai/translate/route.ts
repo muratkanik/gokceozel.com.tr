@@ -44,7 +44,7 @@ async function translateWithXAI(content: string, targetLocale: string, isJson: b
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${XAI_API_KEY}` },
     body: JSON.stringify({
-      model: 'grok-beta',
+      model: 'grok-2-latest',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content }
