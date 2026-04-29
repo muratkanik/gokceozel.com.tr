@@ -300,7 +300,7 @@ export default function CariTakipApp() {
   const [newServiceType, setNewServiceType] = useState('');
   const [newPaymentType, setNewPaymentType] = useState('');
   const [paymentFilter, setPaymentFilter] = useState<PaymentFilter>('all');
-  const [appointmentView, setAppointmentView] = useState<'calendar' | 'list' | 'table' | 'settings'>('calendar');
+  const [appointmentView, setAppointmentView] = useState<'calendar' | 'card' | 'table' | 'settings'>('calendar');
   const [appointmentQuery, setAppointmentQuery] = useState('');
   const [appointmentStatusFilter, setAppointmentStatusFilter] = useState('all');
   const [appointmentSortKey, setAppointmentSortKey] = useState<AppointmentSortKey>('date');
@@ -2023,7 +2023,7 @@ export default function CariTakipApp() {
                 <div className="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-1">
                   {[
                     ['calendar', 'Takvim'],
-                    ['list', 'Liste'],
+                    ['card', 'Kart'],
                     ['table', 'Tablo'],
                     ['settings', 'Ayarlar'],
                   ].map(([view, label]) => (
@@ -2299,59 +2299,82 @@ export default function CariTakipApp() {
               </div>
             )}
 
-            {appointmentView === 'list' && (
-              <div className="grid gap-3">
+            {appointmentView === 'card' && (
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {filteredReservations.length === 0 ? (
-                  <div className="rounded-lg border border-slate-200 bg-white p-6 text-sm text-slate-500">Henüz randevu yok.</div>
+                  <div className="col-span-full rounded-lg border border-slate-200 bg-white p-6 text-sm text-slate-500">Henüz randevu yok.</div>
                 ) : filteredReservations.map((reservation) => (
                   <article
                     key={reservation.id}
-                    className={`rounded-lg border bg-white p-4 ${
+                    className={`flex flex-col rounded-xl border bg-white p-5 transition-shadow hover:shadow-md ${
                       PENDING_APPOINTMENT_STATUSES.has(reservation.status)
                         ? 'border-amber-300 shadow-sm shadow-amber-100'
-                        : 'border-slate-200'
+                        : 'border-slate-200 shadow-sm'
                     }`}
                   >
-                    <div className="grid gap-4 lg:grid-cols-[180px_1fr_180px]">
+                    <div className="mb-4 flex items-start justify-between gap-2 border-b border-slate-100 pb-4">
                       <div>
-                        <div className="text-sm font-bold text-slate-950">{reservation.date || '-'}</div>
-                        <div className="mt-1 text-2xl font-bold text-emerald-700">{reservation.startTime || '-'} </div>
-                        <div className="text-xs text-slate-500">{reservation.endTime ? `${reservation.startTime} - ${reservation.endTime}` : 'Saat seçilmedi'}</div>
-                      </div>
-                      <div>
-                        <div className="text-base font-semibold text-slate-950">{reservation.name}</div>
-                        <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600">
-                          <a href={`tel:${reservation.phone}`} className="hover:text-emerald-700">{reservation.phone}</a>
-                          {reservation.email && <a href={`mailto:${reservation.email}`} className="hover:text-emerald-700">{reservation.email}</a>}
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-500">{reservation.date || 'Tarih Yok'}</div>
+                        <div className="mt-1 flex items-baseline gap-2">
+                          <span className="text-2xl font-bold text-emerald-700">{reservation.startTime || '--:--'}</span>
+                          {reservation.endTime && <span className="text-sm font-semibold text-slate-400">- {reservation.endTime}</span>}
                         </div>
-                        <div className="mt-2 text-sm text-slate-700">{reservation.service || 'Hizmet belirtilmedi'}</div>
-                        {reservation.message && <p className="mt-2 whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm text-slate-600">{reservation.message}</p>}
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <span className={`rounded-full px-3 py-1 text-center text-xs font-bold uppercase tracking-wide ${appointmentStatusTone(reservation.status)}`}>
-                          {appointmentStatusLabel(reservation.status)}
-                        </span>
-                        <select
-                          value={reservation.status || 'pending'}
-                          disabled={saving}
-                          onChange={(event) => updateReservationStatus(reservation.id, event.target.value)}
-                          className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 outline-none hover:bg-slate-50 disabled:cursor-wait disabled:text-slate-300"
+                      <span className={`shrink-0 rounded-full px-2.5 py-1 text-center text-[10px] font-bold uppercase tracking-wide ${appointmentStatusTone(reservation.status)}`}>
+                        {appointmentStatusLabel(reservation.status)}
+                      </span>
+                    </div>
+
+                    <div className="flex-1 space-y-4">
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-950">{reservation.name}</h3>
+                        <div className="mt-1 flex flex-col gap-1 text-sm text-slate-600">
+                          <a href={`tel:${reservation.phone}`} className="flex items-center gap-1.5 hover:text-emerald-700">
+                            <Smartphone className="h-4 w-4" /> {reservation.phone}
+                          </a>
+                          {reservation.email && (
+                            <a href={`mailto:${reservation.email}`} className="flex items-center gap-1.5 truncate hover:text-emerald-700">
+                              <Mail className="h-4 w-4 shrink-0" /> <span className="truncate">{reservation.email}</span>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="rounded-lg bg-slate-50 p-3">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Hizmet</div>
+                        <div className="text-sm font-semibold text-slate-800">{reservation.service || 'Belirtilmedi'}</div>
+                      </div>
+
+                      {reservation.message && (
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Not / Mesaj</div>
+                          <p className="line-clamp-3 text-sm text-slate-600 italic">"{reservation.message}"</p>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                      <select
+                        value={reservation.status || 'pending'}
+                        disabled={saving}
+                        onChange={(event) => updateReservationStatus(reservation.id, event.target.value)}
+                        className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 outline-none hover:bg-slate-100 disabled:cursor-wait disabled:text-slate-300"
+                      >
+                        {APPOINTMENT_STATUSES.map((status) => (
+                          <option key={status.value} value={status.value}>{status.label}</option>
+                        ))}
+                      </select>
+                      
+                      {reservation.status === 'pending_confirmation' && reservation.email && (
+                        <button
+                          type="button"
+                          disabled={reminderSendingId === reservation.id}
+                          onClick={() => sendReservationReminder(reservation.id)}
+                          className="w-full rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800 hover:bg-amber-100 disabled:cursor-wait disabled:opacity-60 transition-colors"
                         >
-                          {APPOINTMENT_STATUSES.map((status) => (
-                            <option key={status.value} value={status.value}>{status.label}</option>
-                          ))}
-                        </select>
-                        {reservation.status === 'pending_confirmation' && reservation.email && (
-                          <button
-                            type="button"
-                            disabled={reminderSendingId === reservation.id}
-                            onClick={() => sendReservationReminder(reservation.id)}
-                            className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800 hover:bg-amber-100 disabled:cursor-wait disabled:opacity-60"
-                          >
-                            {reminderSendingId === reservation.id ? 'Gönderiliyor...' : 'Onay maili hatırlat'}
-                          </button>
-                        )}
-                      </div>
+                          {reminderSendingId === reservation.id ? 'Gönderiliyor...' : 'Onay maili hatırlat'}
+                        </button>
+                      )}
                     </div>
                   </article>
                 ))}
