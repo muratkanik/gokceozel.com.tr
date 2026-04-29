@@ -300,7 +300,7 @@ export default function CariTakipApp() {
   const [newServiceType, setNewServiceType] = useState('');
   const [newPaymentType, setNewPaymentType] = useState('');
   const [paymentFilter, setPaymentFilter] = useState<PaymentFilter>('all');
-  const [appointmentView, setAppointmentView] = useState<'calendar' | 'card' | 'table' | 'settings'>('calendar');
+  const [appointmentView, setAppointmentView] = useState<'calendar' | 'card' | 'table' | 'settings' | 'directory'>('calendar');
   const [appointmentQuery, setAppointmentQuery] = useState('');
   const [appointmentStatusFilter, setAppointmentStatusFilter] = useState('all');
   const [appointmentSortKey, setAppointmentSortKey] = useState<AppointmentSortKey>('date');
@@ -426,6 +426,17 @@ export default function CariTakipApp() {
 
     return Array.from(patients.values()).sort((a, b) => a.name.localeCompare(b.name, 'tr-TR'));
   }, [reservations]);
+
+  const filteredPatientDirectory = useMemo(() => {
+    const normalizedQuery = appointmentQuery.trim().toLocaleLowerCase('tr-TR');
+    if (!normalizedQuery) return patientDirectory;
+
+    return patientDirectory.filter(patient => 
+      patient.name.toLocaleLowerCase('tr-TR').includes(normalizedQuery) ||
+      (patient.phone && patient.phone.includes(normalizedQuery)) ||
+      (patient.email && patient.email.toLocaleLowerCase('tr-TR').includes(normalizedQuery))
+    );
+  }, [patientDirectory, appointmentQuery]);
 
   const reservationsByDate = useMemo(() => {
     const map = new Map<string, CariReservation[]>();
@@ -2025,6 +2036,7 @@ export default function CariTakipApp() {
                     ['calendar', 'Takvim'],
                     ['card', 'Kart'],
                     ['table', 'Tablo'],
+                    ['directory', 'Fihrist'],
                     ['settings', 'Ayarlar'],
                   ].map(([view, label]) => (
                     <button
@@ -2061,7 +2073,12 @@ export default function CariTakipApp() {
                   </label>
                   <label>
                     <span className="mb-1 block text-[11px] font-bold uppercase tracking-wide text-slate-500">Durum</span>
-                    <select value={appointmentStatusFilter} onChange={(event) => setAppointmentStatusFilter(event.target.value)} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500">
+                    <select 
+                      value={appointmentStatusFilter} 
+                      onChange={(event) => setAppointmentStatusFilter(event.target.value)} 
+                      disabled={appointmentView === 'directory'}
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500 disabled:opacity-50 disabled:bg-slate-100"
+                    >
                       <option value="all">Tüm durumlar</option>
                       {APPOINTMENT_STATUSES.map((status) => (
                         <option key={status.value} value={status.value}>{status.label}</option>
@@ -2070,7 +2087,12 @@ export default function CariTakipApp() {
                   </label>
                   <label>
                     <span className="mb-1 block text-[11px] font-bold uppercase tracking-wide text-slate-500">Sıralama</span>
-                    <select value={appointmentSortKey} onChange={(event) => setAppointmentSortKey(event.target.value as AppointmentSortKey)} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500">
+                    <select 
+                      value={appointmentSortKey} 
+                      onChange={(event) => setAppointmentSortKey(event.target.value as AppointmentSortKey)} 
+                      disabled={appointmentView === 'directory'}
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500 disabled:opacity-50 disabled:bg-slate-100"
+                    >
                       <option value="date">Tarih / saat</option>
                       <option value="name">Hasta adı</option>
                       <option value="status">Durum</option>
@@ -2490,6 +2512,57 @@ export default function CariTakipApp() {
                     </section>
                   </>
                 )}
+              </div>
+            )}
+
+            {appointmentView === 'directory' && (
+              <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden mt-4">
+                <div className="border-b border-slate-100 px-5 py-4 flex items-center justify-between">
+                  <div>
+                    <h2 className="text-lg font-bold text-slate-950">Hasta Fihristi</h2>
+                    <p className="text-sm text-slate-500">Benzersiz hastalar ve iletişim bilgileri ({filteredPatientDirectory.length} kişi)</p>
+                  </div>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[700px] text-left text-sm">
+                    <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                      <tr>
+                        <th className="px-5 py-3">Hasta Adı</th>
+                        <th className="px-5 py-3">Telefon</th>
+                        <th className="px-5 py-3">E-posta</th>
+                        <th className="px-5 py-3 text-center">Toplam Randevu</th>
+                        <th className="px-5 py-3 text-center">Son Randevu</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {filteredPatientDirectory.length === 0 ? (
+                        <tr>
+                          <td colSpan={5} className="px-5 py-8 text-center text-slate-500">Eşleşen hasta bulunamadı.</td>
+                        </tr>
+                      ) : (
+                        filteredPatientDirectory.map((patient, index) => (
+                          <tr key={index} className="hover:bg-slate-50 transition-colors">
+                            <td className="px-5 py-4 font-semibold text-slate-900">{patient.name}</td>
+                            <td className="px-5 py-4 text-slate-700">
+                              {patient.phone ? <a href={`tel:${patient.phone}`} className="hover:text-emerald-600">{patient.phone}</a> : '-'}
+                            </td>
+                            <td className="px-5 py-4 text-slate-700">
+                              {patient.email ? <a href={`mailto:${patient.email}`} className="hover:text-emerald-600">{patient.email}</a> : '-'}
+                            </td>
+                            <td className="px-5 py-4 text-center">
+                              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700">
+                                {patient.count}
+                              </span>
+                            </td>
+                            <td className="px-5 py-4 text-center font-medium text-slate-600">
+                              {patient.lastDate || '-'}
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             )}
           </section>
