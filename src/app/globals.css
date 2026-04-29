@@ -5,13 +5,23 @@
 
 @layer base {
   :root {
-    --gold: #b8893c;
-    --gold-soft: #d4b97a;
-    --ink: #17130f;
-    --paper: #f7f4ee;
-    --stone: #e8e1d4;
-    --muted: #6a5d4a;
-    --dark: #0f0d0b;
+    --gold: #b7894f;
+    --gold-soft: #e1c996;
+    --ink: #151714;
+    --paper: #fbf8f2;
+    --stone: #e7dfd1;
+    --muted: #6f675d;
+    --dark: #111714;
+    --clinic-green: #315a52;
+    --clinic-blue: #dbe7e7;
+    --blush: #c99f91;
+    --wine: #6f263d;
+    --sage: #8fa79a;
+    --color-bg-dark: var(--dark);
+    --color-text-primary: var(--paper);
+    --color-gold: var(--gold);
+    --font-sans: Inter, system-ui, sans-serif;
+    --font-serif: "Playfair Display", Georgia, serif;
   }
 }
 
@@ -23,27 +33,130 @@
 }
 
 body {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 9% 8%, rgba(183, 137, 79, 0.16), transparent 31rem),
+    radial-gradient(circle at 92% 18%, rgba(49, 90, 82, 0.14), transparent 28rem),
+    linear-gradient(180deg, #fbf8f2 0%, #f3ece1 44%, #edf3f1 100%);
+  color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   transition: filter 0.5s ease, background-color 0.5s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(184, 135, 70, 0.25);
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 /* Glassmorphism Utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(184, 135, 70, 0.14);
+  box-shadow: 0 24px 70px rgba(23, 32, 30, 0.08);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #d4af37 0%, #ffdf73 50%, #b8860b 100%);
+  background: linear-gradient(135deg, #f0dca5 0%, #b7894f 42%, #6f263d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+.clinic-shell {
+  background:
+    linear-gradient(135deg, rgba(251, 248, 242, 0.95), rgba(239, 245, 243, 0.94)),
+    url("/images/bg-grey.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.section-kicker {
+  color: var(--wine);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.soft-card {
+  background: rgba(255, 252, 246, 0.82);
+  border: 1px solid rgba(73, 104, 95, 0.14);
+  box-shadow: 0 18px 55px rgba(23, 32, 30, 0.08);
+}
+
+.dark-panel {
+  background:
+    radial-gradient(circle at top left, rgba(225, 201, 150, 0.16), transparent 26rem),
+    linear-gradient(135deg, #111714, #24362f 58%, #111714);
+  color: var(--paper);
+}
+
+.luxury-hero {
+  background:
+    linear-gradient(105deg, rgba(17, 23, 20, 0.92) 0%, rgba(17, 23, 20, 0.76) 43%, rgba(17, 23, 20, 0.18) 100%),
+    url("/images/gokcebanner.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+
+.hero-portrait-frame {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(225, 201, 150, 0.22)),
+    linear-gradient(180deg, #dbe7e7, #f7efe5);
+  box-shadow:
+    0 34px 110px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.hero-stat-card {
+  background: rgba(251, 248, 242, 0.9);
+  border: 1px solid rgba(225, 201, 150, 0.42);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.visual-band {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(111, 38, 61, 0.09), transparent 24rem),
+    radial-gradient(circle at 88% 22%, rgba(49, 90, 82, 0.11), transparent 26rem),
+    linear-gradient(180deg, rgba(255,255,255,0.66), rgba(244,239,231,0.92));
+}
+
+.service-signature-card {
+  box-shadow: 0 24px 76px rgba(21, 23, 20, 0.13);
+}
+
+.service-signature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(17, 23, 20, 0.1) 42%, rgba(17, 23, 20, 0.82) 100%),
+    linear-gradient(135deg, rgba(225, 201, 150, 0.2), transparent 45%);
+  pointer-events: none;
+}
+
+.image-polish {
+  filter: saturate(0.96) contrast(1.04);
+}
+
+.doctor-prestige {
+  background:
+    linear-gradient(120deg, rgba(17, 23, 20, 0.94), rgba(35, 54, 47, 0.9)),
+    url("/images/bg-grey-dark.jpg");
+  background-size: cover;
+  color: var(--paper);
 }
 
 /* Special Events CSS Classes */
@@ -79,7 +192,7 @@ body.theme-red-white {
   background: transparent;
   color: var(--color-gold);
   border: 1px solid var(--color-gold);
-  border-radius: 30px;
+  border-radius: 999px;
   font-family: var(--font-sans);
   font-weight: 500;
   letter-spacing: 1px;
@@ -95,5 +208,5 @@ body.theme-red-white {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-.nav-link { color: #fff; text-decoration: none; transition: color 0.3s; }
+.nav-link { color: inherit; text-decoration: none; transition: color 0.3s; }
 .nav-link:hover { color: var(--color-gold); }

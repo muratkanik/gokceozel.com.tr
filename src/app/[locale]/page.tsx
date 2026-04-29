@@ -1,7 +1,14 @@
 import prisma from "@/lib/prisma";
 import Image from "next/image";
+import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from "@/lib/service-display";
+import { OLD_SITE_MEDIA, OLD_SITE_SERVICE_IMAGES } from "@/lib/old-site-media";
 
 export const revalidate = 60;
+const localePath = (locale: string, path = '') => {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  if (locale === 'tr') return normalized === '/' ? '/' : normalized;
+  return normalized === '/' ? `/${locale}` : `/${locale}${normalized}`;
+};
 
 const HERO_DEFAULT = {
   tr: {
@@ -21,6 +28,42 @@ const HERO_DEFAULT = {
     cta1: 'Free Consultation',
     cta2: 'Explore Services',
     stat1: 'Years experience', stat2: 'Academic papers', stat3: 'h-index', stat4: 'Patient rating ★',
+  },
+  ar: {
+    badge: 'أنقرة · اختصاصية الأنف والأذن والحنجرة',
+    h1a: 'جمال طبيعي',
+    h1b: 'بلمسة فنية',
+    subtitle: 'حلول تجميلية شخصية من تجميل الأنف إلى Endolift والعيون وتحديد ملامح الوجه بخبرة أكاديمية تتجاوز 15 عاماً.',
+    cta1: 'استشارة أولية',
+    cta2: 'استكشاف الخدمات',
+    stat1: 'سنة خبرة', stat2: 'منشور علمي', stat3: 'مؤشر H', stat4: 'تقييم المرضى ★',
+  },
+  ru: {
+    badge: 'Анкара · ЛОР-специалист',
+    h1a: 'Естественная красота',
+    h1b: 'с врачебной точностью',
+    subtitle: 'Индивидуальные эстетические решения: ринопластика, Endolift, блефаропластика и контурирование лица.',
+    cta1: 'Консультация',
+    cta2: 'Услуги',
+    stat1: 'лет опыта', stat2: 'публикаций', stat3: 'h-index', stat4: 'оценка пациентов ★',
+  },
+  fr: {
+    badge: 'Ankara · Spécialiste ORL',
+    h1a: 'La beauté naturelle',
+    h1b: 'avec précision',
+    subtitle: 'Rhinoplastie, Endolift, blépharoplastie et traitements esthétiques personnalisés avec plus de 15 ans d’expérience académique.',
+    cta1: 'Consultation',
+    cta2: 'Voir les services',
+    stat1: 'ans d’expérience', stat2: 'publications', stat3: 'h-index', stat4: 'avis patients ★',
+  },
+  de: {
+    badge: 'Ankara · HNO-Spezialistin',
+    h1a: 'Natürliche Schönheit',
+    h1b: 'präzise geplant',
+    subtitle: 'Individuelle ästhetische Lösungen von Rhinoplastik bis Endolift, Blepharoplastik und Gesichtskonturierung.',
+    cta1: 'Beratung',
+    cta2: 'Leistungen ansehen',
+    stat1: 'Jahre Erfahrung', stat2: 'Publikationen', stat3: 'h-index', stat4: 'Patientenbewertung ★',
   }
 };
 
@@ -66,38 +109,184 @@ const HOME_STRINGS_DEFAULT = {
     cta_sub: 'In-person or online appointment at our clinic in Ümitköy, Ankara.',
     cta_cta1: 'Contact via WhatsApp',
     cta_cta2: '+90 534 209 69 35'
+  },
+  ar: {
+    services_tag: 'مجالات الخبرة',
+    services_title: 'خدماتنا',
+    services_sub: 'تخطيط فردي، تقنيات مبنية على الدليل، ومتابعة واضحة في خدمات تجميل الوجه والأنف.',
+    services_cta: 'اقرأ المزيد →',
+    doctor_tag: 'تعرفوا على الطبيبة',
+    doctor_bio1: 'تخرجت من كلية الطب الإنجليزية بجامعة إسطنبول جراح باشا، وأكملت تخصص الأنف والأذن والحنجرة في مستشفى دشكابي يلدريم بيازيد.',
+    doctor_bio2: 'حصلت على لقب أستاذ مشارك عام 2015 وأستاذة عام 2021، وهي عضو في جمعية جراحة تجميل الوجه التركية والأوروبية.',
+    doctor_s1: 'منشورات وطنية ودولية',
+    doctor_s2: 'مؤشر الاقتباس الأكاديمي',
+    doctor_s3: 'عضوية مجلس الإدارة',
+    doctor_s4: 'مجلس استشاري دولي',
+    cta_h2a: 'خططوا',
+    cta_h2b: 'لاستشارتكم',
+    cta_h2c: 'الشخصية',
+    cta_sub: 'استشارة حضورية أو عبر الإنترنت في عيادتنا في أوميتكوي، أنقرة.',
+    cta_cta1: 'تواصل عبر واتساب',
+    cta_cta2: '+90 534 209 69 35'
+  },
+  ru: {
+    services_tag: 'Направления',
+    services_title: 'Услуги клиники',
+    services_sub: 'Персональное планирование, доказательные методики и понятное сопровождение.',
+    services_cta: 'Подробнее →',
+    doctor_tag: 'О враче',
+    doctor_bio1: 'Выпускница англоязычного медицинского факультета Стамбульского университета Cerrahpaşa, специализация ЛОР в Dışkapı Yıldırım Beyazıt.',
+    doctor_bio2: 'Доцент с 2015 года, профессор с 2021 года. Член турецких и европейских обществ лицевой пластической хирургии.',
+    doctor_s1: 'национальных и международных публикаций',
+    doctor_s2: 'академический индекс цитирования',
+    doctor_s3: 'член правления',
+    doctor_s4: 'международный совет',
+    cta_h2a: 'Запланируйте',
+    cta_h2b: 'персональную',
+    cta_h2c: 'консультацию',
+    cta_sub: 'Очная или онлайн-консультация в клинике в Ümitköy, Анкара.',
+    cta_cta1: 'Связаться в WhatsApp',
+    cta_cta2: '+90 534 209 69 35'
+  },
+  fr: {
+    services_tag: 'Expertises',
+    services_title: 'Nos Services',
+    services_sub: 'Planification personnalisée, techniques fondées sur les preuves et suivi transparent.',
+    services_cta: 'Découvrir →',
+    doctor_tag: 'Rencontrer le médecin',
+    doctor_bio1: 'Diplômée de la Faculté de Médecine anglaise Cerrahpaşa de l’Université d’Istanbul, spécialisée en ORL à Dışkapı Yıldırım Beyazıt.',
+    doctor_bio2: 'Maître de conférences en 2015, Professeure en 2021. Membre de sociétés turques et européennes de chirurgie plastique faciale.',
+    doctor_s1: 'publications nationales et internationales',
+    doctor_s2: 'indice de citation académique',
+    doctor_s3: 'membre du conseil',
+    doctor_s4: 'conseil international',
+    cta_h2a: 'Planifiez',
+    cta_h2b: 'votre consultation',
+    cta_h2c: 'personnalisée',
+    cta_sub: 'Consultation en clinique ou en ligne à Ümitköy, Ankara.',
+    cta_cta1: 'Contacter via WhatsApp',
+    cta_cta2: '+90 534 209 69 35'
+  },
+  de: {
+    services_tag: 'Schwerpunkte',
+    services_title: 'Unsere Leistungen',
+    services_sub: 'Individuelle Planung, evidenzbasierte Methoden und transparente Nachbetreuung.',
+    services_cta: 'Entdecken →',
+    doctor_tag: 'Die Ärztin',
+    doctor_bio1: 'Absolventin der englischsprachigen medizinischen Fakultät Cerrahpaşa der Universität Istanbul, HNO-Facharztausbildung am Dışkapı Yıldırım Beyazıt.',
+    doctor_bio2: 'Dozentin seit 2015, Professorin seit 2021. Mitglied türkischer und europäischer Fachgesellschaften für Gesichtschirurgie.',
+    doctor_s1: 'nationale und internationale Publikationen',
+    doctor_s2: 'akademischer Zitationsindex',
+    doctor_s3: 'Vorstandsmitglied',
+    doctor_s4: 'internationaler Beirat',
+    cta_h2a: 'Planen Sie',
+    cta_h2b: 'Ihre persönliche',
+    cta_h2c: 'Beratung',
+    cta_sub: 'Persönlich oder online in unserer Klinik in Ümitköy, Ankara.',
+    cta_cta1: 'WhatsApp Kontakt',
+    cta_cta2: '+90 534 209 69 35'
   }
 };
+
+const SERVICE_FALLBACK = [
+  { slug: 'rinoplasti', title: 'Rinoplasti', description: 'Burun estetiğinde doğal görünüm, nefes fonksiyonu ve yüz oranlarını birlikte değerlendiren kişiye özel planlama.', image: OLD_SITE_SERVICE_IMAGES.rinoplasti },
+  { slug: 'endolift', title: 'Endolift Lazer', description: 'Yüz ve gıdı bölgesinde kesi gerektirmeyen lazer destekli sıkılaşma ve kontürleme yaklaşımı.', image: OLD_SITE_SERVICE_IMAGES.endolift },
+  { slug: 'gz-kapa-estetii', title: 'Göz Kapağı Estetiği', description: 'Üst ve alt göz kapağı bölgesinde daha dinlenmiş, açık ve doğal bir ifade hedefleyen uygulamalar.', image: OLD_SITE_SERVICE_IMAGES['gz-kapa-estetii'] },
+  { slug: 'botoks', title: 'Botoks', description: 'Mimik çizgilerini yumuşatmaya ve yüz ifadesini korumaya yönelik medikal estetik uygulamalar.', image: OLD_SITE_SERVICE_IMAGES.botoks },
+  { slug: 'dolgu', title: 'Dolgu Uygulamaları', description: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.', image: OLD_SITE_SERVICE_IMAGES.dolgu },
+  { slug: 'ip-aski', title: 'İp Askılama', description: 'Yüz ovalini desteklemek ve hafif sarkmaları toparlamak için ameliyatsız askılama seçenekleri.', image: OLD_SITE_SERVICE_IMAGES['ip-aski'] },
+];
+
+const GALLERY_COPY = {
+  tr: {
+    tag: 'Klinikten Kareler',
+    title: 'Uygulamalar, teknoloji ve doğal sonuç odağı',
+    text: 'Eski siteden gelen görsel arşiv ve yeni tasarım dili birlikte kullanıldı; ziyaretçi hem doktoru hem de uygulama alanlarını ilk bakışta hisseder.',
+  },
+  en: {
+    tag: 'Visual Journey',
+    title: 'Treatments, technology and a natural-result focus',
+    text: 'The visual archive from the previous site is carried into the new experience so visitors immediately see the doctor, treatments and clinical approach.',
+  },
+  ar: {
+    tag: 'من العيادة',
+    title: 'العلاجات والتقنيات والنتائج الطبيعية',
+    text: 'تم توظيف أرشيف الصور القديم ضمن تجربة حديثة تعكس الطبيبة والخدمات ونهج العيادة من النظرة الأولى.',
+  },
+  ru: {
+    tag: 'Визуальная история',
+    title: 'Процедуры, технологии и естественный результат',
+    text: 'Визуальный архив старого сайта перенесён в новый дизайн, чтобы посетитель сразу видел врача, услуги и подход клиники.',
+  },
+  fr: {
+    tag: 'Parcours Visuel',
+    title: 'Soins, technologie et résultats naturels',
+    text: "Les visuels de l'ancien site sont intégrés à la nouvelle expérience pour montrer le médecin, les traitements et l'approche clinique.",
+  },
+  de: {
+    tag: 'Visuelle Eindrücke',
+    title: 'Behandlungen, Technologie und natürliche Ergebnisse',
+    text: 'Das Bildarchiv der alten Website wird in die neue Gestaltung übernommen und zeigt Ärztin, Leistungen und Klinikansatz auf den ersten Blick.',
+  },
+};
+
+const HOME_GALLERY_EXCLUDED_IMAGES = new Set([
+  '/old-site/gallery/gokce-banner.jpg',
+  '/old-site/gallery/yuz-estetigi-uygulama.png',
+  '/old-site/blog/blog-img-1.jpg',
+  '/old-site/blog/blog-img-2.jpg',
+  '/old-site/blog/blog-img-3.jpg',
+  '/old-site/blog/blog-img-4.jpg',
+  '/old-site/blog/blog-featured-1.jpg',
+  '/old-site/blog/blog-featured-2.jpg',
+  '/old-site/blog/blog-featured-3.jpg',
+  '/old-site/services/dolgu.jpg',
+  '/images/gokceozel.png',
+]);
+
+const GALLERY_IMAGES = [
+  ...OLD_SITE_MEDIA
+    .filter((item) => !HOME_GALLERY_EXCLUDED_IMAGES.has(item.url))
+    .map((item) => ({ src: item.url, alt: item.name })),
+];
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
-  // Fetch Services
-  const services = await prisma.service.findMany({
-    include: {
-      page: {
-        include: {
-          blocks: {
-            where: { componentType: 'text_block' },
-            include: { translations: { where: { locale } } },
+  let services: any[] = [];
+  try {
+    services = await prisma.service.findMany({
+      include: {
+        page: {
+          include: {
+            blocks: {
+              where: { componentType: 'text_block' },
+              include: { translations: { where: { locale } } },
+            },
+            seoMeta: true,
           },
-          seoMeta: true,
         },
       },
-    },
-    take: 6,
-    orderBy: { sortOrder: 'asc' },
-  });
+      take: 6,
+      orderBy: { sortOrder: 'asc' },
+    });
+  } catch (e) {
+    console.error('Home services fetch failed', e);
+  }
 
-  // Fetch Hero and Home Strings from DB
-  const blocks = await prisma.contentBlock.findMany({
-    where: {
-      componentType: { in: ['hero', 'home_page_strings'] }
-    },
-    include: {
-      translations: { where: { locale } }
-    }
-  });
+  let blocks: any[] = [];
+  try {
+    blocks = await prisma.contentBlock.findMany({
+      where: {
+        componentType: { in: ['hero', 'home_page_strings'] }
+      },
+      include: {
+        translations: { where: { locale } }
+      }
+    });
+  } catch (e) {
+    console.error('Home strings fetch failed', e);
+  }
 
   let heroData = null;
   let homeStringsData = null;
@@ -125,87 +314,102 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   });
 
   // Fallback to static objects if DB is empty for this locale
-  const h = heroData || HERO_DEFAULT[locale as keyof typeof HERO_DEFAULT] || HERO_DEFAULT.tr;
-  const s = homeStringsData || HOME_STRINGS_DEFAULT[locale as keyof typeof HOME_STRINGS_DEFAULT] || HOME_STRINGS_DEFAULT.tr;
+  const h = (heroData || HERO_DEFAULT[locale as keyof typeof HERO_DEFAULT] || HERO_DEFAULT.tr) as Record<string, string>;
+  const s = (homeStringsData || HOME_STRINGS_DEFAULT[locale as keyof typeof HOME_STRINGS_DEFAULT] || HOME_STRINGS_DEFAULT.tr) as Record<string, string>;
+  const gallery = GALLERY_COPY[locale as keyof typeof GALLERY_COPY] || GALLERY_COPY.tr;
+  const displayServices = (services.length ? services : SERVICE_FALLBACK)
+    .filter((service) => {
+      const rawSlug = service.page?.slug || service.slug || '';
+      const seoTrans = service.page?.seoMeta?.find((sm: { locale: string }) => sm.locale === locale)
+                    || service.page?.seoMeta?.find((sm: { locale: string }) => sm.locale === 'tr');
+
+      return hasDisplayableServiceText(rawSlug, [
+        seoTrans?.metaTitle,
+        seoTrans?.metaDescription,
+        service.title,
+        service.page?.titleInternal,
+        service.description,
+      ]);
+    })
+    .slice(0, 6);
   
-  const contactHref = locale === 'tr' ? '/iletisim' : `/${locale}/iletisim`;
-  const servicesHref = locale === 'tr' ? '/hizmetler' : `/${locale}/hizmetler`;
+  const contactHref = localePath(locale, '/iletisim');
+  const servicesHref = localePath(locale, '/hizmetler');
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[88vh] grid place-items-center overflow-hidden pt-[120px] pb-[60px]">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_70%_10%,rgba(184,137,60,0.22),transparent_55%),linear-gradient(180deg,#0f0d0b_0%,#1a1410_60%,#0f0d0b_100%)] pointer-events-none" />
-        <div className="absolute w-[560px] h-[560px] rounded-full blur-[80px] opacity-[0.18] -right-[120px] -top-[80px] bg-[radial-gradient(circle,#b8893c,transparent_60%)] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 relative grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-          <div>
-            <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-gold/35 rounded-full text-xs text-gold-soft tracking-[0.12em] uppercase">
-              ● {h.badge || 'Ankara · KBB Uzmanı'}
+      <section className="luxury-hero relative overflow-hidden min-h-[calc(82svh-80px)] flex items-center">
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8f2] to-transparent" />
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-16 lg:py-24 w-full">
+          <div className="text-white max-w-[880px]">
+            <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-xs text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
+              {h.badge || 'Ankara · KBB Uzmanı'}
             </span>
-            <h1 className="font-serif text-[clamp(44px,6vw,78px)] leading-[1.05] my-5">
+            <h1 className="font-serif text-[clamp(48px,7vw,96px)] leading-[0.96] my-7 max-w-[820px]">
               {h.h1a || h.title || 'Doğal güzelliğin'}{' '}
-              <span className="bg-gradient-to-br from-[#f0d48e] via-gold to-[#8f6b2e] bg-clip-text text-transparent">{h.h1b || ''}</span>
+              <span className="gold-gradient-text">{h.h1b || ''}</span>
             </h1>
-            <p className="text-[19px] text-[#d9d1bf] max-w-[560px] mb-8">{h.subtitle || h.description || ''}</p>
-            <div className="flex flex-wrap gap-3.5">
-              <a href={h.buttonLink || contactHref} className="bg-gradient-to-br from-gold-soft to-[#8f6b2e] text-[#1a1410] px-7 py-4 rounded-full font-bold text-sm tracking-wide shadow-[0_10px_40px_-10px_rgba(184,137,60,0.6)] hover:scale-105 transition-transform">
+            <p className="text-[18px] lg:text-[21px] text-[#efe8dc] max-w-[650px] mb-9 leading-relaxed">{h.subtitle || h.description || ''}</p>
+            <div className="flex flex-wrap gap-3">
+              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-7 py-4 rounded-full font-bold text-sm tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
                 {h.cta1 || h.buttonText || 'Ücretsiz Ön Görüşme'}
               </a>
-              <a href={servicesHref} className="border border-gold/50 text-paper px-7 py-[15px] rounded-full font-semibold text-sm hover:bg-gold/10 transition-colors">
+              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-7 py-[15px] rounded-full font-semibold text-sm hover:bg-white/20 transition-colors backdrop-blur-md">
                 {h.cta2 || 'Hizmetleri İncele'}
               </a>
             </div>
-            <div className="flex gap-8 mt-11 pt-7 border-t border-gold/20">
-              <div className="text-xs text-muted"><strong className="block font-serif text-gold-soft text-[28px] font-semibold tracking-tight">15+</strong>{h.stat1 || 'Yıl deneyim'}</div>
-              <div className="text-xs text-muted"><strong className="block font-serif text-gold-soft text-[28px] font-semibold tracking-tight">100+</strong>{h.stat2 || 'Bilimsel yayın'}</div>
-              <div className="text-xs text-muted"><strong className="block font-serif text-gold-soft text-[28px] font-semibold tracking-tight">H-12</strong>{h.stat3 || 'Akademik indeks'}</div>
-              <div className="text-xs text-muted"><strong className="block font-serif text-gold-soft text-[28px] font-semibold tracking-tight">4.9</strong>{h.stat4 || 'Hasta puanı ★'}</div>
-            </div>
-          </div>
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] border border-gold/20">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#2a2420] to-[#17130f]">
-              <Image src={h.image || "/images/drgo_21.jpg"} alt="Prof. Dr. Gökçe Özel" fill className="absolute inset-0 object-cover object-[center_top] opacity-90" priority />
-            </div>
-            <div className="absolute bottom-5 left-5 right-5 flex gap-2.5 flex-wrap">
-              <span className="bg-dark/80 backdrop-blur-md border border-gold/30 px-3.5 py-2 rounded-full text-[11px] text-gold-soft">TYPCD Yönetim Kurulu</span>
-              <span className="bg-dark/80 backdrop-blur-md border border-gold/30 px-3.5 py-2 rounded-full text-[11px] text-gold-soft">CMAC Uluslararası</span>
-              <span className="bg-dark/80 backdrop-blur-md border border-gold/30 px-3.5 py-2 rounded-full text-[11px] text-gold-soft">Prof. · 2021</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-11 max-w-[720px]">
+              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-2 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">100+</strong><span className="block mt-2 leading-tight">{h.stat2 || 'Bilimsel yayın'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">H-12</strong><span className="block mt-2 leading-tight">{h.stat3 || 'Akademik indeks'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">4.9</strong><span className="block mt-2 leading-tight">{h.stat4 || 'Hasta puanı ★'}</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-[#14110e] py-[100px] relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="text-xs tracking-[0.2em] uppercase text-gold block mb-3.5">{s.services_tag}</span>
-            <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.1]">{s.services_title}</h2>
-            <p className="text-muted max-w-[640px] mx-auto mt-4">{s.services_sub}</p>
+      <section className="visual-band py-20 lg:py-28 border-y border-[#315a52]/10">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <span className="section-kicker mb-3.5">{s.services_tag}</span>
+              <h2 className="font-serif text-[clamp(36px,4.4vw,62px)] leading-[1.02] text-[#151714]">{s.services_title}</h2>
+            </div>
+            <p className="text-[#5d6964] max-w-[660px] text-[16px] lg:text-[17px] leading-relaxed">{s.services_sub}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.slice(0, 6).map((service) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
+            {displayServices.map((service) => {
               const seoTrans = service.page?.seoMeta?.find((sm: { locale: string }) => sm.locale === locale)
                             || service.page?.seoMeta?.find((sm: { locale: string }) => sm.locale === 'tr');
-              const title = seoTrans?.metaTitle || service.page?.slug || '';
-              const desc = seoTrans?.metaDescription || '';
-              const slug = service.page?.slug || '';
-              const href = locale === 'tr' ? `/hizmetler/${slug}` : `/${locale}/hizmetler/${slug}`;
-              const bgImage = seoTrans?.ogImage || '/images/logo.png';
+              const rawSlug = service.page?.slug || service.slug || '';
+              const slug = canonicalServiceSlug(rawSlug, [
+                seoTrans?.metaTitle,
+                service.title,
+                service.page?.titleInternal,
+              ]);
+              const title = serviceTitleFor(slug, locale, [
+                seoTrans?.metaTitle,
+                service.title,
+                service.page?.titleInternal,
+              ]);
+              const desc = serviceDescriptionFor(slug, locale, [
+                seoTrans?.metaDescription,
+                service.description,
+              ]);
+              const href = localePath(locale, `/hizmetler/${slug}`);
+              const bgImage = OLD_SITE_SERVICE_IMAGES[slug] || seoTrans?.ogImage || service.image || '/images/logo.png';
 
               return (
-                <div key={service.id} className="group relative border border-gold/15 rounded-[18px] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 overflow-hidden min-h-[280px] flex flex-col justify-end z-10">
-                  <div className="absolute inset-0 z-0 bg-[#1a1410]">
-                    <Image src={bgImage} alt={title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#14110e]/90 to-[#14110e]/40"></div>
+                <div key={service.id || slug} className="service-signature-card group relative rounded-[1.55rem] overflow-hidden min-h-[390px] flex flex-col justify-end border border-white/80 bg-white transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute inset-0 z-0 bg-[#dbe7e7]">
+                    <Image src={bgImage} alt={title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover image-polish group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold/30 to-[#8f6b2e]/10 grid place-items-center text-gold-soft text-[22px] mb-5 backdrop-blur-sm border border-gold/20 shadow-lg">◈</div>
-                    <h3 className="font-serif text-[20px] mb-2.5 leading-snug">{title}</h3>
-                    {desc && <p className="text-[#a89d89] text-sm mb-4 line-clamp-3">{desc}</p>}
-                    <a href={href} className="text-gold-soft text-[13px] font-semibold tracking-wider group-hover:text-gold transition-colors mt-2 inline-block">
+                  <div className="relative z-10 p-7 text-white">
+                    <div className="w-12 h-12 rounded-full bg-[#fbf8f2]/90 grid place-items-center text-[#6f263d] text-[20px] mb-5 backdrop-blur-sm shadow-lg">✦</div>
+                    <h3 className="font-serif text-[25px] mb-2.5 leading-snug">{title}</h3>
+                    {desc && <p className="text-[#dbe5e1] text-sm mb-4 line-clamp-3 leading-relaxed">{desc}</p>}
+                    <a href={href} className="text-[#d7bb7b] text-[13px] font-bold tracking-wider transition-colors mt-2 inline-block">
                       {s.services_cta}
                     </a>
                   </div>
@@ -216,53 +420,96 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      {/* Doctor */}
-      <section className="bg-gradient-to-b from-[#0f0d0b] to-[#1a1410] py-[100px]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-20 items-center">
-          <div className="aspect-[4/5] rounded-[20px] bg-gradient-to-br from-[#3d2f22] to-[#17130f] border border-gold/15 overflow-hidden relative">
-            <Image src="/images/gokcebanner.jpg" alt="Prof. Dr. Gökçe Özel" fill className="absolute inset-0 object-cover object-[center_top] opacity-80" />
+      <section className="py-20 lg:py-28 bg-[#111714] text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr] gap-10 lg:gap-14 items-center">
+          <div className="relative z-10">
+            <span className="section-kicker mb-4 !text-[#e1c996]">{gallery.tag}</span>
+            <h2 className="font-serif text-[clamp(36px,4.5vw,64px)] leading-[1.02] mb-5">{gallery.title}</h2>
+            <p className="text-[#cbd8d3] text-[16px] lg:text-[17px] leading-relaxed">{gallery.text}</p>
+            <div className="mt-8 grid grid-cols-2 gap-3 max-w-[420px]">
+              <div className="border border-white/10 bg-white/10 rounded-2xl p-4">
+                <strong className="font-serif text-[#e1c996] text-3xl block">360°</strong>
+                <span className="text-xs text-[#cbd8d3]">Yüz oranı planlama</span>
+              </div>
+              <div className="border border-white/10 bg-white/10 rounded-2xl p-4">
+                <strong className="font-serif text-[#e1c996] text-3xl block">Doğal</strong>
+                <span className="text-xs text-[#cbd8d3]">Sonuç odaklı yaklaşım</span>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5">
+            {GALLERY_IMAGES.map((image, index) => (
+              <div
+                key={image.src}
+                className={`relative overflow-hidden rounded-[1.35rem] bg-white/10 border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.28)] ${index === 0 ? 'md:col-span-2 md:row-span-2 aspect-[4/5] md:aspect-auto' : index === 4 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-square'}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 22vw"
+                  className="object-cover image-polish transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="doctor-prestige py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 grid grid-cols-1 lg:grid-cols-[0.86fr_1.14fr] gap-12 lg:gap-20 items-center">
+          <div className="relative">
+            <div className="absolute -inset-4 rounded-[2.2rem] border border-[#e1c996]/20" />
+            <div className="aspect-[4/5] rounded-[1.8rem] bg-[#dbe7e7] border border-white/15 overflow-hidden relative shadow-[0_30px_90px_rgba(0,0,0,0.32)]">
+              <Image src="/images/gokceozel.png" alt="Prof. Dr. Gökçe Özel" fill className="absolute inset-0 object-cover object-[center_top] image-polish" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#111714]/80 to-transparent" />
+            </div>
           </div>
           <div>
-            <span className="text-xs tracking-[0.2em] uppercase text-gold block mb-5">{s.doctor_tag}</span>
-            <h2 className="font-serif text-[44px] leading-[1.1] mb-5">Prof. Dr. Gökçe Özel</h2>
-            <p className="text-[#c9c0ae] text-[16px] mb-4">{s.doctor_bio1}</p>
-            <p className="text-[#c9c0ae] text-[16px] mb-4">{s.doctor_bio2}</p>
+            <span className="section-kicker mb-5 !text-[#e1c996]">{s.doctor_tag}</span>
+            <h2 className="font-serif text-[clamp(36px,4.5vw,66px)] leading-[1.03] mb-5 text-white">Prof. Dr. Gökçe Özel</h2>
+            <p className="text-[#d6ded9] text-[16px] lg:text-[17px] leading-relaxed mb-4">{s.doctor_bio1}</p>
+            <p className="text-[#d6ded9] text-[16px] lg:text-[17px] leading-relaxed mb-4">{s.doctor_bio2}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-7">
-              <div className="p-[18px] border border-gold/15 rounded-xl bg-[#0f0d0b]/50">
-                <strong className="block font-serif text-gold-soft text-[22px]">100+</strong>
-                <span className="text-muted text-[12px]">{s.doctor_s1}</span>
+              <div className="border border-white/10 bg-white/10 p-[18px] rounded-2xl backdrop-blur-sm">
+                <strong className="block font-serif text-[#e1c996] text-[28px]">100+</strong>
+                <span className="text-[#cbd8d3] text-[12px]">{s.doctor_s1}</span>
               </div>
-              <div className="p-[18px] border border-gold/15 rounded-xl bg-[#0f0d0b]/50">
-                <strong className="block font-serif text-gold-soft text-[22px]">H-12</strong>
-                <span className="text-muted text-[12px]">{s.doctor_s2}</span>
+              <div className="border border-white/10 bg-white/10 p-[18px] rounded-2xl backdrop-blur-sm">
+                <strong className="block font-serif text-[#e1c996] text-[28px]">H-12</strong>
+                <span className="text-[#cbd8d3] text-[12px]">{s.doctor_s2}</span>
               </div>
-              <div className="p-[18px] border border-gold/15 rounded-xl bg-[#0f0d0b]/50">
-                <strong className="block font-serif text-gold-soft text-[22px]">TYPCD</strong>
-                <span className="text-muted text-[12px]">{s.doctor_s3}</span>
+              <div className="border border-white/10 bg-white/10 p-[18px] rounded-2xl backdrop-blur-sm">
+                <strong className="block font-serif text-[#e1c996] text-[28px]">TYPCD</strong>
+                <span className="text-[#cbd8d3] text-[12px]">{s.doctor_s3}</span>
               </div>
-              <div className="p-[18px] border border-gold/15 rounded-xl bg-[#0f0d0b]/50">
-                <strong className="block font-serif text-gold-soft text-[22px]">CMAC</strong>
-                <span className="text-muted text-[12px]">{s.doctor_s4}</span>
+              <div className="border border-white/10 bg-white/10 p-[18px] rounded-2xl backdrop-blur-sm">
+                <strong className="block font-serif text-[#e1c996] text-[28px]">CMAC</strong>
+                <span className="text-[#cbd8d3] text-[12px]">{s.doctor_s4}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-gradient-to-br from-gold/10 to-[#8f6b2e]/5 border-y border-gold/20 py-20">
-        <div className="max-w-[720px] mx-auto px-6 text-center">
-          <h2 className="font-serif text-[42px] mb-4">
+      <section className="relative overflow-hidden py-20 lg:py-24">
+        <div className="absolute inset-0">
+          <Image src="/uploads/endolift_lazer.png" alt="" fill className="object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fbf8f2] via-[#fbf8f2]/95 to-[#edf3f1]/90" />
+        </div>
+        <div className="relative max-w-[860px] mx-auto px-6 text-center">
+          <span className="section-kicker mb-4">Randevu</span>
+          <h2 className="font-serif text-[clamp(38px,5vw,66px)] leading-[1.03] mb-5 text-[#151714]">
             {s.cta_h2a}{' '}
-            <span className="bg-gradient-to-br from-[#f0d48e] via-gold to-[#8f6b2e] bg-clip-text text-transparent">{s.cta_h2b}</span>
+            <span className="gold-gradient-text">{s.cta_h2b}</span>
             {' '}{s.cta_h2c}
           </h2>
-          <p className="text-[#c9c0ae] mb-7">{s.cta_sub}</p>
+          <p className="text-[#5d6964] mb-8 text-[17px] leading-relaxed max-w-[680px] mx-auto">{s.cta_sub}</p>
           <div className="flex flex-wrap gap-3.5 justify-center">
-            <a href="https://wa.me/905342096935" className="bg-gradient-to-br from-gold-soft to-[#8f6b2e] text-[#1a1410] px-8 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform">
+            <a href="https://wa.me/905342096935" className="bg-[#151714] text-white px-8 py-4 rounded-full font-bold shadow-[0_18px_42px_rgba(21,23,20,0.18)] hover:bg-[#315a52] transition-colors">
               {s.cta_cta1}
             </a>
-            <a href="tel:+905342096935" className="border border-gold/50 text-paper px-8 py-[15px] rounded-full hover:bg-gold/10 transition-colors">
+            <a href="tel:+905342096935" className="border border-[#315a52]/25 bg-white/55 text-[#151714] px-8 py-[15px] rounded-full hover:bg-white transition-colors">
               {s.cta_cta2}
             </a>
           </div>

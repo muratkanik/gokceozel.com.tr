@@ -2,6 +2,11 @@ import prisma from '@/lib/prisma';
 import type { Metadata } from 'next';
 
 const baseUrl = 'https://gokceozel.com.tr';
+const localePath = (locale: string, path = '') => {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  if (locale === 'tr') return normalized === '/' ? '/' : normalized;
+  return normalized === '/' ? `/${locale}` : `/${locale}${normalized}`;
+};
 
 const titles: Record<string, string> = {
   tr: 'Hasta Yorumları | Prof. Dr. Gökçe Özel',
@@ -108,53 +113,50 @@ export default async function HastaYorumlariPage({ params }: { params: Promise<{
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }} />
 
-      <main className="min-h-screen bg-[#0a0a0a] text-white" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-        {/* Header */}
-        <section className="py-24 px-4 text-center border-b border-[#2a2a2a]">
-          <p className="text-[#b8893c] text-xs tracking-[.18em] uppercase mb-4 font-semibold">
+      <main className="min-h-screen" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+        <section className="py-20 lg:py-24 px-5 text-center border-b border-[#49685f]/10">
+          <p className="section-kicker mb-4">
             {locale === 'tr' ? 'Gerçek Hastalar · Gerçek Deneyimler' : 'Real Patients · Real Experiences'}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-white mb-5">{heading[locale] || heading.tr}</h1>
+          <h1 className="font-serif text-4xl md:text-6xl text-[#17201e] mb-5">{heading[locale] || heading.tr}</h1>
           {testimonials.length > 0 && (
             <div className="flex items-center justify-center gap-3 mt-4">
               <Stars rating={Math.round(Number(avgRating))} />
               <span className="text-[#b8893c] font-bold text-xl">{avgRating}</span>
-              <span className="text-[#9a8f7c] text-sm">/ 5 · {testimonials.length} {locale === 'tr' ? 'yorum' : 'reviews'}</span>
+              <span className="text-[#61706b] text-sm">/ 5 · {testimonials.length} {locale === 'tr' ? 'yorum' : 'reviews'}</span>
             </div>
           )}
         </section>
 
-        {/* Reviews Grid */}
         <section className="max-w-5xl mx-auto px-4 py-16">
           {testimonials.length === 0 ? (
-            <p className="text-center text-[#9a8f7c]">{emptyMsg[locale] || emptyMsg.tr}</p>
+            <p className="text-center text-[#61706b]">{emptyMsg[locale] || emptyMsg.tr}</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map(t => (
                 <article
                   key={t.id}
-                  className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-7 hover:border-[#b8893c]/30 transition-colors"
+                  className="soft-card rounded-[1.35rem] p-7 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div>
-                      <p className="font-semibold text-[#e9e4d8]">{t.author}</p>
-                      {t.source && <p className="text-xs text-[#9a8f7c] mt-0.5">{t.source}</p>}
+                      <p className="font-semibold text-[#17201e]">{t.author}</p>
+                      {t.source && <p className="text-xs text-[#61706b] mt-0.5">{t.source}</p>}
                     </div>
                     <Stars rating={t.rating} />
                   </div>
-                  <p className="text-[#9a8f7c] leading-relaxed text-sm">&ldquo;{t.text}&rdquo;</p>
-                  <p className="text-[#3a3028] text-xs mt-4">{t.createdAt.toLocaleDateString(locale === 'tr' ? 'tr-TR' : locale)}</p>
+                  <p className="text-[#61706b] leading-relaxed text-sm">&ldquo;{t.text}&rdquo;</p>
+                  <p className="text-[#9a9084] text-xs mt-4">{t.createdAt.toLocaleDateString(locale === 'tr' ? 'tr-TR' : locale)}</p>
                 </article>
               ))}
             </div>
           )}
         </section>
 
-        {/* CTA */}
-        <section className="text-center py-12 px-4 border-t border-[#2a2a2a]">
+        <section className="text-center py-12 px-4 border-t border-[#49685f]/10">
           <a
-            href={`/${locale}/iletisim`}
-            className="inline-block bg-gradient-to-r from-[#d4b97a] to-[#8f6b2e] text-[#1a1410] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:opacity-90 transition-opacity"
+            href={localePath(locale, '/iletisim')}
+            className="inline-block bg-[#17201e] text-white px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-[#49685f] transition-colors"
           >
             {locale === 'tr' ? 'Randevu Al' : locale === 'en' ? 'Book Appointment' : locale === 'ar' ? 'احجز موعداً' : locale === 'ru' ? 'Записаться' : 'Randevu Al'}
           </a>

@@ -37,7 +37,7 @@ const categoryLabels: Record<string, Record<string, string>> = {
 export default async function OnceSonraPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
-  let cases: { id: string; beforeUrl: string; afterUrl: string; caption: string | null; serviceId: string }[] = [];
+  let cases: { id: string; beforeUrl: string; afterUrl: string; caption: string | null; serviceId: string | null }[] = [];
   try {
     cases = await prisma.beforeAfter.findMany({
       where: { isPublic: true, consent: true },

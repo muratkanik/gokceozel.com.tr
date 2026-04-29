@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import MediaBrowser from '@/components/admin/MediaBrowser';
 
 type BeforeAfterCase = {
   id: string;
@@ -49,7 +50,7 @@ export default function OnceSonraAdmin() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.beforeUrl || !form.afterUrl) {
-      setError('Önce ve sonra URL zorunludur');
+      setError('Önce ve sonra görsellerini galeriden seçin');
       return;
     }
     setSaving(true);
@@ -125,28 +126,16 @@ export default function OnceSonraAdmin() {
         <h2 className="text-[15px] font-bold text-[#1a1410] mb-4">Yeni Görsel Ekle</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-[12px] font-semibold text-[#6a5840] mb-1">Önce Görsel URL *</label>
-              <input
-                type="url"
-                value={form.beforeUrl}
-                onChange={e => setForm(p => ({ ...p, beforeUrl: e.target.value }))}
-                placeholder="https://cdn.gokceozel.com.tr/once/hasta-001.jpg"
-                className="w-full border border-[#ddd6c8] rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#b8893c]/40"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-[12px] font-semibold text-[#6a5840] mb-1">Sonra Görsel URL *</label>
-              <input
-                type="url"
-                value={form.afterUrl}
-                onChange={e => setForm(p => ({ ...p, afterUrl: e.target.value }))}
-                placeholder="https://cdn.gokceozel.com.tr/sonra/hasta-001.jpg"
-                className="w-full border border-[#ddd6c8] rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#b8893c]/40"
-                required
-              />
-            </div>
+            <GalleryImagePicker
+              label="Önce Görsel *"
+              value={form.beforeUrl}
+              onChange={(url) => setForm(p => ({ ...p, beforeUrl: url }))}
+            />
+            <GalleryImagePicker
+              label="Sonra Görsel *"
+              value={form.afterUrl}
+              onChange={(url) => setForm(p => ({ ...p, afterUrl: url }))}
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -281,6 +270,75 @@ export default function OnceSonraAdmin() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function GalleryImagePicker({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (url: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <label className="block text-[12px] font-semibold text-[#6a5840] mb-1">{label}</label>
+      <div className="rounded-xl border border-[#ddd6c8] bg-[#fbfaf7] overflow-hidden">
+        <div className="relative aspect-[4/3] bg-[#f0ede6] grid place-items-center">
+          {value ? (
+            <img src={value} alt={label} className="w-full h-full object-cover object-top" />
+          ) : (
+            <div className="text-center px-4">
+              <div className="text-3xl text-[#b8893c] mb-2">⊞</div>
+              <p className="text-[12px] font-semibold text-[#6a5840]">Galeriden görsel seçin</p>
+            </div>
+          )}
+        </div>
+        <div className="p-3 flex gap-2">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="flex-1 bg-[#1a1410] text-[#e9e4d8] px-4 py-2 rounded-lg text-[12px] font-semibold hover:bg-[#b8893c] hover:text-white transition-colors"
+          >
+            Galeriden Seç
+          </button>
+          {value && (
+            <button
+              type="button"
+              onClick={() => onChange('')}
+              className="px-4 py-2 rounded-lg text-[12px] font-semibold bg-[#f0ede6] text-[#6a5840] hover:bg-red-50 hover:text-red-600 transition-colors"
+            >
+              Temizle
+            </button>
+          )}
+        </div>
+      </div>
+
+      {open && (
+        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-5xl max-h-[90vh] rounded-2xl overflow-y-auto relative p-6">
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-slate-100 text-slate-500 hover:bg-red-500 hover:text-white rounded-full transition-colors"
+              aria-label="Galeriyi kapat"
+            >
+              ✕
+            </button>
+            <MediaBrowser
+              onSelect={(url) => {
+                onChange(url);
+                setOpen(false);
+              }}
+            />
+          </div>
         </div>
       )}
     </div>

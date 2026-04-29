@@ -5,6 +5,7 @@ import RichTextEditor from './RichTextEditor';
 import SeoScoreBadge from './SeoScoreBadge';
 import HeroSlideManager, { HeroSlide } from './HeroSlideManager';
 import KeyValueManager from './KeyValueManager';
+import BiographyManager from './BiographyManager';
 import { saveTranslations } from '@/components/admin/actions';
 
 interface TranslationEditorProps {
@@ -41,7 +42,8 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
   };
 
   const isHero = componentType === 'hero';
-  const isJsonBlock = componentType === 'hero' || componentType === 'global_ui_strings' || componentType === 'home_page_strings';
+  const isBiography = componentType === 'biography';
+  const isJsonBlock = componentType === 'hero' || componentType === 'global_ui_strings' || componentType === 'home_page_strings' || isBiography;
 
   return (
     <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
@@ -256,6 +258,12 @@ export default function TranslationEditor({ blockId, componentType = 'text_block
           <HeroSlideManager 
             value={translations[activeTab] || ''} 
             onChange={(val) => setTranslations(prev => ({ ...prev, [activeTab]: val }))} 
+            locale={activeTab}
+          />
+        ) : isBiography ? (
+          <BiographyManager
+            value={translations[activeTab] || ''}
+            onChange={(val) => setTranslations(prev => ({ ...prev, [activeTab]: val }))}
             locale={activeTab}
           />
         ) : isJsonBlock ? (

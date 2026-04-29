@@ -92,6 +92,19 @@ model appointments {
   message           String?
   service_requested String?   @db.VarChar(255)
   status            String?   @default("pending") @db.VarChar(50)
+  scheduled_date    DateTime? @db.Date
+  start_time        String?   @db.VarChar(5)
+  end_time          String?   @db.VarChar(5)
+  duration_minutes  Int?      @default(30)
+  source            String?   @default("web") @db.VarChar(40)
+  locale            String?   @db.VarChar(10)
+  patient_note      String?
+  internal_note     String?
+  cari_entry_id     String?   @db.Uuid
+  confirmation_token_hash String? @db.VarChar(128)
+  confirmation_expires_at DateTime? @db.Timestamptz(6)
+  confirmed_at      DateTime? @db.Timestamptz(6)
+  updated_at        DateTime? @default(now()) @updatedAt @db.Timestamptz(6)
   created_at        DateTime? @default(now()) @db.Timestamptz(6)
 }
 
@@ -207,4 +220,117 @@ model Media {
   height     Int?
   mime       String?
   uploadedAt DateTime @default(now())
+}
+
+model CariUser {
+  id                  String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username            String      @unique @db.VarChar(80)
+  email               String?     @unique @db.VarChar(190)
+  name                String      @db.VarChar(160)
+  role                String      @db.VarChar(20)
+  passwordHash        String?     @map("password_hash")
+  resetTokenHash      String?     @map("reset_token_hash")
+  resetTokenExpiresAt DateTime?   @map("reset_token_expires_at") @db.Timestamptz(6)
+  isActive            Boolean     @default(true) @map("is_active")
+  lastLoginAt         DateTime?   @map("last_login_at") @db.Timestamptz(6)
+  createdAt           DateTime?   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime?   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  entries             CariEntry[]
+  logs                CariLog[]
+
+  @@map("cari_users")
+}
+
+model CariEntry {
+  id                 String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  entryDate          DateTime  @map("entry_date") @db.Date
+  patientName        String    @map("patient_name")
+  phone              String?   @db.VarChar(80)
+  serviceType        String    @map("service_type") @db.VarChar(80)
+  procedureName      String    @map("procedure_name")
+  diagnosis          String?
+  packageName        String?   @map("package_name")
+  hospital           String?
+  hasInsurance       Boolean   @default(false) @map("has_insurance")
+  insuranceProviders String[]  @default([]) @map("insurance_providers")
+  insuranceAmount    Decimal   @default(0) @map("insurance_amount") @db.Decimal(12, 2)
+  cashAmount         Decimal   @default(0) @map("cash_amount") @db.Decimal(12, 2)
+  cardAmount         Decimal   @default(0) @map("card_amount") @db.Decimal(12, 2)
+  ibanAmount         Decimal   @default(0) @map("iban_amount") @db.Decimal(12, 2)
+  expenseAmount      Decimal   @default(0) @map("expense_amount") @db.Decimal(12, 2)
+  paymentBreakdown   Json      @default("{}") @map("payment_breakdown")
+  note               String?
+  createdBy          String?   @map("created_by") @db.Uuid
+  createdByName      String?   @map("created_by_name")
+  createdAt          DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime? @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  creator            CariUser? @relation(fields: [createdBy], references: [id], onDelete: SetNull)
+
+  @@map("cari_entries")
+}
+
+model CariLog {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String?   @map("user_id") @db.Uuid
+  userName  String    @map("user_name")
+  userRole  String?   @map("user_role") @db.VarChar(20)
+  action    String
+  detail    String?
+  ipAddress String?   @map("ip_address")
+  userAgent String?   @map("user_agent")
+  createdAt DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  user      CariUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("cari_logs")
+}
+
+model CariServiceType {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String    @unique @db.VarChar(80)
+  createdBy     String?   @map("created_by") @db.Uuid
+  createdByName String?   @map("created_by_name")
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("cari_service_types")
+}
+
+model CariPaymentType {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String    @unique @db.VarChar(80)
+  color         String    @default("#0f172a") @db.VarChar(20)
+  sortOrder     Int       @default(100) @map("sort_order")
+  createdBy     String?   @map("created_by") @db.Uuid
+  createdByName String?   @map("created_by_name")
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("cari_payment_types")
+}
+
+model ReservationSetting {
+  id              String   @id @default("default")
+  isEnabled       Boolean  @default(true) @map("is_enabled")
+  workingDays     Int[]    @default([1, 2, 3, 4, 5, 6]) @map("working_days")
+  dayStart        String   @default("10:00") @map("day_start") @db.VarChar(5)
+  dayEnd          String   @default("18:00") @map("day_end") @db.VarChar(5)
+  slotMinutes     Int      @default(30) @map("slot_minutes")
+  bufferMinutes   Int      @default(0) @map("buffer_minutes")
+  maxPerSlot      Int      @default(1) @map("max_per_slot")
+  minNoticeHours  Int      @default(2) @map("min_notice_hours")
+  bookingHorizonDays Int   @default(60) @map("booking_horizon_days")
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("reservation_settings")
+}
+
+model ReservationBlackout {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  date      DateTime @db.Date
+  reason    String?
+  isFullDay Boolean  @default(true) @map("is_full_day")
+  startTime String?  @map("start_time") @db.VarChar(5)
+  endTime   String?  @map("end_time") @db.VarChar(5)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([date])
+  @@map("reservation_blackouts")
 }

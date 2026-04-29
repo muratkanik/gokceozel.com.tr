@@ -15,6 +15,7 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
   const [blocks, setBlocks] = useState<any[]>(initialData?.blocks || []);
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
+  const [aiBusy, setAiBusy] = useState<string | null>(null);
 
   const handleSave = async () => {
     setIsSaving(true);
@@ -85,6 +86,63 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
     }
   };
 
+  const improveBlockWithAI = async (block: any, content: any) => {
+    setAiBusy('improve');
+    try {
+      const res = await fetch('/api/ai/generate-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          locale: activeTab,
+          currentHtml: content.text || content.subtitle || content.title || '',
+          prompt: `Bu bloğu Prof. Dr. Gökçe Özel'in doktor web sitesi için hasta odaklı, güven veren, SEO uyumlu ve tıbbi reklam diline dikkat eden profesyonel bir makale bölümüne geliştir. Başlık, kısa paragraflar ve gerektiğinde madde listeleri kullan. Konuyu abartılı vaatlerle anlatma.`,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'AI içerik üretimi başarısız oldu.');
+      updateBlockContent(block.id, activeTab, {
+        ...content,
+        text: data.content,
+      });
+    } catch (error: any) {
+      alert(error.message || 'AI içerik üretimi sırasında hata oluştu.');
+    } finally {
+      setAiBusy(null);
+    }
+  };
+
+  const translateBlockFromTurkish = async (block: any, content: any) => {
+    if (activeTab === 'tr') {
+      alert('Türkçe kaynak dil olduğu için önce farklı bir dil sekmesi seçin.');
+      return;
+    }
+    const sourceContent = getBlockContent(block, 'tr');
+    if (!Object.keys(sourceContent).length) {
+      alert('Bu blok için önce Türkçe içerik girin.');
+      return;
+    }
+    setAiBusy('translate');
+    try {
+      const res = await fetch('/api/ai/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: JSON.stringify(sourceContent),
+          targetLocale: activeTab,
+          isJson: true,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'AI çeviri başarısız oldu.');
+      updateBlockContent(block.id, activeTab, JSON.parse(data.content));
+    } catch (error: any) {
+      alert(error.message || 'AI çeviri sırasında hata oluştu.');
+      updateBlockContent(block.id, activeTab, content);
+    } finally {
+      setAiBusy(null);
+    }
+  };
+
   return (
     <div className="flex flex-col h-[calc(100vh-theme(spacing.16))] -mx-8 -mb-8">
       {/* Top Bar */}
@@ -142,8 +200,9 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
                 { icon: <ImageIcon />, label: "Galeri" },
                 { icon: <ImageIcon />, label: "Önce/Sonra" },
                 { icon: <FileText />, label: "Zengin Metin" },
+                { icon: <FileText />, label: "Makale Bloğu", componentType: "zengin_metin" },
               ].map((block, i) => (
-                <div key={i} onClick={() => handleAddBlock(block.label.toLowerCase().replace(/ /g, '_'))} className="p-3 border border-slate-200 rounded-[10px] text-center cursor-pointer hover:border-[#b8893c] hover:shadow-[0_3px_10px_rgba(184,137,60,0.1)] transition-all bg-white group">
+                <div key={i} onClick={() => handleAddBlock(block.componentType || block.label.toLowerCase().replace(/ /g, '_'))} className="p-3 border border-slate-200 rounded-[10px] text-center cursor-pointer hover:border-[#b8893c] hover:shadow-[0_3px_10px_rgba(184,137,60,0.1)] transition-all bg-white group">
                   <div className="text-[#b8893c] flex justify-center mb-1.5 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform">
                     {block.icon}
                   </div>
@@ -221,7 +280,14 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
                       {block.componentType === 'zengin_metin' && (
                         <div className="py-2">
                           <h2 className="font-serif text-2xl mb-2 text-white">{content.title || 'Metin Başlığı'}</h2>
-                          <p className="text-[#c9c0ae] text-[13px] leading-relaxed whitespace-pre-wrap">{content.text || 'Zengin metin içeriğinizi buraya girin...'}</p>
+                          {content.text ? (
+                            <div
+                              className="text-[#c9c0ae] text-[13px] leading-relaxed [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-1"
+                              dangerouslySetInnerHTML={{ __html: content.text }}
+                            />
+                          ) : (
+                            <p className="text-[#c9c0ae] text-[13px] leading-relaxed">Zengin metin içeriğinizi buraya girin...</p>
+                          )}
                         </div>
                       )}
 
@@ -323,6 +389,30 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
                       <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
                         <div className="text-[10px] font-bold text-slate-400 uppercase mb-1">Seçili Blok</div>
                         <div className="text-[13px] font-semibold text-slate-700">{activeBlock.componentType}</div>
+                      </div>
+
+                      <div className="bg-gradient-to-br from-[#b8893c]/10 to-white border border-[#b8893c]/25 rounded-xl p-3">
+                        <div className="text-[10px] font-bold text-[#b8893c] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5" /> AI Blok Asistanı
+                        </div>
+                        <div className="space-y-2">
+                          <button
+                            type="button"
+                            onClick={() => improveBlockWithAI(activeBlock, content)}
+                            disabled={!!aiBusy}
+                            className="w-full text-left px-3 py-2 bg-white border border-slate-200 rounded-lg text-[12px] text-slate-700 hover:border-[#b8893c] transition-colors disabled:opacity-50"
+                          >
+                            {aiBusy === 'improve' ? 'Üretiliyor...' : 'Makale bloğunu AI ile geliştir'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => translateBlockFromTurkish(activeBlock, content)}
+                            disabled={!!aiBusy || activeTab === 'tr'}
+                            className="w-full text-left px-3 py-2 bg-white border border-slate-200 rounded-lg text-[12px] text-slate-700 hover:border-[#b8893c] transition-colors disabled:opacity-50"
+                          >
+                            {aiBusy === 'translate' ? 'Çevriliyor...' : 'TR içeriğinden bu dile AI çevir'}
+                          </button>
+                        </div>
                       </div>
 
                       <div>

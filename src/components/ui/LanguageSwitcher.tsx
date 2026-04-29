@@ -21,12 +21,14 @@ function getLocaleFromPath(pathname: string): string {
 
 function switchLocale(pathname: string, newLocale: string): string {
   const segments = pathname.split('/').filter(Boolean);
-  const currentLocale = LOCALES.some(l => l.code === segments[0]) ? segments[0] : 'tr';
+  const isLocale = (segment: string | undefined) => !!segment && LOCALES.some(l => l.code === segment);
 
-  // Remove current locale prefix if present
-  const rest = currentLocale !== 'tr' && segments[0] === currentLocale
-    ? segments.slice(1)
-    : segments;
+  let rest = isLocale(segments[0]) ? segments.slice(1) : segments;
+
+  // Clean up URLs produced by the previous switcher bug, e.g. /en/tr -> /en.
+  while (isLocale(rest[0])) {
+    rest = rest.slice(1);
+  }
 
   if (newLocale === 'tr') {
     return rest.length ? `/${rest.join('/')}` : '/';
@@ -66,7 +68,7 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative hidden md:block">
       <button
         onClick={() => setOpen(v => !v)}
-        className="flex items-center gap-1.5 text-[13px] font-semibold text-[#e9e4d8] hover:text-[#d4b97a] transition-colors px-2.5 py-1.5 rounded-lg hover:bg-white/5"
+        className="flex items-center gap-1.5 text-[13px] font-semibold text-white hover:text-[#e1c996] transition-colors px-2.5 py-1.5 rounded-lg hover:bg-white/10"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Dil seç"
@@ -82,7 +84,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute top-full right-0 mt-2 w-44 bg-[#0d0b08] border border-[#b8893c]/25 rounded-xl shadow-2xl overflow-hidden z-[200] animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute top-full right-0 mt-2 w-44 bg-[#fbf7ef] border border-[#b8893c]/20 rounded-xl shadow-2xl overflow-hidden z-[200] animate-in fade-in zoom-in-95 duration-150">
           {LOCALES.map((locale) => {
             const href = switchLocale(pathname, locale.code);
             const isActive = locale.code === currentCode;
@@ -93,8 +95,8 @@ export default function LanguageSwitcher() {
                 onClick={() => setOpen(false)}
                 className={`flex items-center gap-3 px-4 py-2.5 text-[13px] transition-colors
                   ${isActive
-                    ? 'bg-[#b8893c]/15 text-[#d4b97a] font-semibold'
-                    : 'text-[#e9e4d8] hover:bg-white/5 hover:text-[#d4b97a]'
+                    ? 'bg-[#b8893c]/15 text-[#b88746] font-semibold'
+                    : 'text-[#17201e] hover:bg-white/70 hover:text-[#b88746]'
                   }`}
               >
                 <span className="text-base">{locale.flag}</span>

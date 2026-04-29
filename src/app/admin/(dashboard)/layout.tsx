@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import AdminActionFeedback from '@/components/admin/AdminActionFeedback';
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   const supabase = await createClient();
@@ -52,6 +53,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             </Link>
             <Link href="/admin/iletisim" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
               <span>★</span> İletişim Formları
+            </Link>
+            <Link href="/admin/rezervasyonlar" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
+              <span>◷</span> Randevular
             </Link>
             <Link href="/admin/sss" className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[13px] text-[#c9c0ae] hover:bg-[#b8893c]/10 hover:text-[#e9e4d8] transition-colors mb-0.5">
               <span>❓</span> SSS Yöneticisi
@@ -105,6 +109,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
 
       {/* ── Main ── */}
       <main className="flex flex-col min-h-screen overflow-hidden">
+        <AdminActionFeedback />
         {children}
       </main>
     </div>

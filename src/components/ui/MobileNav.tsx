@@ -105,20 +105,20 @@ export default function MobileNav({ locale }: MobileNavProps) {
     <>
       {/* Hamburger button */}
       <button
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/5 transition-colors"
+        className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/10 transition-colors"
         onClick={() => setIsOpen(true)}
         aria-label="Menüyü aç"
         aria-expanded={isOpen}
       >
-        <span className="w-5 h-[2px] bg-[#e9e4d8] rounded-full" />
-        <span className="w-5 h-[2px] bg-[#e9e4d8] rounded-full" />
-        <span className="w-3.5 h-[2px] bg-[#b8893c] rounded-full" />
+        <span className="w-5 h-[2px] bg-white rounded-full" />
+        <span className="w-5 h-[2px] bg-white rounded-full" />
+        <span className="w-3.5 h-[2px] bg-[#e1c996] rounded-full" />
       </button>
 
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[990] bg-black/60 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[990] bg-black/45 backdrop-blur-sm lg:hidden"
           onClick={close}
           aria-hidden="true"
         />
@@ -126,7 +126,7 @@ export default function MobileNav({ locale }: MobileNavProps) {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 ${isRtl ? 'left-0' : 'right-0'} h-full w-[300px] max-w-[85vw] z-[995] bg-[#0d0b08] flex flex-col shadow-2xl transition-transform duration-300 ease-in-out md:hidden border-${isRtl ? 'r' : 'l'} border-[#b8893c]/20
+        className={`fixed top-0 ${isRtl ? 'left-0' : 'right-0'} h-full w-[320px] max-w-[85vw] z-[995] bg-[#fbf7ef] flex flex-col shadow-2xl transition-transform duration-300 ease-in-out lg:hidden border-${isRtl ? 'r' : 'l'} border-[#b8893c]/20
           ${isOpen ? 'translate-x-0' : isRtl ? '-translate-x-full' : 'translate-x-full'}`}
         role="dialog"
         aria-modal="true"
@@ -138,11 +138,11 @@ export default function MobileNav({ locale }: MobileNavProps) {
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/40 flex items-center justify-center overflow-hidden p-1">
               <Image src="/images/logo.png" alt="Logo" width={24} height={24} className="invert opacity-85 w-full h-full object-contain" />
             </div>
-            <span className="font-serif text-[14px] text-[#e9e4d8]">Prof. Dr. Gökçe Özel</span>
+            <span className="font-serif text-[14px] text-[#17201e]">Prof. Dr. Gökçe Özel</span>
           </div>
           <button
             onClick={close}
-            className="w-8 h-8 flex items-center justify-center rounded-full text-[#9a8f7c] hover:text-white hover:bg-white/10 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full text-[#66716d] hover:text-[#17201e] hover:bg-[#49685f]/10 transition-colors"
             aria-label="Menüyü kapat"
           >
             ✕
@@ -157,7 +157,7 @@ export default function MobileNav({ locale }: MobileNavProps) {
                 <a
                   href={link.href}
                   onClick={close}
-                  className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-[#e9e4d8] hover:text-[#d4b97a] hover:bg-white/5 transition-all text-[15px] font-medium group"
+                  className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-[#17201e] hover:text-[#b88746] hover:bg-white/70 transition-all text-[15px] font-semibold group"
                 >
                   <span className="w-1 h-1 rounded-full bg-[#b8893c]/40 group-hover:bg-[#b8893c] transition-colors flex-shrink-0" />
                   {link.label}
@@ -172,7 +172,7 @@ export default function MobileNav({ locale }: MobileNavProps) {
           <a
             href={contactHref}
             onClick={close}
-            className="block w-full text-center bg-[#b8893c] hover:bg-[#d4b97a] text-white font-bold text-[13px] tracking-widest uppercase py-3 rounded-full transition-colors"
+            className="block w-full text-center bg-[#17201e] hover:bg-[#49685f] text-white font-bold text-[13px] tracking-widest uppercase py-3 rounded-full transition-colors"
           >
             {ctaLabel}
           </a>
@@ -183,7 +183,7 @@ export default function MobileNav({ locale }: MobileNavProps) {
                 href={lang.href}
                 onClick={close}
                 className={`text-[11px] font-semibold tracking-widest uppercase transition-colors px-1
-                  ${locale === lang.code ? 'text-[#b8893c]' : 'text-[#9a8f7c] hover:text-[#e9e4d8]'}`}
+                  ${locale === lang.code ? 'text-[#b8893c]' : 'text-[#66716d] hover:text-[#17201e]'}`}
               >
                 {lang.flag} {lang.code.toUpperCase()}
               </a>

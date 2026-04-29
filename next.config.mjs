@@ -6,7 +6,6 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const nextConfig = {
   serverExternalPackages: ['@prisma/client'],
   typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -16,6 +15,50 @@ const nextConfig = {
     ],
   },
   // Headers for SEO & security
+  async redirects() {
+    return [
+      {
+        source: '/gokce-ozel-kimdir/gokce-ozel-kimdir',
+        destination: '/gokce-ozel-kimdir',
+        permanent: true,
+      },
+      {
+        source: '/gokce-ozel-kimdir/iletisim',
+        destination: '/iletisim',
+        permanent: true,
+      },
+      {
+        source: '/tr/gokce-ozel-kimdir/gokce-ozel-kimdir',
+        destination: '/gokce-ozel-kimdir',
+        permanent: true,
+      },
+      {
+        source: '/tr/gokce-ozel-kimdir/iletisim',
+        destination: '/iletisim',
+        permanent: true,
+      },
+      {
+        source: '/rezervasyonlar',
+        destination: '/admin/rezervasyonlar',
+        permanent: false,
+      },
+      {
+        source: '/tr/rezervasyonlar',
+        destination: '/admin/rezervasyonlar',
+        permanent: false,
+      },
+      {
+        source: '/:locale(en|ar|ru|fr|de)/gokce-ozel-kimdir/gokce-ozel-kimdir',
+        destination: '/:locale/gokce-ozel-kimdir',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ar|ru|fr|de)/gokce-ozel-kimdir/iletisim',
+        destination: '/:locale/iletisim',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

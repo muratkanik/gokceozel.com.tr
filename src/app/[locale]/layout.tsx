@@ -2,9 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import Image from 'next/image';
-import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { supabase } from "@/lib/supabase/client";
+import { createClient } from '@supabase/supabase-js';
 import EventPopup from '@/components/ui/EventPopup';
 import MobileNav from '@/components/ui/MobileNav';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
@@ -12,6 +11,11 @@ import "../globals.css";
 
 const baseUrl = 'https://gokceozel.com.tr';
 const allLocales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+const localePath = (locale: string, path = '') => {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  if (locale === 'tr') return normalized === '/' ? '/' : normalized;
+  return normalized === '/' ? `/${locale}` : `/${locale}${normalized}`;
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -170,13 +174,25 @@ export default async function RootLayout({
   ];
   
   const today = new Date().toISOString().split('T')[0];
-  const { data: events } = await supabase
-    .from('special_events')
-    .select('*')
-    .eq('is_active', true)
-    .lte('start_date', today)
-    .gte('end_date', today)
-    .limit(1);
+  let events: any[] | null = null;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && supabaseAnonKey) {
+    try {
+      const supabase = createClient(supabaseUrl, supabaseAnonKey);
+      const result = await supabase
+        .from('special_events')
+        .select('*')
+        .eq('is_active', true)
+        .lte('start_date', today)
+        .gte('end_date', today)
+        .limit(1);
+      events = result.data;
+    } catch (e) {
+      console.error('Special events fetch failed', e);
+    }
+  }
 
   const activeEvent = events && events.length > 0 ? events[0] : null;
   const themeClass = activeEvent?.theme_class || '';
@@ -212,35 +228,35 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (TR)" href="/feed.xml?locale=tr" />
         <link rel="alternate" type="application/rss+xml" title="Prof. Dr. Gökçe Özel Blog (EN)" href="/feed.xml?locale=en" />
       </head>
-      <body className={`bg-dark text-paper font-sans antialiased leading-relaxed ${themeClass}`}>
+      <body className={`clinic-shell font-sans antialiased leading-relaxed ${themeClass}`}>
         {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
         <NextIntlClientProvider messages={messages} locale={locale}>
           {/* Top Navigation */}
-          <nav className="sticky top-0 z-50 backdrop-blur-md bg-dark/75 border-b border-gold/20">
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-              <a href={`/${locale}`} className="flex items-center gap-3 no-underline group">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/40 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden p-1.5">
-                  <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" width={32} height={32} className="invert opacity-85 w-full h-full object-contain" />
+          <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#111714] backdrop-blur-xl shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+            <div className="max-w-7xl mx-auto px-5 lg:px-6 flex items-center justify-between h-20">
+              <a href={localePath(locale)} className="flex items-center gap-3 no-underline group min-w-0">
+                <div className="w-11 h-11 rounded-full bg-white border border-[#e1c996]/35 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden p-1.5 shadow-sm">
+                  <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel Logo" width={34} height={34} className="opacity-85 w-full h-full object-contain" />
                 </div>
-                <div className="font-serif text-[18px] font-semibold text-paper">
+                <div className="font-serif text-[18px] font-semibold text-white leading-tight">
                   Prof. Dr. Gökçe Özel
-                  <small className="block text-[10px] tracking-widest text-gold-soft font-medium uppercase mt-0.5">
+                  <small className="block text-[10px] tracking-widest text-[#e1c996] font-semibold uppercase mt-0.5">
                     KBB Uzmanı · Rinoplasti
                   </small>
                 </div>
               </a>
               <MobileNav locale={locale} />
-              <ul className="hidden md:flex gap-6 list-none text-sm font-medium">
-                <li><a href={`/${locale}/hizmetler`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('services')}</a></li>
-                <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('about')}</a></li>
-                <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('reviews')}</a></li>
-                <li><a href={`/${locale}/blog`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('blog')}</a></li>
-                <li><a href={`/${locale}/sss`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('faq')}</a></li>
-                <li><a href={`/${locale}/iletisim`} className="text-[#e9e4d8] hover:text-gold-soft transition-colors py-1.5 relative">{tNav('contact')}</a></li>
+              <ul className="hidden lg:flex gap-5 list-none text-[13px] font-semibold text-[#e8efe9]">
+                <li><a href={localePath(locale, '/hizmetler')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('services')}</a></li>
+                <li><a href={localePath(locale, '/gokce-ozel-kimdir')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('about')}</a></li>
+                <li><a href={localePath(locale, '/hasta-yorumlari')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('reviews')}</a></li>
+                <li><a href={localePath(locale, '/blog')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('blog')}</a></li>
+                <li><a href={localePath(locale, '/sss')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('faq')}</a></li>
+                <li><a href={localePath(locale, '/iletisim')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('contact')}</a></li>
               </ul>
               <div className="flex items-center gap-3">
                 <LanguageSwitcher />
-                <a href={`/${locale}/iletisim`} className="bg-gold text-white px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-gold-soft transition-colors">
+                <a href={localePath(locale, '/iletisim')} className="hidden sm:inline-flex bg-[#e1c996] text-[#111714] px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-white transition-colors shadow-sm">
                   {tContact('appointment')}
                 </a>
               </div>
@@ -260,13 +276,13 @@ export default async function RootLayout({
           </main>
 
           {/* Global Footer */}
-          <footer className="bg-[#0a0908] border-t border-gold/15 pt-16 pb-8">
+          <footer className="dark-panel border-t border-[#d7bb7b]/20 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a1f0a] to-[#1a1208] border border-[#b8893c]/30 flex items-center justify-center overflow-hidden p-1.5">
-                      <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel" width={32} height={32} className="invert opacity-80 w-full h-full object-contain" />
+                    <div className="w-10 h-10 rounded-full bg-white/95 border border-[#d7bb7b]/30 flex items-center justify-center overflow-hidden p-1.5">
+                      <Image src="/images/logo.png" alt="Prof. Dr. Gökçe Özel" width={32} height={32} className="opacity-80 w-full h-full object-contain" />
                     </div>
                     <div className="font-serif text-[17px] text-paper">Prof. Dr. Gökçe Özel</div>
                   </div>
@@ -280,23 +296,23 @@ export default async function RootLayout({
                 <div>
                   <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tNav('services')}</h4>
                   <ul className="space-y-3 text-[13px]">
-                    <li><a href={`/${locale}/hizmetler/rinoplasti`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
-                    <li><a href={`/${locale}/hizmetler/gz-kapa-estetii`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
-                    <li><a href={`/${locale}/hizmetler/endolift`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
-                    <li><a href={`/${locale}/hizmetler/botoks`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
-                    <li><a href={`/${locale}/hizmetler`} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
+                    <li><a href={localePath(locale, '/hizmetler/rinoplasti')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
+                    <li><a href={localePath(locale, '/hizmetler/gz-kapa-estetii')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
+                    <li><a href={localePath(locale, '/hizmetler/endolift')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
+                    <li><a href={localePath(locale, '/hizmetler/botoks')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
+                    <li><a href={localePath(locale, '/hizmetler')} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
                   </ul>
                 </div>
 
                 <div>
                   <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tFooter('clinic')}</h4>
                   <ul className="space-y-3 text-[13px]">
-                    <li><a href={`/${locale}/gokce-ozel-kimdir`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('about')}</a></li>
-                    <li><a href={`/${locale}/blog`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('blog')}</a></li>
-                    <li><a href={`/${locale}/hasta-yorumlari`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('reviews')}</a></li>
-                    <li><a href={`/${locale}/once-sonra`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('beforeAfter')}</a></li>
-                    <li><a href={`/${locale}/sss`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('faq')}</a></li>
-                    <li><a href={`/${locale}/iletisim`} className="text-[#9a8f7c] hover:text-gold-soft transition-colors">{tNav('contact')}</a></li>
+                    <li><a href={localePath(locale, '/gokce-ozel-kimdir')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('about')}</a></li>
+                    <li><a href={localePath(locale, '/blog')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('blog')}</a></li>
+                    <li><a href={localePath(locale, '/hasta-yorumlari')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('reviews')}</a></li>
+                    <li><a href={localePath(locale, '/once-sonra')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('beforeAfter')}</a></li>
+                    <li><a href={localePath(locale, '/sss')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('faq')}</a></li>
+                    <li><a href={localePath(locale, '/iletisim')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tNav('contact')}</a></li>
                   </ul>
                 </div>
 
@@ -311,10 +327,10 @@ export default async function RootLayout({
                 </div>
               </div>
               
-              <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-muted">
+              <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-[#aeb9b3]">
                 <div>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel · {tFooter('privacy')}</div>
                 <div className="flex gap-3 font-medium">
-                  <a href="/tr" className="hover:text-gold-soft transition-colors">TR</a>
+                  <a href="/" className="hover:text-gold-soft transition-colors">TR</a>
                   <a href="/en" className="hover:text-gold-soft transition-colors">EN</a>
                   <a href="/de" className="hover:text-gold-soft transition-colors">DE</a>
                   <a href="/fr" className="hover:text-gold-soft transition-colors">FR</a>

@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma';
 import { BiographyData } from '@/components/admin/BiographyManager';
 import type { Metadata } from 'next';
+import { BIOGRAPHY_DEFAULT_TR, completeBiographyData } from '@/lib/biography-defaults';
 
 export const revalidate = 60;
 
@@ -50,20 +51,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function BiyografiPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
-  // Fetch the page from Prisma
-  const page = await prisma.page.findUnique({
-    where: { slug: 'gokce-ozel-kimdir' },
-    include: {
-      blocks: {
-        where: { componentType: 'biography', isActive: true },
-        include: {
-          translations: {
-            where: { locale }
+  let page: any = null;
+  try {
+    page = await prisma.page.findUnique({
+      where: { slug: 'gokce-ozel-kimdir' },
+      include: {
+        blocks: {
+          where: { componentType: 'biography', isActive: true },
+          include: {
+            translations: {
+              where: { locale }
+            }
           }
         }
       }
-    }
-  });
+    });
+  } catch (e) {
+    console.error('Biography fetch failed', e);
+  }
 
   const bioBlock = page?.blocks[0];
   let data: BiographyData | null = null;
@@ -76,21 +81,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     }
   }
 
-  // Fallback data if no blocks are configured yet
-  if (!data) {
-    data = {
-      image: '/images/gokceozel.png',
-      title: 'Prof. Dr. Gökçe Özel',
-      subtitle: 'KBB ve Yüz Plastik Cerrahi Uzmanı',
-      about: '<p>Prof. Dr. Gökçe Özel, Kulak Burun Boğaz ve Baş Boyun Cerrahisi alanında uzmanlaşmış, özellikle Rinoplasti (Burun Estetiği) ve yüz plastik cerrahisi konularında derin bir tecrübeye sahip hekimdir.</p><p>Hastalarına en güncel ve güvenilir tedavi yöntemlerini sunmayı amaçlayan kliniğimizde, estetik ve fonksiyonu bir arada değerlendiren bütüncül bir yaklaşım benimsenmektedir.</p>',
-      timeline: [
-        { id: '1', year: '2010', title: 'Tıp Eğitimi', description: 'Hacettepe Üniversitesi Tıp Fakültesi' },
-        { id: '2', year: '2016', title: 'Uzmanlık', description: 'KBB Baş ve Boyun Cerrahisi İhtisası' },
-        { id: '3', year: '2023', title: 'Profesörlük', description: 'KBB alanında Profesör unvanı' }
-      ],
-      certificates: []
-    };
-  }
+  data = completeBiographyData(data || BIOGRAPHY_DEFAULT_TR, locale);
 
   // Physician JSON-LD — E-E-A-T signal for Google + AI discovery
   const physicianJsonLd = {
@@ -153,14 +144,14 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-    <main style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: '120px 20px 80px' }}>
+    <main style={{ minHeight: '100vh', padding: '80px 20px' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* Header / Hero Profile */}
-        <div className="glass" style={{ display: 'flex', flexDirection: 'column', gap: '40px', padding: '40px', borderRadius: '20px', marginBottom: '60px', border: '1px solid #222' }}>
+        <div className="glass" style={{ display: 'flex', flexDirection: 'column', gap: '40px', padding: '40px', borderRadius: '28px', marginBottom: '60px' }}>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
-            <div style={{ flexShrink: 0, width: '250px', height: '350px', position: 'relative', borderRadius: '15px', overflow: 'hidden', border: '2px solid var(--color-gold)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+            <div style={{ flexShrink: 0, width: '250px', height: '350px', position: 'relative', borderRadius: '22px', overflow: 'hidden', border: '1px solid rgba(184,135,70,.28)', boxShadow: '0 18px 55px rgba(23,32,30,.14)' }}>
               {data.image ? (
                 <img src={data.image} alt={data.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : (
@@ -172,13 +163,13 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
               <h1 className="gold-gradient-text" style={{ fontSize: '3rem', fontFamily: 'var(--font-serif)', marginBottom: '10px', lineHeight: 1.1 }}>
                 {data.title}
               </h1>
-              <h2 style={{ fontSize: '1.2rem', color: '#aaa', fontWeight: 300, letterSpacing: '1px', marginBottom: '30px', textTransform: 'uppercase' }}>
+              <h2 style={{ fontSize: '1.05rem', color: '#49685f', fontWeight: 700, letterSpacing: '1px', marginBottom: '30px', textTransform: 'uppercase' }}>
                 {data.subtitle}
               </h2>
               
               <div 
                 className="prose prose-invert max-w-none"
-                style={{ color: '#ccc', fontSize: '1.05rem', lineHeight: 1.8 }}
+                style={{ color: '#54625e', fontSize: '1.05rem', lineHeight: 1.8 }}
                 dangerouslySetInnerHTML={{ __html: data.about }} 
               />
             </div>
@@ -197,7 +188,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
               <div style={{ position: 'absolute', left: '20px', top: '10px', bottom: '10px', width: '2px', background: 'linear-gradient(to bottom, var(--color-gold) 0%, transparent 100%)', opacity: 0.3 }} />
               
               {data.timeline.map((item, i) => (
-                <div key={item.id} className="glass" style={{ display: 'flex', gap: '30px', padding: '25px', borderRadius: '15px', position: 'relative', border: '1px solid #222' }}>
+                <div key={item.id} className="glass" style={{ display: 'flex', gap: '30px', padding: '25px', borderRadius: '18px', position: 'relative' }}>
                   {/* Dot */}
                   <div style={{ width: '15px', height: '15px', background: 'var(--color-gold)', borderRadius: '50%', position: 'absolute', left: '13.5px', top: '32px', boxShadow: '0 0 10px var(--color-gold)' }} />
                   
@@ -205,8 +196,8 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
                     <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--color-gold)', fontFamily: 'var(--font-serif)' }}>{item.year}</span>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.3rem', color: '#fff', marginBottom: '10px' }}>{item.title}</h4>
-                    <p style={{ color: '#aaa', lineHeight: 1.6 }}>{item.description}</p>
+                    <h4 style={{ fontSize: '1.3rem', color: '#17201e', marginBottom: '10px' }}>{item.title}</h4>
+                    <p style={{ color: '#54625e', lineHeight: 1.6 }}>{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -229,7 +220,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
                       <img src={cert.image} alt={cert.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     )}
                   </div>
-                  <h4 style={{ color: '#fff', textAlign: 'center', fontSize: '1rem', fontWeight: 500 }}>{cert.title}</h4>
+                  <h4 style={{ color: '#17201e', textAlign: 'center', fontSize: '1rem', fontWeight: 600 }}>{cert.title}</h4>
                 </div>
               ))}
             </div>

@@ -2,6 +2,7 @@ import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import BlockRenderer from '@/components/ui/BlockRenderer';
+import { blogCoverFor } from '@/lib/blog-cover';
 
 export const revalidate = 60;
 
@@ -19,6 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!page) return { title: 'Bulunamadı' };
 
   const seo = page.seoMeta.find(s => s.locale === locale) || page.seoMeta.find(s => s.locale === 'tr');
+  const cover = blogCoverFor({
+    slug,
+    title: seo?.metaTitle || page.titleInternal,
+    description: seo?.metaDescription,
+    ogImage: seo?.ogImage,
+  });
 
   const languages: Record<string, string> = { 'x-default': `${baseUrl}/blog/${slug}` };
   allLocales.forEach(loc => {
@@ -33,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: seo?.metaTitle || page.titleInternal,
       description: seo?.metaDescription || '',
-      images: seo?.ogImage ? [{ url: seo.ogImage }] : [],
+      images: [{ url: cover }],
       locale,
       type: 'article',
     },
@@ -55,6 +62,12 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   if (!page) notFound();
 
   const seo = page.seoMeta.find(s => s.locale === locale) || page.seoMeta.find(s => s.locale === 'tr');
+  const cover = blogCoverFor({
+    slug,
+    title: seo?.metaTitle || page.titleInternal,
+    description: seo?.metaDescription,
+    ogImage: seo?.ogImage,
+  });
 
   const canonicalUrl = locale === 'tr' ? `${baseUrl}/blog/${slug}` : `${baseUrl}/${locale}/blog/${slug}`;
 
@@ -64,7 +77,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     '@type': 'MedicalWebPage',
     headline: seo?.metaTitle || page.titleInternal,
     description: seo?.metaDescription || '',
-    image: seo?.ogImage || `${baseUrl}/images/og-default.jpg`,
+    image: cover.startsWith('http') ? cover : `${baseUrl}${cover}`,
     url: canonicalUrl,
     author: {
       '@type': 'Physician',
@@ -111,6 +124,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <Link href={`/${locale}/blog`} className="text-[#d4af37] hover:text-white transition-colors inline-flex items-center gap-2 text-sm uppercase tracking-wider font-semibold">
             &larr; {backLabel[locale as keyof typeof backLabel] || backLabel.tr}
           </Link>
+        </div>
+        <div className="relative aspect-[16/8] rounded-[1.5rem] overflow-hidden mb-10 border border-white/10 bg-[#111714]">
+          <img src={cover} alt={seo?.metaTitle || page.titleInternal} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/65 via-transparent to-transparent" />
         </div>
         <BlockRenderer blocks={page.blocks} locale={locale} />
       </div>

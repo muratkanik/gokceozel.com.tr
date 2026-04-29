@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMeaningfulText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
 
 type Translation = {
   locale: string;
@@ -31,34 +32,84 @@ function parseContent(trans: Translation | undefined): Record<string, any> {
   try { return JSON.parse(trans.contentData); } catch { return {}; }
 }
 
+function textFromContent(content: Record<string, any>) {
+  const values = [
+    content.title,
+    content.subtitle,
+    content.description,
+    content.body,
+    content.text,
+    content.quote,
+  ];
+
+  return values.filter((value): value is string => typeof value === 'string').join(' ');
+}
+
+function looksLikeCodeDump(value: string) {
+  const compact = value.replace(/\s+/g, ' ').trim();
+  if (!compact) return false;
+
+  const cssSignals = (compact.match(/[.#][A-Za-z0-9_-]+\s*\{/g) || []).length;
+  const ruleSignals = (compact.match(/[a-z-]+\s*:\s*[^;{}]+;/gi) || []).length;
+  const scriptSignals = (compact.match(/\b(function|var|let|const|document\.|window\.|jQuery|\$\(document)\b/g) || []).length;
+
+  return cssSignals > 8 || ruleSignals > 25 || scriptSignals > 8;
+}
+
+function hasRenderableContent(componentType: string, content: Record<string, any>, faqs?: FaqItem[]) {
+  if (componentType === 'faq_accordion') return Boolean(faqs?.length || content.faqs?.length);
+
+  if (componentType === 'hero_slider') {
+    return Boolean(
+      content.image ||
+      content.ctaPrimary ||
+      content.ctaSecondary ||
+      isMeaningfulText(content.subtitle)
+    );
+  }
+
+  if (componentType === 'before_after') return Boolean(content.beforeImage && content.afterImage);
+  if (componentType === 'gallery_masonry') return Boolean(content.images?.length);
+  if (componentType === 'service_grid') return Boolean(content.services?.length);
+  if (componentType === 'video_embed') return Boolean(content.embedUrl);
+  if (componentType === 'procedure_card_row' || componentType === 'procedure_info') return Boolean(content.specs?.length);
+  if (componentType === 'timeline') return Boolean(content.steps?.length);
+  if (componentType === 'icon_grid') return Boolean(content.items?.length);
+  if (componentType === 'numbered_steps') return Boolean(content.steps?.length);
+  if (componentType === 'comparison_table') return Boolean(content.rows?.length);
+  if (componentType === 'map_embed') return Boolean(content.mapUrl);
+  if (componentType === 'instagram_feed') return true;
+
+  const text = textFromContent(content);
+  return isMeaningfulText(text) && !looksLikeCodeDump(text);
+}
+
 // ─── Individual Block Components ─────────────────────────────────────────────
 
 function HeroSliderBlock({ content, id }: { content: any; id: string }) {
   return (
-    <div className="relative w-full rounded-3xl overflow-hidden bg-[#141414] border border-[#2a2a2a] p-8 md:p-16 flex flex-col md:flex-row items-center gap-10">
-      {/* Gold orb */}
-      <div className="absolute right-0 top-0 w-96 h-96 rounded-full bg-[#b8893c]/10 blur-3xl pointer-events-none" />
+    <div className="relative w-full rounded-[1.75rem] overflow-hidden soft-card p-8 md:p-16 flex flex-col md:flex-row items-center gap-10">
       <div className="flex-1 z-10 text-center md:text-left">
         {content.tag && (
           <p className="text-[#b8893c] text-xs tracking-[.18em] uppercase mb-4 font-semibold">{content.tag}</p>
         )}
-        <h1 className="font-serif text-4xl md:text-6xl text-white mb-6 leading-[1.05]">
-          <span style={{ background: 'linear-gradient(135deg,#f0d48e,#b8893c 45%,#8f6b2e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <h1 className="font-serif text-4xl md:text-6xl text-[#17201e] mb-6 leading-[1.05]">
+          <span className="gold-gradient-text">
             {content.title}
           </span>
         </h1>
         {content.subtitle && (
-          <p className="text-lg md:text-xl text-[#c9c0ae] font-light leading-relaxed max-w-xl mb-8">{content.subtitle}</p>
+          <p className="text-lg md:text-xl text-[#54625e] font-light leading-relaxed max-w-xl mb-8">{content.subtitle}</p>
         )}
         {(content.ctaPrimary || content.ctaSecondary) && (
           <div className="flex gap-4 flex-wrap justify-center md:justify-start">
             {content.ctaPrimary && (
-              <a href={content.ctaPrimaryUrl || '#'} className="px-7 py-3.5 rounded-full font-bold text-sm text-[#1a1410]" style={{ background: 'linear-gradient(135deg,#d4b97a,#8f6b2e)' }}>
+              <a href={content.ctaPrimaryUrl || '#'} className="px-7 py-3.5 rounded-full font-bold text-sm text-white bg-[#17201e]">
                 {content.ctaPrimary}
               </a>
             )}
             {content.ctaSecondary && (
-              <a href={content.ctaSecondaryUrl || '#'} className="px-7 py-3.5 rounded-full font-semibold text-sm text-[#e9e4d8] border border-[#b8893c]/40 hover:border-[#b8893c] transition-colors">
+              <a href={content.ctaSecondaryUrl || '#'} className="px-7 py-3.5 rounded-full font-semibold text-sm text-[#17201e] border border-[#b8893c]/40 hover:border-[#b8893c] transition-colors">
                 {content.ctaSecondary}
               </a>
             )}
@@ -70,7 +121,7 @@ function HeroSliderBlock({ content, id }: { content: any; id: string }) {
           <img src={content.image} alt={content.imageAlt || content.title} className="w-full h-full object-cover rounded-2xl border border-[#b8893c]/20 shadow-2xl" />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#2a2010] to-[#0f0d0b] rounded-2xl border border-[#2a2a2a] grid place-items-center">
-            <span className="text-[#b8893c]/20 font-serif tracking-widest text-sm">Görsel</span>
+            <span className="text-[#b8893c]/40 font-serif tracking-widest text-sm">Görsel</span>
           </div>
         )}
       </div>
@@ -82,9 +133,9 @@ function ZenginMetinBlock({ content, id }: { content: any; id: string }) {
   return (
     <div className="w-full max-w-4xl mx-auto">
       {content.title && (
-        <h2 className="font-serif text-3xl md:text-4xl text-[#f0d48e] mb-6 text-center">{content.title}</h2>
+        <h2 className="font-serif text-3xl md:text-4xl text-[#17201e] mb-6 text-center">{content.title}</h2>
       )}
-      <div className="prose prose-invert prose-lg max-w-none prose-headings:text-[#d4af37] prose-headings:font-serif prose-a:text-[#d4af37] hover:prose-a:text-white prose-img:rounded-2xl bg-[#141414] p-8 md:p-12 rounded-3xl border border-[#2a2a2a]">
+      <div className="prose prose-lg max-w-none prose-headings:text-[#17201e] prose-headings:font-serif prose-p:text-[#54625e] prose-li:text-[#54625e] prose-a:text-[#b88746] hover:prose-a:text-[#17201e] prose-img:rounded-2xl soft-card p-8 md:p-12 rounded-[1.5rem]">
         <div dangerouslySetInnerHTML={{ __html: content.text || '' }} />
       </div>
     </div>
@@ -223,13 +274,19 @@ function ServiceGridBlock({ content, id }: { content: any; id: string }) {
         <h2 className="font-serif text-3xl text-[#f0d48e] mb-8 text-center">{content.title}</h2>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {services.map((s, i) => (
-          <a key={i} href={s.href || '#'} className="group bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6 hover:border-[#b8893c]/40 transition-all hover:-translate-y-1 duration-300">
-            {s.icon && <div className="text-3xl mb-3">{s.icon}</div>}
-            <h3 className="font-semibold text-[#e9e4d8] mb-2 group-hover:text-[#d4b97a] transition-colors">{s.title}</h3>
-            {s.description && <p className="text-[#9a8f7c] text-sm leading-relaxed">{s.description}</p>}
-          </a>
-        ))}
+        {services.map((s, i) => {
+          const rawSlug = (s.href || s.title || '').split('/').filter(Boolean).pop() || s.title || '';
+          const title = serviceTitleFor(rawSlug, 'tr', [s.title]);
+          const description = serviceDescriptionFor(rawSlug, 'tr', [s.description]);
+
+          return (
+            <a key={i} href={s.href || '#'} className="group bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6 hover:border-[#b8893c]/40 transition-all hover:-translate-y-1 duration-300">
+              {s.icon && <div className="text-3xl mb-3">{s.icon}</div>}
+              <h3 className="font-semibold text-[#e9e4d8] mb-2 group-hover:text-[#d4b97a] transition-colors">{title}</h3>
+              {description && <p className="text-[#9a8f7c] text-sm leading-relaxed">{description}</p>}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
@@ -483,6 +540,7 @@ export default function BlockRenderer({ blocks, locale, faqs }: BlockRendererPro
                    || block.translations.find(t => t.locale === 'tr');
 
         const content = parseContent(trans);
+        if (!hasRenderableContent(block.componentType, content, faqs)) return null;
 
         switch (block.componentType) {
           case 'hero_slider':
