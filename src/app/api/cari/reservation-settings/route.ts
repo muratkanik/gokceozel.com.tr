@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { requireCariSession } from '@/lib/cari-auth';
 import { writeCariLog } from '@/lib/cari-db';
@@ -29,7 +29,7 @@ export async function GET() {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const session = await requireCariSession();
     const data = await request.json();

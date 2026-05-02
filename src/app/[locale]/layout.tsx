@@ -21,21 +21,62 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
 
   const titles: Record<string, string> = {
-    tr: 'Prof. Dr. Gökçe Özel | Ankara KBB ve Rinoplasti Uzmanı',
-    en: 'Prof. Dr. Gökçe Özel | ENT & Rhinoplasty Specialist Ankara',
-    ar: 'أ.د. غوكتشه أوزيل | أخصائية أنف وأذن وحنجرة في أنقرة',
-    ru: 'Проф. д-р Гёкче Озель | ЛОР и ринопластика в Анкаре',
-    fr: 'Prof. Dr. Gökçe Özel | Spécialiste ORL et rhinoplastie à Ankara',
-    de: 'Prof. Dr. Gökçe Özel | HNO und Rhinoplastik-Spezialistin in Ankara',
+    tr: 'Prof. Dr. Gökçe Özel | Ankara & Antalya KBB ve Rinoplasti Uzmanı',
+    en: 'Prof. Dr. Gökçe Özel | ENT & Rhinoplasty Specialist in Ankara & Antalya',
+    ar: 'أ.د. غوكتشه أوزيل | أخصائية أنف وأذن وحنجرة في أنقرة وأنطاليا',
+    ru: 'Проф. д-р Гёкче Озель | ЛОР и ринопластика в Анкаре и Анталье',
+    fr: 'Prof. Dr. Gökçe Özel | Spécialiste ORL et rhinoplastie à Ankara & Antalya',
+    de: 'Prof. Dr. Gökçe Özel | HNO und Rhinoplastik-Spezialistin in Ankara & Antalya',
   };
 
   const descriptions: Record<string, string> = {
-    tr: "Ankara'da ameliyatsız estetik uygulamaları, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
-    en: 'Ankara ENT specialist Prof. Dr. Gökçe Özel offers rhinoplasty, Endolift laser and non-surgical aesthetic procedures.',
-    ar: 'عيادة أ.د. غوكتشه أوزيل في أنقرة متخصصة في تجميل الأنف وليفت الوجه بالليزر وعلاجات التجميل غير الجراحية.',
-    ru: 'Клиника проф. д-ра Гёкче Озель в Анкаре: ринопластика, лазер Endolift и нехирургическая эстетика.',
-    fr: "La clinique du Prof. Dr. Gökçe Özel à Ankara propose la rhinoplastie, le laser Endolift et les traitements esthétiques non chirurgicaux.",
-    de: 'Die Klinik von Prof. Dr. Gökçe Özel in Ankara bietet Rhinoplastik, Endolift-Laser und nicht-chirurgische Ästhetik.',
+    tr: "Ankara ve Antalya Lara'da ameliyatsız estetik uygulamaları, Endolift Lazer ve Rinoplasti için KBB Uzmanı Prof. Dr. Gökçe Özel kliniği.",
+    en: 'Prof. Dr. Gökçe Özel, ENT specialist in Ankara & Antalya Lara, offers rhinoplasty, Endolift laser and non-surgical aesthetic procedures.',
+    ar: 'عيادة أ.د. غوكتشه أوزيل في أنقرة وأنطاليا لارا متخصصة في تجميل الأنف وليفت الوجه بالليزر وعلاجات التجميل غير الجراحية.',
+    ru: 'Клиника проф. д-ра Гёкче Озель в Анкаре и Анталье (Лара): ринопластика, лазер Endolift и нехирургическая эстетика.',
+    fr: "La clinique du Prof. Dr. Gökçe Özel à Ankara & Antalya Lara propose la rhinoplastie, le laser Endolift et les traitements esthétiques non chirurgicaux.",
+    de: 'Die Klinik von Prof. Dr. Gökçe Özel in Ankara & Antalya Lara bietet Rhinoplastik, Endolift-Laser und nicht-chirurgische Ästhetik.',
+  };
+
+  const keywords: Record<string, string[]> = {
+    tr: [
+      'Burun estetiği Ankara', 'Burun estetiği Antalya', 'Rinoplasti uzmanı', 'Rinoplasti Ankara', 'Rinoplasti Antalya',
+      'Göz kapağı estetiği', 'Alt blefaroplasti', 'Üst blefaroplasti', 'Blefaroplasti Ankara', 'Blefaroplasti Antalya',
+      'Botoks Ankara', 'Botoks Antalya', 'Dolgu uygulamaları', 'Dudak dolgusu', 'Dudak kaldırma estetiği',
+      'İp ile yüz askılama', 'Endolift lazer', 'Lazerle yüz germe', 'Mezoterapi uygulamaları',
+      'Gamze estetiği', 'Kepçe kulak ameliyatı', 'Yüz estetiği Ankara', 'Yüz estetiği Antalya',
+      'Cerrahsız yüz gençleştirme', 'PRP gençlik aşısı', 'Cilt yenileme tedavileri', 'Yüz şekillendirme',
+      'Prof. Dr. Gökçe Özel', 'KBB uzmanı Ankara', 'KBB uzmanı Antalya'
+    ],
+    en: [
+      'rhinoplasty Ankara', 'rhinoplasty Antalya', 'rhinoplasty specialist Turkey', 'nose job Turkey',
+      'blepharoplasty Ankara', 'blepharoplasty Antalya', 'eyelid surgery Turkey', 'lower blepharoplasty', 'upper blepharoplasty',
+      'botox Ankara', 'botox Antalya', 'lip filler Turkey', 'lip lift surgery',
+      'thread face lift Turkey', 'Endolift laser Turkey', 'non-surgical facelift Antalya',
+      'mesotherapy Turkey', 'dimple aesthetics', 'ear pinning Turkey', 'facial aesthetics Ankara',
+      'non-surgical rejuvenation', 'PRP treatment Turkey', 'skin renewal Turkey',
+      'Prof. Dr. Gokce Ozel', 'ENT specialist Ankara', 'ENT specialist Antalya'
+    ],
+    ar: [
+      'تجميل الأنف في أنقرة', 'تجميل الأنف في أنطاليا', 'متخصص رينوبلاستي', 'جراحة الجفن',
+      'بوتوكس أنقرة', 'بوتوكس أنطاليا', 'حشو الشفاه', 'شد الوجه بالليزر', 'إندوليفت ليزر',
+      'مزوثيرابي', 'تجميل الوجه', 'د. غوكتشه أوزيل'
+    ],
+    ru: [
+      'ринопластика Анкара', 'ринопластика Анталья', 'специалист по ринопластике', 'блефаропластика Турция',
+      'ботокс Анкара', 'ботокс Анталья', 'лазер Endolift', 'нехирургическая подтяжка лица',
+      'мезотерапия Турция', 'PRP лечение', 'проф. д-р Гёкче Озель', 'ЛОР Анкара', 'ЛОР Анталья'
+    ],
+    fr: [
+      'rhinoplastie Ankara', 'rhinoplastie Antalya', 'spécialiste rhinoplastie Turquie', 'blépharoplastie Turquie',
+      'botox Ankara', 'botox Antalya', 'laser Endolift', 'lifting non chirurgical Antalya',
+      'mésothérapie Turquie', 'Prof. Dr. Gökçe Özel', 'ORL Ankara', 'ORL Antalya'
+    ],
+    de: [
+      'Rhinoplastik Ankara', 'Rhinoplastik Antalya', 'Rhinoplastik Spezialist Türkei', 'Blepharoplastik Türkei',
+      'Botox Ankara', 'Botox Antalya', 'Endolift Laser', 'nicht-chirurgisches Facelift Antalya',
+      'Mesotherapie Türkei', 'Prof. Dr. Gökçe Özel', 'HNO Ankara', 'HNO Antalya'
+    ],
   };
 
   const languages: Record<string, string> = { 'x-default': baseUrl };
@@ -46,6 +87,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titles[locale] || titles.tr,
     description: descriptions[locale] || descriptions.tr,
+    keywords: keywords[locale] || keywords.tr,
     robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
     alternates: { canonical: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}`, languages },
     openGraph: {
@@ -84,17 +126,25 @@ export default async function RootLayout({
       "url": "https://gokceozel.com.tr",
       "logo": "https://gokceozel.com.tr/images/logo.png",
       "image": "https://gokceozel.com.tr/images/klinik.jpg",
-      "description": "Ankara Ümitköy'de Prof. Dr. Gökçe Özel liderliğinde KBB ve yüz estetiği kliniği. Rinoplasti, Endolift Lazer, Blefaroplasti ve ameliyatsız estetik hizmetleri.",
+      "description": "Prof. Dr. Gökçe Özel liderliğinde Ankara ve Antalya Lara'da KBB ve yüz estetiği kliniği. Rinoplasti, Endolift Lazer, Blefaroplasti ve ameliyatsız estetik hizmetleri.",
       "telephone": "+90-534-209-69-35",
       "email": "info@gokceozel.com.tr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Ümitköy Mahallesi",
-        "addressLocality": "Çankaya",
-        "addressRegion": "Ankara",
-        "postalCode": "06810",
-        "addressCountry": "TR"
-      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Ümitköy Mahallesi",
+          "addressLocality": "Çankaya",
+          "addressRegion": "Ankara",
+          "postalCode": "06810",
+          "addressCountry": "TR"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Lara",
+          "addressRegion": "Antalya",
+          "addressCountry": "TR"
+        }
+      ],
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "39.8938",
@@ -163,7 +213,7 @@ export default async function RootLayout({
       "@id": "https://gokceozel.com.tr/#website",
       "url": "https://gokceozel.com.tr",
       "name": "Prof. Dr. Gökçe Özel",
-      "description": "Ankara rinoplasti ve yüz estetiği uzmanı Prof. Dr. Gökçe Özel resmi web sitesi",
+      "description": "Ankara ve Antalya'da rinoplasti ve yüz estetiği uzmanı Prof. Dr. Gökçe Özel resmi web sitesi",
       "inLanguage": ["tr", "en", "ar", "ru", "fr", "de"],
       "potentialAction": {
         "@type": "SearchAction",

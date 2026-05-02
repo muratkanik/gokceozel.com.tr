@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { requireCariSession } from '@/lib/cari-auth';
 import { writeCariLog } from '@/lib/cari-db';
 
 export const dynamic = 'force-dynamic';
 
-export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await requireCariSession();
     const { id } = await params;
