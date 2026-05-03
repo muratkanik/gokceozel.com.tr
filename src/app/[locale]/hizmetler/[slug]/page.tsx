@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import BlockRenderer from '@/components/ui/BlockRenderer';
 import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
+import { canonicalFromLocalized, localizedServiceSlug } from '@/lib/service-slugs';
 import { OLD_SITE_SERVICE_IMAGES } from '@/lib/old-site-media';
 
 export const revalidate = 60;
@@ -22,7 +23,7 @@ function normalizeLocale(locale: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug: requestedSlug, locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale);
-  const slug = canonicalServiceSlug(requestedSlug);
+  const slug = canonicalServiceSlug(canonicalFromLocalized(requestedSlug, locale));
 
   let page = null;
   try {
@@ -44,12 +45,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const seo = page?.seoMeta.find(s => s.locale === locale) || page?.seoMeta.find(s => s.locale === 'tr');
 
-  // hreflang alternates
+  // hreflang alternates with localized slugs
   const languages: Record<string, string> = { 'x-default': `${baseUrl}/hizmetler/${slug}` };
   allLocales.forEach(loc => {
+    const locSlug = localizedServiceSlug(slug, loc);
     languages[loc] = loc === 'tr'
-      ? `${baseUrl}/hizmetler/${slug}`
-      : `${baseUrl}/${loc}/hizmetler/${slug}`;
+      ? `${baseUrl}/hizmetler/${locSlug}`
+      : `${baseUrl}/${loc}/hizmetler/${locSlug}`;
   });
 
   const title = serviceTitleFor(slug, locale, [seo?.metaTitle, page?.titleInternal]);
@@ -67,14 +69,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale,
       type: 'website',
     },
-    alternates: { canonical: seo?.canonicalUrl || `${baseUrl}/${locale === 'tr' ? '' : locale + '/'}hizmetler/${slug}`, languages },
+    alternates: { canonical: seo?.canonicalUrl || `${baseUrl}/${locale === 'tr' ? '' : locale + '/'}hizmetler/${localizedServiceSlug(slug, locale)}`, languages },
   };
 }
 
 export default async function HizmetDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug: requestedSlug, locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale);
-  const slug = canonicalServiceSlug(requestedSlug);
+  const slug = canonicalServiceSlug(canonicalFromLocalized(requestedSlug, locale));
 
   let page = null;
   try {
@@ -127,7 +129,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
     '@type': 'MedicalProcedure',
     name: title,
     description,
-    url: locale === 'tr' ? `${baseUrl}/hizmetler/${slug}` : `${baseUrl}/${locale}/hizmetler/${slug}`,
+    url: locale === 'tr' ? `${baseUrl}/hizmetler/${localizedServiceSlug(slug, locale)}` : `${baseUrl}/${locale}/hizmetler/${localizedServiceSlug(slug, locale)}`,
     image: image.startsWith('http') ? image : `${baseUrl}${image}`,
     procedureType: 'https://schema.org/SurgicalProcedure',
     status: 'https://schema.org/EventScheduled',
