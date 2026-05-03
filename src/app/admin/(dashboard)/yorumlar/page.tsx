@@ -28,6 +28,7 @@ export default function AdminYorumlarPage() {
   const [filter, setFilter] = useState<'all' | 'pending' | 'approved'>('pending');
   const [form, setForm] = useState({ author: '', rating: 5, locale: 'tr', text: '', source: '' });
   const [saving, setSaving] = useState(false);
+  const [importingGoogle, setImportingGoogle] = useState(false);
   const [msg, setMsg] = useState('');
 
   useEffect(() => {
@@ -70,6 +71,23 @@ export default function AdminYorumlarPage() {
     setSaving(false);
   };
 
+  const handleGoogleImport = async () => {
+    setImportingGoogle(true);
+    setMsg('');
+    const res = await fetch('/api/admin/yorumlar/google-import', { method: 'POST' });
+    const data = await res.json().catch(() => ({}));
+
+    if (res.ok) {
+      setMsg(`✓ Google içe aktarma tamamlandı: ${data.imported || 0} yeni, ${data.skipped || 0} atlandı.`);
+      const refreshed = await fetch('/api/admin/yorumlar').then(r => r.json()).catch(() => null);
+      if (refreshed?.testimonials) setTestimonials(refreshed.testimonials);
+    } else {
+      setMsg(data.error || 'Google yorumları içe aktarılamadı.');
+    }
+
+    setImportingGoogle(false);
+  };
+
   const filtered = testimonials.filter(t =>
     filter === 'all' ? true : filter === 'pending' ? !t.approved : t.approved
   );
@@ -80,6 +98,25 @@ export default function AdminYorumlarPage() {
     <div className="p-8 max-w-3xl">
       <h1 className="text-2xl font-serif text-[#1a1410] mb-2">Hasta Yorumları</h1>
       <p className="text-[#7a6a52] text-sm mb-6">Onay bekleyen yorumları onaylayın, yönetin veya manuel yorum ekleyin (Google, WhatsApp vb. kaynaklardan).</p>
+
+      <div className="mb-6 rounded-xl border border-[#e8e1d4] bg-white p-4 shadow-sm">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="font-semibold text-[#1a1410]">Google yorumlarını yedekle</h2>
+            <p className="mt-1 text-xs leading-5 text-[#7a6a52]">
+              Google Places API erişimi tanımlıysa yorumları içe aktarır ve veritabanında saklar.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={handleGoogleImport}
+            disabled={importingGoogle}
+            className="rounded-lg border border-[#b8893c] bg-[#b8893c] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#a07830] disabled:cursor-wait disabled:opacity-60"
+          >
+            {importingGoogle ? 'Google’dan çekiliyor...' : 'Google yorumlarını içe aktar'}
+          </button>
+        </div>
+      </div>
 
       {/* Filter tabs */}
       <div className="flex gap-2 mb-6">
