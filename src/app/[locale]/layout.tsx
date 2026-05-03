@@ -8,6 +8,7 @@ import EventPopup from '@/components/ui/EventPopup';
 import MobileNav from '@/components/ui/MobileNav';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import "../globals.css";
+import { hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 
 const baseUrl = 'https://gokceozel.com.tr';
 const allLocales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
@@ -16,6 +17,9 @@ const localePath = (locale: string, path = '') => {
   if (locale === 'tr') return normalized === '/' ? '/' : normalized;
   return normalized === '/' ? `/${locale}` : `/${locale}${normalized}`;
 };
+const serviceListPath = (locale: string) => localePath(locale, `/${hizmetlerSegment(locale)}`);
+const serviceDetailPath = (locale: string, trSlug: string) =>
+  localePath(locale, `/${hizmetlerSegment(locale)}/${localizedServiceSlug(trSlug, locale)}`);
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -297,7 +301,7 @@ export default async function RootLayout({
               </a>
               <MobileNav locale={locale} />
               <ul className="hidden lg:flex gap-5 list-none text-[13px] font-semibold text-[#e8efe9]">
-                <li><a href={localePath(locale, '/hizmetler')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('services')}</a></li>
+                <li><a href={serviceListPath(locale)} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('services')}</a></li>
                 <li><a href={localePath(locale, '/gokce-ozel-kimdir')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('about')}</a></li>
                 <li><a href={localePath(locale, '/hasta-yorumlari')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('reviews')}</a></li>
                 <li><a href={localePath(locale, '/blog')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('blog')}</a></li>
@@ -346,11 +350,11 @@ export default async function RootLayout({
                 <div>
                   <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tNav('services')}</h4>
                   <ul className="space-y-3 text-[13px]">
-                    <li><a href={localePath(locale, '/hizmetler/rinoplasti')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
-                    <li><a href={localePath(locale, '/hizmetler/gz-kapa-estetii')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
-                    <li><a href={localePath(locale, '/hizmetler/endolift')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
-                    <li><a href={localePath(locale, '/hizmetler/botoks')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
-                    <li><a href={localePath(locale, '/hizmetler')} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
+                    <li><a href={serviceDetailPath(locale, 'rinoplasti')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
+                    <li><a href={serviceDetailPath(locale, 'goz-kapagi-estetigi')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
+                    <li><a href={serviceDetailPath(locale, 'endolift')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
+                    <li><a href={serviceDetailPath(locale, 'botoks')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
+                    <li><a href={serviceListPath(locale)} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
                   </ul>
                 </div>
 

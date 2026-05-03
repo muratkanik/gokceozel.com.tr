@@ -6,6 +6,25 @@ import { routing } from './i18n/routing';
 const intlMiddleware = createMiddleware(routing);
 const CARI_HOSTS = new Set(['cari.gokceozel.com', 'cari.gokceozel.com.tr']);
 
+// Localized "services" path segments → internal /hizmetler rewrite
+// TR uses its own segment; all others listed here
+const SERVICES_SEGMENTS: Record<string, string> = {
+  services: 'en',  // EN and AR/RU use "services"
+  leistungen: 'de',
+  soins: 'fr',
+};
+
+function rewriteServicesPath(request: NextRequest): NextResponse | null {
+  const { pathname } = request.nextUrl;
+  // Match /<locale>/<segment> or /<locale>/<segment>/<rest>
+  const m = pathname.match(/^\/([a-z]{2})\/(services|leistungen|soins)(\/.*)?$/);
+  if (!m) return null;
+  const [, locale, , rest] = m;
+  const url = request.nextUrl.clone();
+  url.pathname = `/${locale}/hizmetler${rest ?? ''}`;
+  return NextResponse.rewrite(url);
+}
+
 export default async function proxy(request: NextRequest) {
   const host = request.headers.get('host')?.split(':')[0] || '';
   const pathname = request.nextUrl.pathname;
@@ -66,6 +85,9 @@ export default async function proxy(request: NextRequest) {
 
     return response;
   }
+
+  const servicesRewrite = rewriteServicesPath(request);
+  if (servicesRewrite) return servicesRewrite;
 
   return intlMiddleware(request);
 }

@@ -2,7 +2,7 @@ import prisma from '@/lib/prisma';
 import Image from 'next/image';
 import Link from 'next/link';
 import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
-import { localizedServiceSlug } from '@/lib/service-slugs';
+import { hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 import { OLD_SITE_SERVICE_IMAGES } from '@/lib/old-site-media';
 
 export const revalidate = 60;
@@ -99,8 +99,9 @@ export default async function HizmetlerPage({ params }: { params: Promise<{ loca
             const imgSrc = OLD_SITE_SERVICE_IMAGES[slug] ?? OLD_SITE_SERVICE_IMAGES[service.slug] ?? FALLBACK_IMAGES[idx % FALLBACK_IMAGES.length];
 
             const localSlug = localizedServiceSlug(slug, locale);
+            const seg = hizmetlerSegment(locale);
             return (
-              <Link key={service.id} href={localePath(locale, `/hizmetler/${localSlug}`)} className="group block">
+              <Link key={service.id} href={localePath(locale, `/${seg}/${localSlug}`)} className="group block">
                 <div className="soft-card rounded-[1.35rem] overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                   <div className="aspect-video relative overflow-hidden bg-[#111]">
                     <Image

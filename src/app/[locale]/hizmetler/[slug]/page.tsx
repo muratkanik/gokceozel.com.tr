@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import BlockRenderer from '@/components/ui/BlockRenderer';
 import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
-import { canonicalFromLocalized, localizedServiceSlug } from '@/lib/service-slugs';
+import { canonicalFromLocalized, hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 import { OLD_SITE_SERVICE_IMAGES } from '@/lib/old-site-media';
 
 export const revalidate = 60;
@@ -174,7 +174,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
       )}
       <div className="container mx-auto px-5 max-w-5xl">
         <div className="mb-8 md:mb-12">
-          <Link href={localePath(locale, '/hizmetler')} className="text-[#b88746] hover:text-[#17201e] transition-colors inline-flex items-center gap-2 text-sm uppercase tracking-wider font-bold">
+          <Link href={localePath(locale, `/${hizmetlerSegment(locale)}`)} className="text-[#b88746] hover:text-[#17201e] transition-colors inline-flex items-center gap-2 text-sm uppercase tracking-wider font-bold">
             &larr; {backLabel[locale as keyof typeof backLabel] || backLabel.tr}
           </Link>
         </div>

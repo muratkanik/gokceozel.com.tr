@@ -14,7 +14,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'İletişim', href: '/iletisim' },
   ],
   en: [
-    { label: 'Services', href: '/en/hizmetler' },
+    { label: 'Services', href: '/en/services' },
     { label: 'About', href: '/en/gokce-ozel-kimdir' },
     { label: 'Patient Reviews', href: '/en/hasta-yorumlari' },
     { label: 'Before & After', href: '/en/once-sonra' },
@@ -23,7 +23,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'Contact', href: '/en/iletisim' },
   ],
   ar: [
-    { label: 'الخدمات', href: '/ar/hizmetler' },
+    { label: 'الخدمات', href: '/ar/services' },
     { label: 'من نحن', href: '/ar/gokce-ozel-kimdir' },
     { label: 'آراء المرضى', href: '/ar/hasta-yorumlari' },
     { label: 'قبل وبعد', href: '/ar/once-sonra' },
@@ -32,7 +32,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'اتصل بنا', href: '/ar/iletisim' },
   ],
   ru: [
-    { label: 'Услуги', href: '/ru/hizmetler' },
+    { label: 'Услуги', href: '/ru/services' },
     { label: 'О нас', href: '/ru/gokce-ozel-kimdir' },
     { label: 'Отзывы', href: '/ru/hasta-yorumlari' },
     { label: 'До и после', href: '/ru/once-sonra' },
@@ -41,7 +41,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'Контакты', href: '/ru/iletisim' },
   ],
   fr: [
-    { label: 'Services', href: '/fr/hizmetler' },
+    { label: 'Services', href: '/fr/soins' },
     { label: 'À propos', href: '/fr/gokce-ozel-kimdir' },
     { label: 'Avis patients', href: '/fr/hasta-yorumlari' },
     { label: 'Avant & Après', href: '/fr/once-sonra' },
@@ -50,7 +50,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'Contact', href: '/fr/iletisim' },
   ],
   de: [
-    { label: 'Leistungen', href: '/de/hizmetler' },
+    { label: 'Leistungen', href: '/de/leistungen' },
     { label: 'Über uns', href: '/de/gokce-ozel-kimdir' },
     { label: 'Patientenbewertungen', href: '/de/hasta-yorumlari' },
     { label: 'Vorher & Nachher', href: '/de/once-sonra' },

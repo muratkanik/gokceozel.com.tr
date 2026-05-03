@@ -56,6 +56,21 @@ for (const [canonical, locales] of Object.entries(SLUG_MAP)) {
   }
 }
 
+// ── Path segment translations ──────────────────────────────────────────────
+const SEGMENT: Record<string, string> = {
+  tr: 'hizmetler',
+  en: 'services',
+  de: 'leistungen',
+  fr: 'soins',
+  ar: 'services',
+  ru: 'services',
+};
+
+/** Returns the locale-appropriate path segment for the services section */
+export function hizmetlerSegment(locale: string): string {
+  return SEGMENT[locale] ?? 'hizmetler';
+}
+
 /**
  * Returns the locale-specific slug for a canonical (TR) slug.
  * - EN/DE/FR: translated slug
