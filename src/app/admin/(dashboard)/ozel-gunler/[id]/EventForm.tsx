@@ -101,16 +101,45 @@ export default function EventForm({ initialData }: { initialData?: any }) {
             />
           </div>
 
-          <div>
-            <label className="block text-[13px] font-semibold text-[#6a5f54] mb-2">Tema Stili</label>
-            <select 
+          <div className="md:col-span-2">
+            <label className="block text-[13px] font-semibold text-[#6a5f54] mb-2">Tema / Renk Konsepti</label>
+            <select
               value={formData.theme_class}
               onChange={e => setFormData({...formData, theme_class: e.target.value})}
               className="w-full px-4 py-2.5 rounded-xl border border-[#e9e4d8] focus:border-[#b8893c] focus:ring-1 focus:ring-[#b8893c] outline-none transition-all bg-white"
             >
-              <option value="national_day">Milli Bayram (Kırmızı Konsept)</option>
-              <option value="default">Standart Konsept</option>
+              <optgroup label="🇹🇷 Milli Bayramlar (Büyük pop-up, Kırmızı)">
+                <option value="national_day">Milli Bayram — Genel (Kırmızı · Beyaz)</option>
+                <option value="theme-23nisan">23 Nisan (Kırmızı · Beyaz)</option>
+                <option value="theme-19mayis">19 Mayıs (Kırmızı · Beyaz)</option>
+                <option value="theme-30agustos">30 Ağustos (Lacivert · Kırmızı)</option>
+                <option value="theme-cumhuriyet">Cumhuriyet Bayramı (Kırmızı · Lacivert)</option>
+              </optgroup>
+              <optgroup label="🕌 Dini Bayramlar (Büyük pop-up, Yeşil)">
+                <option value="theme-ramazan-bayrami">Ramazan Bayramı (Yeşil · Altın)</option>
+                <option value="theme-kurban-bayrami">Kurban Bayramı (Yeşil · Altın)</option>
+              </optgroup>
+              <optgroup label="💝 Sosyal Özel Günler (Kart pop-up)">
+                <option value="theme-yilbasi">Yılbaşı (Kırmızı · Altın)</option>
+                <option value="theme-sevgililer">Sevgililer Günü (Kırmızı · Pembe)</option>
+                <option value="theme-kadinlar-gunu">8 Mart Kadınlar Günü (Mor · Pembe)</option>
+                <option value="theme-anneler-gunu">Anneler Günü (Pembe · Lila)</option>
+                <option value="theme-babalar-gunu">Babalar Günü (Lacivert · Altın)</option>
+                <option value="theme-1mayis">1 Mayıs (Kırmızı · Sarı)</option>
+                <option value="theme-ogretmenler-gunu">Öğretmenler Günü (Mavi · Altın)</option>
+              </optgroup>
+              <optgroup label="🏥 Sağlık & Estetik Günleri (Kart pop-up)">
+                <option value="theme-tip-bayrami">Tıp Bayramı (Mavi · Beyaz)</option>
+                <option value="theme-saglik-gunu">Dünya Sağlık Günü (Yeşil · Teal)</option>
+                <option value="theme-guzellik-gunu">Dünya Güzellik Günü (Altın · Krem)</option>
+              </optgroup>
+              <optgroup label="⚙️ Diğer">
+                <option value="default">Standart (Koyu Altın)</option>
+              </optgroup>
             </select>
+            <p className="text-[11px] text-[#9a8f7c] mt-1.5">
+              &quot;Büyük pop-up&quot; = tam ekran modal · &quot;Kart pop-up&quot; = sağ alt köşe bildirimi
+            </p>
           </div>
 
           <div className="flex items-center mt-8">

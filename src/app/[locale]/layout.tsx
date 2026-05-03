@@ -223,7 +223,8 @@ export default async function RootLayout({
     }
   ];
   
-  const today = new Date().toISOString().split('T')[0];
+  // Use Istanbul time (UTC+3) so events activate at midnight local time, not UTC midnight.
+  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Istanbul' }).format(new Date());
   let events: any[] | null = null;
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -316,11 +317,11 @@ export default async function RootLayout({
           <main className="min-h-screen">
             {children}
             {activeEvent && eventTitle && (
-              <EventPopup 
-                title={eventTitle} 
-                body={eventBody} 
+              <EventPopup
+                title={eventTitle}
+                body={eventBody}
                 imageUrl={eventImage}
-                isNationalDay={activeEvent.theme_class === 'national_day'} 
+                themeClass={activeEvent.theme_class || undefined}
               />
             )}
           </main>
