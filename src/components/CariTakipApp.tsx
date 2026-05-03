@@ -2134,7 +2134,7 @@ export default function CariTakipApp() {
                       type="button"
                       onClick={() => {
                         setAppointmentQuery(patient.name);
-                        setAppointmentView('list');
+                        setAppointmentView('card');
                       }}
                       className="w-full rounded-lg border border-slate-100 px-3 py-2 text-left hover:bg-slate-50"
                     >
