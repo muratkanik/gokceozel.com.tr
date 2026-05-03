@@ -40,42 +40,41 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const keywords: Record<string, string[]> = {
     tr: [
-      'Burun estetiği Ankara', 'Burun estetiği Antalya', 'Rinoplasti uzmanı', 'Rinoplasti Ankara', 'Rinoplasti Antalya',
-      'Göz kapağı estetiği', 'Alt blefaroplasti', 'Üst blefaroplasti', 'Blefaroplasti Ankara', 'Blefaroplasti Antalya',
-      'Botoks Ankara', 'Botoks Antalya', 'Dolgu uygulamaları', 'Dudak dolgusu', 'Dudak kaldırma estetiği',
+      'Burun estetiği Ankara', 'Rinoplasti uzmanı', 'Göz kapağı estetiği', 'Alt blefaroplasti', 'Üst blefaroplasti',
+      'Botoks Ankara', 'Dolgu uygulamaları', 'Dudak dolgusu', 'Dudak kaldırma estetiği',
       'İp ile yüz askılama', 'Endolift lazer', 'Lazerle yüz germe', 'Mezoterapi uygulamaları',
-      'Gamze estetiği', 'Kepçe kulak ameliyatı', 'Yüz estetiği Ankara', 'Yüz estetiği Antalya',
-      'Cerrahsız yüz gençleştirme', 'PRP gençlik aşısı', 'Cilt yenileme tedavileri', 'Yüz şekillendirme',
-      'Prof. Dr. Gökçe Özel', 'KBB uzmanı Ankara', 'KBB uzmanı Antalya'
+      'Gamze estetiği', 'Kepçe kulak ameliyatı', 'Yüz estetiği Ankara', 'Cerrahsız yüz gençleştirme',
+      'PRP gençlik aşısı', 'Cilt yenileme tedavileri', 'Yüz şekillendirme',
+      'Prof. Dr. Gökçe Özel estetik kliniği'
     ],
     en: [
-      'rhinoplasty Ankara', 'rhinoplasty Antalya', 'rhinoplasty specialist Turkey', 'nose job Turkey',
-      'blepharoplasty Ankara', 'blepharoplasty Antalya', 'eyelid surgery Turkey', 'lower blepharoplasty', 'upper blepharoplasty',
-      'botox Ankara', 'botox Antalya', 'lip filler Turkey', 'lip lift surgery',
-      'thread face lift Turkey', 'Endolift laser Turkey', 'non-surgical facelift Antalya',
-      'mesotherapy Turkey', 'dimple aesthetics', 'ear pinning Turkey', 'facial aesthetics Ankara',
-      'non-surgical rejuvenation', 'PRP treatment Turkey', 'skin renewal Turkey',
-      'Prof. Dr. Gokce Ozel', 'ENT specialist Ankara', 'ENT specialist Antalya'
+      'Rhinoplasty in Ankara', 'Eyelid aesthetics', 'Upper and lower blepharoplasty', 'Botox treatments',
+      'Dermal fillers', 'Lip filler', 'Lip lift surgery', 'Thread face lift', 'Endolift laser',
+      'Laser face lifting', 'Mesotherapy treatments', 'Dimple surgery', 'Otoplasty',
+      'Facial aesthetics in Ankara', 'Non-surgical facial rejuvenation', 'PRP facial treatment',
+      'Skin rejuvenation', 'Facial contouring', 'Facial aesthetic surgeon', 'Prof. Dr. Gökçe Özel Clinic'
     ],
     ar: [
-      'تجميل الأنف في أنقرة', 'تجميل الأنف في أنطاليا', 'متخصص رينوبلاستي', 'جراحة الجفن',
-      'بوتوكس أنقرة', 'بوتوكس أنطاليا', 'حشو الشفاه', 'شد الوجه بالليزر', 'إندوليفت ليزر',
-      'مزوثيرابي', 'تجميل الوجه', 'د. غوكتشه أوزيل'
+      'تجميل الأنف أنقرة', 'جراحة الجفون', 'بوتوكس', 'حقن الفيلر', 'تكبير الشفاه',
+      'رفع الشفاه', 'شد الخيوط', 'ليزر إندوليفت', 'مزوثيرابي', 'تجميل الأذن',
+      'تجديد الوجه بلا جراحة', 'علاج PRP', 'تشكيل الوجه', 'عيادة الدكتورة غوكجة أوزال'
     ],
     ru: [
-      'ринопластика Анкара', 'ринопластика Анталья', 'специалист по ринопластике', 'блефаропластика Турция',
-      'ботокс Анкара', 'ботокс Анталья', 'лазер Endolift', 'нехирургическая подтяжка лица',
-      'мезотерапия Турция', 'PRP лечение', 'проф. д-р Гёкче Озель', 'ЛОР Анкара', 'ЛОР Анталья'
+      'Ринопластика Анкара', 'Блефаропластика', 'Ботокс', 'Контурная пластика', 'Увеличение губ',
+      'Лифтинг губ', 'Нитевой лифтинг', 'Лазер Endolift', 'Мезотерапия', 'Отопластика',
+      'Безоперационное омоложение', 'PRP процедура', 'Коррекция овала лица', 'Клиника Проф. Гёкче Озель'
     ],
     fr: [
-      'rhinoplastie Ankara', 'rhinoplastie Antalya', 'spécialiste rhinoplastie Turquie', 'blépharoplastie Turquie',
-      'botox Ankara', 'botox Antalya', 'laser Endolift', 'lifting non chirurgical Antalya',
-      'mésothérapie Turquie', 'Prof. Dr. Gökçe Özel', 'ORL Ankara', 'ORL Antalya'
+      'Rhinoplastie Ankara', 'Chirurgie des paupières', 'Botox traitements', 'Injection de fillers',
+      'Augmentation des lèvres', 'Lifting des lèvres', 'Thread lifting', 'Endolift laser',
+      'Mésothérapie', 'Plastie des oreilles', 'Rajeunissement sans chirurgie', 'PRP traitement',
+      'Remodelage facial', 'Prof. Dr. Gökçe Özel Clinique'
     ],
     de: [
-      'Rhinoplastik Ankara', 'Rhinoplastik Antalya', 'Rhinoplastik Spezialist Türkei', 'Blepharoplastik Türkei',
-      'Botox Ankara', 'Botox Antalya', 'Endolift Laser', 'nicht-chirurgisches Facelift Antalya',
-      'Mesotherapie Türkei', 'Prof. Dr. Gökçe Özel', 'HNO Ankara', 'HNO Antalya'
+      'Rhinoplastik Ankara', 'Lidchirurgie', 'Botox Behandlung', 'Fillertherapie', 'Lippenkorrektur',
+      'Thread-Lifting', 'Endolift Laser', 'Mesotherapie', 'Grübchen-Ästhetik', 'Abstehende Ohren OP',
+      'Gesichtskonturierung', 'PRP Behandlung', 'Nicht-chirurgische Verjüngung',
+      'Prof. Dr. Gökçe Özel Klinik'
     ],
   };
 
