@@ -1,6 +1,9 @@
 import { OLD_SITE_SERVICE_IMAGES } from './old-site-media';
 
 const GENERIC_BLOG_COVERS = [
+  '/old-site/blog/blog-featured-1.jpg',
+  '/old-site/blog/blog-featured-2.jpg',
+  '/old-site/blog/blog-featured-3.jpg',
   '/old-site/blog/blog-img-1.jpg',
   '/old-site/blog/blog-img-2.jpg',
   '/old-site/blog/blog-img-3.jpg',
@@ -21,6 +24,9 @@ const KEYWORD_COVERS: Array<{ pattern: RegExp; cover: string }> = [
   { pattern: /kulak|otoplasti|ear/i, cover: OLD_SITE_SERVICE_IMAGES.otoplasti },
   { pattern: /prp|mezoterapi|cilt|peeling|leke|scar|skar|yara|skin/i, cover: OLD_SITE_SERVICE_IMAGES['cilt-yenileme'] },
   { pattern: /gıdı|gidi|liposuction|lipoliz|çene|cene|jaw|chin/i, cover: OLD_SITE_SERVICE_IMAGES['gd-liposuction'] },
+  { pattern: /ameliyat|operasyon|cerrahi|surgery|surgical|hastane|klinik|clinic|nerede|işlemim|lemim/i, cover: '/old-site/blog/blog-featured-2.jpg' },
+  { pattern: /psikoloji|psychology|etkiliyor|ruh|mental|neden|tercih|karar/i, cover: '/old-site/blog/blog-featured-3.jpg' },
+  { pattern: /yüz|yuz|yz|estetik|estetii|prosedür|prosedrl|prosedürleri|face|facial/i, cover: '/old-site/gallery/yuz-estetigi-uygulama.png' },
   { pattern: /gökçe|gokce|doktor|prof|hakkında|kimdir|doctor/i, cover: '/images/gokceozel.png' },
 ];
 
