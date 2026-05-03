@@ -548,7 +548,9 @@ export default function BlockRenderer({ blocks, locale, faqs }: BlockRendererPro
 
           case 'zengin_metin':
           case 'rich_text':
-            return <ZenginMetinBlock key={block.id} content={content} id={block.id} />;
+          case 'legacy_content':
+            // legacy_content stores HTML in content.content; normalize to .text
+            return <ZenginMetinBlock key={block.id} content={{ ...content, text: content.text || content.content || '' }} id={block.id} />;
 
           case 'stats_band':
             return <StatsBandBlock key={block.id} content={content} id={block.id} />;
