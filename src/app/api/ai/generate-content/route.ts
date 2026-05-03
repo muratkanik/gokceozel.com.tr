@@ -9,15 +9,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Prompt gereklidir.' }, { status: 400 });
     }
 
-    const system = `Sen profesyonel bir içerik üreticisi ve SEO uzmanısın.
+    const system = `Sen Prof. Dr. Gökçe Özel kliniğinin resmi web sitesi için içerik üreten uzman bir medikal SEO yazarısın.
+Klinik: KBB (Kulak-Burun-Boğaz) ve Estetik/Plastik cerrahi — Ankara ve Antalya.
 Hedef dil: ${(locale || 'tr').toUpperCase()}
-Mevcut içerik: ${currentHtml || 'Yok'}
+${currentHtml ? `Mevcut içerik (geliştir veya genişlet):\n${currentHtml}` : ''}
 
-Kullanıcının isteği: ${prompt}
+GÖREV: Aşağıdaki isteğe göre içerik üret. Sadece TALEP EDİLEN hizmet veya konu hakkında yaz.
+Genel klinik tanıtımı veya alakasız içerik EKLEME.
 
-Lütfen sadece saf HTML (<h2>, <p>, <strong>, <ul> etiketlerini kullanarak) formatında zengin metin üret.
-Markdown veya backtick KULLANMA. Doğrudan HTML etiketleriyle başla.
-SEO uyumlu, okunabilir, kısa paragraflar ve uygun başlık hiyerarşisi kullan.`;
+KULLANICI İSTEĞİ:
+${prompt}
+
+ÇIKTI KURALLARI:
+- Sadece saf HTML döndür: <h2>, <h3>, <p>, <strong>, <ul>, <li> etiketleri
+- Markdown veya backtick (~~~) KULLANMA — doğrudan HTML ile başla
+- SEO uyumlu, okunabilir, kısa paragraflar
+- Başlık hiyerarşisi: h2 (ana bölümler), h3 (alt başlıklar)
+- Türkçe içerik için medikal terimleri doğal kullan`;
 
     const { content, provider } = await aiComplete(
       [{ role: 'system', content: system }],

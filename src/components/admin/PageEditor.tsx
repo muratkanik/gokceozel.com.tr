@@ -88,6 +88,12 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
 
   const improveBlockWithAI = async (block: any, content: any) => {
     setAiBusy('improve');
+    // Build a context-aware prompt using the current page slug/title
+    const pageSlug = initialData?.slug || '';
+    const pageTitle = initialData?.titleInternal || pageSlug;
+    const cleanTitle = pageTitle.replace(/\s*[|–-].*$/, '').replace(/Ankara.*|Antalya.*/i, '').trim();
+    const hasExistingContent = !!(content.text || content.subtitle || content.title);
+
     try {
       const res = await fetch('/api/ai/generate-content', {
         method: 'POST',
@@ -95,7 +101,9 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
         body: JSON.stringify({
           locale: activeTab,
           currentHtml: content.text || content.subtitle || content.title || '',
-          prompt: `Bu bloğu Prof. Dr. Gökçe Özel'in doktor web sitesi için hasta odaklı, güven veren, SEO uyumlu ve tıbbi reklam diline dikkat eden profesyonel bir makale bölümüne geliştir. Başlık, kısa paragraflar ve gerektiğinde madde listeleri kullan. Konuyu abartılı vaatlerle anlatma.`,
+          prompt: hasExistingContent
+            ? `Aşağıdaki mevcut içeriği, "${cleanTitle}" hizmet sayfasına özel olarak geliştir. Konu: ${cleanTitle}. Hasta odaklı, güven veren, SEO uyumlu, tıbbi reklam diline dikkat eden bir yapıya kavuştur. Başlık hiyerarşisi (h2/h3) ve kısa paragraflar kullan. Konuyu abartılı vaatlerle anlatma.`
+            : `"${cleanTitle}" hizmeti için Prof. Dr. Gökçe Özel kliniği web sitesine özgü, SEO uyumlu zengin metin oluştur. Şu yapıyı kullan:\n<h2>${cleanTitle} Nedir?</h2>\n<p>Tanım ve amaç</p>\n<h2>Kimler Yaptırabilir?</h2>\n<p>Uygun adaylar</p>\n<h2>Prosedür</h2>\n<p>Nasıl uygulanır</p>\n<h2>Sonuçlar</h2>\n<p>Ne beklenebilir</p>\nAnkara ve Antalya'da yapılabildiğini vurgula.`,
         }),
       });
       const data = await res.json();

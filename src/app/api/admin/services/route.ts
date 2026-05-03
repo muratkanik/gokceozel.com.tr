@@ -50,6 +50,7 @@ export async function GET() {
       slug: service.slug,
       titleInternal: service.titleInternal,
       title: trSeo?.metaTitle || service.titleInternal,
+      description: trSeo?.metaDescription || '',
       hasRichText,
       hasHero,
       blockCount: service.blocks.length,

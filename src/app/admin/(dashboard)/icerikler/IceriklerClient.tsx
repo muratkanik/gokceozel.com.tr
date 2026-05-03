@@ -15,6 +15,7 @@ interface ServiceHealth {
   id: string;
   slug: string;
   title: string | null;
+  description: string;
   hasRichText: boolean;
   hasHero: boolean;
   healthScore: number;
@@ -86,13 +87,43 @@ export default function IceriklerClient({ pages }: Props) {
   const generateRichText = async (service: ServiceHealth) => {
     setAiGenerating(service.id);
     setAiStatus(`"${service.title}" için AI içerik üretiliyor…`);
+
+    // Clean service name (strip location suffixes like "Ankara | ...")
+    const cleanName = (service.title || service.slug)
+      .replace(/\s*[|–-].*$/, '')
+      .replace(/Ankara.*|Antalya.*/i, '')
+      .trim();
+
+    const servicePrompt = `Prof. Dr. Gökçe Özel kliniğinin resmi web sitesi için "${cleanName}" hizmet sayfasına özel, SEO odaklı zengin metin içeriği üret.
+
+SAYFA KONTEKSTİ:
+- Hizmet adı: ${cleanName}
+- Slug: ${service.slug}
+- Kısa açıklama: ${service.description || `${cleanName} alanında uzman medikal estetik hizmeti`}
+- Klinik: Prof. Dr. Gökçe Özel — KBB ve Baş-Boyun Cerrahisi uzmanı, Ankara ve Antalya
+
+İÇERİK YAPISI (tam olarak bu sırayla oluştur):
+1. <h2>${cleanName} Nedir?</h2> — tanımı, amacı, kimler için uygun
+2. <h2>${cleanName} Kimlere Uygulanır?</h2> — endikasyonlar, uygun adaylar, kontrendikasyonlar
+3. <h2>${cleanName} Nasıl Yapılır?</h2> — prosedür adımları, kullanılan teknikler
+4. <h2>${cleanName} Sonrası Süreç</h2> — iyileşme, dikkat edilmesi gerekenler, beklenen sonuç
+5. <h2>Prof. Dr. Gökçe Özel ile ${cleanName}</h2> — uzman yaklaşımı, kişisel planlama, doğal sonuç felsefesi
+
+KALİTE KURALLARI:
+- SADECE bu hizmet hakkında yaz, genel klinik tanıtımı YAPMA
+- Toplam 500-700 kelime
+- Sadece saf HTML kullan: <h2>, <p>, <strong>, <ul>, <li>
+- Tıbbi terminoloji + anlaşılır dil dengesi
+- Ankara ve Antalya'da uygulandığını belirt
+- Son paragrafta muayene randevusu için iletişim sayfasına yönlendir`;
+
     try {
       const res = await fetch('/api/ai/generate-content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           locale: 'tr',
-          prompt: `${service.title} hizmeti için Prof. Dr. Gökçe Özel kliniği web sitesine SEO uyumlu, 500-700 kelimelik, h2 başlıkları ve paragraflar içeren zengin metin içeriği üret. Ankara ve Antalya'da yapılabildiğini vurgula.`,
+          prompt: servicePrompt,
         }),
       });
       const data = await res.json();
