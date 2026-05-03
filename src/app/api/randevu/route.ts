@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { sendReservationConfirmationMail } from '@/lib/cari-mail';
+import { sendReservationConfirmationMail, sendNewAppointmentAdminNotification } from '@/lib/cari-mail';
 import { assertSlotAvailable, createReservationConfirmationToken, hashReservationConfirmationToken } from '@/lib/reservations';
 
 export async function POST(request: Request) {
@@ -39,14 +39,25 @@ export async function POST(request: Request) {
 
     const origin = process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin;
     const confirmUrl = `${origin}/api/rezervasyon/onayla?token=${encodeURIComponent(confirmationToken)}&locale=${encodeURIComponent(locale || 'tr')}`;
-    await sendReservationConfirmationMail({
-      to: email,
-      name,
-      service: service_requested,
-      date: String(date),
-      time: `${slot.startTime} - ${slot.endTime}`,
-      confirmUrl,
-    });
+    await Promise.allSettled([
+      sendReservationConfirmationMail({
+        to: email,
+        name,
+        service: service_requested,
+        date: String(date),
+        time: `${slot.startTime} - ${slot.endTime}`,
+        confirmUrl,
+      }),
+      sendNewAppointmentAdminNotification({
+        name,
+        phone,
+        email,
+        service: service_requested,
+        date: String(date),
+        time: `${slot.startTime} - ${slot.endTime}`,
+        locale: locale || 'tr',
+      }),
+    ]);
 
     return NextResponse.json({ success: true, data: appointment }, { status: 201 });
   } catch (error) {

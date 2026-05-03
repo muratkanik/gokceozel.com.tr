@@ -82,6 +82,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s3: 'Yönetim Kurulu üyesi',
     doctor_s4: 'Uluslararası danışma kurulu',
     
+    cta_tag: 'Randevu',
     cta_h2a: 'Kişiye özel',
     cta_h2b: 'ön görüşmenizi',
     cta_h2c: 'planlayın',
@@ -103,6 +104,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s3: 'TYPCD Board Member',
     doctor_s4: 'International advisory board',
     
+    cta_tag: 'Appointment',
     cta_h2a: 'Schedule your',
     cta_h2b: 'personalized',
     cta_h2c: 'consultation',
@@ -122,6 +124,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'مؤشر الاقتباس الأكاديمي',
     doctor_s3: 'عضوية مجلس الإدارة',
     doctor_s4: 'مجلس استشاري دولي',
+    cta_tag: 'موعد',
     cta_h2a: 'خططوا',
     cta_h2b: 'لاستشارتكم',
     cta_h2c: 'الشخصية',
@@ -141,6 +144,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'академический индекс цитирования',
     doctor_s3: 'член правления',
     doctor_s4: 'международный совет',
+    cta_tag: 'Запись',
     cta_h2a: 'Запланируйте',
     cta_h2b: 'персональную',
     cta_h2c: 'консультацию',
@@ -160,6 +164,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'indice de citation académique',
     doctor_s3: 'membre du conseil',
     doctor_s4: 'conseil international',
+    cta_tag: 'Rendez-vous',
     cta_h2a: 'Planifiez',
     cta_h2b: 'votre consultation',
     cta_h2c: 'personnalisée',
@@ -179,6 +184,7 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'akademischer Zitationsindex',
     doctor_s3: 'Vorstandsmitglied',
     doctor_s4: 'internationaler Beirat',
+    cta_tag: 'Termin',
     cta_h2a: 'Planen Sie',
     cta_h2b: 'Ihre persönliche',
     cta_h2c: 'Beratung',
@@ -202,31 +208,43 @@ const GALLERY_COPY = {
     tag: 'Klinikten Kareler',
     title: 'Uygulamalar, teknoloji ve doğal sonuç odağı',
     text: 'Eski siteden gelen görsel arşiv ve yeni tasarım dili birlikte kullanıldı; ziyaretçi hem doktoru hem de uygulama alanlarını ilk bakışta hisseder.',
+    stat1: '360°', stat1sub: 'Yüz oranı planlama',
+    stat2: 'Doğal', stat2sub: 'Sonuç odaklı yaklaşım',
   },
   en: {
     tag: 'Visual Journey',
     title: 'Treatments, technology and a natural-result focus',
     text: 'The visual archive from the previous site is carried into the new experience so visitors immediately see the doctor, treatments and clinical approach.',
+    stat1: '360°', stat1sub: 'Facial proportion planning',
+    stat2: 'Natural', stat2sub: 'Result-focused approach',
   },
   ar: {
     tag: 'من العيادة',
     title: 'العلاجات والتقنيات والنتائج الطبيعية',
     text: 'تم توظيف أرشيف الصور القديم ضمن تجربة حديثة تعكس الطبيبة والخدمات ونهج العيادة من النظرة الأولى.',
+    stat1: '360°', stat1sub: 'تخطيط نسب الوجه',
+    stat2: 'طبيعي', stat2sub: 'نهج موجّه نحو النتائج',
   },
   ru: {
     tag: 'Визуальная история',
     title: 'Процедуры, технологии и естественный результат',
     text: 'Визуальный архив старого сайта перенесён в новый дизайн, чтобы посетитель сразу видел врача, услуги и подход клиники.',
+    stat1: '360°', stat1sub: 'Планирование пропорций лица',
+    stat2: 'Естественно', stat2sub: 'Ориентация на результат',
   },
   fr: {
     tag: 'Parcours Visuel',
     title: 'Soins, technologie et résultats naturels',
     text: "Les visuels de l'ancien site sont intégrés à la nouvelle expérience pour montrer le médecin, les traitements et l'approche clinique.",
+    stat1: '360°', stat1sub: 'Planification des proportions',
+    stat2: 'Naturel', stat2sub: 'Approche axée sur les résultats',
   },
   de: {
     tag: 'Visuelle Eindrücke',
     title: 'Behandlungen, Technologie und natürliche Ergebnisse',
     text: 'Das Bildarchiv der alten Website wird in die neue Gestaltung übernommen und zeigt Ärztin, Leistungen und Klinikansatz auf den ersten Blick.',
+    stat1: '360°', stat1sub: 'Gesichtsproportionsplanung',
+    stat2: 'Natürlich', stat2sub: 'Ergebnisorientierter Ansatz',
   },
 };
 
@@ -428,12 +446,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="text-[#cbd8d3] text-[16px] lg:text-[17px] leading-relaxed">{gallery.text}</p>
             <div className="mt-8 grid grid-cols-2 gap-3 max-w-[420px]">
               <div className="border border-white/10 bg-white/10 rounded-2xl p-4">
-                <strong className="font-serif text-[#e1c996] text-3xl block">360°</strong>
-                <span className="text-xs text-[#cbd8d3]">Yüz oranı planlama</span>
+                <strong className="font-serif text-[#e1c996] text-3xl block">{gallery.stat1}</strong>
+                <span className="text-xs text-[#cbd8d3]">{gallery.stat1sub}</span>
               </div>
               <div className="border border-white/10 bg-white/10 rounded-2xl p-4">
-                <strong className="font-serif text-[#e1c996] text-3xl block">Doğal</strong>
-                <span className="text-xs text-[#cbd8d3]">Sonuç odaklı yaklaşım</span>
+                <strong className="font-serif text-[#e1c996] text-3xl block">{gallery.stat2}</strong>
+                <span className="text-xs text-[#cbd8d3]">{gallery.stat2sub}</span>
               </div>
             </div>
           </div>
@@ -498,7 +516,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="absolute inset-0 bg-gradient-to-r from-[#fbf8f2] via-[#fbf8f2]/95 to-[#edf3f1]/90" />
         </div>
         <div className="relative max-w-[860px] mx-auto px-6 text-center">
-          <span className="section-kicker mb-4">Randevu</span>
+          <span className="section-kicker mb-4">{s.cta_tag}</span>
           <h2 className="font-serif text-[clamp(38px,5vw,66px)] leading-[1.03] mb-5 text-[#151714]">
             {s.cta_h2a}{' '}
             <span className="gold-gradient-text">{s.cta_h2b}</span>

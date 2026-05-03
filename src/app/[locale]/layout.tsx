@@ -377,15 +377,27 @@ export default async function RootLayout({
                 </div>
               </div>
               
-              <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-[#aeb9b3]">
-                <div>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel · {tFooter('privacy')}</div>
-                <div className="flex gap-3 font-medium">
-                  <a href="/" className="hover:text-gold-soft transition-colors">TR</a>
-                  <a href="/en" className="hover:text-gold-soft transition-colors">EN</a>
-                  <a href="/de" className="hover:text-gold-soft transition-colors">DE</a>
-                  <a href="/fr" className="hover:text-gold-soft transition-colors">FR</a>
-                  <a href="/ar" className="hover:text-gold-soft transition-colors">AR</a>
-                  <a href="/ru" className="hover:text-gold-soft transition-colors">RU</a>
+              <div className="pt-6 border-t border-gold/10 flex flex-col gap-3 text-[12px] text-[#aeb9b3]">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                  <div className="flex flex-wrap gap-3 items-center">
+                    <span>© {new Date().getFullYear()} Prof. Dr. Gökçe Özel</span>
+                    <span className="hidden sm:inline text-gold/30">·</span>
+                    <a href={localePath(locale, '/gizlilik-politikasi')} className="hover:text-gold-soft transition-colors">{tFooter('privacy')}</a>
+                    <span className="hidden sm:inline text-gold/30">·</span>
+                    <a href={localePath(locale, '/kullanim-kosullari')} className="hover:text-gold-soft transition-colors">{tFooter('terms')}</a>
+                  </div>
+                  <div className="flex gap-3 font-medium">
+                    <a href="/" className="hover:text-gold-soft transition-colors">TR</a>
+                    <a href="/en" className="hover:text-gold-soft transition-colors">EN</a>
+                    <a href="/de" className="hover:text-gold-soft transition-colors">DE</a>
+                    <a href="/fr" className="hover:text-gold-soft transition-colors">FR</a>
+                    <a href="/ar" className="hover:text-gold-soft transition-colors">AR</a>
+                    <a href="/ru" className="hover:text-gold-soft transition-colors">RU</a>
+                  </div>
+                </div>
+                <div className="text-center sm:text-left text-[11px] text-[#6b7570]">
+                  Design &amp; Development by{' '}
+                  <a href="https://mkstudio.com.tr" target="_blank" rel="noopener noreferrer" className="hover:text-gold-soft transition-colors font-medium">MK Studio</a>
                 </div>
               </div>
             </div>

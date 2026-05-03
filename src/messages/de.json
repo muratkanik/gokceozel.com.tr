@@ -44,8 +44,9 @@
   },
   "Footer": {
     "rights": "Alle Rechte vorbehalten",
-    "privacy": "Datenschutzrichtlinie",
+    "privacy": "Datenschutz",
     "description": "Ankaras Referenzzentrum für HNO-Chirurgie.",
-    "clinic": "Klinik"
+    "clinic": "Klinik",
+    "terms": "Nutzungsbedingungen"
   }
 }

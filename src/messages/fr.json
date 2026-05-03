@@ -44,8 +44,9 @@
   },
   "Footer": {
     "rights": "Tous droits réservés",
-    "privacy": "Politique de confidentialité",
+    "privacy": "Confidentialité",
     "description": "Le centre de référence d'Ankara pour la chirurgie ORL.",
-    "clinic": "Clinique"
+    "clinic": "Clinique",
+    "terms": "Conditions d'utilisation"
   }
 }

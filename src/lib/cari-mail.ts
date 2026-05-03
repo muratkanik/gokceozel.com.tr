@@ -121,6 +121,35 @@ async function sendMail({ to, subject, html }: { to: string; subject: string; ht
   return { sent: true as const, provider: 'resend' as const };
 }
 
+export async function sendNewAppointmentAdminNotification({
+  name, phone, email, service, date, time, locale,
+}: {
+  name: string; phone: string; email: string | null | undefined;
+  service: string | null | undefined; date: string; time: string; locale?: string;
+}) {
+  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.SMTP_USER;
+  if (!adminEmail) return { sent: false, reason: 'no_admin_email' as const };
+  return sendMail({
+    to: adminEmail,
+    subject: `🆕 Yeni Randevu Talebi — ${name}`,
+    html: `
+      <div style="font-family:Arial,sans-serif;line-height:1.6;color:#0f172a">
+        <h2 style="color:#b8893c">Yeni Randevu Talebi</h2>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin:12px 0">
+          <p style="margin:0"><strong>Ad Soyad:</strong> ${name}</p>
+          <p style="margin:4px 0 0"><strong>Telefon:</strong> <a href="tel:${phone}">${phone}</a></p>
+          ${email ? `<p style="margin:4px 0 0"><strong>E-posta:</strong> <a href="mailto:${email}">${email}</a></p>` : ''}
+          <p style="margin:4px 0 0"><strong>Hizmet:</strong> ${service || 'Belirtilmedi'}</p>
+          <p style="margin:4px 0 0"><strong>Tarih:</strong> ${date}</p>
+          <p style="margin:4px 0 0"><strong>Saat:</strong> ${time}</p>
+          ${locale && locale !== 'tr' ? `<p style="margin:4px 0 0"><strong>Dil:</strong> ${locale.toUpperCase()}</p>` : ''}
+        </div>
+        <p style="font-size:13px;color:#64748b">Tüm randevuları yönetmek için admin paneline gidin: <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://gokceozel.com.tr'}/admin/rezervasyonlar">Randevular</a></p>
+      </div>
+    `,
+  });
+}
+
 export async function sendReservationConfirmationMail({ to, name, service, date, time, confirmUrl }: ReservationConfirmationInput) {
   return sendMail({
     to,
