@@ -29,6 +29,7 @@ const NAV_ITEMS = [
     group: 'Medya & SEO',
     links: [
       { href: '/admin/media', label: 'Medya Kütüphanesi', icon: '⊡' },
+      { href: '/admin/icerikler/seo-dashboard', label: 'SEO Skorları', icon: '◈' },
       { href: '/admin/seo', label: 'SEO Merkezi', icon: '⌘' },
       { href: '/admin/redirectler', label: 'Yönlendirmeler', icon: '↪' },
     ],
