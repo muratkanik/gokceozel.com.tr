@@ -384,28 +384,29 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
 
             {/* Certification & Accreditation Strip */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mt-7 max-w-[720px]">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mt-8 max-w-[720px]">
               {/* Health Turkey */}
               <a
                 href="https://healthturkey.gov.tr"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="T.C. Sağlık Bakanlığı – Health Turkey"
-                className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity"
+                className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity"
               >
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="14" cy="14" r="14" fill="#E30A17"/>
-                  <path d="M9 10.5C9 8.57 10.57 7 12.5 7C13.8 7 14.95 7.71 15.55 8.78C15.92 8.65 16.32 8.58 16.75 8.58C18.27 8.58 19.5 9.81 19.5 11.33C19.5 12.85 18.27 14.08 16.75 14.08H8.75C7.23 14.08 6 12.85 6 11.33C6 9.9 7.07 8.73 8.46 8.6C8.39 8.89 8.35 9.19 8.35 9.5C8.35 9.83 8.37 10.17 8.41 10.5H9Z" fill="white"/>
-                  <rect x="7" y="16" width="14" height="1.8" rx="0.9" fill="white" fillOpacity="0.8"/>
-                  <rect x="9" y="19" width="10" height="1.8" rx="0.9" fill="white" fillOpacity="0.55"/>
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="22" cy="22" r="22" fill="#E30A17"/>
+                  <path d="M14 16.5C14 13.46 16.46 11 19.5 11C21.55 11 23.35 12.12 24.3 13.77C24.87 13.56 25.5 13.44 26.15 13.44C28.82 13.44 31 15.62 31 18.29C31 20.96 28.82 23.14 26.15 23.14H13.85C11.18 23.14 9 20.96 9 18.29C9 15.83 10.82 13.8 13.18 13.51C13.07 14.09 13 14.69 13 15.31C13 15.71 13.03 16.11 13.08 16.5H14Z" fill="white"/>
+                  <rect x="11" y="25" width="22" height="2.8" rx="1.4" fill="white" fillOpacity="0.8"/>
+                  <rect x="14" y="30" width="16" height="2.8" rx="1.4" fill="white" fillOpacity="0.55"/>
                 </svg>
                 <div className="leading-none">
-                  <div className="text-[#E30A17] text-[11px] font-extrabold tracking-wider leading-none">HEALTH</div>
-                  <div className="text-[#1a1a1a] text-[10px] tracking-[0.18em] leading-none mt-0.5">TURKEY</div>
+                  <div className="text-[#E30A17] text-[15px] font-extrabold tracking-widest leading-none">HEALTH</div>
+                  <div className="text-[#1a1a1a] text-[13px] tracking-[0.22em] font-semibold leading-none mt-1">TURKEY</div>
+                  <div className="text-[#48544f] text-[11px] leading-none mt-1 font-medium">T.C. Sağlık Bakanlığı</div>
                 </div>
               </a>
 
-              <div className="w-px h-6 bg-[#48544f]/20 hidden sm:block"/>
+              <div className="w-px h-10 bg-[#48544f]/25 hidden sm:block"/>
 
               {/* Sağlık Turizmi Belgesi */}
               <a
@@ -413,23 +414,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Uluslararası Sağlık Turizmi Yetki Belgesi"
-                className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity group"
+                className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity group"
               >
-                <div className="relative w-10 h-7 rounded border border-[#48544f]/25 overflow-hidden flex-shrink-0 group-hover:border-[#6f263d]/40 transition-colors">
-                  <Image src="/images/saglik-turizmi-belgesi.jpg" alt="Sağlık Turizmi Yetki Belgesi" fill className="object-cover" sizes="40px"/>
+                <div className="relative w-16 h-11 rounded-md border border-[#48544f]/30 overflow-hidden flex-shrink-0 group-hover:border-[#6f263d]/50 transition-colors shadow-sm">
+                  <Image src="/images/saglik-turizmi-belgesi.jpg" alt="Sağlık Turizmi Yetki Belgesi" fill className="object-cover" sizes="64px"/>
                 </div>
                 <div className="leading-tight">
-                  <div className="text-[#1a1a1a] text-[11px] font-semibold leading-none">Sağlık Turizmi</div>
-                  <div className="text-[#48544f] text-[10px] leading-none mt-0.5">Yetki Belgesi</div>
+                  <div className="text-[#1a1a1a] text-[13px] font-bold leading-snug">Sağlık Turizmi</div>
+                  <div className="text-[#48544f] text-[12px] font-medium leading-snug">Yetki Belgesi</div>
+                  <div className="text-[#6f263d] text-[11px] leading-snug">Uluslararası</div>
                 </div>
               </a>
 
-              <div className="w-px h-6 bg-[#48544f]/20 hidden sm:block"/>
+              <div className="w-px h-10 bg-[#48544f]/25 hidden sm:block"/>
 
               {/* TYPCD & CMAC */}
-              <div className="flex gap-2">
-                <span className="border border-[#48544f]/25 text-[#48544f] text-[10px] font-medium px-2 py-1 rounded-full tracking-wide">TYPCD Üyesi</span>
-                <span className="border border-[#48544f]/25 text-[#48544f] text-[10px] font-medium px-2 py-1 rounded-full tracking-wide">CMAC Üyesi</span>
+              <div className="flex gap-2.5">
+                <span className="border border-[#48544f]/35 text-[#48544f] text-[12px] font-semibold px-3 py-1.5 rounded-full tracking-wide">TYPCD Üyesi</span>
+                <span className="border border-[#48544f]/35 text-[#48544f] text-[12px] font-semibold px-3 py-1.5 rounded-full tracking-wide">CMAC Üyesi</span>
               </div>
             </div>
 
