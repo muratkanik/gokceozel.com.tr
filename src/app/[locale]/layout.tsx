@@ -381,6 +381,63 @@ export default async function RootLayout({
                 </div>
               </div>
               
+              {/* Certification & Accreditation Strip */}
+              <div className="py-5 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-center gap-5 flex-wrap">
+                {/* Health Turkey Official Logo */}
+                <a
+                  href="https://healthturkey.gov.tr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="T.C. Sağlık Bakanlığı – Health Turkey"
+                  className="flex items-center gap-2 opacity-65 hover:opacity-100 transition-opacity"
+                >
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="19" cy="19" r="19" fill="#E30A17"/>
+                    <path d="M19 7.5C14.63 7.5 11.04 10.32 9.84 14.25C8.74 14.67 8 15.74 8 17C8 18.66 9.34 20 11 20H27C28.66 20 30 18.66 30 17C30 15.74 29.26 14.67 28.16 14.25C26.96 10.32 23.37 7.5 19 7.5Z" fill="white" fillOpacity="0.9"/>
+                    <rect x="9" y="22" width="20" height="2.5" rx="1.25" fill="white" fillOpacity="0.7"/>
+                    <rect x="12" y="26" width="14" height="2.5" rx="1.25" fill="white" fillOpacity="0.5"/>
+                  </svg>
+                  <div className="leading-tight">
+                    <div className="text-white text-[13px] font-extrabold tracking-wider leading-none">HEALTH</div>
+                    <div className="text-white text-[11px] tracking-[0.2em] leading-none mt-0.5">TURKEY</div>
+                    <div className="text-[#e1c996] text-[9px] tracking-wide mt-0.5 leading-none">T.C. Sağlık Bakanlığı</div>
+                  </div>
+                </a>
+
+                <div className="hidden sm:block w-px h-10 bg-gold/20"/>
+
+                {/* Sağlık Turizmi Yetki Belgesi */}
+                <a
+                  href="/images/saglik-turizmi-belgesi.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Uluslararası Sağlık Turizmi Yetki Belgesi"
+                  className="flex items-center gap-2.5 opacity-65 hover:opacity-100 transition-opacity group"
+                >
+                  <div className="relative w-12 h-9 rounded border border-gold/25 overflow-hidden bg-[#1a2118] flex-shrink-0 shadow-sm group-hover:border-gold/50 transition-colors">
+                    <Image
+                      src="/images/saglik-turizmi-belgesi.jpg"
+                      alt="Uluslararası Sağlık Turizmi Yetki Belgesi"
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                    />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-[#e8efe9] text-[11px] font-semibold leading-tight max-w-[130px]">Sağlık Turizmi</div>
+                    <div className="text-[#9a8f7c] text-[10px] leading-tight">Yetki Belgesi</div>
+                  </div>
+                </a>
+
+                <div className="hidden sm:block w-px h-10 bg-gold/20"/>
+
+                {/* Professional Memberships */}
+                <div className="flex gap-2 items-center">
+                  <span className="border border-gold/25 text-[#9a8f7c] text-[10px] font-medium px-2.5 py-1 rounded tracking-wide hover:border-gold/50 hover:text-[#e1c996] transition-colors cursor-default">TYPCD Üyesi</span>
+                  <span className="border border-gold/25 text-[#9a8f7c] text-[10px] font-medium px-2.5 py-1 rounded tracking-wide hover:border-gold/50 hover:text-[#e1c996] transition-colors cursor-default">CMAC Üyesi</span>
+                </div>
+              </div>
+
               <div className="pt-6 border-t border-gold/10 flex flex-col gap-3 text-[12px] text-[#aeb9b3]">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                   <div className="flex flex-wrap gap-3 items-center">
@@ -399,9 +456,11 @@ export default async function RootLayout({
                     <a href="/ru" className="hover:text-gold-soft transition-colors">RU</a>
                   </div>
                 </div>
-                <div className="text-center sm:text-left text-[11px] text-[#6b7570]">
-                  Design &amp; Development by{' '}
-                  <a href="https://mkstudio.com.tr" target="_blank" rel="noopener noreferrer" className="hover:text-gold-soft transition-colors font-medium">MK Studio</a>
+                <div className="text-center sm:text-left text-[11px] text-[#6b7570] flex flex-wrap gap-x-2 gap-y-1 items-center justify-center sm:justify-start">
+                  <span>Design &amp; Development by{' '}
+                  <a href="https://mkstudio.com.tr" target="_blank" rel="noopener noreferrer" className="hover:text-gold-soft transition-colors font-medium">MK Studio</a></span>
+                  <span className="hidden sm:inline text-gold/20">·</span>
+                  <span>Son güncelleme: <time dateTime="2026-05-05">5 Mayıs 2026</time></span>
                 </div>
               </div>
             </div>
