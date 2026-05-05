@@ -356,27 +356,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      <section className="luxury-hero relative overflow-hidden min-h-[calc(82svh-80px)] flex items-center">
+      <section className="luxury-hero relative overflow-hidden min-h-[calc(68svh-80px)] flex items-center">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8f2] to-transparent" />
-        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-16 lg:py-24 w-full">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-10 lg:py-14 w-full">
           <div className="text-white max-w-[880px]">
             <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-xs text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
               {h.badge || 'Ankara · KBB Uzmanı'}
             </span>
-            <h1 className="font-serif text-[clamp(48px,7vw,96px)] leading-[0.96] my-7 max-w-[820px]">
+            <h1 className="font-serif text-[clamp(40px,6vw,82px)] leading-[0.96] my-4 max-w-[820px]">
               {h.h1a || h.title || 'Doğal güzelliğin'}{' '}
               <span className="gold-gradient-text">{h.h1b || ''}</span>
             </h1>
-            <p className="text-[18px] lg:text-[21px] text-[#efe8dc] max-w-[650px] mb-9 leading-relaxed">{h.subtitle || h.description || ''}</p>
+            <p className="text-[17px] lg:text-[19px] text-[#efe8dc] max-w-[650px] mb-5 leading-relaxed">{h.subtitle || h.description || ''}</p>
             <div className="flex flex-wrap gap-3">
-              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-7 py-4 rounded-full font-bold text-sm tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
+              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-7 py-3.5 rounded-full font-bold text-sm tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
                 {h.cta1 || h.buttonText || 'Ücretsiz Ön Görüşme'}
               </a>
-              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-7 py-[15px] rounded-full font-semibold text-sm hover:bg-white/20 transition-colors backdrop-blur-md">
+              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-white/20 transition-colors backdrop-blur-md">
                 {h.cta2 || 'Hizmetleri İncele'}
               </a>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-11 max-w-[720px]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 max-w-[720px]">
               <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-2 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
               <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">100+</strong><span className="block mt-2 leading-tight">{h.stat2 || 'Bilimsel yayın'}</span></div>
               <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">H-12</strong><span className="block mt-2 leading-tight">{h.stat3 || 'Akademik indeks'}</span></div>
@@ -384,7 +384,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
 
             {/* Certification & Accreditation Strip */}
-            <div className="mt-8 max-w-[800px] bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-5 shadow-md border border-[#e8efe9]/80">
+            <div className="mt-5 max-w-[800px] bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-md border border-[#e8efe9]/80">
               <div className="grid grid-cols-3 items-center">
 
                 {/* Kolon 1 – Health Turkey */}
