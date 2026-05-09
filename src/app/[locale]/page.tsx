@@ -512,8 +512,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               const href = localePath(locale, `/hizmetler/${slug}`);
               const bgImage = OLD_SITE_SERVICE_IMAGES[slug] || seoTrans?.ogImage || service.image || '/images/logo.png';
 
+              const isHiddenOnTr = locale === 'tr' && (slug === 'ip-aski' || slug === 'mezoterapi');
               return (
-                <div key={service.id || slug} className="service-signature-card group relative rounded-[1.55rem] overflow-hidden min-h-[390px] flex flex-col justify-end border border-white/80 bg-white transition-all duration-300 hover:-translate-y-1">
+                <div key={service.id || slug} className={`service-signature-card group relative rounded-[1.55rem] overflow-hidden min-h-[390px] flex flex-col justify-end border border-white/80 bg-white transition-all duration-300 hover:-translate-y-1 ${isHiddenOnTr ? 'sr-only' : ''}`}>
                   <div className="absolute inset-0 z-0 bg-[#dbe7e7]">
                     <Image src={bgImage} alt={title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover image-polish group-hover:scale-105 transition-transform duration-700" />
                   </div>

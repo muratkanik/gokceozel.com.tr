@@ -6,9 +6,10 @@ export type OldSiteMediaItem = {
 };
 
 export const OLD_SITE_SERVICE_IMAGES: Record<string, string> = {
+  'sinuzit': '/images/sinuzit.png',
   'rinoplasti': '/images/content/service-02.jpg',
-  'septorinoplasti': '/images/content/service-02.jpg',
-  'revizyon-rinoplasti': '/images/content/service-02.jpg',
+  'septorinoplasti': '/images/septorinoplasti.png',
+  'revizyon-rinoplasti': '/images/revizyon_rinoplasti.png',
 
   'gz-kapa-estetii': '/old-site/services/goz-kapagi-estetigi.png',
   'blefaroplasti': '/old-site/services/goz-kapagi-estetigi.png',

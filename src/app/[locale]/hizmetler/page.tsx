@@ -124,8 +124,9 @@ export default async function HizmetlerPage({ params }: { params: Promise<{ loca
                 const localSlug = localizedServiceSlug(slug, locale);
                 const seg = hizmetlerSegment(locale);
                 
+                const isHiddenOnTr = locale === 'tr' && (slug === 'ip-aski' || slug === 'mezoterapi');
                 return (
-                  <Link key={service.id} href={localePath(locale, `/${seg}/${localSlug}`)} className="group block h-full">
+                  <Link key={service.id} href={localePath(locale, `/${seg}/${localSlug}`)} className={`group block h-full ${isHiddenOnTr ? 'sr-only' : ''}`}>
                     <div className="soft-card rounded-[1.35rem] overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                       <div className="aspect-video relative overflow-hidden bg-[#111]">
                         <Image
