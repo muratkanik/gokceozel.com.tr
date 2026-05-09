@@ -1,11 +1,6 @@
 import prisma from '@/lib/prisma';
 import { saveSetting, deleteSetting } from './actions';
-import dynamic from 'next/dynamic';
-
-const AdminMapWrapper = dynamic(() => import('./AdminMap'), {
-  ssr: false,
-  loading: () => <div className="h-[400px] w-full bg-slate-100 rounded-xl flex items-center justify-center text-slate-500">Harita Yükleniyor...</div>
-});
+import AdminMapWrapper from './AdminMapWrapper';
 
 export default async function SettingsPage() {
   const settings = await prisma.setting.findMany({
@@ -53,6 +48,33 @@ export default async function SettingsPage() {
                       <form action={saveSetting} className="flex gap-3">
                         <input type="hidden" name="key" value={key} />
                         <input type="text" name="value" defaultValue={setting?.value || ''} placeholder={key.replace(/_/g, ' ')} className="w-full p-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none transition-all" />
+                        <button type="submit" className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors whitespace-nowrap">Güncelle</button>
+                      </form>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Google Integration Settings */}
+      <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+        <h2 className="text-xl font-bold text-slate-800 mb-6">Google Entegrasyonları (Yorumlar)</h2>
+        <p className="text-slate-500 mb-6 text-sm">Google Maps API Anahtarı ve Place ID (Mekan ID) bilgilerinizi buraya girerek Google Yorumları (Google Reviews) eklentisini sitenizde kendi özel tasarımınızla yayınlayabilirsiniz.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <tbody>
+              {['google_maps_api_key', 'google_place_id'].map(key => {
+                const setting = settings.find(s => s.key === key);
+                return (
+                  <tr key={key} className="border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                    <td className="py-4 px-4 font-semibold text-slate-700 w-48 align-middle">{key === 'google_maps_api_key' ? 'API Anahtarı' : 'Place ID'}</td>
+                    <td className="py-4 px-4 align-middle">
+                      <form action={saveSetting} className="flex gap-3">
+                        <input type="hidden" name="key" value={key} />
+                        <input type="text" name="value" defaultValue={setting?.value || ''} placeholder={key} className="w-full p-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none transition-all" />
                         <button type="submit" className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors whitespace-nowrap">Güncelle</button>
                       </form>
                     </td>

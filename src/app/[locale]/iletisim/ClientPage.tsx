@@ -2,6 +2,7 @@
 
 import { use, useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
+import GoogleReviews from '@/components/GoogleReviews';
 
 const ContactMap = dynamic(() => import('./ContactMap'), {
   ssr: false,
@@ -469,13 +470,9 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
         
         {/* Google Reviews Widget Placeholder */}
         <div className="mt-16 text-center">
-          <h3 className="text-3xl font-serif text-[#17201e] mb-2">Hasta Yorumları</h3>
-          <p className="text-[#61706b] mb-8">Değerli hastalarımızın deneyimleri bizim için çok önemli.</p>
-          <div className="bg-white rounded-[1.35rem] p-6 shadow-sm border border-[#e8efe9]">
-            {/* Elfsight Google Reviews | Untitled Google Reviews */}
-            <script src="https://elfsightcdn.com/platform.js" async></script>
-            <div className="elfsight-app-fa62fa46-5a91-433f-8baf-8ec31fdeeff5" data-elfsight-app-lazy></div>
-          </div>
+          <h3 className="text-3xl font-serif text-[#17201e] mb-2">{t.reviewsTitle || 'Hasta Yorumları'}</h3>
+          <p className="text-[#61706b] mb-8">{t.reviewsSubtitle || 'Değerli hastalarımızın deneyimleri bizim için çok önemli.'}</p>
+          <GoogleReviews locale={locale} />
         </div>
       </div>
     </main>
