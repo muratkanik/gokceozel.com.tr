@@ -135,7 +135,7 @@ function ZenginMetinBlock({ content, id }: { content: any; id: string }) {
       {content.title && (
         <h2 className="font-serif text-3xl md:text-4xl text-[#17201e] mb-6 text-center">{content.title}</h2>
       )}
-      <div className="prose prose-lg max-w-none prose-headings:text-[#17201e] prose-headings:font-serif prose-p:text-[#54625e] prose-li:text-[#54625e] prose-a:text-[#b88746] hover:prose-a:text-[#17201e] prose-img:rounded-2xl soft-card p-8 md:p-16 rounded-[1.75rem]">
+      <div className="prose prose-lg max-w-none prose-headings:text-[#17201e] prose-headings:font-serif prose-p:text-[#54625e] prose-li:text-[#54625e] prose-a:text-[#b88746] hover:prose-a:text-[#17201e] prose-img:rounded-2xl soft-card p-8 md:p-16 rounded-[1.75rem] overflow-hidden break-words">
         <div dangerouslySetInnerHTML={{ __html: content.text || '' }} />
       </div>
     </div>
