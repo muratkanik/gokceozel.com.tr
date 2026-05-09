@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma';
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
-export function generateSlug(text: string) {
+function generateSlug(text: string) {
   const trMap: { [key: string]: string } = {
     'ç': 'c', 'Ç': 'c',
     'ğ': 'g', 'Ğ': 'g',
