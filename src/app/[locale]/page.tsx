@@ -405,7 +405,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="luxury-hero relative overflow-hidden min-h-[calc(55svh-80px)] flex items-center">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8f2] to-transparent" />
         <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-8 lg:py-10 w-full">
-          <div className="text-white max-w-[880px]">
+          <div className="text-white max-w-[880px] sm:ml-4 md:ml-10 lg:ml-16 xl:ml-20">
             <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-[11px] text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
               {h.badge || (locale === 'tr' ? 'Ankara & Antalya · KBB Uzmanı' : 'Ankara & Antalya · ENT Specialist')}
             </span>
