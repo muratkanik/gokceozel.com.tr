@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
+import prisma from '@/lib/prisma';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import Image from 'next/image';
