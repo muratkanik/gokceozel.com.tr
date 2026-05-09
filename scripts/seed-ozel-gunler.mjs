@@ -210,11 +210,11 @@ const VARIABLE = [
     event_date: '2025-05-11',
     theme_class: 'theme-anneler-gunu',
     popup_translations: {
-      tr: { title: '🌹 Anneler Günün Kutlu Olsun!', body: 'Dünyanın en güzel gününüz olan bugünde sizi sevgiyle kucaklıyoruz. Kliniğimizden annelere özel sürpriz hediyeler!', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      en: { title: '🌹 Happy Mother\'s Day!', body: 'We embrace you with love on this most beautiful day. Special surprise gifts from our clinic for mothers!', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      de: { title: '🌹 Alles Gute zum Muttertag!', body: 'Wir umarmen Sie liebevoll an diesem wunderschönen Tag. Besondere Überraschungsgeschenke unserer Klinik für Mütter!', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      fr: { title: '🌹 Bonne Fête des Mères !', body: 'Nous vous embrassons avec amour en ce plus beau des jours. Cadeaux surprises de notre clinique pour les mamans !', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      ar: { title: '🌹 عيد الأم السعيد!', body: 'نحتضنكِ بكل حب في هذا اليوم الجميل. هدايا مفاجأة من عيادتنا للأمهات!', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
+      tr: { title: '🌹 Anneler Gününüz Kutlu Olsun!', body: 'Bu anlamlı günde siz değerli annelerimizi sevgiyle kucaklıyoruz. Kliniğimizden annelere özel sürpriz hediyeler!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      en: { title: '🌹 Happy Mother\'s Day!', body: 'We embrace you with love on this meaningful day. Special surprise gifts from our clinic for mothers!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      de: { title: '🌹 Alles Gute zum Muttertag!', body: 'Wir umarmen Sie liebevoll an diesem bedeutungsvollen Tag. Besondere Überraschungsgeschenke unserer Klinik für Mütter!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      fr: { title: '🌹 Bonne Fête des Mères !', body: 'Nous vous embrassons avec amour en ce jour significatif. Cadeaux surprises de notre clinique pour les mamans !', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      ar: { title: '🌹 عيد الأم السعيد!', body: 'نحتضنكِ بكل حب في هذا اليوم ذي المعنى. هدايا مفاجأة من عيادتنا للأمهات!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
     },
   },
 
@@ -266,11 +266,11 @@ const VARIABLE = [
     event_date: '2026-05-10',
     theme_class: 'theme-anneler-gunu',
     popup_translations: {
-      tr: { title: '🌹 Anneler Günün Kutlu Olsun!', body: 'Dünyanın en güzel gününüz olan bugünde sizi sevgiyle kucaklıyoruz.', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      en: { title: '🌹 Happy Mother\'s Day!', body: 'We embrace you with love on this most beautiful day.', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      de: { title: '🌹 Alles Gute zum Muttertag!', body: 'Wir umarmen Sie liebevoll an diesem wunderschönen Tag.', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      fr: { title: '🌹 Bonne Fête des Mères !', body: 'Nous vous embrassons avec amour en ce plus beau des jours.', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
-      ar: { title: '🌹 عيد الأم السعيد!', body: 'نحتضنكِ بكل حب في هذا اليوم الجميل.', imageUrl: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=1200&auto=format&fit=crop' },
+      tr: { title: '🌹 Anneler Gününüz Kutlu Olsun!', body: 'Bu anlamlı günde siz değerli annelerimizi sevgiyle kucaklıyoruz. Kliniğimizden annelere özel sürpriz hediyeler!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      en: { title: '🌹 Happy Mother\'s Day!', body: 'We embrace you with love on this meaningful day. Special surprise gifts from our clinic for mothers!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      de: { title: '🌹 Alles Gute zum Muttertag!', body: 'Wir umarmen Sie liebevoll an diesem bedeutungsvollen Tag. Besondere Überraschungsgeschenke unserer Klinik für Mütter!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      fr: { title: '🌹 Bonne Fête des Mères !', body: 'Nous vous embrassons avec amour en ce jour significatif. Cadeaux surprises de notre clinique pour les mamans !', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
+      ar: { title: '🌹 عيد الأم السعيد!', body: 'نحتضنكِ بكل حب في هذا اليوم ذي المعنى. هدايا مفاجأة من عيادتنا للأمهات!', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop' },
     },
   },
 
