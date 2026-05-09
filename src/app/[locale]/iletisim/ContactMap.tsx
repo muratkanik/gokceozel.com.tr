@@ -12,7 +12,7 @@ L.Icon.Default.mergeOptions({
 });
 
 // Default to clinic position if none provided
-const DEFAULT_POSITION: [number, number] = [39.8938, 32.6897];
+const DEFAULT_POSITION: [number, number] = [39.9118045, 32.7686267];
 
 interface ContactMapProps {
   lat?: number;
@@ -40,7 +40,7 @@ export default function ContactMap({ lat, lng, name, address }: ContactMapProps)
           <Popup>
             <div className="text-center space-y-2">
               <strong>{name || "Prof. Dr. Gökçe Özel Kliniği"}</strong><br/>
-              <span className="text-xs text-slate-500">{address || "Ümitköy, Ankara"}</span><br/>
+              <span className="text-xs text-slate-500">{address || "Mustafa Kemal Mahallesi, Ankara"}</span><br/>
               <a 
                 href={`https://www.google.com/maps/dir/?api=1&destination=${position[0]},${position[1]}`}
                 target="_blank"

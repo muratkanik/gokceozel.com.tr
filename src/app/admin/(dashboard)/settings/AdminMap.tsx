@@ -42,7 +42,7 @@ interface AdminMapProps {
   initialLng?: number;
 }
 
-const DEFAULT_POSITION: [number, number] = [39.8938, 32.6897];
+const DEFAULT_POSITION: [number, number] = [39.9118045, 32.7686267];
 
 export default function AdminMap({ initialLat, initialLng }: AdminMapProps) {
   const [position, setPosition] = useState<L.LatLng | null>(

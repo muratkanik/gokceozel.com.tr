@@ -18,7 +18,7 @@ const I18N = {
     email: 'E-Posta',
     hours: 'Çalışma Saatleri',
     hoursVal: 'Pazartesi – Cumartesi · 10:00 – 18:00',
-    addressVal: 'Ümitköy Mahallesi, Çankaya, Ankara',
+    addressVal: 'Royale Office, 4, 2133. Sokak, Mustafa Kemal Mahallesi, Ankara',
     namePh: 'Adınız Soyadınız',
     emailPh: 'E-Posta (İsteğe Bağlı)',
     phonePh: 'Telefon Numaranız',
