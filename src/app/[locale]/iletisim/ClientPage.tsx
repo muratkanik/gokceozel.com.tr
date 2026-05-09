@@ -472,7 +472,16 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
         <div className="mt-16 text-center">
           <h3 className="text-3xl font-serif text-[#17201e] mb-2">{t.reviewsTitle || 'Hasta Yorumları'}</h3>
           <p className="text-[#61706b] mb-8">{t.reviewsSubtitle || 'Değerli hastalarımızın deneyimleri bizim için çok önemli.'}</p>
+          
+          <div className="bg-white rounded-[1.35rem] p-6 shadow-sm border border-[#e8efe9]">
+            {/* Elfsight Google Reviews | Untitled Google Reviews */}
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div className="elfsight-app-fa62fa46-5a91-433f-8baf-8ec31fdeeff5" data-elfsight-app-lazy></div>
+          </div>
+          
+          {/* Custom Google API Implementation (Ready to use later) 
           <GoogleReviews locale={locale} />
+          */}
         </div>
       </div>
     </main>
