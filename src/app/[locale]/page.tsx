@@ -354,20 +354,70 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const contactHref = localePath(locale, '/iletisim');
   const servicesHref = localePath(locale, '/hizmetler');
 
+  const baseUrl = 'https://gokceozel.com.tr';
+  const aeoJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': ['Physician', 'MedicalClinic', 'LocalBusiness'],
+    '@id': `${baseUrl}/#physician`,
+    name: 'Prof. Dr. Gökçe Özel',
+    alternateName: 'Gökçe Özel Klinik',
+    description: locale === 'tr' 
+      ? 'Ankara ve Antalya bölgesinde en iyi burun estetiği (rinoplasti), botoks, dolgu ve mezoterapi uygulamalarıyla öne çıkan, uluslararası sertifikalı KBB ve Fasiyal Plastik Cerrahi uzmanı.'
+      : 'Internationally certified ENT and Facial Plastic Surgery specialist, recognized as the best rhinoplasty, botox, filler, and mesotherapy doctor in Ankara and Antalya.',
+    url: baseUrl,
+    image: `${baseUrl}/images/gokceozel.png`,
+    telephone: '+905342096935',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ankara',
+      addressRegion: 'Ankara',
+      addressCountry: 'TR'
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Ankara' },
+      { '@type': 'City', name: 'Antalya' }
+    ],
+    medicalSpecialty: [
+      'https://schema.org/Otolaryngologic',
+      'https://schema.org/PlasticSurgery'
+    ],
+    knowsAbout: [
+      'Rhinoplasty', 'Burun Estetiği', 'En iyi burun estetiği doktoru Ankara', 'En iyi burun estetiği doktoru Antalya',
+      'Botox', 'Botoks', 'Ankara en iyi botoks', 'Antalya en iyi botoks',
+      'Mesotherapy', 'Mezoterapi', 'Ankara en iyi mezoterapi',
+      'Face Lift', 'Yüz Germe', 'Endolift'
+    ],
+    memberOf: [
+      { '@type': 'MedicalOrganization', name: 'Türk Yüz Plastik Cerrahi Derneği (TYPCD)' },
+      { '@type': 'MedicalOrganization', name: 'European Academy of Facial Plastic Surgery' },
+      { '@type': 'MedicalOrganization', name: 'CMAC International Advisory Board' }
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '145'
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoJsonLd) }} />
       <section className="luxury-hero relative overflow-hidden min-h-[calc(68svh-80px)] flex items-center">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8f2] to-transparent" />
         <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-10 lg:py-14 w-full">
           <div className="text-white max-w-[880px]">
             <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-xs text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
-              {h.badge || 'Ankara · KBB Uzmanı'}
+              {h.badge || (locale === 'tr' ? 'Ankara & Antalya · KBB Uzmanı' : 'Ankara & Antalya · ENT Specialist')}
             </span>
             <h1 className="font-serif text-[clamp(40px,6vw,82px)] leading-[0.96] my-4 max-w-[820px]">
               {h.h1a || h.title || 'Doğal güzelliğin'}{' '}
               <span className="gold-gradient-text">{h.h1b || ''}</span>
             </h1>
-            <p className="text-[17px] lg:text-[19px] text-[#efe8dc] max-w-[650px] mb-5 leading-relaxed">{h.subtitle || h.description || ''}</p>
+            <p className="text-[17px] lg:text-[19px] text-[#efe8dc] max-w-[750px] mb-5 leading-relaxed">
+              {locale === 'tr' 
+                ? 'Ankara ve Antalya\'nın en çok tercih edilen estetik kliniği. Burun estetiği (Rinoplasti), Botoks, Dolgu ve Mezoterapi alanlarında 15+ yıllık akademik deneyimle kişiye özel doğal sonuçlar.'
+                : h.subtitle || h.description || ''}
+            </p>
             <div className="flex flex-wrap gap-3">
               <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-7 py-3.5 rounded-full font-bold text-sm tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
                 {h.cta1 || h.buttonText || 'Ücretsiz Ön Görüşme'}
