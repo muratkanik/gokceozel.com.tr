@@ -467,13 +467,9 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
           <h3 className="text-3xl font-serif text-[#17201e] mb-2">Hasta Yorumları</h3>
           <p className="text-[#61706b] mb-8">Değerli hastalarımızın deneyimleri bizim için çok önemli.</p>
           <div className="bg-white rounded-[1.35rem] p-6 shadow-sm border border-[#e8efe9]">
-            {/* 
-              TODO: Elfsight veya Trustindex'ten aldığınız widget kodunu aşağıya ekleyin.
-              Örnek Elfsight Kodu: 
-            */}
-            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-            <div className="elfsight-app-5aa1e10d-cf62-4ef8-a40d-c782b5fb6e1a" data-elfsight-app-lazy></div>
-            <p className="text-sm text-slate-400 mt-2 italic">Not: Bu alan Google Yorumları eklentisi (Widget) içindir. Kendi ID'niz ile değiştirebilirsiniz.</p>
+            {/* Elfsight Google Reviews | Untitled Google Reviews */}
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div className="elfsight-app-fa62fa46-5a91-433f-8baf-8ec31fdeeff5" data-elfsight-app-lazy></div>
           </div>
         </div>
       </div>
