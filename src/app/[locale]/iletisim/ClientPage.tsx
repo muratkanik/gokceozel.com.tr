@@ -1,6 +1,12 @@
 'use client';
 
 import { use, useEffect, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const ContactMap = dynamic(() => import('./ContactMap'), {
+  ssr: false,
+  loading: () => <div className="h-full w-full bg-slate-100 animate-pulse flex items-center justify-center text-slate-500 text-sm">Harita Yükleniyor...</div>
+});
 
 const I18N = {
   tr: {
@@ -449,19 +455,25 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
         </div>
 
         <div className="mt-8">
-          <div className="soft-card rounded-[1.35rem] overflow-hidden p-2">
-            <div className="h-[360px] md:h-[460px] rounded-[1rem] overflow-hidden bg-[#17201e]/5">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.5!2d32.6897!3d39.8938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDUzJzM3LjciTiAzMsKwNDEnMjIuOSJF!5e0!3m2!1str!2str!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Klinik konumu"
-              />
+          <div className="soft-card rounded-[1.35rem] overflow-hidden p-2 relative z-0">
+            <div className="h-[460px] md:h-[560px] rounded-[1rem] overflow-hidden bg-[#17201e]/5">
+               <ContactMap />
             </div>
+          </div>
+        </div>
+        
+        {/* Google Reviews Widget Placeholder */}
+        <div className="mt-16 text-center">
+          <h3 className="text-3xl font-serif text-[#17201e] mb-2">Hasta Yorumları</h3>
+          <p className="text-[#61706b] mb-8">Değerli hastalarımızın deneyimleri bizim için çok önemli.</p>
+          <div className="bg-white rounded-[1.35rem] p-6 shadow-sm border border-[#e8efe9]">
+            {/* 
+              TODO: Elfsight veya Trustindex'ten aldığınız widget kodunu aşağıya ekleyin.
+              Örnek Elfsight Kodu: 
+            */}
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div className="elfsight-app-5aa1e10d-cf62-4ef8-a40d-c782b5fb6e1a" data-elfsight-app-lazy></div>
+            <p className="text-sm text-slate-400 mt-2 italic">Not: Bu alan Google Yorumları eklentisi (Widget) içindir. Kendi ID'niz ile değiştirebilirsiniz.</p>
           </div>
         </div>
       </div>
