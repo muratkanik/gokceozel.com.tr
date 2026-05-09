@@ -4,14 +4,53 @@ import prisma from '@/lib/prisma';
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
+export function generateSlug(text: string) {
+  const trMap: { [key: string]: string } = {
+    'ç': 'c', 'Ç': 'c',
+    'ğ': 'g', 'Ğ': 'g',
+    'ı': 'i', 'İ': 'i',
+    'ö': 'o', 'Ö': 'o',
+    'ş': 's', 'Ş': 's',
+    'ü': 'u', 'Ü': 'u',
+  };
+  return text
+    .replace(/[çÇğĞıİöÖşŞüÜ]/g, match => trMap[match])
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
 export async function savePageContent(pageId: string, data: any) {
-  // data contains blocks, seoMeta, and type
-  
-  if (data.type) {
-    await prisma.page.update({
-      where: { id: pageId },
-      data: { type: data.type }
+  let finalPageId = pageId;
+  let newSlug = '';
+
+  if (pageId === 'new') {
+    newSlug = generateSlug(data.titleInternal || 'yeni-sayfa');
+    let count = 1;
+    let originalSlug = newSlug;
+    while (await prisma.page.findUnique({ where: { slug: newSlug } })) {
+      newSlug = `${originalSlug}-${count++}`;
+    }
+    
+    const newPage = await prisma.page.create({
+      data: {
+        slug: newSlug,
+        titleInternal: data.titleInternal || 'Yeni Sayfa',
+        type: data.type || 'PAGE'
+      }
     });
+    finalPageId = newPage.id;
+  } else {
+    const updateData: any = {};
+    if (data.type) updateData.type = data.type;
+    if (data.titleInternal) updateData.titleInternal = data.titleInternal;
+    
+    if (Object.keys(updateData).length > 0) {
+      await prisma.page.update({
+        where: { id: finalPageId },
+        data: updateData
+      });
+    }
   }
 
   if (data.blocks) {
@@ -20,10 +59,10 @@ export async function savePageContent(pageId: string, data: any) {
     const incomingBlockIds = data.blocks.map((b: any) => b.id).filter((id: string) => !id.startsWith('temp_'));
     
     // Delete blocks that are no longer in the list
-    if (pageId !== 'new') {
+    if (finalPageId !== 'new') {
       await prisma.contentBlock.deleteMany({
         where: {
-          pageId,
+          pageId: finalPageId,
           id: { notIn: incomingBlockIds }
         }
       });
@@ -37,7 +76,7 @@ export async function savePageContent(pageId: string, data: any) {
         // Create new block
         const createdBlock = await prisma.contentBlock.create({
           data: {
-            pageId,
+            pageId: finalPageId,
             componentType: block.componentType,
             sortOrder: block.sortOrder,
             isActive: block.isActive !== undefined ? block.isActive : true,
@@ -79,14 +118,14 @@ export async function savePageContent(pageId: string, data: any) {
     }
   }
 
-    if (data.seoMeta && pageId !== 'new') {
+    if (data.seoMeta && finalPageId !== 'new') {
     for (const locale of Object.keys(data.seoMeta)) {
       const meta = data.seoMeta[locale];
       if (meta.metaTitle !== undefined || meta.metaDescription !== undefined) {
         await prisma.seoMeta.upsert({
           where: {
             pageId_locale: {
-              pageId,
+              pageId: finalPageId,
               locale
             }
           },
@@ -95,7 +134,7 @@ export async function savePageContent(pageId: string, data: any) {
             metaDescription: meta.metaDescription || '',
           },
           create: {
-            pageId,
+            pageId: finalPageId,
             locale,
             metaTitle: meta.metaTitle || '',
             metaDescription: meta.metaDescription || '',
@@ -106,6 +145,8 @@ export async function savePageContent(pageId: string, data: any) {
   }
 
   revalidatePath('/', 'layout');
+  
+  return { id: finalPageId, slug: newSlug };
 }
 
 // Legacy Methods - To be removed after full migration
@@ -122,14 +163,14 @@ export async function saveContentEntryTranslations(id: string, translations: Rec
     throw new Error('Failed to save translations');
   }
 
-    if (data.seoMeta && pageId !== 'new') {
+    if (data.seoMeta && finalPageId !== 'new') {
     for (const locale of Object.keys(data.seoMeta)) {
       const meta = data.seoMeta[locale];
       if (meta.metaTitle !== undefined || meta.metaDescription !== undefined) {
         await prisma.seoMeta.upsert({
           where: {
             pageId_locale: {
-              pageId,
+              pageId: finalPageId,
               locale
             }
           },
@@ -138,7 +179,7 @@ export async function saveContentEntryTranslations(id: string, translations: Rec
             metaDescription: meta.metaDescription || '',
           },
           create: {
-            pageId,
+            pageId: finalPageId,
             locale,
             metaTitle: meta.metaTitle || '',
             metaDescription: meta.metaDescription || '',
@@ -149,6 +190,8 @@ export async function saveContentEntryTranslations(id: string, translations: Rec
   }
 
   revalidatePath('/', 'layout');
+  
+  return { id: finalPageId, slug: newSlug };
 }
 
 export async function ensureContentEntryExists(slug: string, type: string, defaultTranslations: Record<string, any>) {

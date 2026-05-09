@@ -60,11 +60,22 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      await savePageContent(initialData?.id || 'new', {
+      const trContent = getBlockContent(mainBlock, 'tr');
+      const pageTitle = trContent?.title || initialData?.titleInternal || 'Yeni Sayfa';
+      
+      const res = await savePageContent(initialData?.id || 'new', {
         type: contentType,
+        titleInternal: pageTitle,
         blocks: blocks.map((b, index) => ({ ...b, sortOrder: index + 1 })),
         seoMeta: seoData
       });
+
+      if (res && res.slug && (!initialData?.id || initialData.id === 'new')) {
+        alert('İçerik başarıyla oluşturuldu!');
+        window.location.href = `/admin/icerikler/${res.slug}`;
+        return;
+      }
+
       alert('İçerik başarıyla kaydedildi!');
       router.refresh();
     } catch (e) {
