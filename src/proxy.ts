@@ -38,7 +38,7 @@ export default async function proxy(request: NextRequest) {
 
   const isAdminPath = pathname === '/admin' || pathname.startsWith('/admin/') || pathname.startsWith('/tr/admin/');
   if (isAdminPath) {
-    let response = NextResponse.next();
+    const response = NextResponse.next();
 
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,

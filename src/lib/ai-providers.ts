@@ -22,86 +22,49 @@ function stripFences(text: string): string {
   return text.trim();
 }
 
-const openai: ProviderFn = async (messages, opts) => {
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error('OPENAI_API_KEY missing');
+const openrouter: ProviderFn = async (messages, opts) => {
+  const key = process.env.OPENROUTER_API_KEY || process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
+  if (!key) throw new Error('OPENROUTER_API_KEY missing');
 
-  const res = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: 'gpt-4o-mini',
-      messages,
-      temperature: opts.temperature ?? 0.7,
-    }),
-  });
+  // Fallback order for models
+  const models = [
+    'google/gemini-2.5-flash',
+    'deepseek/deepseek-chat',
+    'meta-llama/llama-3.1-8b-instruct'
+  ];
 
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || `OpenAI HTTP ${res.status}`);
-  }
+  for (const model of models) {
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${key}` 
+        },
+        body: JSON.stringify({
+          model: model,
+          messages,
+          temperature: opts.temperature ?? 0.7,
+        }),
+      });
 
-  return stripFences((await res.json()).choices[0].message.content);
-};
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error?.message || `OpenRouter HTTP ${res.status} for ${model}`);
+      }
 
-const xai: ProviderFn = async (messages, opts) => {
-  const key = process.env.XAI_API_KEY;
-  if (!key) throw new Error('XAI_API_KEY missing');
-
-  const res = await fetch('https://api.x.ai/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: 'grok-3-mini',
-      messages,
-      temperature: opts.temperature ?? 0.7,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || `xAI HTTP ${res.status}`);
-  }
-
-  return stripFences((await res.json()).choices[0].message.content);
-};
-
-const gemini: ProviderFn = async (messages, opts) => {
-  const key = process.env.GEMINI_API_KEY;
-  if (!key) throw new Error('GEMINI_API_KEY missing');
-
-  // Gemini uses a different message format; combine system + user messages
-  const systemMsg = messages.find((m) => m.role === 'system')?.content ?? '';
-  const userMsgs = messages.filter((m) => m.role !== 'system');
-
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...(systemMsg ? { systemInstruction: { parts: [{ text: systemMsg }] } } : {}),
-        contents: userMsgs.map((m) => ({
-          role: m.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: m.content }],
-        })),
-        generationConfig: { temperature: opts.temperature ?? 0.7 },
-      }),
+      return stripFences((await res.json()).choices[0].message.content);
+    } catch (error: any) {
+      console.warn(`[ai-providers] OpenRouter model ${model} failed:`, error.message);
+      // Loop continues to fallback model
     }
-  );
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || `Gemini HTTP ${res.status}`);
   }
-
-  return stripFences((await res.json()).candidates[0].content.parts[0].text);
+  
+  throw new Error("All fallback models failed on OpenRouter.");
 };
 
 const PROVIDERS: [string, ProviderFn][] = [
-  ['OpenAI', openai],
-  ['xAI (Grok)', xai],
-  ['Gemini', gemini],
+  ['OpenRouter', openrouter],
 ];
 
 /**

@@ -67,14 +67,14 @@ export default async function AdminDashboard() {
   }>;
 
   const stats = [
-    { label: 'Toplam Sayfa', value: pageCount, icon: '▥', href: '/admin/icerikler', color: 'bg-blue-50 border-blue-200', text: 'text-blue-700' },
-    { label: 'Blog Yazısı', value: blogCount, icon: '✍', href: '/admin/icerikler', color: 'bg-indigo-50 border-indigo-200', text: 'text-indigo-700' },
-    { label: 'Hizmet', value: serviceCount, icon: '⊕', href: '/admin/icerikler', color: 'bg-purple-50 border-purple-200', text: 'text-purple-700' },
-    { label: 'SSS', value: faqCount, icon: '❓', href: '/admin/sss', color: 'bg-amber-50 border-amber-200', text: 'text-amber-700' },
-    { label: 'Yorum (Onaylı)', value: testimonialCount, icon: '★', href: '/admin/yorumlar', color: 'bg-emerald-50 border-emerald-200', text: 'text-emerald-700' },
-    { label: 'Yorum Bekliyor', value: pendingTestimonials, icon: '⏳', href: '/admin/yorumlar', color: (pendingTestimonials as number) > 0 ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200', text: (pendingTestimonials as number) > 0 ? 'text-red-700' : 'text-gray-500' },
-    { label: 'Önce/Sonra (Yayında)', value: `${publicBeforeAfter}/${beforeAfterCount}`, icon: '⊞', href: '/admin/once-sonra', color: 'bg-rose-50 border-rose-200', text: 'text-rose-700' },
-    { label: 'Yönlendirme', value: redirectCount, icon: '↪', href: '/admin/redirectler', color: 'bg-slate-50 border-slate-200', text: 'text-slate-700' },
+    { label: 'Toplam Sayfa', value: pageCount as number, icon: '▥', href: '/admin/icerikler', color: 'bg-blue-50 border-blue-200', text: 'text-blue-700' },
+    { label: 'Blog Yazısı', value: blogCount as number, icon: '✍', href: '/admin/icerikler', color: 'bg-indigo-50 border-indigo-200', text: 'text-indigo-700' },
+    { label: 'Hizmet', value: serviceCount as number, icon: '⊕', href: '/admin/icerikler', color: 'bg-purple-50 border-purple-200', text: 'text-purple-700' },
+    { label: 'SSS', value: faqCount as number, icon: '❓', href: '/admin/sss', color: 'bg-amber-50 border-amber-200', text: 'text-amber-700' },
+    { label: 'Yorum (Onaylı)', value: testimonialCount as number, icon: '★', href: '/admin/yorumlar', color: 'bg-emerald-50 border-emerald-200', text: 'text-emerald-700' },
+    { label: 'Yorum Bekliyor', value: pendingTestimonials as number, icon: '⏳', href: '/admin/yorumlar', color: (pendingTestimonials as number) > 0 ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200', text: (pendingTestimonials as number) > 0 ? 'text-red-700' : 'text-gray-500' },
+    { label: 'Önce/Sonra (Yayında)', value: `${publicBeforeAfter as number}/${beforeAfterCount as number}`, icon: '⊞', href: '/admin/once-sonra', color: 'bg-rose-50 border-rose-200', text: 'text-rose-700' },
+    { label: 'Yönlendirme', value: redirectCount as number, icon: '↪', href: '/admin/redirectler', color: 'bg-slate-50 border-slate-200', text: 'text-slate-700' },
   ];
 
   const statusLabel: Record<string, { label: string; color: string }> = {

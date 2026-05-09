@@ -23,7 +23,7 @@ async function migrateContentEntries() {
   for (const entry of entries) {
     const type = entry.type;
     let slug = entry.slug || `entry-${entry.id}`;
-    let titleInternal = `${type} - ${slug}`;
+    const titleInternal = `${type} - ${slug}`;
 
     // Format slug based on type
     if (type === 'service') slug = `hizmetler/${slug}`;

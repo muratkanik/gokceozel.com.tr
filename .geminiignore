@@ -1,0 +1,29 @@
+# Dependencies and generated build output
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local/cloud tooling that is not project source
+gcloud components install alpha beta skaffold minikube kubectl gke-gcloud-auth-plugin/
+.vercel/
+
+# Large historical backups and migrated source snapshots
+archive/
+
+# Local secrets and machine files
+.env
+.env.*
+.DS_Store
+
+# Binary/static-heavy assets that rarely help chat context
+public/**/*.png
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.gif
+public/**/*.webp
+public/**/*.ico
+public/**/*.pdf

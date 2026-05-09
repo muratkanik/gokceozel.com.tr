@@ -21,13 +21,14 @@ const FALLBACK_IMAGES = [
   '/images/content/service-09.jpg',
   '/images/content/service-10.jpg',
 ];
+
 const FALLBACK_SERVICES = [
-  { id: 'rinoplasti', slug: 'rinoplasti', titleInternal: 'Rinoplasti', seoMeta: [{ locale: 'tr', metaTitle: 'Rinoplasti', metaDescription: 'Burun estetiğinde doğal görünüm ve nefes fonksiyonunu birlikte değerlendiren kişiye özel cerrahi planlama.' }] },
-  { id: 'endolift', slug: 'endolift', titleInternal: 'Endolift Lazer', seoMeta: [{ locale: 'tr', metaTitle: 'Endolift Lazer', metaDescription: 'Kesi olmadan yüz ve gıdı hattında sıkılaşma ve kontür desteği sağlayan lazer uygulaması.' }] },
-  { id: 'blefaroplasti', slug: 'gz-kapa-estetii', titleInternal: 'Göz Kapağı Estetiği', seoMeta: [{ locale: 'tr', metaTitle: 'Göz Kapağı Estetiği', metaDescription: 'Üst ve alt göz kapağında daha dinlenmiş, doğal ve açık bir ifade hedefleyen estetik yaklaşım.' }] },
-  { id: 'botoks', slug: 'botoks', titleInternal: 'Botoks', seoMeta: [{ locale: 'tr', metaTitle: 'Botoks', metaDescription: 'Mimik çizgilerini yumuşatırken yüz ifadesini korumaya odaklanan medikal estetik uygulama.' }] },
-  { id: 'dolgu', slug: 'dolgu', titleInternal: 'Dolgu', seoMeta: [{ locale: 'tr', metaTitle: 'Dolgu Uygulamaları', metaDescription: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.' }] },
-  { id: 'ip-aski', slug: 'ip-aski', titleInternal: 'İp Askılama', seoMeta: [{ locale: 'tr', metaTitle: 'İp Askılama', metaDescription: 'Yüz ovalini destekleyen ve hafif sarkmaları toparlamayı hedefleyen ameliyatsız askılama uygulaması.' }] },
+  { id: 'rinoplasti', slug: 'rinoplasti', titleInternal: 'Rinoplasti', service: { category: 'Estetik Cerrahi' }, seoMeta: [{ locale: 'tr', metaTitle: 'Rinoplasti', metaDescription: 'Burun estetiğinde doğal görünüm ve nefes fonksiyonunu birlikte değerlendiren kişiye özel cerrahi planlama.' }] },
+  { id: 'endolift', slug: 'endolift', titleInternal: 'Endolift Lazer', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Endolift Lazer', metaDescription: 'Kesi olmadan yüz ve gıdı hattında sıkılaşma ve kontür desteği sağlayan lazer uygulaması.' }] },
+  { id: 'blefaroplasti', slug: 'gz-kapa-estetii', titleInternal: 'Göz Kapağı Estetiği', service: { category: 'Estetik Cerrahi' }, seoMeta: [{ locale: 'tr', metaTitle: 'Göz Kapağı Estetiği', metaDescription: 'Üst ve alt göz kapağında daha dinlenmiş, doğal ve açık bir ifade hedefleyen estetik yaklaşım.' }] },
+  { id: 'botoks', slug: 'botoks', titleInternal: 'Botoks', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Botoks', metaDescription: 'Mimik çizgilerini yumuşatırken yüz ifadesini korumaya odaklanan medikal estetik uygulama.' }] },
+  { id: 'dolgu', slug: 'dolgu', titleInternal: 'Dolgu', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Dolgu Uygulamaları', metaDescription: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.' }] },
+  { id: 'ip-aski', slug: 'ip-aski', titleInternal: 'İp Askılama', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'İp Askılama', metaDescription: 'Yüz ovalini destekleyen ve hafif sarkmaları toparlamayı hedefleyen ameliyatsız askılama uygulaması.' }] },
 ];
 
 const EXPLORE_LABEL: Record<string, string> = {
@@ -42,17 +43,37 @@ const EXPLORE_LABEL: Record<string, string> = {
 export default async function HizmetlerPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
-  let services: any[] = [];
+  let rawServices: any[] = [];
   try {
-    services = await prisma.page.findMany({
+    rawServices = await prisma.page.findMany({
       where: { type: 'SERVICE' },
-      include: { seoMeta: true },
+      include: { seoMeta: true, service: true },
       orderBy: { createdAt: 'asc' },
     });
   } catch (e) {
     console.error('Services fetch failed', e);
-    services = FALLBACK_SERVICES;
+    rawServices = FALLBACK_SERVICES;
   }
+
+  // Filter valid services
+  const validServices = rawServices.filter((service) => {
+    const seo = service.seoMeta?.find((s: { locale: string }) => s.locale === locale) || service.seoMeta?.find((s: { locale: string }) => s.locale === 'tr');
+    return hasDisplayableServiceText(service.slug, [
+      seo?.metaTitle,
+      seo?.metaDescription,
+      service.titleInternal,
+    ]);
+  });
+
+  // Group by category
+  const groupedServices: Record<string, any[]> = {};
+  validServices.forEach(service => {
+    const category = service.service?.category || 'Diğer Hizmetler';
+    if (!groupedServices[category]) {
+      groupedServices[category] = [];
+    }
+    groupedServices[category].push(service);
+  });
 
   const heading: Record<string, string> = {
     tr: 'Hizmetlerimiz', en: 'Our Services',
@@ -77,63 +98,69 @@ export default async function HizmetlerPage({ params }: { params: Promise<{ loca
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.filter((service) => {
-            const seo = service.seoMeta.find((s: { locale: string }) => s.locale === locale) || service.seoMeta.find((s: { locale: string }) => s.locale === 'tr');
+        {Object.entries(groupedServices).map(([category, services], catIdx) => (
+          <div key={category} className="mb-20">
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-3xl font-serif text-[#17201e]">{category}</h2>
+              <div className="flex-1 h-px bg-[#e6ebe9]"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, idx) => {
+                const seo = service.seoMeta?.find((s: { locale: string }) => s.locale === locale) || service.seoMeta?.find((s: { locale: string }) => s.locale === 'tr');
+                const slug = canonicalServiceSlug(service.slug, [seo?.metaTitle, service.titleInternal]);
+                const title = serviceTitleFor(slug, locale, [
+                  seo?.metaTitle,
+                  service.titleInternal,
+                ]);
+                const description = serviceDescriptionFor(slug, locale, [
+                  seo?.metaDescription,
+                ]);
+                
+                // Use a stable index for fallback images
+                const globalIdx = catIdx * 10 + idx; 
+                const imgSrc = OLD_SITE_SERVICE_IMAGES[slug] ?? OLD_SITE_SERVICE_IMAGES[service.slug] ?? FALLBACK_IMAGES[globalIdx % FALLBACK_IMAGES.length];
 
-            return hasDisplayableServiceText(service.slug, [
-              seo?.metaTitle,
-              seo?.metaDescription,
-              service.titleInternal,
-            ]);
-          }).map((service, idx) => {
-            const seo = service.seoMeta.find((s: { locale: string }) => s.locale === locale) || service.seoMeta.find((s: { locale: string }) => s.locale === 'tr');
-            const slug = canonicalServiceSlug(service.slug, [seo?.metaTitle, service.titleInternal]);
-            const title = serviceTitleFor(slug, locale, [
-              seo?.metaTitle,
-              service.titleInternal,
-            ]);
-            const description = serviceDescriptionFor(slug, locale, [
-              seo?.metaDescription,
-            ]);
-            const imgSrc = OLD_SITE_SERVICE_IMAGES[slug] ?? OLD_SITE_SERVICE_IMAGES[service.slug] ?? FALLBACK_IMAGES[idx % FALLBACK_IMAGES.length];
+                const localSlug = localizedServiceSlug(slug, locale);
+                const seg = hizmetlerSegment(locale);
+                
+                return (
+                  <Link key={service.id} href={localePath(locale, `/${seg}/${localSlug}`)} className="group block h-full">
+                    <div className="soft-card rounded-[1.35rem] overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                      <div className="aspect-video relative overflow-hidden bg-[#111]">
+                        <Image
+                          src={imgSrc}
+                          alt={title || service.slug}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#101614]/75 via-transparent to-transparent" />
+                      </div>
 
-            const localSlug = localizedServiceSlug(slug, locale);
-            const seg = hizmetlerSegment(locale);
-            return (
-              <Link key={service.id} href={localePath(locale, `/${seg}/${localSlug}`)} className="group block">
-                <div className="soft-card rounded-[1.35rem] overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                  <div className="aspect-video relative overflow-hidden bg-[#111]">
-                    <Image
-                      src={imgSrc}
-                      alt={title || service.slug}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101614]/75 via-transparent to-transparent" />
-                  </div>
-
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h2 className="text-xl font-serif text-[#17201e] mb-2 group-hover:text-[#b88746] transition-colors line-clamp-2 leading-snug">
-                      {title}
-                    </h2>
-                    {description && (
-                      <p className="text-[#61706b] text-sm line-clamp-3 leading-relaxed flex-1">
-                        {description}
-                      </p>
-                    )}
-                    <div className="mt-5 text-[#b88746] text-xs font-bold tracking-widest uppercase flex items-center gap-1.5">
-                      {EXPLORE_LABEL[locale] || EXPLORE_LABEL.tr}
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <h3 className="text-xl font-serif text-[#17201e] mb-2 group-hover:text-[#b88746] transition-colors line-clamp-2 leading-snug">
+                          {title}
+                        </h3>
+                        {description && (
+                          <p className="text-[#61706b] text-sm line-clamp-3 leading-relaxed flex-1">
+                            {description}
+                          </p>
+                        )}
+                        <div className="mt-5 text-[#b88746] text-xs font-bold tracking-widest uppercase flex items-center gap-1.5">
+                          {EXPLORE_LABEL[locale] || EXPLORE_LABEL.tr}
+                          <span className="transition-transform group-hover:translate-x-1">→</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </main>
   );
 }
+

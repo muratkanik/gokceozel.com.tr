@@ -563,6 +563,110 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      {/* PATIENT JOURNEY / TEDAVİ SÜRECİ */}
+      <section className="py-20 lg:py-28 bg-[#fbf8f2]">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6">
+          <div className="text-center mb-16">
+            <span className="section-kicker mb-4">{locale === 'tr' ? 'Tedavi Yolculuğu' : 'Patient Journey'}</span>
+            <h2 className="font-serif text-[clamp(32px,4vw,56px)] leading-tight text-[#151714]">
+              {locale === 'tr' ? 'Adım Adım Güzellik ve Sağlık' : 'Step by Step to Beauty & Health'}
+            </h2>
+            <p className="text-[#5d6964] mt-5 max-w-[600px] mx-auto">
+              {locale === 'tr' 
+                ? 'Kliniğimize adım attığınız andan itibaren şeffaf, güvenilir ve size özel bir süreç sizi bekliyor.' 
+                : 'From the moment you step into our clinic, a transparent, reliable and personalized process awaits you.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <div className="hidden md:block absolute top-[40%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#b8893c]/30 to-transparent -z-10"></div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
+              <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">1</div>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Tıbbi Muayene' : 'Medical Examination'}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">
+                {locale === 'tr' ? 'Detaylı yüz/vücut analizi ve beklentilerinizin bilimsel temelde değerlendirilmesi.' : 'Detailed facial/body analysis and scientific evaluation of your expectations.'}
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
+              <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">2</div>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Kişiye Özel Planlama' : 'Custom Planning'}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">
+                {locale === 'tr' ? 'En doğal sonucu verecek ameliyatlı veya ameliyatsız tedavi protokolünün belirlenmesi.' : 'Determining the surgical or non-surgical protocol that will yield the most natural result.'}
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
+              <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">3</div>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Profesyonel Uygulama' : 'Professional Application'}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">
+                {locale === 'tr' ? 'Yüksek teknoloji donanımlı kliniğimizde veya anlaşmalı tam donanımlı hastanelerde operasyon.' : 'Operation in our high-tech clinic or contracted fully-equipped hospitals.'}
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
+              <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">4</div>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Sonuçlar ve Takip' : 'Results & Follow-up'}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">
+                {locale === 'tr' ? 'İyileşme sürecinin yakından takibi ve hedeflenen doğal güzelliğe uzun vadeli ulaşım.' : 'Close follow-up of the healing process and long-term achievement of targeted natural beauty.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HEALTH TOURISM / SAĞLIK TURİZMİ */}
+      <section className="py-20 lg:py-28 relative overflow-hidden bg-[#111714] text-white">
+        <div className="absolute inset-0 opacity-20">
+          <Image src="/images/content/service-07.jpg" alt="Health Tourism" fill className="object-cover" />
+        </div>
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="max-w-[600px]">
+            <span className="inline-block px-4 py-1.5 border border-[#e1c996]/40 rounded-full text-[#e1c996] text-xs font-bold tracking-widest uppercase mb-6">
+              {locale === 'tr' ? 'Uluslararası Hizmet' : 'International Services'}
+            </span>
+            <h2 className="font-serif text-[clamp(32px,4vw,50px)] leading-tight mb-6">
+              {locale === 'tr' ? 'Türkiye\'de Ayrıcalıklı Sağlık Turizmi' : 'Exclusive Health Tourism in Turkey'}
+            </h2>
+            <p className="text-[#cbd8d3] text-[17px] leading-relaxed mb-8">
+              {locale === 'tr' 
+                ? 'Yurt dışından gelen hastalarımız için havalimanı transferi, anlaşmalı otellerde konaklama ve süreç boyunca kişisel tercüman desteği ile kusursuz bir medikal deneyim sunuyoruz.'
+                : 'For our international patients, we offer a flawless medical experience including airport transfers, accommodation in contracted hotels, and personal interpreter support throughout the process.'}
+            </p>
+            <a href={`https://wa.me/905342096935?text=${encodeURIComponent(locale === 'tr' ? 'Sağlık turizmi paketleri hakkında bilgi almak istiyorum.' : 'I would like to get information about health tourism packages.')}`} className="inline-flex items-center gap-3 bg-white text-[#111714] px-8 py-3.5 rounded-full font-bold hover:bg-[#e1c996] transition-colors">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.01 2.014C6.5 2.014 2.028 6.485 2.028 11.996c0 1.748.455 3.45 1.32 4.954L2.01 22l5.183-1.359a9.92 9.92 0 004.817 1.252h.004c5.508 0 9.98-4.473 9.98-9.984 0-2.67-1.04-5.18-2.928-7.068a9.932 9.932 0 00-7.056-2.827z" />
+              </svg>
+              {locale === 'tr' ? 'Uluslararası Hasta Danışmanı' : 'International Patient Consultant'}
+            </a>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4 lg:gap-6 w-full max-w-[500px]">
+             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
+               <div className="text-3xl mb-3">✈️</div>
+               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'VIP Transfer' : 'VIP Transfer'}</h4>
+               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? 'Havalimanı karşılama' : 'Airport pick-up'}</p>
+             </div>
+             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
+               <div className="text-3xl mb-3">🏨</div>
+               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Konaklama' : 'Accommodation'}</h4>
+               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? '5 yıldızlı oteller' : '5-star hotels'}</p>
+             </div>
+             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
+               <div className="text-3xl mb-3">🗣️</div>
+               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Tercüman' : 'Interpreter'}</h4>
+               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? '7/24 dil desteği' : '24/7 language support'}</p>
+             </div>
+             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
+               <div className="text-3xl mb-3">❤️</div>
+               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Sonrası Takip' : 'Aftercare'}</h4>
+               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? 'Online kontroller' : 'Online check-ups'}</p>
+             </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden py-20 lg:py-24">
         <div className="absolute inset-0">
           <Image src="/uploads/endolift_lazer.png" alt="" fill className="object-cover opacity-20" />
@@ -584,6 +688,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {s.cta_cta2}
             </a>
           </div>
+
         </div>
       </section>
     </>

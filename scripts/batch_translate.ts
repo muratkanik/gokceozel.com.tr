@@ -36,7 +36,7 @@ async function translateWithOpenAI(content: string, targetLocale: string): Promi
 
   if (!res.ok) throw new Error(await res.text());
   const data = await res.json();
-  let result = data.choices[0].message.content.trim();
+  const result = data.choices[0].message.content.trim();
   return result.replace(/^```html\n?/, '').replace(/\n?```$/, '').replace(/^```\n?/, '');
 }
 
@@ -60,7 +60,7 @@ async function translateWithXAI(content: string, targetLocale: string): Promise<
 
   if (!res.ok) throw new Error(await res.text());
   const data = await res.json();
-  let result = data.choices[0].message.content.trim();
+  const result = data.choices[0].message.content.trim();
   return result.replace(/^```html\n?/, '').replace(/\n?```$/, '').replace(/^```\n?/, '');
 }
 
@@ -81,7 +81,7 @@ async function translateWithGemini(content: string, targetLocale: string): Promi
 
   if (!res.ok) throw new Error(await res.text());
   const data = await res.json();
-  let result = data.candidates[0].content.parts[0].text.trim();
+  const result = data.candidates[0].content.parts[0].text.trim();
   return result.replace(/^```html\n?/, '').replace(/\n?```$/, '').replace(/^```\n?/, '');
 }
 

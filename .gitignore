@@ -48,3 +48,6 @@ archive/mail/
 archive/mail/
 archive/mail/
 archive/mail/
+
+# Local Google Cloud SDK install accidentally created in repo root
+/gcloud components install alpha beta skaffold minikube kubectl gke-gcloud-auth-plugin/
