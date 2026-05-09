@@ -79,6 +79,32 @@ export async function savePageContent(pageId: string, data: any) {
     }
   }
 
+    if (data.seoMeta && pageId !== 'new') {
+    for (const locale of Object.keys(data.seoMeta)) {
+      const meta = data.seoMeta[locale];
+      if (meta.metaTitle !== undefined || meta.metaDescription !== undefined) {
+        await prisma.seoMeta.upsert({
+          where: {
+            pageId_locale: {
+              pageId,
+              locale
+            }
+          },
+          update: {
+            metaTitle: meta.metaTitle || '',
+            metaDescription: meta.metaDescription || '',
+          },
+          create: {
+            pageId,
+            locale,
+            metaTitle: meta.metaTitle || '',
+            metaDescription: meta.metaDescription || '',
+          }
+        });
+      }
+    }
+  }
+
   revalidatePath('/', 'layout');
 }
 
@@ -94,6 +120,32 @@ export async function saveContentEntryTranslations(id: string, translations: Rec
   if (error) {
     console.error('Error saving content entry:', error);
     throw new Error('Failed to save translations');
+  }
+
+    if (data.seoMeta && pageId !== 'new') {
+    for (const locale of Object.keys(data.seoMeta)) {
+      const meta = data.seoMeta[locale];
+      if (meta.metaTitle !== undefined || meta.metaDescription !== undefined) {
+        await prisma.seoMeta.upsert({
+          where: {
+            pageId_locale: {
+              pageId,
+              locale
+            }
+          },
+          update: {
+            metaTitle: meta.metaTitle || '',
+            metaDescription: meta.metaDescription || '',
+          },
+          create: {
+            pageId,
+            locale,
+            metaTitle: meta.metaTitle || '',
+            metaDescription: meta.metaDescription || '',
+          }
+        });
+      }
+    }
   }
 
   revalidatePath('/', 'layout');

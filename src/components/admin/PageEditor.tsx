@@ -42,6 +42,18 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
   const [blocks, setBlocks] = useState<any[]>(ensureMainBlock(initialData?.blocks || []));
   const [isSaving, setIsSaving] = useState(false);
   const [aiBusy, setAiBusy] = useState<string | null>(null);
+  const [seoData, setSeoData] = useState<Record<string, any>>(() => {
+    const data: Record<string, any> = {};
+    if (initialData?.seoMeta) {
+      initialData.seoMeta.forEach((s: any) => {
+        data[s.locale] = {
+          metaTitle: s.metaTitle,
+          metaDescription: s.metaDescription
+        };
+      });
+    }
+    return data;
+  });
 
   const mainBlock = useMemo(() => blocks.find(b => b.componentType === 'zengin_metin'), [blocks]);
 
@@ -50,7 +62,8 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
     try {
       await savePageContent(initialData?.id || 'new', {
         type: contentType,
-        blocks: blocks.map((b, index) => ({ ...b, sortOrder: index + 1 }))
+        blocks: blocks.map((b, index) => ({ ...b, sortOrder: index + 1 })),
+        seoMeta: seoData
       });
       alert('İçerik başarıyla kaydedildi!');
       router.refresh();
@@ -312,11 +325,11 @@ export default function PageEditor({ initialData, pageType = 'page' }: { initial
                 <div className="space-y-4">
                   <div>
                     <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Meta Başlık</label>
-                    <input type="text" placeholder="SEO başlığı" className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none" />
+                    <input type="text" placeholder="SEO başlığı" value={seoData[activeTab]?.metaTitle || ''} onChange={(e) => setSeoData({ ...seoData, [activeTab]: { ...seoData[activeTab], metaTitle: e.target.value } })} className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none" />
                   </div>
                   <div>
                     <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Meta Açıklama</label>
-                    <textarea rows={4} placeholder="Arama motorları için kısa özet..." className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none resize-none"></textarea>
+                    <textarea rows={4} placeholder="Arama motorları için kısa özet..." value={seoData[activeTab]?.metaDescription || ''} onChange={(e) => setSeoData({ ...seoData, [activeTab]: { ...seoData[activeTab], metaDescription: e.target.value } })} className="w-full px-3 py-2 text-[13px] border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#b8893c] focus:border-[#b8893c] outline-none resize-none"></textarea>
                   </div>
                 </div>
               </>
