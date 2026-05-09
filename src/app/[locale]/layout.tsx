@@ -373,7 +373,7 @@ export default async function RootLayout({
                 <div>
                   <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tContact('title')}</h4>
                   <ul className="space-y-3 text-[13px] text-[#9a8f7c]">
-                    <li>{tContact('address')}</li>
+                    <li>{settingsMap.contact_address || tContact('address')}</li>
                     <li><a href={`tel:${tContact('phone').replace(/\s+/g, '')}`} className="hover:text-gold-soft transition-colors">{tContact('phone')}</a></li>
                     <li><a href={`mailto:${tContact('email')}`} className="hover:text-gold-soft transition-colors">{tContact('email')}</a></li>
                     <li className="pt-2 text-stone/50">{tContact('hours')}</li>
