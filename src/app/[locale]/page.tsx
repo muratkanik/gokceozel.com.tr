@@ -418,14 +418,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 ? 'Ankara ve Antalya\'nın en çok tercih edilen estetik kliniği. Burun estetiği (Rinoplasti), Botoks, Dolgu ve Mezoterapi alanlarında 15+ yıllık akademik deneyimle kişiye özel doğal sonuçlar.'
                 : h.subtitle || h.description || ''}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-6 py-3 rounded-full font-bold text-[13px] tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
-                {h.cta1 || h.buttonText || 'Ücretsiz Ön Görüşme'}
-              </a>
-              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-6 py-3 rounded-full font-semibold text-[13px] hover:bg-white/20 transition-colors backdrop-blur-md">
-                {h.cta2 || 'Hizmetleri İncele'}
-              </a>
-            </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 max-w-[720px]">
               <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-1.5 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
               <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">100+</strong><span className="block mt-1.5 leading-tight">{h.stat2 || 'Bilimsel yayın'}</span></div>
