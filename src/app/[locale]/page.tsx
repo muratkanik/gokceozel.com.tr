@@ -402,35 +402,35 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoJsonLd) }} />
-      <section className="luxury-hero relative overflow-hidden min-h-[calc(68svh-80px)] flex items-center">
+      <section className="luxury-hero relative overflow-hidden min-h-[calc(55svh-80px)] flex items-center">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#fbf8f2] to-transparent" />
-        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-10 lg:py-14 w-full">
+        <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-8 lg:py-10 w-full">
           <div className="text-white max-w-[880px]">
-            <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-xs text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
+            <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-[11px] text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
               {h.badge || (locale === 'tr' ? 'Ankara & Antalya · KBB Uzmanı' : 'Ankara & Antalya · ENT Specialist')}
             </span>
-            <h1 className="font-serif text-[clamp(40px,6vw,82px)] leading-[0.96] my-4 max-w-[820px]">
+            <h1 className="font-serif text-[clamp(32px,5vw,64px)] leading-[0.96] my-3 max-w-[820px]">
               {h.h1a || h.title || 'Doğal güzelliğin'}{' '}
               <span className="gold-gradient-text">{h.h1b || ''}</span>
             </h1>
-            <p className="text-[17px] lg:text-[19px] text-[#efe8dc] max-w-[750px] mb-5 leading-relaxed">
+            <p className="text-[15px] lg:text-[17px] text-[#efe8dc] max-w-[750px] mb-4 leading-relaxed">
               {locale === 'tr' 
                 ? 'Ankara ve Antalya\'nın en çok tercih edilen estetik kliniği. Burun estetiği (Rinoplasti), Botoks, Dolgu ve Mezoterapi alanlarında 15+ yıllık akademik deneyimle kişiye özel doğal sonuçlar.'
                 : h.subtitle || h.description || ''}
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-7 py-3.5 rounded-full font-bold text-sm tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
+              <a href={h.buttonLink || contactHref} className="bg-[#e1c996] text-[#151714] px-6 py-3 rounded-full font-bold text-[13px] tracking-wide shadow-[0_18px_42px_rgba(0,0,0,0.28)] hover:bg-white transition-colors">
                 {h.cta1 || h.buttonText || 'Ücretsiz Ön Görüşme'}
               </a>
-              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-white/20 transition-colors backdrop-blur-md">
+              <a href={servicesHref} className="border border-white/25 bg-white/10 text-white px-6 py-3 rounded-full font-semibold text-[13px] hover:bg-white/20 transition-colors backdrop-blur-md">
                 {h.cta2 || 'Hizmetleri İncele'}
               </a>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 max-w-[720px]">
-              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-2 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
-              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">100+</strong><span className="block mt-2 leading-tight">{h.stat2 || 'Bilimsel yayın'}</span></div>
-              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">H-12</strong><span className="block mt-2 leading-tight">{h.stat3 || 'Akademik indeks'}</span></div>
-              <div className="hero-stat-card rounded-2xl p-4 text-xs text-[#48544f] min-h-[76px]"><strong className="block font-serif text-[#6f263d] text-[32px] leading-none font-semibold tracking-tight">4.9</strong><span className="block mt-2 leading-tight">{h.stat4 || 'Hasta puanı ★'}</span></div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 max-w-[720px]">
+              <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-1.5 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">100+</strong><span className="block mt-1.5 leading-tight">{h.stat2 || 'Bilimsel yayın'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">H-12</strong><span className="block mt-1.5 leading-tight">{h.stat3 || 'Akademik indeks'}</span></div>
+              <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">4.9</strong><span className="block mt-1.5 leading-tight">{h.stat4 || 'Hasta puanı ★'}</span></div>
             </div>
 
             {/* Certification & Accreditation Strip */}
