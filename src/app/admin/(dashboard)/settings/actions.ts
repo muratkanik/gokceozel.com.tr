@@ -26,3 +26,10 @@ export async function deleteSetting(formData: FormData) {
   await prisma.setting.delete({ where: { key } });
   revalidatePath('/admin/settings');
 }
+
+export async function saveLocationSettings(lat: string, lng: string) {
+  await prisma.setting.upsert({ where: { key: 'contact_lat' }, update: { value: lat }, create: { key: 'contact_lat', value: lat } });
+  await prisma.setting.upsert({ where: { key: 'contact_lng' }, update: { value: lng }, create: { key: 'contact_lng', value: lng } });
+  revalidatePath('/admin/settings');
+  revalidatePath('/[locale]', 'layout');
+}

@@ -7,7 +7,7 @@ export default async function IletisimPage({ params }: { params: Promise<{ local
   const settings = await prisma.setting.findMany({
     where: {
       key: {
-        in: ['contact_address', 'contact_phone', 'contact_email']
+        in: ['contact_address', 'contact_phone', 'contact_email', 'contact_lat', 'contact_lng']
       }
     }
   });

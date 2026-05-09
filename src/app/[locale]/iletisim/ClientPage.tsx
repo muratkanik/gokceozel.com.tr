@@ -457,7 +457,12 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
         <div className="mt-8">
           <div className="soft-card rounded-[1.35rem] overflow-hidden p-2 relative z-0">
             <div className="h-[460px] md:h-[560px] rounded-[1rem] overflow-hidden bg-[#17201e]/5">
-               <ContactMap />
+               <ContactMap 
+                 lat={settings.contact_lat ? parseFloat(settings.contact_lat) : undefined}
+                 lng={settings.contact_lng ? parseFloat(settings.contact_lng) : undefined}
+                 name="Prof. Dr. Gökçe Özel Kliniği"
+                 address={settings.contact_address || t.addressVal}
+               />
             </div>
           </div>
         </div>

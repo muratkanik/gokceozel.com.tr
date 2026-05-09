@@ -1,5 +1,11 @@
 import prisma from '@/lib/prisma';
 import { saveSetting, deleteSetting } from './actions';
+import dynamic from 'next/dynamic';
+
+const AdminMapWrapper = dynamic(() => import('./AdminMap'), {
+  ssr: false,
+  loading: () => <div className="h-[400px] w-full bg-slate-100 rounded-xl flex items-center justify-center text-slate-500">Harita Yükleniyor...</div>
+});
 
 export default async function SettingsPage() {
   const settings = await prisma.setting.findMany({
@@ -61,6 +67,15 @@ export default async function SettingsPage() {
       {/* Contact Settings */}
       <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <h2 className="text-xl font-bold text-slate-800 mb-6">İletişim Ayarları</h2>
+        
+        <div className="mb-8 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h3 className="text-lg font-semibold text-slate-700 mb-4">Harita Konumu Seçimi</h3>
+          <AdminMapWrapper 
+            initialLat={settings.find(s => s.key === 'contact_lat')?.value ? parseFloat(settings.find(s => s.key === 'contact_lat')!.value) : undefined}
+            initialLng={settings.find(s => s.key === 'contact_lng')?.value ? parseFloat(settings.find(s => s.key === 'contact_lng')!.value) : undefined}
+          />
+        </div>
+
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <tbody>
