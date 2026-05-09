@@ -4,7 +4,7 @@ import { ensureContentEntryExists, saveContentEntryTranslations } from '@/app/ad
 export default async function KurumsalManagementPage() {
   const locales = ['tr', 'en', 'ar', 'ru'];
   
-  // Sitenin ön yüzünde "profdr-gke-zel" kullanılıyor
+  // Sitenin ön yüzünde "prof-dr-gokce-ozel-klinigi" kullanılıyor
   const defaultData = {
     tr: {
       title: 'Prof. Dr. Gökçe Özel Kliniği',
@@ -12,7 +12,7 @@ export default async function KurumsalManagementPage() {
     }
   };
 
-  const entry = await ensureContentEntryExists('profdr-gke-zel', 'page', defaultData);
+  const entry = await ensureContentEntryExists('prof-dr-gokce-ozel-klinigi', 'page', defaultData);
 
   return (
     <div className="space-y-6">

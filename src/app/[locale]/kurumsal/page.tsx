@@ -7,7 +7,7 @@ export default async function KurumsalPage() {
   const { data: page } = await supabase
     .from('content_entries')
     .select('*')
-    .eq('slug', 'profdr-gke-zel')
+    .eq('slug', 'prof-dr-gokce-ozel-klinigi')
     .single();
 
   const title = page?.translations?.tr?.title || 'Prof. Dr. Gökçe Özel Kliniği';
