@@ -119,6 +119,14 @@ export default async function RootLayout({
   const tFooter = await getTranslations({ locale, namespace: 'Footer' });
   const tServices = await getTranslations({ locale, namespace: 'Services' });
 
+  const settings = await prisma.setting.findMany({
+    where: { key: { in: ['contact_address', 'contact_phone', 'contact_email'] } }
+  });
+  const settingsMap = settings.reduce((acc, curr) => {
+    acc[curr.key] = curr.value;
+    return acc;
+  }, {} as Record<string, string>);
+
   // Medical Clinic + Physician Schema for AEO (ChatGPT, Perplexity, Gemini)
   const jsonLd = [
     {
@@ -375,8 +383,8 @@ export default async function RootLayout({
                   <h4 className="font-serif text-gold-soft text-[17px] mb-5">{tContact('title')}</h4>
                   <ul className="space-y-3 text-[13px] text-[#9a8f7c]">
                     <li>{settingsMap.contact_address || tContact('address')}</li>
-                    <li><a href={`tel:${tContact('phone').replace(/\s+/g, '')}`} className="hover:text-gold-soft transition-colors">{tContact('phone')}</a></li>
-                    <li><a href={`mailto:${tContact('email')}`} className="hover:text-gold-soft transition-colors">{tContact('email')}</a></li>
+                    <li><a href={`tel:${(settingsMap.contact_phone || tContact('phone')).replace(/\s+/g, '')}`} className="hover:text-gold-soft transition-colors">{settingsMap.contact_phone || tContact('phone')}</a></li>
+                    <li><a href={`mailto:${settingsMap.contact_email || tContact('email')}`} className="hover:text-gold-soft transition-colors">{settingsMap.contact_email || tContact('email')}</a></li>
                     <li className="pt-2 text-stone/50">{tContact('hours')}</li>
                   </ul>
                 </div>
