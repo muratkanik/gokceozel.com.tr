@@ -68,7 +68,7 @@ export default async function VideolarPage({
         ) : (
           <>
             {/* Tabs */}
-            <div className="flex overflow-x-auto gap-3 pb-4 mb-12 scrollbar-hide justify-start md:justify-center">
+            <div className="flex flex-wrap gap-3 pb-4 mb-12 justify-center">
               <Link 
                 href={`/${locale}/videolar`} 
                 scroll={false}
