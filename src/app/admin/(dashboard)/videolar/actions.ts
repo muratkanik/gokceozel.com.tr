@@ -94,9 +94,23 @@ export async function syncYouTubeChannel() {
         const playlistData = await youtube.getPlaylist(playlistId);
         
         for (const item of playlistData.items) {
-          if (!item.id || !item.title) continue;
+          let videoId = '';
+          let videoTitle = '';
+
+          if (item.type === 'LockupView' && item.content_type === 'VIDEO') {
+            videoId = item.content_id as string;
+            videoTitle = (item as any).metadata?.title?.toString() || '';
+          } else if (item.id && item.title) {
+            videoId = item.id as string;
+            videoTitle = item.title.toString();
+          } else if (item.type === 'PlaylistVideo' || item.type === 'Video') {
+            videoId = (item as any).id || (item as any).video_id;
+            videoTitle = (item as any).title?.toString() || '';
+          }
+
+          if (!videoId || !videoTitle) continue;
           
-          const titleStr = item.title.toString();
+          const titleStr = videoTitle;
           
           // Generate a slug
           const slugBase = titleStr
@@ -106,17 +120,17 @@ export async function syncYouTubeChannel() {
             .trim();
           
           // Use youtubeId in slug to guarantee uniqueness
-          const slug = `${slugBase}-${item.id}`;
+          const slug = `${slugBase}-${videoId}`;
 
           await prisma.video.upsert({
-            where: { youtubeId: item.id },
+            where: { youtubeId: videoId },
             update: {
               playlistId,
               playlistTitle,
               // don't overwrite title and slug if they exist and user edited them, but we update playlist info
             },
             create: {
-              youtubeId: item.id,
+              youtubeId: videoId,
               title: titleStr,
               slug,
               playlistId,
