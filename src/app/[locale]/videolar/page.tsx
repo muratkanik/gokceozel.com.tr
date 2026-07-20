@@ -49,10 +49,6 @@ export default async function VideolarPage({ params }: { params: Promise<{ local
                     src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} 
                     alt={video.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    onError={(e) => {
-                      // Fallback to hqdefault if maxresdefault doesn't exist
-                      (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
-                    }}
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full bg-white/90 shadow-lg flex items-center justify-center transform group-hover:scale-110 transition-transform">
