@@ -61,8 +61,30 @@ export default async function VideolarListPage() {
                   </td>
                   <td className="p-4">
                     <div className="font-medium text-[#1a1410]">{video.title}</div>
-                    <div className="text-xs text-[#887865] flex items-center gap-1 mt-0.5">
+                    <div className="text-xs text-[#887865] flex items-center gap-1 mt-0.5 mb-1.5">
                       <span className="truncate max-w-[200px]">Slug: {video.slug}</span>
+                    </div>
+                    <div className="flex items-center gap-2 mt-1 flex-wrap">
+                      {video.contentHtml && video.contentHtml.trim() !== '' ? (
+                        <span className="flex items-center gap-1 text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-100 text-[10px] font-semibold tracking-wide">
+                          ✓ SEO
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1 text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-100 text-[10px] font-semibold tracking-wide">
+                          ⚠ SEO Eksik
+                        </span>
+                      )}
+                      
+                      {video.translations && typeof video.translations === 'object' && Object.keys(video.translations as any).length > 0 && (
+                        <div className="flex items-center gap-1 border-l border-gray-200 pl-2">
+                          <span className="text-[10px] text-gray-500 mr-0.5">Çeviriler:</span>
+                          {Object.keys(video.translations as any).map(lang => (
+                            <span key={lang} className="uppercase text-[10px] font-bold bg-blue-50 text-blue-600 px-1 rounded border border-blue-100">
+                              {lang}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </td>
                   <td className="p-4">
