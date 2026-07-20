@@ -86,6 +86,48 @@ export default async function proxy(request: NextRequest) {
     return response;
   }
 
+  // --- Inspection Mode Check ---
+  // Using native fetch to the Supabase REST API (Edge compatible) with 60s cache
+  let inspectionModeActive = false;
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/Setting?key=eq.inspection_mode_active&select=value`,
+      {
+        headers: {
+          'apikey': process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!}`,
+        },
+        next: { revalidate: 60 } // Cache for 60 seconds
+      }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.length > 0 && data[0].value === 'true') {
+        inspectionModeActive = true;
+      }
+    }
+  } catch (error) {
+    // Silently fail and fallback to false if DB fetch fails
+    console.error("Inspection mode fetch error:", error);
+  }
+
+  // If inspection mode is active, handle redirects
+  if (inspectionModeActive) {
+    // 1. Redirect root to /en instead of default /tr
+    if (pathname === '/') {
+      const url = request.nextUrl.clone();
+      url.pathname = '/en';
+      return NextResponse.redirect(url);
+    }
+    
+    // 2. Intercept /tr routes and redirect to /en
+    if (pathname === '/tr' || pathname.startsWith('/tr/')) {
+      const url = request.nextUrl.clone();
+      url.pathname = pathname.replace(/^\/tr/, '/en');
+      return NextResponse.redirect(url);
+    }
+  }
+
   const servicesRewrite = rewriteServicesPath(request);
   if (servicesRewrite) return servicesRewrite;
 

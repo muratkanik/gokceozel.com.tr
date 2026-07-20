@@ -33,6 +33,46 @@ export default async function SettingsPage() {
         </form>
       </div>
 
+      {/* System Mode Settings */}
+      <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500">
+        <div className="flex items-start justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-slate-800 mb-2">Denetleme Modu (Inspection Mode)</h2>
+            <p className="text-slate-500 text-sm mb-6 max-w-3xl">
+              Bu mod aktif edildiğinde sitenin <strong>Türkçe</strong> bölümü geçici olarak kapatılır ve varsayılan dil <strong>İngilizce</strong> olarak ayarlanır. Türkçe adreslerine giren kullanıcılar otomatik olarak İngilizce sayfalara yönlendirilir. Diğer diller (DE, FR, vs.) normal çalışmaya devam eder.
+            </p>
+          </div>
+          <div className="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+            Kritik Sistem Ayarı
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <tbody>
+              <tr className="border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
+                <td className="py-4 px-4 font-semibold text-slate-700 w-48 align-middle">Mod Durumu</td>
+                <td className="py-4 px-4 align-middle">
+                  <form action={saveSetting} className="flex gap-3 items-center">
+                    <input type="hidden" name="key" value="inspection_mode_active" />
+                    <select 
+                      name="value" 
+                      defaultValue={settings.find(s => s.key === 'inspection_mode_active')?.value || 'false'}
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none transition-all font-medium"
+                    >
+                      <option value="false">🔴 Kapalı (Normal Çalışma - Türkçe Açık)</option>
+                      <option value="true">🟢 Aktif (Denetim Modu - Sadece Yabancı Diller)</option>
+                    </select>
+                    <button type="submit" className="bg-amber-500 hover:bg-amber-600 text-white font-medium py-2.5 px-6 rounded-lg transition-colors whitespace-nowrap shadow-sm shadow-amber-500/20">
+                      Kaydet
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       {/* Global SEO Settings */}
       <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <h2 className="text-xl font-bold text-slate-800 mb-6">Global SEO Ayarları</h2>
