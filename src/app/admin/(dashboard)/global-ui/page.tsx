@@ -21,6 +21,7 @@ export default async function GlobalUIManagementPage() {
       'Navigation.faq': 'Sık Sorulan Sorular',
       'Navigation.contact': 'İletişim',
       'Navigation.beforeAfter': 'Öncesi & Sonrası',
+      'Navigation.subtitle': 'KBB Uzmanı · Rinoplasti',
       
       'Contact.appointment': 'Randevu Al',
       'Contact.title': 'İletişim',

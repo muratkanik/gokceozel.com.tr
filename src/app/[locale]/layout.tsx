@@ -304,7 +304,7 @@ export default async function RootLayout({
                 <div className="font-serif text-[18px] font-semibold text-white leading-tight">
                   Prof. Dr. Gökçe Özel
                   <small className="block text-[10px] tracking-widest text-[#e1c996] font-semibold uppercase mt-0.5">
-                    KBB Uzmanı · Rinoplasti
+                    {tNav('subtitle')}
                   </small>
                 </div>
               </a>
