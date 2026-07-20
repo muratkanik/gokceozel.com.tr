@@ -346,13 +346,15 @@ model ReservationBlackout {
 }
 
 model Video {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  youtubeId   String
-  title       String
-  contentHtml String?
-  sortOrder   Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now()) @updatedAt
+  id            String   @id @default(cuid())
+  youtubeId     String   @unique
+  title         String
+  slug          String   @unique
+  contentHtml   String?  @db.Text
+  playlistId    String?
+  playlistTitle String?
+  isActive      Boolean  @default(true)
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

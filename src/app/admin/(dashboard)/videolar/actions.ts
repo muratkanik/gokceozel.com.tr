@@ -70,3 +70,73 @@ export async function deleteVideo(id: string) {
     return { success: false, error: error.message };
   }
 }
+
+export async function syncYouTubeChannel() {
+  try {
+    const { Innertube } = await import('youtubei.js');
+    const youtube = await Innertube.create();
+    const channel = await youtube.getChannel('UCPjdRlsO9Fu0p5ZxQm-ZMTA'); // @profdrgokceozel
+    
+    const playlistsTab = await channel.getPlaylists();
+    const playlists = playlistsTab.playlists || playlistsTab.content?.contents;
+    
+    if (!playlists || playlists.length === 0) {
+      return { success: false, error: 'No playlists found' };
+    }
+
+    let syncedCount = 0;
+
+    for (const pl of playlists) {
+      if (pl.type === 'LockupView' && pl.content_id) {
+        const playlistId = pl.content_id;
+        const playlistTitle = pl.metadata?.title?.toString() || 'Kategori';
+        
+        const playlistData = await youtube.getPlaylist(playlistId);
+        
+        for (const item of playlistData.items) {
+          if (!item.id || !item.title) continue;
+          
+          const titleStr = item.title.toString();
+          
+          // Generate a slug
+          const slugBase = titleStr
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .trim();
+          
+          // Use youtubeId in slug to guarantee uniqueness
+          const slug = `${slugBase}-${item.id}`;
+
+          await prisma.video.upsert({
+            where: { youtubeId: item.id },
+            update: {
+              playlistId,
+              playlistTitle,
+              // don't overwrite title and slug if they exist and user edited them, but we update playlist info
+            },
+            create: {
+              youtubeId: item.id,
+              title: titleStr,
+              slug,
+              playlistId,
+              playlistTitle,
+              isActive: true,
+              sortOrder: syncedCount,
+            }
+          });
+          
+          syncedCount++;
+        }
+      }
+    }
+    
+    revalidatePath('/admin/videolar');
+    revalidatePath('/videolar');
+    return { success: true, count: syncedCount };
+
+  } catch (error: any) {
+    console.error('Failed to sync YouTube:', error);
+    return { success: false, error: error.message };
+  }
+}

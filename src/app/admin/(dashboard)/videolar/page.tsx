@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
 import { Plus, Video as VideoIcon, Edit, Trash2 } from 'lucide-react';
+import { SyncButton } from './SyncButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,13 +20,16 @@ export default async function VideolarListPage() {
           </h1>
           <p className="text-[#66574a] text-sm mt-1">YouTube videolarınızı ve özel açıklamalarını yönetin.</p>
         </div>
-        <Link 
-          href="/admin/videolar/yeni"
-          className="bg-[#1a1410] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-[#3d2f22] transition-colors"
-        >
-          <Plus className="w-4 h-4" />
-          Yeni Video Ekle
-        </Link>
+        <div className="flex items-center gap-3">
+          <SyncButton />
+          <Link 
+            href="/admin/videolar/yeni"
+            className="bg-[#1a1410] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-[#3d2f22] transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            Yeni Video Ekle
+          </Link>
+        </div>
       </header>
 
       <div className="bg-white rounded-xl shadow-sm border border-[#e0d8c8] overflow-hidden">
