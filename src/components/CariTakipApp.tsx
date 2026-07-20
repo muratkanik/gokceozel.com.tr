@@ -314,6 +314,7 @@ export default function CariTakipApp() {
   const [reservationSettings, setReservationSettings] = useState<any>(null);
   const [reservationBlackouts, setReservationBlackouts] = useState<any[]>([]);
   const [settingsLoading, setSettingsLoading] = useState(false);
+  const [inspectionMode, setInspectionMode] = useState(false);
   const [reminderSendingId, setReminderSendingId] = useState('');
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallHelp, setShowInstallHelp] = useState(false);
@@ -628,10 +629,12 @@ export default function CariTakipApp() {
     Promise.all([
       fetch('/api/cari/reservation-settings', { credentials: 'include' }).then(r => r.json()),
       fetch('/api/cari/reservation-blackouts', { credentials: 'include' }).then(r => r.json()),
-    ]).then(([settingsData, blackoutsData]) => {
+      fetch('/api/cari/inspection-mode', { credentials: 'include' }).then(r => r.json()).catch(() => ({ active: false })),
+    ]).then(([settingsData, blackoutsData, inspectionData]) => {
       if (!mounted) return;
       if (settingsData && !settingsData.error) setReservationSettings(settingsData);
       if (Array.isArray(blackoutsData)) setReservationBlackouts(blackoutsData);
+      if (inspectionData && typeof inspectionData.active === 'boolean') setInspectionMode(inspectionData.active);
     }).catch(console.error).finally(() => {
       if (mounted) setSettingsLoading(false);
     });
@@ -1010,6 +1013,23 @@ export default function CariTakipApp() {
       alert('Kaydedilirken hata oluştu.');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const toggleInspectionMode = async () => {
+    if (!user) return;
+    const newStatus = !inspectionMode;
+    setInspectionMode(newStatus); // Optimistic UI update
+    try {
+      const res = await fetch('/api/cari/inspection-mode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ active: newStatus }),
+      });
+      if (!res.ok) throw new Error('Hata');
+    } catch (e) {
+      setInspectionMode(!newStatus); // Revert on error
+      alert('Denetleme modu kaydedilirken hata oluştu.');
     }
   };
 
@@ -1868,6 +1888,23 @@ export default function CariTakipApp() {
 
         {activeTab === 'dashboard' && (
           <section className="flex flex-col gap-5">
+            {user?.role === 'doctor' && (
+              <div className="order-1 flex items-center justify-between rounded-xl border border-amber-200 bg-amber-50 p-4 sm:p-5">
+                <div>
+                  <h3 className="text-sm font-bold text-amber-900 sm:text-base">Denetleme Modu (İngilizce Yönlendirme)</h3>
+                  <p className="mt-1 text-xs text-amber-700 sm:text-sm">Aktif edildiğinde ana site ziyaretçileri İngilizce sürüme yönlendirilir ve Türkçe içerik kapatılır.</p>
+                </div>
+                <button
+                  onClick={toggleInspectionMode}
+                  className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${inspectionMode ? 'bg-emerald-500' : 'bg-slate-300'}`}
+                  role="switch"
+                  aria-checked={inspectionMode}
+                >
+                  <span className={`pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${inspectionMode ? 'translate-x-5' : 'translate-x-0'}`} />
+                </button>
+              </div>
+            )}
+            
             <div className="order-2 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
               <Metric icon={Wallet} label="Brüt tahsilat" value={formatCurrency(grossIncome)} />
               <Metric icon={Landmark} label="Net" value={formatCurrency(netIncome)} />
