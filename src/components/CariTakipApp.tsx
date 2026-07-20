@@ -629,12 +629,10 @@ export default function CariTakipApp() {
     Promise.all([
       fetch('/api/cari/reservation-settings', { credentials: 'include' }).then(r => r.json()),
       fetch('/api/cari/reservation-blackouts', { credentials: 'include' }).then(r => r.json()),
-      fetch('/api/cari/inspection-mode', { credentials: 'include' }).then(r => r.json()).catch(() => ({ active: false })),
-    ]).then(([settingsData, blackoutsData, inspectionData]) => {
+    ]).then(([settingsData, blackoutsData]) => {
       if (!mounted) return;
       if (settingsData && !settingsData.error) setReservationSettings(settingsData);
       if (Array.isArray(blackoutsData)) setReservationBlackouts(blackoutsData);
-      if (inspectionData && typeof inspectionData.active === 'boolean') setInspectionMode(inspectionData.active);
     }).catch(console.error).finally(() => {
       if (mounted) setSettingsLoading(false);
     });
@@ -643,6 +641,30 @@ export default function CariTakipApp() {
       mounted = false;
     };
   }, [activeTab, appointmentView, user]);
+
+  // Global inspection mode sync
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchInspectionMode = () => {
+      fetch('/api/cari/inspection-mode', { credentials: 'include' })
+        .then(r => r.json())
+        .then(data => {
+          if (typeof data.active === 'boolean') {
+            setInspectionMode(data.active);
+          }
+        })
+        .catch(console.error);
+    };
+
+    // Initial fetch on mount/login
+    fetchInspectionMode();
+
+    // Poll every 10 seconds to keep in sync with Admin panel
+    const interval = setInterval(fetchInspectionMode, 10000);
+
+    return () => clearInterval(interval);
+  }, [user]);
 
   useEffect(() => {
     if (!user) return;
