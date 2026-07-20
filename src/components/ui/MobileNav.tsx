@@ -8,6 +8,7 @@ const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
     { label: 'Hizmetlerimiz', href: '/hizmetler' },
     { label: 'Hakkımızda', href: '/gokce-ozel-kimdir' },
     { label: 'Hasta Yorumları', href: '/hasta-yorumlari' },
+    { label: 'Videolar', href: '/videolar' },
     { label: 'Öncesi & Sonrası', href: '/once-sonra' },
     { label: 'Blog', href: '/blog' },
     { label: 'Sık Sorulan Sorular', href: '/sss' },

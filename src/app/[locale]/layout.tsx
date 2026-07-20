@@ -313,6 +313,7 @@ export default async function RootLayout({
                 <li><a href={serviceListPath(locale)} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('services')}</a></li>
                 <li><a href={localePath(locale, '/gokce-ozel-kimdir')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('about')}</a></li>
                 <li><a href={localePath(locale, '/hasta-yorumlari')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('reviews')}</a></li>
+                <li><a href={localePath(locale, '/videolar')} className="hover:text-[#b88746] transition-colors py-1.5 relative">Videolar</a></li>
                 <li><a href={localePath(locale, '/blog')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('blog')}</a></li>
                 <li><a href={localePath(locale, '/sss')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('faq')}</a></li>
                 <li><a href={localePath(locale, '/iletisim')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('contact')}</a></li>

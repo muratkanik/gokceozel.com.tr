@@ -19,13 +19,17 @@ model Setting {
 model Page {
   id            String         @id @default(cuid())
   slug          String         @unique
-  type          String         @default("SERVICE") // "SERVICE", "BLOG", "PAGE", "BIOGRAPHY"
   titleInternal String
   seoScore      Int            @default(0)
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @default(now()) @updatedAt
+  type          String         @default("SERVICE")
+  parentId      String?
+  status        String         @default("PUBLISHED")
   blocks        ContentBlock[]
   faqs          Faq[]
+  Page          Page?          @relation("PageToPage", fields: [parentId], references: [id])
+  other_Page    Page[]         @relation("PageToPage")
   seoMeta       SeoMeta[]
   service       Service?
 }
@@ -85,27 +89,27 @@ model PageView {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model appointments {
-  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name              String    @db.VarChar(255)
-  phone             String    @db.VarChar(50)
-  email             String?   @db.VarChar(255)
-  message           String?
-  service_requested String?   @db.VarChar(255)
-  status            String?   @default("pending") @db.VarChar(50)
-  scheduled_date    DateTime? @db.Date
-  start_time        String?   @db.VarChar(5)
-  end_time          String?   @db.VarChar(5)
-  duration_minutes  Int?      @default(30)
-  source            String?   @default("web") @db.VarChar(40)
-  locale            String?   @db.VarChar(10)
-  patient_note      String?
-  internal_note     String?
-  cari_entry_id     String?   @db.Uuid
-  confirmation_token_hash String? @db.VarChar(128)
+  id                      String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                    String    @db.VarChar(255)
+  phone                   String    @db.VarChar(50)
+  email                   String?   @db.VarChar(255)
+  message                 String?
+  service_requested       String?   @db.VarChar(255)
+  status                  String?   @default("pending") @db.VarChar(50)
+  created_at              DateTime? @default(now()) @db.Timestamptz(6)
+  scheduled_date          DateTime? @db.Date
+  start_time              String?   @db.VarChar(5)
+  end_time                String?   @db.VarChar(5)
+  duration_minutes        Int?      @default(30)
+  source                  String?   @default("web") @db.VarChar(40)
+  locale                  String?   @db.VarChar(10)
+  patient_note            String?
+  internal_note           String?
+  cari_entry_id           String?   @db.Uuid
+  updated_at              DateTime? @default(now()) @updatedAt @db.Timestamptz(6)
+  confirmation_token_hash String?   @db.VarChar(128)
   confirmation_expires_at DateTime? @db.Timestamptz(6)
-  confirmed_at      DateTime? @db.Timestamptz(6)
-  updated_at        DateTime? @default(now()) @updatedAt @db.Timestamptz(6)
-  created_at        DateTime? @default(now()) @db.Timestamptz(6)
+  confirmed_at            DateTime? @db.Timestamptz(6)
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -135,19 +139,25 @@ model special_events {
 }
 
 model SeoMeta {
-  id              String  @id @default(cuid())
+  id              String   @id @default(cuid())
   pageId          String
   locale          String
   metaTitle       String
   metaDescription String
   ogImage         String?
   canonicalUrl    String?
-  robots          String  @default("index,follow")
+  robots          String   @default("index,follow")
   keywords        String?
   structuredData  String?
   shortAnswer     String?
   faqJson         String?
-  page            Page    @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  aiSummary150    String?
+  aiSummary30     String?
+  aiSummary75     String?
+  createdAt       DateTime @default(now())
+  definitionBox   String?
+  updatedAt       DateTime @default(now())
+  page            Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
 
   @@unique([pageId, locale])
 }
@@ -186,13 +196,13 @@ model Faq {
 }
 
 model BeforeAfter {
-  id        String  @id @default(cuid())
+  id        String   @id @default(cuid())
   serviceId String?
   beforeUrl String
   afterUrl  String
   caption   String?
-  consent   Boolean @default(false)
-  isPublic  Boolean @default(false)
+  consent   Boolean  @default(false)
+  isPublic  Boolean  @default(false)
   createdAt DateTime @default(now())
 }
 
@@ -225,16 +235,16 @@ model Media {
 model CariUser {
   id                  String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   username            String      @unique @db.VarChar(80)
-  email               String?     @unique @db.VarChar(190)
   name                String      @db.VarChar(160)
   role                String      @db.VarChar(20)
   passwordHash        String?     @map("password_hash")
-  resetTokenHash      String?     @map("reset_token_hash")
-  resetTokenExpiresAt DateTime?   @map("reset_token_expires_at") @db.Timestamptz(6)
   isActive            Boolean     @default(true) @map("is_active")
   lastLoginAt         DateTime?   @map("last_login_at") @db.Timestamptz(6)
   createdAt           DateTime?   @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt           DateTime?   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  email               String?     @unique @db.VarChar(190)
+  resetTokenHash      String?     @map("reset_token_hash")
+  resetTokenExpiresAt DateTime?   @map("reset_token_expires_at") @db.Timestamptz(6)
   entries             CariEntry[]
   logs                CariLog[]
 
@@ -264,7 +274,7 @@ model CariEntry {
   createdByName      String?   @map("created_by_name")
   createdAt          DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt          DateTime? @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
-  creator            CariUser? @relation(fields: [createdBy], references: [id], onDelete: SetNull)
+  creator            CariUser? @relation(fields: [createdBy], references: [id])
 
   @@map("cari_entries")
 }
@@ -279,7 +289,7 @@ model CariLog {
   ipAddress String?   @map("ip_address")
   userAgent String?   @map("user_agent")
   createdAt DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
-  user      CariUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  user      CariUser? @relation(fields: [userId], references: [id])
 
   @@map("cari_logs")
 }
@@ -307,17 +317,17 @@ model CariPaymentType {
 }
 
 model ReservationSetting {
-  id              String   @id @default("default")
-  isEnabled       Boolean  @default(true) @map("is_enabled")
-  workingDays     Int[]    @default([1, 2, 3, 4, 5, 6]) @map("working_days")
-  dayStart        String   @default("10:00") @map("day_start") @db.VarChar(5)
-  dayEnd          String   @default("18:00") @map("day_end") @db.VarChar(5)
-  slotMinutes     Int      @default(30) @map("slot_minutes")
-  bufferMinutes   Int      @default(0) @map("buffer_minutes")
-  maxPerSlot      Int      @default(1) @map("max_per_slot")
-  minNoticeHours  Int      @default(2) @map("min_notice_hours")
-  bookingHorizonDays Int   @default(60) @map("booking_horizon_days")
-  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                 String   @id @default("default")
+  isEnabled          Boolean  @default(true) @map("is_enabled")
+  workingDays        Int[]    @default([1, 2, 3, 4, 5, 6]) @map("working_days")
+  dayStart           String   @default("10:00") @map("day_start") @db.VarChar(5)
+  dayEnd             String   @default("18:00") @map("day_end") @db.VarChar(5)
+  slotMinutes        Int      @default(30) @map("slot_minutes")
+  bufferMinutes      Int      @default(0) @map("buffer_minutes")
+  maxPerSlot         Int      @default(1) @map("max_per_slot")
+  minNoticeHours     Int      @default(2) @map("min_notice_hours")
+  bookingHorizonDays Int      @default(60) @map("booking_horizon_days")
+  updatedAt          DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@map("reservation_settings")
 }
@@ -333,4 +343,16 @@ model ReservationBlackout {
 
   @@index([date])
   @@map("reservation_blackouts")
+}
+
+model Video {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  youtubeId   String
+  title       String
+  contentHtml String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 }
