@@ -140,3 +140,76 @@ export async function syncYouTubeChannel() {
     return { success: false, error: error.message };
   }
 }
+
+export async function translateVideo(id: string) {
+  try {
+    const video = await prisma.video.findUnique({ where: { id } });
+    if (!video) return { success: false, error: 'Video bulunamadı.' };
+
+    const locales = ['en', 'de', 'fr', 'ru', 'ar'];
+    const currentTranslations: any = (video.translations as any) || {};
+
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+    if (!OPENAI_API_KEY) {
+      return { success: false, error: 'OpenAI API key eksik.' };
+    }
+
+    const payload = {
+      title: video.title,
+      contentHtml: video.contentHtml || '',
+    };
+
+    for (const locale of locales) {
+      const systemPrompt = `Translate the following JSON object's string values to ${locale.toUpperCase()}. DO NOT change any of the JSON keys, only translate the values. Preserve all HTML tags and attributes exactly as they are in the contentHtml field. Return ONLY valid JSON without any markdown formatting or explanation.`;
+
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: JSON.stringify(payload) }
+          ],
+          temperature: 0.3,
+        })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        let result = data.choices[0].message.content.trim();
+        if (result.startsWith('```json')) result = result.replace(/^```json\n?/, '').replace(/\n?```$/, '');
+        if (result.startsWith('```')) result = result.replace(/^```\n?/, '').replace(/\n?```$/, '');
+        
+        try {
+          const parsed = JSON.parse(result);
+          currentTranslations[locale] = {
+            title: parsed.title,
+            contentHtml: parsed.contentHtml
+          };
+        } catch (e) {
+          console.error(`Failed to parse translation for ${locale}`, result);
+        }
+      }
+    }
+
+    await prisma.video.update({
+      where: { id },
+      data: { translations: currentTranslations },
+    });
+
+    revalidatePath(`/admin/videolar/${id}`);
+    revalidatePath('/videolar');
+    if (video.slug) {
+      revalidatePath(`/videolar/${video.slug}`);
+    }
+
+    return { success: true };
+  } catch (error: any) {
+    console.error('Failed to translate video:', error);
+    return { success: false, error: error.message };
+  }
+}

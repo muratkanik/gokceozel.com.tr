@@ -2,7 +2,7 @@
 
 import { useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { saveVideo, getVideo, deleteVideo } from '../actions';
+import { saveVideo, getVideo, deleteVideo, translateVideo } from '../actions';
 import dynamic from 'next/dynamic';
 import { Save, Trash2, ArrowLeft, Video as VideoIcon } from 'lucide-react';
 import Link from 'next/link';
@@ -101,9 +101,30 @@ export default function VideoEditPage({ params }: { params: Promise<{ id: string
         </div>
         <div className="flex items-center gap-3">
           {id !== 'yeni' && (
-            <button onClick={handleDelete} disabled={loading} className="text-red-600 hover:bg-red-50 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2">
-              <Trash2 className="w-4 h-4" /> Sil
-            </button>
+            <>
+              <button 
+                onClick={async () => {
+                  if(confirm('Videoyu çevirmek için önce son haliyle kaydetmeniz önerilir. Devam edilsin mi?')) {
+                    setLoading(true);
+                    const res = await translateVideo(id);
+                    if (res.success) {
+                      alert('Çeviriler başarıyla tamamlandı!');
+                      router.refresh();
+                    } else {
+                      alert('Çeviri hatası: ' + res.error);
+                    }
+                    setLoading(false);
+                  }
+                }} 
+                disabled={loading} 
+                className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
+              >
+                🤖 Tüm Dillere Çevir
+              </button>
+              <button onClick={handleDelete} disabled={loading} className="text-red-600 hover:bg-red-50 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2">
+                <Trash2 className="w-4 h-4" /> Sil
+              </button>
+            </>
           )}
           <button onClick={handleSave} disabled={loading} className="bg-[#1a1410] text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-[#3d2f22] transition-colors flex items-center gap-2 disabled:opacity-50">
             <Save className="w-4 h-4" />

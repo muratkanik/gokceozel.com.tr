@@ -353,6 +353,7 @@ model Video {
   contentHtml   String?  @db.Text
   playlistId    String?
   playlistTitle String?
+  translations  Json?    @default("{}")
   isActive      Boolean  @default(true)
   sortOrder     Int      @default(0)
   createdAt     DateTime @default(now())

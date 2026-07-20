@@ -9,9 +9,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   if (!video) return { title: 'Bulunamadı | Prof. Dr. Gökçe Özel' };
 
+  const localizedTitle = ((video.translations as any)?.[locale]?.title) || video.title;
+
   return {
-    title: `${video.title} | Prof. Dr. Gökçe Özel`,
-    description: video.title,
+    title: `${localizedTitle} | Prof. Dr. Gökçe Özel`,
+    description: localizedTitle,
     openGraph: {
       images: [`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`],
     }
@@ -28,8 +30,9 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ sl
     notFound();
   }
 
+  const localizedTitle = ((video.translations as any)?.[locale]?.title) || video.title;
   // The contentHtml is from our admin panel, so it's trusted.
-  const safeHtml = video.contentHtml || '';
+  const localizedContentHtml = ((video.translations as any)?.[locale]?.contentHtml) || video.contentHtml || '';
 
   return (
     <div className="bg-[#fcfbf9] min-h-screen pt-24 pb-32">
@@ -47,7 +50,7 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ sl
           <div className="relative aspect-video w-full bg-black">
             <iframe 
               src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
-              title={video.title}
+              title={localizedTitle}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="absolute inset-0 w-full h-full border-0"
@@ -56,17 +59,17 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ sl
 
           <div className="p-8 md:p-12">
             <h1 className="text-3xl md:text-4xl font-serif font-semibold text-[#1a1410] mb-8 leading-tight">
-              {video.title}
+              {localizedTitle}
             </h1>
 
-            {safeHtml && (
+            {localizedContentHtml && (
               <div 
                 className="prose prose-lg prose-amber max-w-none text-[#4a3f35] leading-relaxed
                   prose-headings:font-serif prose-headings:font-semibold prose-headings:text-[#1a1410]
                   prose-a:text-[#b8893c] hover:prose-a:text-[#8f6a2e]
                   prose-strong:text-[#1a1410] prose-strong:font-semibold
                   prose-ul:list-disc prose-ol:list-decimal"
-                dangerouslySetInnerHTML={{ __html: safeHtml }}
+                dangerouslySetInnerHTML={{ __html: localizedContentHtml }}
               />
             )}
           </div>

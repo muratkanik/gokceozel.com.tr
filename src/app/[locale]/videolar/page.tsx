@@ -84,7 +84,7 @@ export default async function VideolarPage({ params }: { params: Promise<{ local
                       </div>
                       <div className="p-6 flex-1 flex flex-col">
                         <h3 className="text-xl font-serif font-semibold text-[#1a1410] mb-3 line-clamp-2 group-hover:text-[#b8893c] transition-colors">
-                          {video.title}
+                          {((video.translations as any)?.[locale]?.title) || video.title}
                         </h3>
                         <div className="mt-auto pt-4 border-t border-[#f0ebe1] flex items-center text-sm font-medium text-[#b8893c]">
                           İzle ve Oku <span className="ml-2">→</span>
