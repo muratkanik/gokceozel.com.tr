@@ -1517,6 +1517,22 @@ export default function CariTakipApp() {
               className="h-auto w-36 object-contain sm:w-44"
             />
           </div>
+          {user?.role === 'doctor' && (
+            <div className="mx-auto mb-4 flex max-w-sm items-center justify-between rounded-xl border border-amber-200 bg-amber-50 p-3 sm:p-4 shadow-sm">
+              <div>
+                <h3 className="text-xs font-bold text-amber-900 sm:text-sm">Denetleme Modu</h3>
+                <p className="mt-0.5 text-[10px] text-amber-700 sm:text-xs">Aktif olduğunda Türkçe site gizlenir.</p>
+              </div>
+              <button
+                onClick={toggleInspectionMode}
+                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${inspectionMode ? 'bg-emerald-500' : 'bg-slate-300'}`}
+                role="switch"
+                aria-checked={inspectionMode}
+              >
+                <span className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${inspectionMode ? 'translate-x-5' : 'translate-x-0'}`} />
+              </button>
+            </div>
+          )}
           <div className="flex items-center gap-2 overflow-x-auto pb-1">
             {[
               ['dashboard', 'Dashboard', BarChart3],
@@ -1888,23 +1904,6 @@ export default function CariTakipApp() {
 
         {activeTab === 'dashboard' && (
           <section className="flex flex-col gap-5">
-            {user?.role === 'doctor' && (
-              <div className="order-1 flex items-center justify-between rounded-xl border border-amber-200 bg-amber-50 p-4 sm:p-5">
-                <div>
-                  <h3 className="text-sm font-bold text-amber-900 sm:text-base">Denetleme Modu (İngilizce Yönlendirme)</h3>
-                  <p className="mt-1 text-xs text-amber-700 sm:text-sm">Aktif edildiğinde ana site ziyaretçileri İngilizce sürüme yönlendirilir ve Türkçe içerik kapatılır.</p>
-                </div>
-                <button
-                  onClick={toggleInspectionMode}
-                  className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${inspectionMode ? 'bg-emerald-500' : 'bg-slate-300'}`}
-                  role="switch"
-                  aria-checked={inspectionMode}
-                >
-                  <span className={`pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${inspectionMode ? 'translate-x-5' : 'translate-x-0'}`} />
-                </button>
-              </div>
-            )}
-            
             <div className="order-2 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
               <Metric icon={Wallet} label="Brüt tahsilat" value={formatCurrency(grossIncome)} />
               <Metric icon={Landmark} label="Net" value={formatCurrency(netIncome)} />
