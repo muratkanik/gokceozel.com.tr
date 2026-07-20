@@ -426,8 +426,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
 
             {/* Certification & Accreditation Strip */}
-            <div className="mt-5 max-w-[800px] bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-md border border-[#e8efe9]/80">
-              <div className="grid grid-cols-3 items-center">
+            <div className="mt-5 max-w-[800px] bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-5 shadow-md border border-[#e8efe9]/80">
+              <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-0 items-center md:items-stretch">
 
                 {/* Kolon 1 – Health Turkey */}
                 <a
@@ -435,7 +435,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   target="_blank"
                   rel="noopener noreferrer"
                   title="T.C. Sağlık Bakanlığı – Health Turkey"
-                  className="flex items-center gap-3.5 opacity-90 hover:opacity-100 transition-opacity pr-5"
+                  className="flex items-center gap-3.5 opacity-90 hover:opacity-100 transition-opacity md:pr-5 justify-center md:justify-start"
                 >
                   <svg width="66" height="66" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="22" cy="22" r="22" fill="#E30A17"/>
@@ -443,7 +443,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <rect x="11" y="25" width="22" height="2.8" rx="1.4" fill="white" fillOpacity="0.8"/>
                     <rect x="14" y="30" width="16" height="2.8" rx="1.4" fill="white" fillOpacity="0.55"/>
                   </svg>
-                  <div className="leading-none">
+                  <div className="leading-none text-left">
                     <div className="text-[#E30A17] text-[22px] font-extrabold tracking-widest leading-none">HEALTH</div>
                     <div className="text-[#1a1a1a] text-[19px] tracking-[0.22em] font-semibold leading-none mt-1.5">TURKEY</div>
                     <div className="text-[#48544f] text-[16px] leading-none mt-1.5 font-medium">T.C. Sağlık Bakanlığı</div>
@@ -456,12 +456,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Uluslararası Sağlık Turizmi Yetki Belgesi"
-                  className="flex items-center gap-4 opacity-90 hover:opacity-100 transition-opacity group border-x border-[#48544f]/15 px-5"
+                  className="flex items-center justify-center md:justify-start gap-4 opacity-90 hover:opacity-100 transition-opacity group md:border-x md:border-[#48544f]/15 py-4 md:py-0 md:px-5 w-full border-y border-[#48544f]/15 md:border-y-0"
                 >
                   <div className="relative w-24 h-16 rounded-md border border-[#48544f]/30 overflow-hidden flex-shrink-0 group-hover:border-[#6f263d]/50 transition-colors shadow-sm">
                     <Image src="/images/saglik-turizmi-belgesi.jpg" alt="Sağlık Turizmi Yetki Belgesi" fill className="object-cover" sizes="96px"/>
                   </div>
-                  <div className="leading-tight">
+                  <div className="leading-tight text-left">
                     <div className="text-[#1a1a1a] text-[19px] font-bold leading-snug">Sağlık Turizmi</div>
                     <div className="text-[#48544f] text-[18px] font-medium leading-snug">Yetki Belgesi</div>
                     <div className="text-[#6f263d] text-[16px] leading-snug">Uluslararası</div>
@@ -469,9 +469,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </a>
 
                 {/* Kolon 3 – TYPCD & CMAC (alt alta) */}
-                <div className="flex flex-col gap-3 pl-5">
-                  <span className="border border-[#48544f]/35 text-[#48544f] text-[18px] font-semibold px-5 py-2.5 rounded-full tracking-wide text-center">TYPCD Üyesi</span>
-                  <span className="border border-[#48544f]/35 text-[#48544f] text-[18px] font-semibold px-5 py-2.5 rounded-full tracking-wide text-center">CMAC Üyesi</span>
+                <div className="flex flex-row md:flex-col justify-center gap-3 md:pl-5 w-full">
+                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">TYPCD Üyesi</span>
+                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">CMAC Üyesi</span>
                 </div>
 
               </div>
