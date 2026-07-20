@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 
 const NAV_LINKS: Record<string, Array<{ label: string; href: string }>> = {
   tr: [
@@ -86,6 +87,9 @@ interface MobileNavProps {
 
 export default function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -107,20 +111,8 @@ export default function MobileNav({ locale }: MobileNavProps) {
   const contactHref = locale === 'tr' ? '/iletisim' : `/${locale}/iletisim`;
   const isRtl = locale === 'ar';
 
-  return (
+  const drawerElement = (
     <>
-      {/* Hamburger button */}
-      <button
-        className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/10 transition-colors"
-        onClick={() => setIsOpen(true)}
-        aria-label="Menüyü aç"
-        aria-expanded={isOpen}
-      >
-        <span className="w-5 h-[2px] bg-white rounded-full" />
-        <span className="w-5 h-[2px] bg-white rounded-full" />
-        <span className="w-3.5 h-[2px] bg-[#e1c996] rounded-full" />
-      </button>
-
       {/* Backdrop */}
       {isOpen && (
         <div
@@ -132,7 +124,7 @@ export default function MobileNav({ locale }: MobileNavProps) {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 ${isRtl ? 'left-0' : 'right-0'} h-full w-[320px] max-w-[85vw] z-[995] bg-[#fbf7ef] flex flex-col shadow-2xl transition-transform duration-300 ease-in-out lg:hidden border-${isRtl ? 'r' : 'l'} border-[#b8893c]/20
+        className={`fixed top-0 ${isRtl ? 'left-0 border-r border-[#b8893c]/20' : 'right-0 border-l border-[#b8893c]/20'} h-[100dvh] w-[320px] max-w-[85vw] z-[995] bg-[#fbf7ef] flex flex-col shadow-2xl transition-transform duration-300 ease-in-out lg:hidden
           ${isOpen ? 'translate-x-0' : isRtl ? '-translate-x-full' : 'translate-x-full'}`}
         role="dialog"
         aria-modal="true"
@@ -197,6 +189,24 @@ export default function MobileNav({ locale }: MobileNavProps) {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <>
+      {/* Hamburger button */}
+      <button
+        className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/10 transition-colors"
+        onClick={() => setIsOpen(true)}
+        aria-label="Menüyü aç"
+        aria-expanded={isOpen}
+      >
+        <span className="w-5 h-[2px] bg-white rounded-full" />
+        <span className="w-5 h-[2px] bg-white rounded-full" />
+        <span className="w-3.5 h-[2px] bg-[#e1c996] rounded-full" />
+      </button>
+
+      {mounted && document.body ? createPortal(drawerElement, document.body) : null}
     </>
   );
 }
