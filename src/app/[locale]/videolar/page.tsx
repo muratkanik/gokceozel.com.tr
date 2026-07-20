@@ -1,12 +1,11 @@
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
 import { Play } from 'lucide-react';
-import { getDictionary } from '@/i18n/dictionaries';
+import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
   return {
     title: `Videolar | Prof. Dr. Gökçe Özel`,
     description: `Prof. Dr. Gökçe Özel'in YouTube kanalındaki güncel bilgilendirme videoları ve operasyon detayları.`,
@@ -15,7 +14,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function VideolarPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
   
   const videos = await prisma.video.findMany({
     where: { isActive: true },

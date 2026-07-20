@@ -2,7 +2,6 @@ import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { getDictionary } from '@/i18n/dictionaries';
 import DOMPurify from 'isomorphic-dompurify';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string, locale: string }> }) {
