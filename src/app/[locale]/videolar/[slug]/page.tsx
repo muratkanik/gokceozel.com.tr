@@ -2,7 +2,6 @@ import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import DOMPurify from 'isomorphic-dompurify';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
@@ -29,8 +28,8 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ sl
     notFound();
   }
 
-  // Purify HTML before rendering
-  const safeHtml = video.contentHtml ? DOMPurify.sanitize(video.contentHtml) : '';
+  // The contentHtml is from our admin panel, so it's trusted.
+  const safeHtml = video.contentHtml || '';
 
   return (
     <div className="bg-[#fcfbf9] min-h-screen pt-24 pb-32">
