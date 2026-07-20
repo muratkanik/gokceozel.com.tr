@@ -2,19 +2,21 @@ import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
 const locales = ['en', 'de', 'fr', 'ru', 'ar'];
 
 async function callOpenAI(systemPrompt: string, userPrompt: string, isJson: boolean = false) {
-  const res = await fetch('https://api.openai.com/v1/chat/completions', {
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${OPENAI_API_KEY}`
+      Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+      'HTTP-Referer': 'https://gokceozel.com.tr',
+      'X-Title': 'Gokce Ozel Admin'
     },
     body: JSON.stringify({
-      model: 'gpt-4o-mini',
+      model: 'openai/gpt-4o-mini',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt }
@@ -99,8 +101,8 @@ Kurallar:
 }
 
 async function main() {
-  if (!OPENAI_API_KEY) {
-    console.error("No OPENAI_API_KEY provided.");
+  if (!OPENROUTER_API_KEY) {
+    console.error("No OPENROUTER_API_KEY provided.");
     process.exit(1);
   }
 
