@@ -92,7 +92,7 @@ export async function POST(req: Request) {
         send('progress', { step: 'improve', message: 'AI ile içerik geliştiriliyor…' });
 
         const improvePrompt = `Sen Prof. Dr. Gökçe Özel kliniğinin SEO uzmanı içerik yazarısın.
-Klinik: KBB ve Estetik/Plastik Cerrahi — Ankara ve Antalya.
+Klinik: KBB Uygulamaları — Ankara ve Antalya.
 Hizmet: ${serviceTitle}
 
 Aşağıdaki mevcut HTML içeriği SEO açısından GÜÇLENDIR ve GENİŞLET:

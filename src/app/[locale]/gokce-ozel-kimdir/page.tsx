@@ -92,7 +92,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     givenName: 'Gökçe',
     familyName: 'Özel',
     honorificPrefix: 'Prof. Dr.',
-    jobTitle: 'KBB Uzmanı ve Yüz Plastik Cerrahı',
+    jobTitle: 'Kulak Burun Boğaz Hastalıkları Uzmanı',
     description: descriptions[locale] || descriptions.tr,
     url: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir`,
     image: `${baseUrl}/images/dr-gokce-ozel.jpg`,

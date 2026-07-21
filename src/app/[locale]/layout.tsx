@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       'Dermal fillers', 'Lip filler', 'Lip lift surgery', 'Thread face lift', 'Endolift laser',
       'Laser face lifting', 'Mesotherapy treatments', 'Dimple surgery', 'Otoplasty',
       'Facial aesthetics in Ankara', 'Non-surgical facial rejuvenation', 'PRP facial treatment',
-      'Skin rejuvenation', 'Facial contouring', 'Facial aesthetic surgeon', 'Prof. Dr. Gökçe Özel Clinic'
+      'Skin rejuvenation', 'Facial contouring', 'ENT specialist', 'Prof. Dr. Gökçe Özel Clinic'
     ],
     ar: [
       'تجميل الأنف أنقرة', 'جراحة الجفون', 'بوتوكس', 'حقن الفيلر', 'تكبير الشفاه',
@@ -193,7 +193,7 @@ export default async function RootLayout({
         "givenName": "Gökçe",
         "familyName": "Özel",
         "honorificPrefix": "Prof. Dr.",
-        "jobTitle": "KBB Uzmanı ve Yüz Plastik Cerrahı",
+        "jobTitle": "Kulak Burun Boğaz Hastalıkları Uzmanı",
         "description": "Ankara Üniversitesi öğretim üyesi Prof. Dr. Gökçe Özel, 15+ yıllık deneyimi ve 100'den fazla uluslararası yayınıyla Türkiye'nin önde gelen KBB ve rinoplasti uzmanlarından biridir.",
         "url": "https://gokceozel.com.tr/gokce-ozel-kimdir",
         "image": "https://gokceozel.com.tr/images/dr-gokce-ozel.jpg",

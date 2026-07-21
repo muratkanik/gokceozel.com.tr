@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     }
 
     const system = `Sen Prof. Dr. Gökçe Özel kliniğinin resmi web sitesi için içerik üreten uzman bir medikal SEO yazarısın.
-Klinik: KBB (Kulak-Burun-Boğaz) ve Estetik/Plastik cerrahi — Ankara ve Antalya.
+Klinik: KBB Uygulamaları — Ankara ve Antalya.
 Hedef dil: ${(locale || 'tr').toUpperCase()}
 ${currentHtml ? `Mevcut içerik (geliştir veya genişlet):\n${currentHtml}` : ''}
 

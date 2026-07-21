@@ -5,7 +5,7 @@ export const BIOGRAPHY_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
 export const BIOGRAPHY_DEFAULT_TR: BiographyData = {
   image: '/images/gokceozel.png',
   title: 'Prof. Dr. Gökçe Özel',
-  subtitle: 'Kulak Burun Boğaz Uzmanı, Yüz Plastik Cerrahisi ve Medikal Estetik Uygulamaları',
+  subtitle: 'Kulak Burun Boğaz Uzmanı, Rinoplasti ve Yüz Odaklı İşlemler',
   about: [
     '<p>İstanbul Üniversitesi Cerrahpaşa İngilizce Tıp Fakültesi mezunuyum. Dışkapı Yıldırım Beyazıt Eğitim ve Araştırma Hastanesi Kulak Burun Boğaz Kliniğinde uzmanlık eğitimimi tamamladım.</p>',
     '<p>2013-2021 yılları arasında Kırıkkale Üniversitesi Tıp Fakültesi Kulak Burun Boğaz Anabilim Dalında öğretim üyesi olarak çalıştım. 2015 yılında Doçent, 2021 yılında Profesör unvanı aldım.</p>',

@@ -66,7 +66,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             }}>GÖ</div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ color: '#f0d48e', fontSize: 20, fontWeight: 700 }}>Prof. Dr. Gökçe Özel</span>
-              <span style={{ color: '#b8893c', fontSize: 12, letterSpacing: 3, textTransform: 'uppercase' as const }}>KBB · Yüz Plastik Cerrahı</span>
+              <span style={{ color: '#b8893c', fontSize: 12, letterSpacing: 3, textTransform: 'uppercase' as const }}>KBB · KBB Uzmanı</span>
             </div>
           </div>
 

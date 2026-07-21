@@ -35,7 +35,7 @@ interface BiographyManagerProps {
 const defaultData: BiographyData = {
   image: '',
   title: 'Prof. Dr. Gökçe Özel',
-  subtitle: 'KBB ve Yüz Plastik Cerrahi Uzmanı',
+  subtitle: 'Kulak Burun Boğaz Hastalıkları Uzmanı',
   about: '',
   timeline: [],
   certificates: []

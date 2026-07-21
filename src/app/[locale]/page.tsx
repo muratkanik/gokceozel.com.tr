@@ -362,8 +362,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     name: 'Prof. Dr. Gökçe Özel',
     alternateName: 'Gökçe Özel Klinik',
     description: locale === 'tr' 
-      ? 'Ankara ve Antalya bölgesinde en iyi burun estetiği (rinoplasti), botoks, dolgu ve mezoterapi uygulamalarıyla öne çıkan, uluslararası sertifikalı KBB ve Fasiyal Plastik Cerrahi uzmanı.'
-      : 'Internationally certified ENT and Facial Plastic Surgery specialist, recognized as the best rhinoplasty, botox, filler, and mesotherapy doctor in Ankara and Antalya.',
+      ? 'Ankara ve Antalya bölgesinde en iyi burun estetiği (rinoplasti), botoks, dolgu ve mezoterapi uygulamalarıyla öne çıkan, uluslararası sertifikalı KBB ve Kulak Burun Boğaz Uzmanı.'
+      : 'Internationally certified ENT and ENT specialist, recognized as the best rhinoplasty, botox, filler, and mesotherapy doctor in Ankara and Antalya.',
     url: baseUrl,
     image: `${baseUrl}/images/gokceozel.png`,
     telephone: '+905342096935',

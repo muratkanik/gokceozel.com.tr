@@ -71,7 +71,7 @@ export async function POST(req: Request) {
 
     let contentHtml = video.contentHtml;
     if (!contentHtml || contentHtml.trim() === '') {
-      const htmlSystemPrompt = `Sen profesyonel bir medikal yazar ve SEO uzmanısın. Prof. Dr. Gökçe Özel'in (Kulak Burun Boğaz ve Yüz Plastik Cerrahisi Uzmanı) YouTube videosu için SEO uyumlu, Google'da öne çıkacak ve arama motorları tarafından indekslenecek bir zengin metin (rich text) makalesi oluşturacaksın.
+      const htmlSystemPrompt = `Sen profesyonel bir medikal yazar ve SEO uzmanısın. Prof. Dr. Gökçe Özel'in (Kulak Burun Boğaz Uzmanı) YouTube videosu için SEO uyumlu, Google'da öne çıkacak ve arama motorları tarafından indekslenecek bir zengin metin (rich text) makalesi oluşturacaksın.
 Kurallar:
 - Sadece HTML içeriğini döndür (\`\`\`html vs ekleme, doğrudan <p> ile başla).
 - Kalın yazılar (<strong>), maddeli listeler (<ul>, <li>) kullan.

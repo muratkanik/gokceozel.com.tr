@@ -30,7 +30,7 @@ export default async function GlobalUIManagementPage() {
       'Contact.email': 'info@gokceozel.com.tr',
       'Contact.hours': 'Pzt–Cmt · 10:00–18:00',
       
-      'Footer.description': 'Prof. Dr. Gökçe Özel Kulak Burun Boğaz ve Yüz Plastik Cerrahi Kliniği. Doğal güzelliğiniz için bilimsel ve estetik çözümler.',
+      'Footer.description': 'Prof. Dr. Gökçe Özel Kulak Burun Boğaz Kliniği. Doğal güzelliğiniz için bilimsel ve estetik çözümler.',
       'Footer.clinic': 'Klinik',
       'Footer.privacy': 'Gizlilik Politikası',
       
