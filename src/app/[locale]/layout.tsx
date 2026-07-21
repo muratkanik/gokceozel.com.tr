@@ -8,6 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 import EventPopup from '@/components/ui/EventPopup';
 import MobileNav from '@/components/ui/MobileNav';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import SearchModal from '@/components/ui/SearchModal';
 import "../globals.css";
 import { hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 
@@ -319,6 +320,15 @@ export default async function RootLayout({
                 <li><a href={localePath(locale, '/iletisim')} className="hover:text-[#b88746] transition-colors py-1.5 relative">{tNav('contact')}</a></li>
               </ul>
               <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new CustomEvent('open-search'))}
+                  className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/10"
+                  aria-label="Arama"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
                 <LanguageSwitcher />
                 <a href={localePath(locale, '/iletisim')} className="hidden sm:inline-flex bg-[#e1c996] text-[#111714] px-5 py-2.5 rounded-full font-semibold text-[13px] tracking-wide hover:bg-white transition-colors shadow-sm">
                   {tContact('appointment')}
@@ -490,6 +500,7 @@ export default async function RootLayout({
             </svg>
           </a>
           <GoogleAnalytics gaId="G-Z5G51S538X" />
+          <SearchModal locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

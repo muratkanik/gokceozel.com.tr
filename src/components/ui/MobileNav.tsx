@@ -194,17 +194,28 @@ export default function MobileNav({ locale }: MobileNavProps) {
 
   return (
     <>
-      {/* Hamburger button */}
-      <button
-        className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/10 transition-colors"
-        onClick={() => setIsOpen(true)}
-        aria-label="Menüyü aç"
-        aria-expanded={isOpen}
-      >
-        <span className="w-5 h-[2px] bg-white rounded-full" />
-        <span className="w-5 h-[2px] bg-white rounded-full" />
-        <span className="w-3.5 h-[2px] bg-[#e1c996] rounded-full" />
-      </button>
+      <div className="lg:hidden flex items-center gap-1">
+        <button 
+          onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new CustomEvent('open-search'))}
+          className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 text-white transition-colors"
+          aria-label="Arama"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+        {/* Hamburger button */}
+        <button
+          className="flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-white/10 transition-colors"
+          onClick={() => setIsOpen(true)}
+          aria-label="Menüyü aç"
+          aria-expanded={isOpen}
+        >
+          <span className="w-5 h-[2px] bg-white rounded-full" />
+          <span className="w-5 h-[2px] bg-white rounded-full" />
+          <span className="w-3.5 h-[2px] bg-[#e1c996] rounded-full" />
+        </button>
+      </div>
 
       {mounted && document.body ? createPortal(drawerElement, document.body) : null}
     </>
