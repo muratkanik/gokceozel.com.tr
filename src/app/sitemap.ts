@@ -31,7 +31,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // — Dynamic: Services (Prisma) —
   try {
     const services = await prisma.page.findMany({
-      where: { type: 'SERVICE' },
+      // 'home' and 'global-settings' are CMS records, not service pages
+      where: { type: 'SERVICE', slug: { notIn: ['home', 'global-settings'] } },
       select: { slug: true, updatedAt: true },
     });
     services.forEach(({ slug, updatedAt }) => {
