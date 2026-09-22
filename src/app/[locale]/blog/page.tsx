@@ -45,7 +45,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   let posts: any[] = [];
   try {
     posts = await prisma.page.findMany({
-      where: { type: 'BLOG' },
+      where: { type: 'BLOG', status: { not: 'DRAFT' } },
       include: { seoMeta: true },
       orderBy: { createdAt: 'desc' },
     });

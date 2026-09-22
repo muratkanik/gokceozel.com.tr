@@ -10,6 +10,7 @@ export default async function ContentManagementPage() {
       slug: true,
       titleInternal: true,
       type: true,
+      status: true,
       createdAt: true,
     },
     orderBy: [{ type: 'asc' }, { createdAt: 'desc' }],

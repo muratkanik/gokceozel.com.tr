@@ -23,6 +23,7 @@ export async function GET(request: Request) {
     const seoResults = await prisma.seoMeta.findMany({
       where: {
         locale,
+        page: { status: { not: 'DRAFT' } },
         OR: [
           { metaTitle: { contains: q, mode: 'insensitive' } },
           { metaDescription: { contains: q, mode: 'insensitive' } },
@@ -61,7 +62,8 @@ export async function GET(request: Request) {
     const translationResults = await prisma.translation.findMany({
       where: {
         locale,
-        contentData: { contains: q, mode: 'insensitive' }
+        contentData: { contains: q, mode: 'insensitive' },
+        block: { page: { status: { not: 'DRAFT' } } },
       },
       include: {
         block: {

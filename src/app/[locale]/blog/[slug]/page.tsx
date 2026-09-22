@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug, locale } = await params;
 
   const page = await prisma.page.findUnique({
-    where: { slug, type: 'BLOG' },
+    where: { slug, type: 'BLOG', status: { not: 'DRAFT' } },
     include: { seoMeta: true }
   });
 
@@ -52,7 +52,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   const { slug, locale } = await params;
 
   const page = await prisma.page.findUnique({
-    where: { slug, type: 'BLOG' },
+    where: { slug, type: 'BLOG', status: { not: 'DRAFT' } },
     include: {
       blocks: { include: { translations: true }, orderBy: { sortOrder: 'asc' } },
       seoMeta: true,
