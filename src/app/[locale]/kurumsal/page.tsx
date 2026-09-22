@@ -1,6 +1,26 @@
 import { createClient } from '@/lib/supabase/server';
+import type { Metadata } from 'next';
 
 export const revalidate = 60;
+
+const SEO_BASE_URL = 'https://gokceozel.com.tr';
+const SEO_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+const seoUrl = (loc: string) => (loc === 'tr' ? `${SEO_BASE_URL}/kurumsal` : `${SEO_BASE_URL}/${loc}/kurumsal`);
+
+// Self-referencing canonical + hreflang (layout default points every page at the home page).
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const languages: Record<string, string> = { 'x-default': seoUrl('tr') };
+  SEO_LOCALES.forEach((loc) => {
+    languages[loc] = seoUrl(loc);
+  });
+  return {
+    alternates: {
+      canonical: seoUrl(locale),
+      languages,
+    },
+  };
+}
 
 export default async function KurumsalPage() {
   const supabase = await createClient();
