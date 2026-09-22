@@ -2,8 +2,28 @@ import prisma from '@/lib/prisma';
 import Image from 'next/image';
 import Link from 'next/link';
 import { blogCoverFor } from '@/lib/blog-cover';
+import type { Metadata } from 'next';
 
 export const revalidate = 60;
+
+const SEO_BASE_URL = 'https://gokceozel.com.tr';
+const SEO_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+const seoUrl = (loc: string) => (loc === 'tr' ? `${SEO_BASE_URL}/blog` : `${SEO_BASE_URL}/${loc}/blog`);
+
+// Self-referencing canonical + hreflang (layout default points every page at the home page).
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const languages: Record<string, string> = { 'x-default': seoUrl('tr') };
+  SEO_LOCALES.forEach((loc) => {
+    languages[loc] = seoUrl(loc);
+  });
+  return {
+    alternates: {
+      canonical: seoUrl(locale),
+      languages,
+    },
+  };
+}
 const localePath = (locale: string, path = '') => {
   const normalized = path.startsWith('/') ? path : `/${path}`;
   if (locale === 'tr') return normalized === '/' ? '/' : normalized;
