@@ -18,7 +18,7 @@ export async function GET(req: Request) {
   let posts: { slug: string; updatedAt: Date; seoMeta: { locale: string; metaTitle: string; metaDescription: string; ogImage?: string | null }[] }[] = [];
   try {
     posts = await prisma.page.findMany({
-      where: { type: 'BLOG' },
+      where: { type: 'BLOG', status: { not: 'DRAFT' } },
       select: {
         slug: true,
         updatedAt: true,

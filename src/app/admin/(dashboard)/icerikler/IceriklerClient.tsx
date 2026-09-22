@@ -2,12 +2,15 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { setPageStatus } from './actions';
 
 interface Page {
   id: string;
   slug: string;
   titleInternal: string | null;
   type: string;
+  status: string;
   createdAt: string;
 }
 
@@ -53,6 +56,24 @@ export default function IceriklerClient({ pages }: Props) {
   const [healthLoading, setHealthLoading] = useState(false);
   const [aiGenerating, setAiGenerating] = useState<string | null>(null);
   const [aiStatus, setAiStatus] = useState<string>('');
+  const [statusBusy, setStatusBusy] = useState<string | null>(null);
+  const router = useRouter();
+
+  const toggleStatus = async (page: Page) => {
+    const next = page.status === 'DRAFT' ? 'PUBLISHED' : 'DRAFT';
+    const verb = next === 'PUBLISHED' ? 'yayınlansın' : 'yayından kaldırılsın';
+    if (!window.confirm(`"${page.titleInternal || page.slug}" ${verb} mı?`)) return;
+    setStatusBusy(page.id);
+    try {
+      await setPageStatus(page.id, next);
+      router.refresh();
+    } catch (e: any) {
+      setAiStatus(`❌ Hata: ${e.message}`);
+    }
+    setStatusBusy(null);
+  };
+
+  const draftCount = useMemo(() => pages.filter((p) => p.status === 'DRAFT').length, [pages]);
 
   const filtered = useMemo(() => {
     return pages.filter((p) => {
@@ -160,6 +181,11 @@ KALİTE KURALLARI:
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight">İçerik Yönetimi</h1>
           <p className="text-slate-500 mt-0.5 text-sm">
             {pages.length} içerik — hizmetler, blog yazıları ve sayfalarınız
+            {draftCount > 0 && (
+              <span className="ml-2 px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">
+                {draftCount} taslak onay bekliyor
+              </span>
+            )}
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -303,7 +329,7 @@ KALİTE KURALLARI:
               <th className="py-3.5 px-5 font-semibold">Başlık</th>
               <th className="py-3.5 px-5 font-semibold">Tür</th>
               <th className="py-3.5 px-5 font-semibold hidden md:table-cell">URL (Slug)</th>
-              <th className="py-3.5 px-5 font-semibold w-28 text-right">İşlemler</th>
+              <th className="py-3.5 px-5 font-semibold w-48 text-right">İşlemler</th>
             </tr>
           </thead>
           <tbody>
@@ -317,6 +343,11 @@ KALİTE KURALLARI:
                       <span className="font-medium text-slate-900 text-sm">
                         {page.titleInternal || 'İsimsiz İçerik'}
                       </span>
+                      {page.status === 'DRAFT' && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-amber-100 text-amber-800">
+                          Taslak
+                        </span>
+                      )}
                       {health && health.healthScore < 50 && (
                         <span title={`SEO skoru: ${health.healthScore}`} className="text-amber-400 text-xs">⚠</span>
                       )}
@@ -335,7 +366,20 @@ KALİTE KURALLARI:
                   <td className="py-3.5 px-5 text-slate-400 font-mono text-xs hidden md:table-cell">
                     /{page.slug}
                   </td>
-                  <td className="py-3.5 px-5 text-right">
+                  <td className="py-3.5 px-5 text-right whitespace-nowrap">
+                    {page.type === 'BLOG' && (
+                      <button
+                        onClick={() => toggleStatus(page)}
+                        disabled={statusBusy === page.id}
+                        className={`mr-3 text-xs font-semibold px-2.5 py-1 rounded-md border transition-colors disabled:opacity-40 ${
+                          page.status === 'DRAFT'
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                            : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        {statusBusy === page.id ? '…' : page.status === 'DRAFT' ? 'Yayınla' : 'Taslağa al'}
+                      </button>
+                    )}
                     <Link
                       href={`/admin/icerikler/${page.slug}`}
                       className="text-slate-500 hover:text-[#b8893c] font-semibold text-sm transition-colors opacity-0 group-hover:opacity-100"
