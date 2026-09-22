@@ -2,6 +2,31 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+// Retired duplicate service pages -> newest page (keep in sync with
+// RETIRED_SERVICE_SLUGS in src/lib/service-slugs.ts).
+const RETIRED_SERVICES = [
+  { from: 'dolgu', to: 'dolgu-islemleri', localized: { en: 'fillers', de: 'filler', fr: 'filler' } },
+  { from: 'endolift', to: 'endolift-lazer', localized: { en: 'endolift-laser', de: 'endolift-laser', fr: 'laser-endolift' } },
+];
+const SERVICE_SEGMENT = { en: 'services', ar: 'services', ru: 'services', de: 'leistungen', fr: 'soins' };
+
+function retiredServiceRedirects() {
+  const out = [];
+  for (const { from, to, localized } of RETIRED_SERVICES) {
+    out.push({ source: `/hizmetler/${from}`, destination: `/hizmetler/${to}`, permanent: true });
+    out.push({ source: `/tr/hizmetler/${from}`, destination: `/hizmetler/${to}`, permanent: true });
+    for (const [locale, segment] of Object.entries(SERVICE_SEGMENT)) {
+      const localizedFrom = localized[locale] || localized.en;
+      const destination = `/${locale}/${segment}/${to}`;
+      for (const oldSlug of new Set([from, localizedFrom])) {
+        out.push({ source: `/${locale}/hizmetler/${oldSlug}`, destination, permanent: true });
+        out.push({ source: `/${locale}/${segment}/${oldSlug}`, destination, permanent: true });
+      }
+    }
+  }
+  return out;
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   serverExternalPackages: ['@prisma/client'],
@@ -17,6 +42,7 @@ const nextConfig = {
   // Headers for SEO & security
   async redirects() {
     return [
+      ...retiredServiceRedirects(),
       {
         source: '/gokce-ozel-kimdir/gokce-ozel-kimdir',
         destination: '/gokce-ozel-kimdir',

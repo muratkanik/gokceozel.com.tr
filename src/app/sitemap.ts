@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/prisma';
+import { RETIRED_SERVICE_SLUGS } from '@/lib/service-slugs';
 
 const baseUrl = 'https://gokceozel.com.tr';
 const locales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
@@ -34,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // CMS records and biography duplicates stored as SERVICE, not real service pages
       where: {
         type: 'SERVICE',
-        slug: { notIn: ['home', 'global-settings', 'gokce-ozel-kimdir', 'biyografi-sayfasi-eski'] },
+        slug: { notIn: ['home', 'global-settings', 'gokce-ozel-kimdir', 'biyografi-sayfasi-eski', ...Object.keys(RETIRED_SERVICE_SLUGS)] },
       },
       select: { slug: true, updatedAt: true },
     });
