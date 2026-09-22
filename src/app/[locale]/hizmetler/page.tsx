@@ -2,7 +2,7 @@ import prisma from '@/lib/prisma';
 import Image from 'next/image';
 import Link from 'next/link';
 import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
-import { hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
+import { RETIRED_SERVICE_SLUGS, hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 import { OLD_SITE_SERVICE_IMAGES } from '@/lib/old-site-media';
 import type { Metadata } from 'next';
 
@@ -44,10 +44,10 @@ const FALLBACK_IMAGES = [
 
 const FALLBACK_SERVICES = [
   { id: 'rinoplasti', slug: 'rinoplasti', titleInternal: 'Rinoplasti', service: { category: 'KBB Uygulamaları' }, seoMeta: [{ locale: 'tr', metaTitle: 'Rinoplasti', metaDescription: 'Burun estetiğinde doğal görünüm ve nefes fonksiyonunu birlikte değerlendiren kişiye özel cerrahi planlama.' }] },
-  { id: 'endolift', slug: 'endolift', titleInternal: 'Endolift Lazer', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Endolift Lazer', metaDescription: 'Kesi olmadan yüz ve gıdı hattında sıkılaşma ve kontür desteği sağlayan lazer uygulaması.' }] },
+  { id: 'endolift', slug: 'endolift-lazer', titleInternal: 'Endolift Lazer', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Endolift Lazer', metaDescription: 'Kesi olmadan yüz ve gıdı hattında sıkılaşma ve kontür desteği sağlayan lazer uygulaması.' }] },
   { id: 'blefaroplasti', slug: 'gz-kapa-estetii', titleInternal: 'Göz Kapağı Estetiği', service: { category: 'KBB Uygulamaları' }, seoMeta: [{ locale: 'tr', metaTitle: 'Göz Kapağı Estetiği', metaDescription: 'Üst ve alt göz kapağında daha dinlenmiş, doğal ve açık bir ifade hedefleyen estetik yaklaşım.' }] },
   { id: 'botoks', slug: 'botoks', titleInternal: 'Botoks', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Botoks', metaDescription: 'Mimik çizgilerini yumuşatırken yüz ifadesini korumaya odaklanan medikal estetik uygulama.' }] },
-  { id: 'dolgu', slug: 'dolgu', titleInternal: 'Dolgu', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Dolgu Uygulamaları', metaDescription: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.' }] },
+  { id: 'dolgu', slug: 'dolgu-islemleri', titleInternal: 'Dolgu', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'Dolgu Uygulamaları', metaDescription: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.' }] },
   { id: 'ip-aski', slug: 'ip-aski', titleInternal: 'İp Askılama', service: { category: 'Ameliyatsız Estetik' }, seoMeta: [{ locale: 'tr', metaTitle: 'İp Askılama', metaDescription: 'Yüz ovalini destekleyen ve hafif sarkmaları toparlamayı hedefleyen ameliyatsız askılama uygulaması.' }] },
 ];
 
@@ -77,6 +77,7 @@ export default async function HizmetlerPage({ params }: { params: Promise<{ loca
 
   // Filter valid services
   const validServices = rawServices.filter((service) => {
+    if (RETIRED_SERVICE_SLUGS[service.slug]) return false;
     const seo = service.seoMeta?.find((s: { locale: string }) => s.locale === locale) || service.seoMeta?.find((s: { locale: string }) => s.locale === 'tr');
     return hasDisplayableServiceText(service.slug, [
       seo?.metaTitle,

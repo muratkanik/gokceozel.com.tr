@@ -196,10 +196,10 @@ const HOME_STRINGS_DEFAULT = {
 
 const SERVICE_FALLBACK = [
   { slug: 'rinoplasti', title: 'Rinoplasti', description: 'Burun estetiğinde doğal görünüm, nefes fonksiyonu ve yüz oranlarını birlikte değerlendiren kişiye özel planlama.', image: OLD_SITE_SERVICE_IMAGES.rinoplasti },
-  { slug: 'endolift', title: 'Endolift Lazer', description: 'Yüz ve gıdı bölgesinde kesi gerektirmeyen lazer destekli sıkılaşma ve kontürleme yaklaşımı.', image: OLD_SITE_SERVICE_IMAGES.endolift },
+  { slug: 'endolift-lazer', title: 'Endolift Lazer', description: 'Yüz ve gıdı bölgesinde kesi gerektirmeyen lazer destekli sıkılaşma ve kontürleme yaklaşımı.', image: OLD_SITE_SERVICE_IMAGES.endolift },
   { slug: 'gz-kapa-estetii', title: 'Göz Kapağı Estetiği', description: 'Üst ve alt göz kapağı bölgesinde daha dinlenmiş, açık ve doğal bir ifade hedefleyen uygulamalar.', image: OLD_SITE_SERVICE_IMAGES['gz-kapa-estetii'] },
   { slug: 'botoks', title: 'Botoks', description: 'Mimik çizgilerini yumuşatmaya ve yüz ifadesini korumaya yönelik medikal estetik uygulamalar.', image: OLD_SITE_SERVICE_IMAGES.botoks },
-  { slug: 'dolgu', title: 'Dolgu Uygulamaları', description: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.', image: OLD_SITE_SERVICE_IMAGES.dolgu },
+  { slug: 'dolgu-islemleri', title: 'Dolgu Uygulamaları', description: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.', image: OLD_SITE_SERVICE_IMAGES.dolgu },
   { slug: 'ip-aski', title: 'İp Askılama', description: 'Yüz ovalini desteklemek ve hafif sarkmaları toparlamak için ameliyatsız askılama seçenekleri.', image: OLD_SITE_SERVICE_IMAGES['ip-aski'] },
 ];
 

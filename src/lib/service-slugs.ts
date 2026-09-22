@@ -94,3 +94,10 @@ export function canonicalFromLocalized(localizedSlug: string, locale: string): s
   const revLang = (locale === 'ar' || locale === 'ru') ? 'en' : locale;
   return REVERSE_MAP[revLang]?.[localizedSlug] ?? localizedSlug;
 }
+
+// Duplicate service pages: the older slug is retired and 301-redirected to the
+// newest page (see next.config.mjs). Keep this list in sync with the redirects.
+export const RETIRED_SERVICE_SLUGS: Record<string, string> = {
+  'dolgu': 'dolgu-islemleri',
+  'endolift': 'endolift-lazer',
+};

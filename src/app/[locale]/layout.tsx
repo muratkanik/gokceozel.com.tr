@@ -365,7 +365,7 @@ export default async function RootLayout({
                   <ul className="space-y-3 text-[13px]">
                     <li><a href={serviceDetailPath(locale, 'rinoplasti')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('rhinoplasty')}</a></li>
                     <li><a href={serviceDetailPath(locale, 'goz-kapagi-estetigi')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('blepharoplasty')}</a></li>
-                    <li><a href={serviceDetailPath(locale, 'endolift')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
+                    <li><a href={serviceDetailPath(locale, 'endolift-lazer')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('endolift')}</a></li>
                     <li><a href={serviceDetailPath(locale, 'botoks')} className="text-[#b9c3bd] hover:text-gold-soft transition-colors">{tServices('botox')}</a></li>
                     <li><a href={serviceListPath(locale)} className="text-gold-soft font-medium hover:text-white transition-colors mt-2 inline-block">{tServices('viewAll')} →</a></li>
                   </ul>
