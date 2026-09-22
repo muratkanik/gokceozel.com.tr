@@ -12,12 +12,21 @@ export default function robots(): MetadataRoute.Robots {
       },
       // Allow AI crawlers full access (AEO: ChatGPT, Perplexity, Gemini, Bing AI)
       {
-        userAgent: 'GPTBot',
+        userAgent: [
+          'GPTBot',
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'ClaudeBot',
+          'Claude-SearchBot',
+          'Claude-User',
+          'Google-Extended',
+          'Applebot-Extended',
+        ],
         allow: '/',
         disallow: ['/admin/', '/auth/', '/api/', '/once-sonra'],
       },
       {
-        userAgent: 'PerplexityBot',
+        userAgent: ['PerplexityBot', 'Perplexity-User'],
         allow: '/',
         disallow: ['/admin/', '/auth/', '/api/', '/once-sonra'],
       },
