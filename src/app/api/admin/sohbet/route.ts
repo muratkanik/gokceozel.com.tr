@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const page = parseInt(searchParams.get('page') || '1');
   const pageSize = 25;
 
-  const where: any = {};
+  let where: any = {};
   if (filter === 'anxiety') where.anxiety = true;
   if (filter === 'hot') where.leadScore = { gte: 50 };
   if (filter === 'contact') where.contactPhone = { not: null };
