@@ -178,9 +178,6 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
-      {seo?.shortAnswer && (
-        <div className="sr-only" data-aeo-summary>{seo.shortAnswer}</div>
-      )}
       <div className="container mx-auto px-5 max-w-5xl">
         <div className="mb-8 md:mb-12">
           <Link href={localePath(locale, `/${hizmetlerSegment(locale)}`)} className="text-[#b88746] hover:text-[#17201e] transition-colors inline-flex items-center gap-2 text-sm uppercase tracking-wider font-bold">
@@ -200,6 +197,17 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
             </p>
           )}
         </header>
+        {seo?.shortAnswer && (
+          <div
+            className="soft-card rounded-[1rem] px-6 py-5 mb-10 border-l-4 border-[#b8893c]"
+            data-aeo-summary
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#b8893c] mb-2">
+              {locale === 'tr' ? 'Hızlı Cevap' : locale === 'en' ? 'Quick Answer' : locale === 'ar' ? 'إجابة سريعة' : locale === 'ru' ? 'Краткий ответ' : 'Réponse rapide'}
+            </p>
+            <p className="text-[#17201e] leading-relaxed">{seo.shortAnswer}</p>
+          </div>
+        )}
         {blocks.length > 0 ? (
           <BlockRenderer blocks={blocks} locale={locale} faqs={faqs} />
         ) : (

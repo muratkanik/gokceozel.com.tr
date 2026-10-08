@@ -20,6 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const baseUrl = 'https://gokceozel.com.tr';
+
 export default async function VideoDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const video = await prisma.video.findUnique({
@@ -34,10 +36,37 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ sl
   // The contentHtml is from our admin panel, so it's trusted.
   const localizedContentHtml = ((video.translations as any)?.[locale]?.contentHtml) || video.contentHtml || '';
 
+  const canonicalUrl = locale === 'tr'
+    ? `${baseUrl}/videolar/${slug}`
+    : `${baseUrl}/${locale}/videolar/${slug}`;
+
+  const videoJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: localizedTitle,
+    description: localizedTitle,
+    thumbnailUrl: `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
+    uploadDate: (video as any).createdAt?.toISOString?.() ?? new Date().toISOString(),
+    url: canonicalUrl,
+    embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+    author: {
+      '@type': 'Physician',
+      '@id': `${baseUrl}/#physician`,
+      name: 'Prof. Dr. Gökçe Özel',
+    },
+    publisher: {
+      '@type': 'MedicalClinic',
+      '@id': `${baseUrl}/#clinic`,
+      name: 'Prof. Dr. Gökçe Özel Klinik',
+    },
+  };
+
   return (
     <div className="bg-[#fcfbf9] min-h-screen pt-24 pb-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
       <div className="container mx-auto px-6 max-w-4xl">
-        <Link 
+        <Link
           href={`/${locale}/videolar`}
           className="inline-flex items-center gap-2 text-[#887865] hover:text-[#b8893c] font-medium text-sm mb-8 transition-colors"
         >

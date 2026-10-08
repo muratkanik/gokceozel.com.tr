@@ -225,6 +225,61 @@ export default async function RootLayout({
     },
     {
       "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://gokceozel.com.tr/#location-ankara",
+      "name": "Prof. Dr. Gökçe Özel Klinik — Ankara",
+      "parentOrganization": { "@id": "https://gokceozel.com.tr/#clinic" },
+      "url": "https://gokceozel.com.tr",
+      "telephone": "+90-534-209-69-35",
+      "email": "info@gokceozel.com.tr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ümitköy Mahallesi",
+        "addressLocality": "Çankaya",
+        "addressRegion": "Ankara",
+        "postalCode": "06810",
+        "addressCountry": "TR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "39.8938", "longitude": "32.6897" },
+      "hasMap": "https://maps.google.com/?q=Ümitköy+Ankara+Gökçe+Özel",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "₺₺₺",
+      "sameAs": ["https://maps.google.com/?q=Ümitköy+Ankara+Gökçe+Özel"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://gokceozel.com.tr/#location-antalya",
+      "name": "Prof. Dr. Gökçe Özel Klinik — Antalya",
+      "parentOrganization": { "@id": "https://gokceozel.com.tr/#clinic" },
+      "url": "https://gokceozel.com.tr",
+      "telephone": "+90-534-209-69-35",
+      "email": "info@gokceozel.com.tr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lara",
+        "addressRegion": "Antalya",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "₺₺₺"
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://gokceozel.com.tr/#website",
       "url": "https://gokceozel.com.tr",
