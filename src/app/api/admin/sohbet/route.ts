@@ -9,7 +9,8 @@ export async function GET(req: NextRequest) {
 
   const where: any = {};
   if (filter === 'anxiety') where.anxiety = true;
-  if (filter === 'hot') where.leadScore = { gte: 40 };
+  if (filter === 'hot') where.leadScore = { gte: 50 };
+  if (filter === 'contact') where.contactPhone = { not: null };
 
   const [sessions, total] = await Promise.all([
     prisma.chatSession.findMany({

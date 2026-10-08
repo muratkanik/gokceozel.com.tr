@@ -361,16 +361,22 @@ model Video {
 }
 
 model ChatSession {
-  id          String   @id @default(cuid())
-  locale      String   @default("tr")
-  messages    Json     @default("[]")
-  userAgent   String?
-  ipHash      String?
-  anxiety     Boolean  @default(false)
-  leadScore   Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id            String   @id @default(cuid())
+  locale        String   @default("tr")
+  messages      Json     @default("[]")
+  userAgent     String?
+  ipHash        String?
+  anxiety       Boolean  @default(false)
+  leadScore     Int      @default(0)
+  contactName   String?
+  contactPhone  String?
+  summary       String?  @db.Text
+  emailSent     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   @@index([createdAt])
   @@index([anxiety])
+  @@index([emailSent])
+  @@index([contactPhone])
 }

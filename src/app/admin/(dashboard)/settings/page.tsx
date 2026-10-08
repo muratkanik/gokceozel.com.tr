@@ -161,6 +161,46 @@ export default async function SettingsPage() {
         </div>
       </div>
 
+      {/* Chatbot Email Settings */}
+      <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-emerald-500">
+        <div className="flex items-start justify-between mb-2">
+          <h2 className="text-xl font-bold text-slate-800">💬 AI Sohbet — Günlük E-posta Özeti</h2>
+          <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">Chatbot</span>
+        </div>
+        <p className="text-slate-500 text-sm mb-6">
+          Her gün sabah 07:00&apos;de chatbot konuşmalarının özeti bu e-posta adreslerine gönderilir.
+          Virgülle ayırarak birden fazla adres ekleyebilirsiniz.
+          Örnek: <code className="bg-slate-100 px-1 rounded text-xs">gokceozel@gmail.com, asistan@gokceozel.com.tr</code>
+        </p>
+        <form action={saveSetting} className="flex flex-col md:flex-row gap-4 items-start">
+          <input type="hidden" name="key" value="chat_summary_emails" />
+          <div className="flex-1 w-full">
+            <label className="block text-sm font-medium text-slate-700 mb-2">Alıcı E-posta Adresleri</label>
+            <input
+              type="text"
+              name="value"
+              defaultValue={settings.find(s => s.key === 'chat_summary_emails')?.value || ''}
+              placeholder="email1@domain.com, email2@domain.com"
+              className="w-full p-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+            />
+          </div>
+          <div className="pt-7 w-full md:w-auto">
+            <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+              Kaydet
+            </button>
+          </div>
+        </form>
+        {settings.find(s => s.key === 'chat_summary_emails')?.value ? (
+          <p className="text-xs text-emerald-700 mt-3 font-medium">
+            ✓ Şu an aktif: {settings.find(s => s.key === 'chat_summary_emails')?.value}
+          </p>
+        ) : (
+          <p className="text-xs text-amber-600 mt-3 font-medium">
+            ⚠ Henüz e-posta adresi eklenmedi. Günlük özet gönderilmeyecek.
+          </p>
+        )}
+      </div>
+
       {/* Multi-Language Settings */}
       <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <h2 className="text-xl font-bold text-slate-800 mb-6">Aktif Diller (Multi-Language)</h2>

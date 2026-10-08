@@ -8,24 +8,37 @@ type Session = {
   messages: Message[];
   anxiety: boolean;
   leadScore: number;
+  contactName: string | null;
+  contactPhone: string | null;
+  summary: string | null;
+  emailSent: boolean;
   createdAt: string;
 };
 
-function LeadBadge({ score }: { score: number }) {
+function LeadBar({ score }: { score: number }) {
   const color = score >= 60 ? '#22c55e' : score >= 30 ? '#f59e0b' : '#9ca3af';
+  const label = score >= 60 ? 'Sıcak' : score >= 30 ? 'Ilık' : 'Soğuk';
   return (
-    <span className="inline-flex items-center gap-1 text-xs font-semibold" style={{ color }}>
-      <span className="w-2 h-2 rounded-full" style={{ background: color }} />
-      {score}%
-    </span>
+    <div className="flex items-center gap-2">
+      <div className="h-1.5 w-16 bg-gray-100 rounded-full overflow-hidden">
+        <div className="h-full rounded-full transition-all" style={{ width: `${score}%`, background: color }} />
+      </div>
+      <span className="text-xs font-semibold" style={{ color }}>{label} {score}%</span>
+    </div>
   );
+}
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('tr-TR', {
+    day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
+  });
 }
 
 export default function AdminSohbetPage() {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState<'all' | 'anxiety' | 'hot'>('all');
+  const [filter, setFilter] = useState<'all' | 'anxiety' | 'hot' | 'contact'>('all');
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -43,23 +56,35 @@ export default function AdminSohbetPage() {
 
   const deleteSession = async (id: string) => {
     if (!confirm('Bu sohbeti silmek istiyor musunuz?')) return;
-    await fetch('/api/admin/sohbet', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) });
+    await fetch('/api/admin/sohbet', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    });
     setSessions(prev => prev.filter(s => s.id !== id));
     setTotal(prev => prev - 1);
   };
 
-  const userMsgCount = (s: Session) => s.messages.filter(m => m.role === 'user').length;
-  const firstUserMsg = (s: Session) => s.messages.find(m => m.role === 'user')?.content || '—';
+  const contactCount = sessions.filter(s => s.contactPhone).length;
+  const anxietyCount = sessions.filter(s => s.anxiety).length;
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <div className="flex items-center justify-between mb-6">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-6 gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold text-[#17201e]">Sohbet Geçmişi</h1>
-          <p className="text-[#61706b] text-sm mt-1">{total} konuşma kayıtlı</p>
+          <h1 className="text-2xl font-bold text-[#17201e]">AI Sohbet Geçmişi</h1>
+          <p className="text-[#61706b] text-sm mt-1">
+            {total} konuşma · {contactCount} iletişim bilgisi · {anxietyCount} kaygılı hasta
+          </p>
         </div>
-        <div className="flex gap-2">
-          {(['all', 'hot', 'anxiety'] as const).map(f => (
+        <div className="flex gap-2 flex-wrap">
+          {([
+            ['all', 'Tümü'],
+            ['contact', '📞 İletişim Bıraktı'],
+            ['hot', '🔥 Sıcak Lead'],
+            ['anxiety', '⚠️ Kaygılı'],
+          ] as const).map(([f, label]) => (
             <button
               key={f}
               onClick={() => { setFilter(f); setPage(1); }}
@@ -69,7 +94,7 @@ export default function AdminSohbetPage() {
                   : 'bg-[#f4f0e8] text-[#61706b] hover:bg-[#e8e1d4]'
               }`}
             >
-              {f === 'all' ? 'Tümü' : f === 'hot' ? '🔥 Sıcak Lead' : '⚠️ Kaygılı'}
+              {label}
             </button>
           ))}
         </div>
@@ -79,70 +104,146 @@ export default function AdminSohbetPage() {
         <p className="text-[#61706b] text-center py-12">Yükleniyor…</p>
       ) : sessions.length === 0 ? (
         <div className="text-center py-16 text-[#61706b]">
-          <p className="text-lg mb-2">Henüz sohbet yok</p>
+          <p className="text-3xl mb-3">💬</p>
+          <p className="font-semibold text-lg text-[#17201e] mb-1">Henüz sohbet yok</p>
           <p className="text-sm">Siteyi ziyaret edenler chatbot ile konuştuğunda buraya düşecek.</p>
         </div>
       ) : (
         <div className="flex flex-col gap-3">
-          {sessions.map(s => (
-            <div key={s.id} className="bg-white border border-[#e8e1d4] rounded-xl overflow-hidden shadow-sm">
-              <button
-                onClick={() => setExpanded(expanded === s.id ? null : s.id)}
-                className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-[#f9f7f3] transition-colors"
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span className="text-xs bg-[#e8e1d4] text-[#61706b] px-2 py-0.5 rounded-full font-mono uppercase">
-                      {s.locale}
-                    </span>
-                    <LeadBadge score={s.leadScore} />
-                    {s.anxiety && (
-                      <span className="text-xs bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 rounded-full font-semibold">
-                        ⚠️ Kaygılı
-                      </span>
-                    )}
-                    <span className="text-xs text-[#9ca3af]">{userMsgCount(s)} mesaj</span>
-                    <span className="text-xs text-[#9ca3af]">
-                      {new Date(s.createdAt).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  </div>
-                  <p className="text-sm text-[#17201e] truncate">{firstUserMsg(s)}</p>
-                </div>
-                <svg
-                  width="16" height="16" viewBox="0 0 16 16" fill="none"
-                  className={`flex-shrink-0 text-[#61706b] transition-transform ${expanded === s.id ? 'rotate-180' : ''}`}
-                >
-                  <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
+          {sessions.map(s => {
+            const userMsgCount = s.messages.filter(m => m.role === 'user').length;
+            const firstUserMsg = s.messages.find(m => m.role === 'user')?.content || '—';
+            const isExpanded = expanded === s.id;
 
-              {expanded === s.id && (
-                <div className="border-t border-[#e8e1d4]">
-                  <div className="px-5 py-4 flex flex-col gap-3 max-h-96 overflow-y-auto bg-[#f9f7f3]">
-                    {s.messages.map((msg, i) => (
-                      <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`max-w-[80%] px-3 py-2 rounded-xl text-sm leading-relaxed ${
-                          msg.role === 'user'
-                            ? 'bg-[#17201e] text-white rounded-br-sm'
-                            : 'bg-white border border-[#e8e1d4] text-[#17201e] rounded-bl-sm'
-                        }`}>
-                          {msg.content}
-                        </div>
+            return (
+              <div key={s.id} className="bg-white border border-[#e8e1d4] rounded-xl overflow-hidden shadow-sm">
+                {/* Row header */}
+                <button
+                  onClick={() => setExpanded(isExpanded ? null : s.id)}
+                  className="w-full text-left px-5 py-4 hover:bg-[#f9f7f3] transition-colors"
+                >
+                  <div className="flex items-start gap-3">
+                    {/* Contact avatar / indicator */}
+                    <div className={`mt-0.5 flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold ${
+                      s.contactPhone ? 'bg-emerald-100 text-emerald-700' : 'bg-[#f4f0e8] text-[#9ca3af]'
+                    }`}>
+                      {s.contactName ? s.contactName.charAt(0).toUpperCase() : '?'}
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      {/* Name + phone row */}
+                      <div className="flex items-center gap-2 flex-wrap mb-1">
+                        {s.contactName ? (
+                          <span className="font-semibold text-[#17201e] text-sm">{s.contactName}</span>
+                        ) : (
+                          <span className="text-[#9ca3af] text-sm italic">İsim bırakmadı</span>
+                        )}
+                        {s.contactPhone && (
+                          <a
+                            href={`tel:${s.contactPhone}`}
+                            onClick={e => e.stopPropagation()}
+                            className="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-semibold hover:bg-emerald-100 transition-colors"
+                          >
+                            📞 {s.contactPhone}
+                          </a>
+                        )}
+                        {s.anxiety && (
+                          <span className="text-xs bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 rounded-full font-semibold">
+                            ⚠️ Kaygılı
+                          </span>
+                        )}
+                        <span className="text-xs bg-[#e8e1d4] text-[#61706b] px-2 py-0.5 rounded-full font-mono uppercase">
+                          {s.locale}
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                  <div className="px-5 py-3 border-t border-[#e8e1d4] flex justify-end">
-                    <button
-                      onClick={() => deleteSession(s.id)}
-                      className="text-xs text-red-500 hover:text-red-700 font-medium transition-colors"
+
+                      {/* Summary or first message */}
+                      <p className="text-sm text-[#61706b] line-clamp-2 leading-relaxed">
+                        {s.summary || firstUserMsg}
+                      </p>
+
+                      {/* Bottom meta row */}
+                      <div className="flex items-center gap-3 mt-2 flex-wrap">
+                        <LeadBar score={s.leadScore} />
+                        <span className="text-xs text-[#9ca3af]">{userMsgCount} mesaj</span>
+                        <span className="text-xs text-[#9ca3af]">{formatDate(s.createdAt)}</span>
+                      </div>
+                    </div>
+
+                    <svg
+                      width="16" height="16" viewBox="0 0 16 16" fill="none"
+                      className={`flex-shrink-0 text-[#61706b] transition-transform mt-1 ${isExpanded ? 'rotate-180' : ''}`}
                     >
-                      Sil
-                    </button>
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                </button>
+
+                {/* Expanded: full conversation */}
+                {isExpanded && (
+                  <div className="border-t border-[#e8e1d4]">
+                    {/* Contact info banner */}
+                    {(s.contactName || s.contactPhone) && (
+                      <div className="px-5 py-3 bg-emerald-50 border-b border-emerald-100 flex items-center gap-3">
+                        <span className="text-emerald-700 font-semibold text-sm">İletişim Bilgisi:</span>
+                        {s.contactName && <span className="text-emerald-900 text-sm">{s.contactName}</span>}
+                        {s.contactPhone && (
+                          <a href={`tel:${s.contactPhone}`} className="text-emerald-700 font-bold text-sm hover:underline">
+                            {s.contactPhone}
+                          </a>
+                        )}
+                      </div>
+                    )}
+
+                    {/* AI Summary */}
+                    {s.summary && (
+                      <div className="px-5 py-3 bg-blue-50 border-b border-blue-100">
+                        <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">AI Özeti</p>
+                        <p className="text-sm text-blue-900 leading-relaxed">{s.summary}</p>
+                      </div>
+                    )}
+
+                    {/* Messages */}
+                    <div className="px-5 py-4 flex flex-col gap-3 max-h-96 overflow-y-auto bg-[#f9f7f3]">
+                      {s.messages.map((msg, i) => (
+                        <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                          <div className={`max-w-[80%] px-3.5 py-2.5 rounded-xl text-sm leading-relaxed ${
+                            msg.role === 'user'
+                              ? 'bg-[#17201e] text-white rounded-br-sm'
+                              : 'bg-white border border-[#e8e1d4] text-[#17201e] rounded-bl-sm'
+                          }`}>
+                            {msg.content}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="px-5 py-3 border-t border-[#e8e1d4] flex items-center justify-between">
+                      {s.contactPhone ? (
+                        <a
+                          href={`https://wa.me/${s.contactPhone.replace(/\D/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs bg-[#25D366] text-white px-3 py-1.5 rounded-lg font-semibold hover:bg-[#1da851] transition-colors"
+                        >
+                          WhatsApp ile Ara
+                        </a>
+                      ) : (
+                        <span className="text-xs text-[#9ca3af]">İletişim bilgisi yok</span>
+                      )}
+                      <button
+                        onClick={() => deleteSession(s.id)}
+                        className="text-xs text-red-400 hover:text-red-600 font-medium transition-colors"
+                      >
+                        Sil
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 
