@@ -54,16 +54,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       : `${baseUrl}/${loc}/hizmetler/${locSlug}`;
   });
 
-  const title = serviceTitleFor(slug, locale, [seo?.metaTitle, page?.titleInternal]);
+  const serviceTitle = serviceTitleFor(slug, locale, [seo?.metaTitle, page?.titleInternal]);
   const description = serviceDescriptionFor(slug, locale, [seo?.metaDescription]);
 
+  // SEO title = service name + location + doctor — only for <title>, not H1
+  const locationSuffix: Record<string, string> = {
+    tr: 'Ankara | Prof. Dr. Gökçe Özel',
+    en: 'Ankara | Prof. Dr. Gökçe Özel',
+    ar: 'أنقرة | أ.د. غوكتشه أوزيل',
+    ru: 'Анкара | Проф. д-р Гёкче Озель',
+    fr: 'Ankara | Prof. Dr. Gökçe Özel',
+    de: 'Ankara | Prof. Dr. Gökçe Özel',
+  };
+  const seoTitle = seo?.metaTitle
+    ? seo.metaTitle
+    : `${serviceTitle} ${locationSuffix[locale] || locationSuffix.tr}`;
+
   return {
-    title,
+    title: seoTitle,
     description,
     keywords: seo?.keywords || '',
     robots: seo?.robots || 'index,follow',
     openGraph: {
-      title,
+      title: seoTitle,
       description,
       images: seo?.ogImage ? [{ url: seo.ogImage }] : [],
       locale,
@@ -139,18 +152,14 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
     },
     performer: {
       '@type': 'Physician',
+      '@id': `${baseUrl}/#physician`,
       name: 'Prof. Dr. Gökçe Özel',
       url: `${baseUrl}/gokce-ozel-kimdir`,
     },
     provider: {
       '@type': 'MedicalClinic',
+      '@id': `${baseUrl}/#clinic`,
       name: 'Prof. Dr. Gökçe Özel Klinik',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Ankara',
-        addressRegion: 'Ankara',
-        addressCountry: 'TR',
-      },
     },
     relevantSpecialty: {
       '@type': 'MedicalSpecialty',

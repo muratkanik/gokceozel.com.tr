@@ -56,7 +56,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       select: { slug: true, updatedAt: true },
       orderBy: { createdAt: 'desc' },
     });
+    // Collect canonical slugs to detect numbered duplicates (e.g. slug-2, slug-3...)
+    const blogSlugs = new Set(posts.map(p => p.slug));
     posts.forEach(({ slug, updatedAt }) => {
+      // Skip numbered duplicates: if slug ends with -N (N≥2) and the base slug exists
+      const dupMatch = slug.match(/^(.+)-(\d+)$/);
+      if (dupMatch && Number(dupMatch[2]) >= 2 && blogSlugs.has(dupMatch[1])) return;
+
       entries.push({ url: `${baseUrl}/blog/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.75 });
       locales.filter(l => l !== 'tr').forEach(locale => {
         entries.push({ url: `${baseUrl}/${locale}/blog/${slug}`, lastModified: updatedAt, changeFrequency: 'monthly', priority: 0.65 });

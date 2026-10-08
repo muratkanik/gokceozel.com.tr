@@ -217,7 +217,9 @@ export default async function RootLayout({
         ],
         "sameAs": [
           "https://www.instagram.com/drgokceozel",
-          "https://scholar.google.com/citations?user=gokceozel"
+          "https://www.youtube.com/@drgokceozel",
+          "https://www.linkedin.com/in/gokceozel",
+          "https://www.typcd.com"
         ]
       }
     },

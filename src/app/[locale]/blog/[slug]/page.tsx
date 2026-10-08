@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link';
 import BlockRenderer from '@/components/ui/BlockRenderer';
 import { blogCoverFor } from '@/lib/blog-cover';
@@ -9,8 +9,33 @@ export const revalidate = 60;
 const baseUrl = 'https://gokceozel.com.tr';
 const allLocales = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
 
+// Deduplicate: slugs ending with -\d+ (e.g. revizyon-rinoplasti-...-2 through -16) are
+// auto-generated duplicates. Redirect them to the base slug.
+function canonicalBlogSlug(slug: string): string | null {
+  const match = slug.match(/^(.+)-(\d+)$/);
+  if (!match) return null;
+  const [, base, num] = match;
+  if (Number(num) < 2) return null;
+  return base;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
+
+  const canonical = canonicalBlogSlug(slug);
+  if (canonical) {
+    const baseExists = await prisma.page.findUnique({
+      where: { slug: canonical, type: 'BLOG', status: { not: 'DRAFT' } },
+      select: { id: true },
+    });
+    if (baseExists) {
+      const target = locale === 'tr' ? `${baseUrl}/blog/${canonical}` : `${baseUrl}/${locale}/blog/${canonical}`;
+      return {
+        robots: 'noindex',
+        alternates: { canonical: target },
+      };
+    }
+  }
 
   const page = await prisma.page.findUnique({
     where: { slug, type: 'BLOG', status: { not: 'DRAFT' } },
@@ -51,6 +76,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
 
+  // 301-redirect numbered duplicates to their canonical base slug
+  const canonical = canonicalBlogSlug(slug);
+  if (canonical) {
+    const baseExists = await prisma.page.findUnique({
+      where: { slug: canonical, type: 'BLOG', status: { not: 'DRAFT' } },
+      select: { id: true },
+    });
+    if (baseExists) {
+      redirect(locale === 'tr' ? `/blog/${canonical}` : `/${locale}/blog/${canonical}`);
+    }
+  }
+
   const page = await prisma.page.findUnique({
     where: { slug, type: 'BLOG', status: { not: 'DRAFT' } },
     include: {
@@ -71,35 +108,41 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
   const canonicalUrl = locale === 'tr' ? `${baseUrl}/blog/${slug}` : `${baseUrl}/${locale}/blog/${slug}`;
 
-  // Article JSON-LD (E-E-A-T signals: author is Physician)
+  // Article JSON-LD with full @id entity chain for E-E-A-T and AI citation
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MedicalWebPage',
+    '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
     headline: seo?.metaTitle || page.titleInternal,
     description: seo?.metaDescription || '',
     image: cover.startsWith('http') ? cover : `${baseUrl}${cover}`,
     url: canonicalUrl,
     author: {
       '@type': 'Physician',
+      '@id': `${baseUrl}/#physician`,
       name: 'Prof. Dr. Gökçe Özel',
       url: `${baseUrl}/gokce-ozel-kimdir`,
-      honorificPrefix: 'Prof. Dr.',
-      jobTitle: 'KBB Uzmanı',
-      worksFor: { '@type': 'MedicalClinic', name: 'Prof. Dr. Gökçe Özel Klinik' },
+    },
+    reviewedBy: {
+      '@type': 'Physician',
+      '@id': `${baseUrl}/#physician`,
+      name: 'Prof. Dr. Gökçe Özel',
     },
     publisher: {
       '@type': 'MedicalClinic',
+      '@id': `${baseUrl}/#clinic`,
       name: 'Prof. Dr. Gökçe Özel Klinik',
       logo: { '@type': 'ImageObject', url: `${baseUrl}/images/logo.png` },
     },
     datePublished: page.createdAt,
     dateModified: page.updatedAt,
     inLanguage: locale,
-    medicalAudience: { '@type': 'Patient' },
     about: {
       '@type': 'MedicalCondition',
       name: page.titleInternal,
     },
+    audience: { '@type': 'Patient' },
+    isPartOf: { '@id': `${baseUrl}/#clinic` },
   };
 
   // BreadcrumbList JSON-LD

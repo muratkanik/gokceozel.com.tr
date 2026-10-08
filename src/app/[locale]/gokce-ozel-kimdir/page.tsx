@@ -126,6 +126,12 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     sameAs: [
       'https://www.instagram.com/drgokceozel',
       'https://www.youtube.com/@drgokceozel',
+      'https://www.typcd.com',
+      'https://www.linkedin.com/in/gokceozel',
+    ],
+    memberOf: [
+      { '@type': 'MedicalOrganization', name: 'Türk Yüz Plastiği ve Rekonstrüktif Cerrahi Derneği (TYPCD)' },
+      { '@type': 'MedicalOrganization', name: 'Cosmetic Medicine Advisory Committee (CMAC)' },
     ],
     numberOfPublications: '100+',
     award: 'H-index 12',

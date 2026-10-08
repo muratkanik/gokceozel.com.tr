@@ -80,6 +80,7 @@ export default async function HastaYorumlariPage({ params }: { params: Promise<{
   const reviewJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
+    '@id': `${baseUrl}/#clinic`,
     name: 'Prof. Dr. Gökçe Özel Klinik',
     url: baseUrl,
     aggregateRating: testimonials.length > 0 ? {
