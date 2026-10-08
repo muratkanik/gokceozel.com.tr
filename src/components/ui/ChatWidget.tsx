@@ -44,6 +44,7 @@ export default function ChatWidget({ locale = 'tr' }: { locale?: string }) {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const sessionIdRef = useRef<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -112,6 +113,15 @@ export default function ChatWidget({ locale = 'tr' }: { locale?: string }) {
           } catch {}
         }
       }
+      // Save conversation async (fire-and-forget)
+      const finalMessages = [...newMessages, { role: 'assistant' as const, content: assistantText }];
+      fetch('/api/chat/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId: sessionIdRef.current, messages: finalMessages, locale }),
+      }).then(r => r.json()).then((data: any) => {
+        if (data.sessionId) sessionIdRef.current = data.sessionId;
+      }).catch(() => {});
     } catch (e: any) {
       if (e.name !== 'AbortError') {
         setMessages(prev => {
