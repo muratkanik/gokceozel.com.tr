@@ -5,6 +5,7 @@ import BlockRenderer from '@/components/ui/BlockRenderer';
 import { canonicalServiceSlug, hasDisplayableServiceText, serviceDescriptionFor, serviceTitleFor } from '@/lib/service-display';
 import { canonicalFromLocalized, hizmetlerSegment, localizedServiceSlug } from '@/lib/service-slugs';
 import { OLD_SITE_SERVICE_IMAGES } from '@/lib/old-site-media';
+import { relatedBlogKeywords } from '@/lib/internal-links';
 
 export const revalidate = 60;
 
@@ -172,6 +173,29 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
 
   const backLabel = { tr: 'Tüm Hizmetler', en: 'All Services', ar: 'جميع الخدمات', ru: 'Все услуги', fr: 'Tous les services', de: 'Alle Leistungen' };
 
+  // Internal linking: find related blog posts for this service
+  const keywords = relatedBlogKeywords(slug);
+  let relatedPosts: { slug: string; titleInternal: string; seoMeta: { locale: string; metaTitle: string | null }[] }[] = [];
+  if (keywords.length > 0) {
+    try {
+      const allPosts = await prisma.page.findMany({
+        where: { type: 'BLOG', status: { not: 'DRAFT' } },
+        include: { seoMeta: true },
+        orderBy: { createdAt: 'desc' },
+        take: 50,
+      });
+      const slugSet = new Set(allPosts.map((p: any) => p.slug));
+      relatedPosts = (allPosts as any[]).filter((p: any) => {
+        const m = p.slug.match(/^(.+)-(\d+)$/);
+        if (m && Number(m[2]) >= 2 && slugSet.has(m[1])) return false;
+        const text = `${p.slug} ${p.titleInternal}`.toLowerCase();
+        return keywords.some(kw => text.includes(kw));
+      }).slice(0, 3);
+    } catch {}
+  }
+
+  const relatedArticlesLabel = { tr: 'İlgili Makaleler', en: 'Related Articles', ar: 'مقالات ذات صلة', ru: 'Связанные статьи', fr: 'Articles connexes', de: 'Verwandte Artikel' };
+
   return (
     <main className="min-h-screen py-20 lg:py-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(procedureJsonLd) }} />
@@ -225,6 +249,33 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
               </Link>
             </div>
           </section>
+        )}
+
+        {relatedPosts.length > 0 && (
+          <aside className="mt-16 pt-10 border-t border-[#49685f]/10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#b8893c] mb-5">
+              {relatedArticlesLabel[locale as keyof typeof relatedArticlesLabel] || relatedArticlesLabel.tr}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedPosts.map((post: any) => {
+                const postSeo = post.seoMeta.find((s: any) => s.locale === locale) || post.seoMeta.find((s: any) => s.locale === 'tr');
+                const postTitle = postSeo?.metaTitle || post.titleInternal;
+                const href = locale === 'tr' ? `/blog/${post.slug}` : `/${locale}/blog/${post.slug}`;
+                return (
+                  <Link
+                    key={post.slug}
+                    href={href}
+                    className="soft-card rounded-[0.75rem] p-4 hover:border-[#b8893c]/30 transition-colors"
+                  >
+                    <h3 className="font-semibold text-[#17201e] text-sm leading-snug mb-1 line-clamp-2">{postTitle}</h3>
+                    <span className="text-xs text-[#b8893c] font-semibold">
+                      {locale === 'tr' ? 'Devamını Oku →' : 'Read More →'}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </aside>
         )}
       </div>
     </main>

@@ -3,6 +3,7 @@ import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link';
 import BlockRenderer from '@/components/ui/BlockRenderer';
 import { blogCoverFor } from '@/lib/blog-cover';
+import { relatedServiceSlugs } from '@/lib/internal-links';
 
 export const revalidate = 60;
 
@@ -158,6 +159,21 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
   const backLabel = { tr: 'Bloga Dön', en: 'Back to Blog', ar: 'العودة إلى المدونة', ru: 'Назад в блог', fr: 'Retour au blog', de: 'Zurück zum Blog' };
 
+  // Internal linking: find related services from post title + slug
+  const postText = `${slug} ${seo?.metaTitle || page.titleInternal} ${seo?.metaDescription || ''}`;
+  const relatedSlugs = relatedServiceSlugs(postText);
+  let relatedServices: { slug: string; titleInternal: string; seoMeta: { locale: string; metaTitle: string | null }[] }[] = [];
+  if (relatedSlugs.length > 0) {
+    try {
+      relatedServices = await prisma.page.findMany({
+        where: { slug: { in: relatedSlugs }, type: 'SERVICE' },
+        include: { seoMeta: true },
+      }) as any;
+    } catch {}
+  }
+
+  const relatedLabel = { tr: 'İlgili Hizmetler', en: 'Related Services', ar: 'الخدمات ذات الصلة', ru: 'Связанные услуги', fr: 'Services connexes', de: 'Verwandte Leistungen' };
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white py-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
@@ -173,6 +189,30 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/65 via-transparent to-transparent" />
         </div>
         <BlockRenderer blocks={page.blocks} locale={locale} />
+
+        {relatedServices.length > 0 && (
+          <aside className="mt-16 pt-10 border-t border-white/10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#d4af37] mb-5">
+              {relatedLabel[locale as keyof typeof relatedLabel] || relatedLabel.tr}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {relatedServices.map(svc => {
+                const svcSeo = svc.seoMeta.find((s: any) => s.locale === locale) || svc.seoMeta.find((s: any) => s.locale === 'tr');
+                const svcTitle = svcSeo?.metaTitle || svc.titleInternal;
+                const href = locale === 'tr' ? `/hizmetler/${svc.slug}` : `/${locale}/hizmetler/${svc.slug}`;
+                return (
+                  <Link
+                    key={svc.slug}
+                    href={href}
+                    className="border border-[#d4af37]/30 text-[#d4af37] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#d4af37]/10 transition-colors"
+                  >
+                    {svcTitle} →
+                  </Link>
+                );
+              })}
+            </div>
+          </aside>
+        )}
       </div>
     </main>
   );
