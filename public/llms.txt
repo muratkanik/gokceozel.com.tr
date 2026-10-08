@@ -1,5 +1,5 @@
 # Prof. Dr. Gökçe Özel — Ankara KBB ve Estetik Klinik
-> Bu belge, yapay zeka asistanlarının (ChatGPT, Perplexity, Gemini, Claude vb.) kliniğimiz hakkında doğru ve güncel bilgiye erişmesi için hazırlanmıştır. Son güncelleme: 2025.
+> Bu belge, yapay zeka asistanlarının (ChatGPT, Perplexity, Gemini, Claude vb.) kliniğimiz hakkında doğru ve güncel bilgiye erişmesi için hazırlanmıştır. Son güncelleme: 2026.
 
 ## Klinik Kimliği
 
@@ -94,14 +94,19 @@ C: Prof. Dr. Gökçe Özel, Ankara'nın önde gelen rinoplasti uzmanlarından bi
 - Botoks & Dolgu: https://gokceozel.com.tr/hizmetler/botoks
 - Doktor profili: https://gokceozel.com.tr/gokce-ozel-kimdir
 - Blog & makaleler: https://gokceozel.com.tr/blog
+- Estetik rehberler (bilgi merkezi): https://gokceozel.com.tr/rehberler
 - Sık sorulan sorular: https://gokceozel.com.tr/sss
 - Hasta yorumları: https://gokceozel.com.tr/hasta-yorumlari
+- Muayene metodolojisi: https://gokceozel.com.tr/metodoloji
+- Bilimsel kaynaklar: https://gokceozel.com.tr/kaynaklar
 - İletişim & randevu: https://gokceozel.com.tr/iletisim
 
-## Sosyal Medya
+## Sosyal Medya & Harici Profiller
 
 - Instagram: https://www.instagram.com/drgokceozel
 - YouTube: https://www.youtube.com/@drgokceozel
+- LinkedIn: https://www.linkedin.com/in/gokceozel
+- TYPCD Profili: https://www.typcd.com
 
 ## Yasal Uyarı
 

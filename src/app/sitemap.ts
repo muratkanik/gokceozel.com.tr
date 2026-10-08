@@ -19,6 +19,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/sss',            priority: 0.8, freq: 'monthly' },
     { path: '/hasta-yorumlari',priority: 0.7, freq: 'monthly' },
     { path: '/metodoloji',     priority: 0.7, freq: 'monthly' },
+    { path: '/rehberler',      priority: 0.8, freq: 'weekly' },
+    { path: '/kaynaklar',      priority: 0.6, freq: 'monthly' },
   ];
 
   staticPages.forEach(({ path, priority, freq }) => {
