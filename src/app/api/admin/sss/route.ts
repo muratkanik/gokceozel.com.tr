@@ -32,6 +32,24 @@ export async function POST(req: Request) {
   return NextResponse.json({ faq });
 }
 
+export async function PATCH(req: Request) {
+  if (!await requireAuth()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const { id, question, answer, locale, sortOrder } = await req.json();
+  if (!id) return NextResponse.json({ error: 'id zorunlu' }, { status: 400 });
+
+  const faq = await prisma.faq.update({
+    where: { id },
+    data: {
+      ...(question !== undefined && { question }),
+      ...(answer !== undefined && { answer }),
+      ...(locale !== undefined && { locale }),
+      ...(sortOrder !== undefined && { sortOrder }),
+    },
+  });
+  return NextResponse.json({ faq });
+}
+
 export async function DELETE(req: Request) {
   if (!await requireAuth()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 

@@ -1,10 +1,11 @@
 import prisma from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 async function saveFaq(formData: FormData) {
   'use server';
-  const id = formData.get('id') as string | null;
+  const id = (formData.get('id') as string || '').trim();
   const question = (formData.get('question') as string).trim();
   const answer = (formData.get('answer') as string).trim();
   const keywords = (formData.get('keywords') as string || '').trim();
@@ -25,6 +26,7 @@ async function deleteFaq(formData: FormData) {
   if (!id) return;
   await prisma.chatFaq.delete({ where: { id } });
   revalidatePath('/admin/sohbet-sss');
+  redirect('/admin/sohbet-sss');
 }
 
 async function toggleFaq(formData: FormData) {
@@ -37,31 +39,47 @@ async function toggleFaq(formData: FormData) {
 
 const CATEGORIES = ['genel', 'rinoplasti', 'botoks', 'dolgu', 'blefaroplasti', 'otoplasti', 'facelift', 'fiyat', 'randevu', 'iyileşme'];
 
-export default async function SohbetSSSPage() {
+export default async function SohbetSSSPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ edit?: string }>;
+}) {
+  const { edit } = await searchParams;
   const faqs = await prisma.chatFaq.findMany({ orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }] });
+  const editingFaq = edit ? faqs.find(f => f.id === edit) ?? null : null;
 
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-[#17201e]">Chatbot Soru-Cevap Yönetimi</h1>
         <p className="text-[#61706b] text-sm mt-1">
-          Burada tanımladığınız cevaplar yapay zekanın genel bilgisinden önce kullanılır. Müşterilere kesin, tutarlı yanıtlar vermek için en sık sorulan soruları ekleyin.
+          Burada tanımladığınız cevaplar yapay zekanın genel bilgisinden önce kullanılır.
         </p>
         <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
           <strong>Öncelik sırası:</strong> 1. Bu sayfadaki tanımlı cevaplar → 2. Site içeriği → 3. Yapay zekanın genel bilgisi
         </div>
       </div>
 
-      {/* Add new FAQ */}
-      <div className="bg-white border border-[#e8e1d4] rounded-xl p-6 mb-8 shadow-sm">
-        <h2 className="text-base font-semibold text-[#17201e] mb-5">Yeni Soru-Cevap Ekle</h2>
+      {/* Add / Edit form */}
+      <div className={`bg-white border rounded-xl p-6 mb-8 shadow-sm ${editingFaq ? 'border-[#b8893c]' : 'border-[#e8e1d4]'}`}>
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-base font-semibold text-[#17201e]">
+            {editingFaq ? '✏️ Soru-Cevap Düzenle' : 'Yeni Soru-Cevap Ekle'}
+          </h2>
+          {editingFaq && (
+            <Link href="/admin/sohbet-sss" className="text-xs text-[#9ca3af] hover:text-[#61706b] transition-colors">
+              ✕ İptal
+            </Link>
+          )}
+        </div>
         <form action={saveFaq} className="flex flex-col gap-4">
-          <input type="hidden" name="id" value="" />
+          <input type="hidden" name="id" value={editingFaq?.id ?? ''} />
           <div className="grid md:grid-cols-2 gap-4">
             <div className="md:col-span-2">
               <label className="block text-xs font-semibold text-[#61706b] uppercase tracking-wider mb-1.5">Soru</label>
               <input
                 type="text" name="question" required
+                defaultValue={editingFaq?.question ?? ''}
                 placeholder="örn: Rinoplasti ne kadar sürer?"
                 className="w-full p-2.5 rounded-lg border border-[#e8e1d4] focus:ring-2 focus:ring-[#b8893c]/30 focus:border-[#b8893c] outline-none text-sm"
               />
@@ -70,13 +88,14 @@ export default async function SohbetSSSPage() {
               <label className="block text-xs font-semibold text-[#61706b] uppercase tracking-wider mb-1.5">Cevap</label>
               <textarea
                 name="answer" required rows={3}
+                defaultValue={editingFaq?.answer ?? ''}
                 placeholder="Chatbot'un bu soruya vereceği kesin yanıt…"
                 className="w-full p-2.5 rounded-lg border border-[#e8e1d4] focus:ring-2 focus:ring-[#b8893c]/30 focus:border-[#b8893c] outline-none text-sm resize-y"
               />
             </div>
             <div>
               <label className="block text-xs font-semibold text-[#61706b] uppercase tracking-wider mb-1.5">Kategori</label>
-              <select name="category" className="w-full p-2.5 rounded-lg border border-[#e8e1d4] outline-none text-sm bg-white">
+              <select name="category" defaultValue={editingFaq?.category ?? 'genel'} className="w-full p-2.5 rounded-lg border border-[#e8e1d4] outline-none text-sm bg-white">
                 {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
@@ -84,6 +103,7 @@ export default async function SohbetSSSPage() {
               <label className="block text-xs font-semibold text-[#61706b] uppercase tracking-wider mb-1.5">Anahtar Kelimeler (virgülle ayır)</label>
               <input
                 type="text" name="keywords"
+                defaultValue={editingFaq?.keywords ?? ''}
                 placeholder="rinoplasti, burun, ameliyat"
                 className="w-full p-2.5 rounded-lg border border-[#e8e1d4] focus:ring-2 focus:ring-[#b8893c]/30 focus:border-[#b8893c] outline-none text-sm"
               />
@@ -91,7 +111,7 @@ export default async function SohbetSSSPage() {
           </div>
           <div className="flex justify-end">
             <button type="submit" className="bg-[#17201e] text-white font-semibold py-2.5 px-6 rounded-lg hover:bg-[#49685f] transition-colors text-sm">
-              Ekle
+              {editingFaq ? 'Kaydet' : 'Ekle'}
             </button>
           </div>
         </form>
@@ -106,7 +126,12 @@ export default async function SohbetSSSPage() {
             <p className="text-sm">Yukarıdaki formu kullanarak ilk soruyu ekleyin.</p>
           </div>
         ) : faqs.map(faq => (
-          <div key={faq.id} className={`bg-white border rounded-xl overflow-hidden shadow-sm transition-opacity ${faq.isActive ? 'border-[#e8e1d4]' : 'border-[#e8e1d4] opacity-50'}`}>
+          <div
+            key={faq.id}
+            className={`bg-white border rounded-xl overflow-hidden shadow-sm transition-all ${
+              editingFaq?.id === faq.id ? 'border-[#b8893c] ring-2 ring-[#b8893c]/20' : faq.isActive ? 'border-[#e8e1d4]' : 'border-[#e8e1d4] opacity-50'
+            }`}
+          >
             <div className="px-5 py-4">
               <div className="flex items-start gap-3">
                 <div className="flex-1 min-w-0">
@@ -120,7 +145,18 @@ export default async function SohbetSSSPage() {
                   <p className="text-sm font-semibold text-[#17201e] mb-1">S: {faq.question}</p>
                   <p className="text-sm text-[#61706b] leading-relaxed">C: {faq.answer}</p>
                 </div>
-                <div className="flex gap-2 flex-shrink-0 ml-2">
+                <div className="flex gap-2 flex-shrink-0 ml-2 flex-wrap">
+                  {/* Edit link */}
+                  <Link
+                    href={editingFaq?.id === faq.id ? '/admin/sohbet-sss' : `/admin/sohbet-sss?edit=${faq.id}`}
+                    className={`text-xs px-2.5 py-1.5 rounded-lg font-medium transition-colors ${
+                      editingFaq?.id === faq.id
+                        ? 'bg-[#b8893c] text-white'
+                        : 'bg-[#f4f0e8] text-[#61706b] hover:bg-[#e8e1d4]'
+                    }`}
+                  >
+                    {editingFaq?.id === faq.id ? 'Düzenleniyor' : 'Düzenle'}
+                  </Link>
                   {/* Toggle active */}
                   <form action={toggleFaq}>
                     <input type="hidden" name="id" value={faq.id} />
