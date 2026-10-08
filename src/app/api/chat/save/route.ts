@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { createHash } from 'crypto';
 
+export const runtime = 'nodejs';
+
 const ANXIETY_SIGNALS = [
   'korkuyorum', 'korku', 'afraid', 'scared', 'worried', 'endişe', 'endişeli',
   'tehlikeli', 'dangerous', 'risk', 'pişman', 'regret', 'acı', 'ağrı', 'pain',
@@ -33,7 +35,6 @@ function calcLeadScore(messages: { role: string; content: string }[]): number {
   return Math.min(score, 100);
 }
 
-// Parse [CONTACT: ad=<name> tel=<phone>] tag injected by AI
 function parseContact(messages: { role: string; content: string }[]): { name: string | null; phone: string | null } {
   for (const msg of [...messages].reverse()) {
     if (msg.role !== 'assistant') continue;
@@ -45,7 +46,6 @@ function parseContact(messages: { role: string; content: string }[]): { name: st
   return { name: null, phone: null };
 }
 
-// Strip [CONTACT:...] tags from stored messages (keep messages clean for display)
 function stripContactTags(messages: { role: string; content: string }[]): { role: string; content: string }[] {
   return messages.map(m => ({
     ...m,
@@ -53,7 +53,6 @@ function stripContactTags(messages: { role: string; content: string }[]): { role
   }));
 }
 
-// Generate a short AI summary of the conversation
 async function generateSummary(messages: { role: string; content: string }[], locale: string): Promise<string | null> {
   const key = process.env.OPENROUTER_API_KEY || process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
   if (!key) return null;
@@ -93,6 +92,68 @@ Yalnızca özeti yaz, başlık veya madde ekleme.`,
   }
 }
 
+async function getGeoLocation(ip: string): Promise<{ city: string | null; country: string | null }> {
+  if (!ip || ip === '::1' || ip.startsWith('127.') || ip.startsWith('192.168.')) {
+    return { city: null, country: null };
+  }
+  try {
+    const res = await fetch(`http://ip-api.com/json/${ip}?fields=city,country,status`, {
+      signal: AbortSignal.timeout(2000),
+    });
+    if (!res.ok) return { city: null, country: null };
+    const data = await res.json();
+    if (data.status === 'success') {
+      return { city: data.city || null, country: data.country || null };
+    }
+  } catch {}
+  return { city: null, country: null };
+}
+
+async function sendWhatsAppNotification(
+  contactName: string,
+  contactPhone: string,
+  summary: string | null,
+  leadScore: number,
+  city: string | null
+): Promise<void> {
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const fromNumber = process.env.TWILIO_WHATSAPP_FROM; // whatsapp:+14155238886
+  const toNumber = process.env.CLINIC_WHATSAPP_TO;     // whatsapp:+905342096935
+
+  if (!accountSid || !authToken || !fromNumber || !toNumber) return;
+
+  const emoji = leadScore >= 60 ? '🔥' : leadScore >= 30 ? '🌡️' : '❄️';
+  const locationLine = city ? `📍 Konum: ${city}\n` : '';
+
+  const body = `${emoji} *Yeni Potansiyel Hasta — Aranmak İstiyor!*
+
+👤 Ad: *${contactName}*
+📞 Tel: *${contactPhone}*
+${locationLine}📊 Lead Skoru: ${leadScore}/100
+${summary ? `\n💬 Özet: ${summary}` : ''}
+
+_gokceozel.com.tr chatbot_`;
+
+  try {
+    const credentials = Buffer.from(`${accountSid}:${authToken}`).toString('base64');
+    await fetch(
+      `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Basic ${credentials}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({ From: fromNumber, To: toNumber, Body: body }).toString(),
+        signal: AbortSignal.timeout(5000),
+      }
+    );
+  } catch (e) {
+    console.error('Twilio WhatsApp error:', e);
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { sessionId, messages: rawMessages, locale = 'tr' } = await req.json();
@@ -101,8 +162,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '';
-    const ipHash = ip ? createHash('sha256').update(ip).digest('hex').slice(0, 16) : null;
+    const rawIp = req.headers.get('x-forwarded-for')?.split(',')[0].trim()
+      || req.headers.get('x-real-ip')
+      || '';
+    const ipHash = rawIp ? createHash('sha256').update(rawIp).digest('hex').slice(0, 16) : null;
     const ua = req.headers.get('user-agent') || null;
 
     const contact = parseContact(rawMessages);
@@ -111,11 +174,24 @@ export async function POST(req: NextRequest) {
     const leadScore = calcLeadScore(cleanMessages) + (contact.phone ? 30 : 0);
     const finalLeadScore = Math.min(leadScore, 100);
 
-    // Generate summary (only if >= 3 user messages to save API cost)
     const userMsgCount = cleanMessages.filter(m => m.role === 'user').length;
     const summary = userMsgCount >= 3 ? await generateSummary(cleanMessages, locale) : null;
 
     if (sessionId) {
+      // Check if phone was newly added (wasn't there before)
+      const existing = await prisma.chatSession.findUnique({
+        where: { id: sessionId },
+        select: { contactPhone: true, whatsappNotified: true, city: true },
+      });
+
+      const phoneNewlyAdded = contact.phone && !existing?.contactPhone;
+      const shouldNotify = phoneNewlyAdded && !existing?.whatsappNotified;
+
+      // Get geo only if new session or city missing
+      const geo = (!existing?.city && rawIp)
+        ? await getGeoLocation(rawIp)
+        : { city: existing?.city || null, country: null };
+
       const updated = await prisma.chatSession.update({
         where: { id: sessionId },
         data: {
@@ -125,11 +201,28 @@ export async function POST(req: NextRequest) {
           ...(contact.name && { contactName: contact.name }),
           ...(contact.phone && { contactPhone: contact.phone }),
           ...(summary && { summary }),
+          ...(geo.city && { city: geo.city }),
+          ...(geo.country && { country: geo.country }),
+          ...(shouldNotify && { whatsappNotified: true }),
           updatedAt: new Date(),
         },
       });
+
+      if (shouldNotify && contact.phone) {
+        // Fire and forget — don't block response
+        sendWhatsAppNotification(
+          contact.name || 'Bilinmiyor',
+          contact.phone,
+          summary,
+          finalLeadScore,
+          geo.city
+        ).catch(() => {});
+      }
+
       return NextResponse.json({ ok: true, sessionId: updated.id });
     } else {
+      const geo = rawIp ? await getGeoLocation(rawIp) : { city: null, country: null };
+
       const created = await prisma.chatSession.create({
         data: {
           locale,
@@ -138,11 +231,30 @@ export async function POST(req: NextRequest) {
           leadScore: finalLeadScore,
           ipHash,
           userAgent: ua,
+          city: geo.city,
+          country: geo.country,
           ...(contact.name && { contactName: contact.name }),
           ...(contact.phone && { contactPhone: contact.phone }),
           ...(summary && { summary }),
         },
       });
+
+      // If phone already present on first save, notify
+      if (contact.phone) {
+        sendWhatsAppNotification(
+          contact.name || 'Bilinmiyor',
+          contact.phone,
+          summary,
+          finalLeadScore,
+          geo.city
+        ).catch(() => {});
+
+        await prisma.chatSession.update({
+          where: { id: created.id },
+          data: { whatsappNotified: true },
+        });
+      }
+
       return NextResponse.json({ ok: true, sessionId: created.id });
     }
   } catch (e) {

@@ -36,6 +36,13 @@ const NAV_ITEMS = [
     ],
   },
   {
+    group: 'AI Sohbet',
+    links: [
+      { href: '/admin/sohbet', label: 'Sohbet Geçmişi', icon: '💬' },
+      { href: '/admin/sohbet-sss', label: 'Hazır Cevaplar', icon: '⚡' },
+    ],
+  },
+  {
     group: 'Sistem',
     links: [
       { href: '/admin/settings', label: 'Ayarlar', icon: '⚙' },
