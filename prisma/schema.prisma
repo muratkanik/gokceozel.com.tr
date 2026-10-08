@@ -389,6 +389,8 @@ model ChatSession {
   summary            String?  @db.Text
   emailSent          Boolean  @default(false)
   whatsappNotified   Boolean  @default(false)
+  calledBack         Boolean  @default(false)
+  calledBackAt       DateTime?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 

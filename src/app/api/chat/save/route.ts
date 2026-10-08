@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { createHash } from 'crypto';
+import { aiComplete } from '@/lib/ai-providers';
 
 export const runtime = 'nodejs';
 
@@ -54,39 +55,28 @@ function stripContactTags(messages: { role: string; content: string }[]): { role
 }
 
 async function generateSummary(messages: { role: string; content: string }[], locale: string): Promise<string | null> {
-  const key = process.env.OPENROUTER_API_KEY || process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
-  if (!key) return null;
-
   const convo = messages
     .filter(m => m.role !== 'system')
     .map(m => `${m.role === 'user' ? 'Hasta' : 'Asistan'}: ${m.content}`)
     .join('\n');
 
   try {
-    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
-      body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
-        messages: [
-          {
-            role: 'system',
-            content: `Sen bir klinik yöneticisisin. Aşağıdaki chatbot konuşmasını 2-3 cümleyle Türkçe özetle. Şunları belirt:
+    const { content } = await aiComplete(
+      [
+        {
+          role: 'system',
+          content: `Sen bir klinik yöneticisisin. Aşağıdaki chatbot konuşmasını 2-3 cümleyle Türkçe özetle. Şunları belirt:
 - Hasta ne sormak/öğrenmek istedi?
 - Kaygılı mıydı? (varsa neden)
 - Randevu/fiyat ilgisi var mı?
 - İletişim bilgisi bıraktı mı?
 Yalnızca özeti yaz, başlık veya madde ekleme.`,
-          },
-          { role: 'user', content: convo },
-        ],
-        temperature: 0.3,
-        max_tokens: 200,
-      }),
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.choices?.[0]?.message?.content?.trim() || null;
+        },
+        { role: 'user', content: convo },
+      ],
+      { temperature: 0.3, maxTokens: 200, effort: 'low' },
+    );
+    return content || null;
   } catch {
     return null;
   }
