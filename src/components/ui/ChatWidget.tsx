@@ -5,6 +5,22 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 type Message = { role: 'user' | 'assistant'; content: string };
 
 const DISCLAIMER_KEY = 'chatbot_disclaimer_v1';
+const SESSION_KEY = 'chatbot_session_v1';
+const SESSION_TTL_MS = 12 * 60 * 60 * 1000; // 12 saat — sonra yeni oturum
+
+function loadStoredSession(): string | null {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    const { id, ts } = JSON.parse(raw);
+    if (Date.now() - ts > SESSION_TTL_MS) { localStorage.removeItem(SESSION_KEY); return null; }
+    return id as string;
+  } catch { return null; }
+}
+
+function saveStoredSession(id: string) {
+  try { localStorage.setItem(SESSION_KEY, JSON.stringify({ id, ts: Date.now() })); } catch {}
+}
 
 const T = {
   tr: {
@@ -124,16 +140,17 @@ export default function ChatWidget({ locale = 'tr' }: { locale?: string }) {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const sessionIdRef = useRef<string | null>(null);
+  const sessionIdRef = useRef<string | null>(null); // populated from localStorage on mount
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
-  // Check localStorage for prior acceptance
+  // Restore disclaimer acceptance + prior session id from localStorage
   useEffect(() => {
     try {
       setDisclaimerAccepted(!!localStorage.getItem(DISCLAIMER_KEY));
     } catch {}
+    sessionIdRef.current = loadStoredSession();
   }, []);
 
   useEffect(() => {
@@ -216,7 +233,7 @@ export default function ChatWidget({ locale = 'tr' }: { locale?: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId: sessionIdRef.current, messages: finalMessages, locale }),
       }).then(r => r.json()).then((data: any) => {
-        if (data.sessionId) sessionIdRef.current = data.sessionId;
+        if (data.sessionId) { sessionIdRef.current = data.sessionId; saveStoredSession(data.sessionId); }
       }).catch(() => {});
     } catch (e: any) {
       if (e.name !== 'AbortError') {
