@@ -3,6 +3,9 @@ import prisma from '@/lib/prisma';
 import { aiComplete } from '@/lib/ai-providers';
 import { calcSeoScore } from '@/lib/seo-score';
 
+export const runtime = 'nodejs';
+export const maxDuration = 300;
+
 const LOCALES = ['en', 'ar', 'ru', 'fr', 'de'] as const;
 
 const LOCALE_NAMES: Record<string, string> = {
@@ -119,21 +122,16 @@ Markdown, açıklama veya \`\`\` kullanma.`;
 
         send('progress', { step: 'improved', message: 'İçerik geliştirildi, çeviriler başlıyor…' });
 
-        // --- 3. Translate to all other locales in parallel ---
-        const translations = await Promise.allSettled(
-          LOCALES.map(async (locale) => {
+        // --- 3. Translate to all other locales sequentially (avoid rate limits) ---
+        const contentByLocale: Record<string, string> = { tr: improvedHtml };
+        for (const locale of LOCALES) {
+          try {
             send('progress', { step: `translate_${locale}`, message: `${LOCALE_NAMES[locale]} diline çevriliyor…` });
             const translated = await translateHtml(improvedHtml, locale);
+            contentByLocale[locale] = translated;
             send('progress', { step: `translated_${locale}`, message: `${LOCALE_NAMES[locale]} ✓` });
-            return { locale, html: translated };
-          })
-        );
-
-        // Build locale → html map
-        const contentByLocale: Record<string, string> = { tr: improvedHtml };
-        for (const result of translations) {
-          if (result.status === 'fulfilled') {
-            contentByLocale[result.value.locale] = result.value.html;
+          } catch (translateErr: any) {
+            send('progress', { step: `translate_${locale}_fail`, message: `${LOCALE_NAMES[locale]} çevirisi atlandı` });
           }
         }
 
