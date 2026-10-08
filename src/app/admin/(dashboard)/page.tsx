@@ -191,6 +191,11 @@ export default async function AdminDashboard() {
           <h3 className="font-bold text-[#1a1410] text-[14px] group-hover:text-[#b8893c] transition-colors">AI Sohbet Geçmişi</h3>
           <p className="text-[12px] text-[#9a8f7c] mt-1">Chatbot konuşmaları, lead skorları ve kaygı tespiti</p>
         </a>
+        <a href="/admin/sohbet-sss" className="bg-white border border-[#e8e2d6] rounded-xl p-5 hover:border-[#b8893c]/40 hover:shadow-sm transition-all group col-span-1 md:col-span-3 lg:col-span-1">
+          <div className="text-xl mb-2">📋</div>
+          <h3 className="font-bold text-[#1a1410] text-[14px] group-hover:text-[#b8893c] transition-colors">Chatbot SSS Yönetimi</h3>
+          <p className="text-[12px] text-[#9a8f7c] mt-1">Hazır soru-cevaplar — AI genel bilgisinden önce kullanılır</p>
+        </a>
       </div>
 
       {/* Bakım modu kartı */}

@@ -360,6 +360,20 @@ model Video {
   updatedAt     DateTime @updatedAt
 }
 
+model ChatFaq {
+  id        String   @id @default(cuid())
+  question  String   @db.Text
+  answer    String   @db.Text
+  keywords  String   @default("")
+  category  String   @default("genel")
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+}
+
 model ChatSession {
   id            String   @id @default(cuid())
   locale        String   @default("tr")
