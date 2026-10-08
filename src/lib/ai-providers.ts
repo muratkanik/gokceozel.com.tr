@@ -45,6 +45,8 @@ const openrouter: ProviderFn = async (messages, opts) => {
           model: model,
           messages,
           temperature: opts.temperature ?? 0.7,
+          max_tokens: opts.json ? 4000 : 3000,
+          ...(opts.json ? { response_format: { type: 'json_object' } } : {}),
         }),
       });
 

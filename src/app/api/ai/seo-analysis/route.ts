@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import { aiComplete } from '@/lib/ai-providers';
 
-const SYSTEM = `Sen Türkiye'nin en yetkin Sağlık SEO ve İçerik stratejistisin. Hedef: Sağlık/Estetik (özellikle Kulak Burun Boğaz, Rinoplasti, Endolift) sektöründe Google Türkiye'de 1. sıraya çıkmak.
+const SYSTEM = `Sen Türkiye'nin en yetkin Sağlık SEO ve İçerik stratejistisin. Yıl 2026. Hedef: Sağlık/Estetik (özellikle Kulak Burun Boğaz, Rinoplasti, Endolift) sektöründe Google Türkiye'de 1. sıraya çıkmak.
 Kullanıcı sana bir odak anahtar kelime verecek.
+Önerilerinde 2026 yılını baz al, eski yıl (2024 vb.) referans verme.
 Aşağıdaki Markdown formatında, net, profesyonel ve teknik bir analiz raporu sun. Gereksiz giriş cümleleri KULLANMA.
 
 ## 1. Rakip Stratejileri

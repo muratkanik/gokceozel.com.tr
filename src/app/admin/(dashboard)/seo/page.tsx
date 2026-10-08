@@ -187,7 +187,7 @@ export default function SeoAnalysisPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                 <input
                   type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)}
-                  placeholder="Örn: cami halısı fiyatları"
+                  placeholder="Örn: rinoplasti ankara fiyatları"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#C9972B]/40 focus:border-[#C9972B] text-sm"
                 />
               </div>

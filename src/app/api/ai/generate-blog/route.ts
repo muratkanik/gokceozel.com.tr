@@ -9,16 +9,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Anahtar kelime ve analiz verisi gereklidir.' }, { status: 400 });
     }
 
-    const systemPrompt = `Sen Türkiye'nin en iyi Sağlık ve Medikal SEO içerik yazarı ve Kulak Burun Boğaz, Estetik uzmanısın.
+    const systemPrompt = `Sen Türkiye'nin en iyi Sağlık ve Medikal SEO içerik yazarı ve Kulak Burun Boğaz, Estetik uzmanısın. Yıl 2026.
 Görev: Aşağıda verilen SEO Analizi verilerini kullanarak, "${keyword}" anahtar kelimesi odağında 1000+ kelimelik, HTML formatında, profesyonel, okunabilirliği yüksek ve Google'da 1. sıraya çıkacak tam bir blog yazısı/makale üret.
 
 GEREKSİNİMLER:
-1. JSON formatında geçerli bir yanıt dön. Markdown kullanma, backtick KULLANMA. Doğrudan JSON objesi döndür.
+1. JSON formatında GEÇERLİ bir yanıt dön. Markdown KULLANMA, backtick KULLANMA. Sadece JSON objesi döndür.
 2. Yazı dili: Türkçe, bilimsel ama hastaların anlayabileceği samimi ve güven veren bir ton.
 3. İçerik yapısı: Analizdeki "Önerilen Sayfa Yapısı"na birebir uy, H2 ve H3 etiketlerini kullan.
 4. HTML Kuralları: Başlıklar hariç paragrafları <p> ile sar. Kalın yazıları <strong> ile vurgula.
 5. Uzunluk: Konuyu derinlemesine ele al (1000+ kelime).
 6. Anahtar kelimeler: Analizdeki "Semantik Anahtar Kelimeler"i metin içine doğal biçimde dağıt.
+7. Yıl: 2026 yılını baz al. "2024", "2025" gibi geçmiş yılları içeriklerde kullanma.
+8. content alanındaki HTML çift tırnak içinde doğru şekilde escape edilmiş olmalı.
 
 BEKLENEN JSON FORMATI:
 {
