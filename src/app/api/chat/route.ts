@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import prisma from '@/lib/prisma';
+import { aiStream } from '@/lib/ai-providers';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -87,11 +88,6 @@ export async function POST(req: NextRequest) {
     return new Response('No messages', { status: 400 });
   }
 
-  const key = process.env.OPENROUTER_API_KEY || process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
-  if (!key) {
-    return new Response('AI service unavailable', { status: 503 });
-  }
-
   // Fetch active FAQs and inject as priority context
   let faqContext = '';
   try {
@@ -113,31 +109,18 @@ export async function POST(req: NextRequest) {
       : ''
   );
 
-  const openRouterRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${key}`,
-      'HTTP-Referer': 'https://gokceozel.com.tr',
-      'X-Title': 'Gökçe Özel Klinik Chat',
-    },
-    body: JSON.stringify({
-      model: 'google/gemini-2.5-flash',
-      messages: [
-        { role: 'system', content: systemContent },
-        ...messages,
-      ],
-      stream: true,
-      temperature: 0.5,
-      max_tokens: 600,
-    }),
-  });
-
-  if (!openRouterRes.ok || !openRouterRes.body) {
-    return new Response('Upstream error', { status: 502 });
+  let body: ReadableStream<Uint8Array>;
+  try {
+    body = await aiStream(
+      [{ role: 'system', content: systemContent }, ...messages],
+      { temperature: 0.5, effort: 'low' },
+    );
+  } catch (e: any) {
+    console.error('[chat] AI stream failed:', e.message);
+    return new Response('AI service unavailable', { status: 503 });
   }
 
-  return new Response(openRouterRes.body, {
+  return new Response(body, {
     headers: {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
