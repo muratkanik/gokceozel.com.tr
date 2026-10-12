@@ -80,7 +80,7 @@ export default async function OnceSonraPage({ params }: { params: Promise<{ loca
     <main className="min-h-screen bg-[#0a0a0a] text-white" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <section className="py-24 px-4 text-center border-b border-[#2a2a2a]">
-        <p className="text-[#b8893c] text-xs tracking-[.18em] uppercase mb-4 font-semibold">Hasta Sonuçları</p>
+        <p className="text-[#b8893c] text-xs tracking-[.18em] uppercase mb-4 font-semibold">{({'tr':'Hasta Sonuçları','en':'Patient Results','ar':'نتائج المرضى','ru':'Результаты пациентов','fr':'Résultats des patients','de':'Patientenergebnisse'} as Record<string,string>)[locale] ?? 'Hasta Sonuçları'}</p>
         <h1 className="font-serif text-4xl md:text-5xl text-white mb-5">{heading[locale] || heading.tr}</h1>
         <p className="text-[#9a8f7c] max-w-2xl mx-auto text-sm leading-relaxed">{subheading[locale] || subheading.tr}</p>
       </section>
