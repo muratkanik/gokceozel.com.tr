@@ -116,6 +116,38 @@ const TITLE_BY_SLUG: Record<string, Partial<Record<Locale, string>> & { tr: stri
 };
 
 const DESCRIPTION_BY_SLUG: Record<string, Partial<Record<Locale, string>> & { tr: string; en: string }> = {
+  rinoplasti: {
+    tr: 'Burun estetiğinde doğal görünüm, nefes fonksiyonu ve yüz oranlarını birlikte değerlendiren kişiye özel planlama.',
+    en: 'Personalized rhinoplasty planning that considers natural appearance, nasal function and facial proportions together.',
+    ar: 'تخطيط شخصي لتجميل الأنف مع مراعاة المظهر الطبيعي ووظيفة التنفس ونسب الوجه.',
+    ru: 'Индивидуальное планирование ринопластики с учётом эстетики, носового дыхания и пропорций лица.',
+    fr: 'Planification personnalisée de rhinoplastie combinant aspect naturel, fonction nasale et proportions du visage.',
+    de: 'Individuelle Rhinoplastik-Planung mit Fokus auf natürlichem Aussehen, Nasenfunktion und Gesichtsproportionen.',
+  },
+  'endolift-lazer': {
+    tr: 'Yüz ve gıdı bölgesinde kesi gerektirmeyen lazer destekli sıkılaşma ve kontürleme yaklaşımı.',
+    en: 'Laser-assisted tightening and contouring of the face and chin without incisions.',
+    ar: 'شد الوجه والذقن بالليزر بدون جراحة.',
+    ru: 'Лазерное подтягивание лица и области подбородка без разрезов с помощью технологии Endolift.',
+    fr: 'Raffermissement et contourage du visage et du menton par laser sans incision.',
+    de: 'Lasergestützte Straffung und Konturierung von Gesicht und Kinn ohne Schnitte.',
+  },
+  'gz-kapa-estetii': {
+    tr: 'Üst ve alt göz kapağı bölgesinde daha dinlenmiş, açık ve doğal bir ifade hedefleyen uygulamalar.',
+    en: 'Eyelid procedures targeting a more rested, open and natural expression in the upper and lower lids.',
+    ar: 'إجراءات الجفن العلوي والسفلي لتحقيق مظهر أكثر راحة وانفتاحاً وطبيعية.',
+    ru: 'Коррекция верхнего и нижнего века для более отдохнувшего, открытого и естественного взгляда.',
+    fr: 'Interventions sur les paupières supérieures et inférieures pour un regard plus reposé et naturel.',
+    de: 'Eingriffe an Ober- und Unterlidern für einen ausgeruhteres, offeneres und natürlicheres Erscheinungsbild.',
+  },
+  'dolgu-islemleri': {
+    tr: 'Yüz hacmi, dudak ve kontür ihtiyaçlarına göre planlanan hyalüronik asit dolgu uygulamaları.',
+    en: 'Hyaluronic acid filler treatments planned according to facial volume, lip and contouring needs.',
+    ar: 'حقن الفيلر بحمض الهيالورونيك لاستعادة حجم الوجه والشفاه وتحديد الملامح.',
+    ru: 'Филлеры на основе гиалуроновой кислоты для восстановления объёма лица, губ и контурирования.',
+    fr: 'Injections d\'acide hyaluronique planifiées selon les besoins en volume, lèvres et contours du visage.',
+    de: 'Hyaluronsäure-Filler individuell geplant für Volumen, Lippen und Konturierung des Gesichts.',
+  },
   'badem-gz-estetii': {
     tr: 'Göz çevresinde daha canlı, açık ve çekik bir ifade hedefleyen kişiye özel estetik planlama.',
     en: 'A personalized approach for a brighter, more lifted almond-shaped eye expression.',

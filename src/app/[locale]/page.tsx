@@ -73,7 +73,7 @@ const HOME_STRINGS_DEFAULT = {
     services_title: 'Hizmetlerimiz',
     services_sub: 'Kişiye özel planlama, kanıta dayalı teknikler, şeffaf takip — altı ana alanda kapsamlı estetik çözümler.',
     services_cta: 'Keşfet →',
-    
+
     doctor_tag: 'Tanışalım',
     doctor_bio1: 'İstanbul Üniversitesi Cerrahpaşa İngilizce Tıp Fakültesi mezunu. Dışkapı Yıldırım Beyazıt EAH KBB Kliniği\'nde uzmanlık eğitimi. 2013-2021 Kırıkkale Üniversitesi Tıp Fakültesi KBB Anabilim Dalı öğretim üyesi.',
     doctor_bio2: '2015\'te Doçent, 2021\'de Profesör unvanı aldı. Türkiye Yüz Plastik Cerrahi Derneği Yönetim Kurulu ve Avrupa Fasiyal Plastik Cerrahi Derneği üyesi. CMAC uluslararası danışma kurulunda görev alıyor.',
@@ -81,7 +81,41 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'Akademik atıf indeksi',
     doctor_s3: 'Yönetim Kurulu üyesi',
     doctor_s4: 'Uluslararası danışma kurulu',
-    
+    badge_ministry: 'T.C. Sağlık Bakanlığı',
+    badge_tourism1: 'Sağlık Turizmi',
+    badge_tourism2: 'Yetki Belgesi',
+    badge_intl: 'Uluslararası',
+    badge_tourism_title: 'Uluslararası Sağlık Turizmi Yetki Belgesi',
+    badge_tourism_alt: 'Sağlık Turizmi Yetki Belgesi',
+    badge_typcd: 'TYPCD Üyesi',
+    badge_cmac: 'CMAC Üyesi',
+
+    journey_tag: 'Tedavi Yolculuğu',
+    journey_title: 'Adım Adım Güzellik ve Sağlık',
+    journey_sub: 'Kliniğimize adım attığınız andan itibaren şeffaf, güvenilir ve size özel bir süreç sizi bekliyor.',
+    journey_s1_title: 'Tıbbi Muayene',
+    journey_s1_desc: 'Detaylı yüz/vücut analizi ve beklentilerinizin bilimsel temelde değerlendirilmesi.',
+    journey_s2_title: 'Kişiye Özel Planlama',
+    journey_s2_desc: 'En doğal sonucu verecek ameliyatlı veya ameliyatsız tedavi protokolünün belirlenmesi.',
+    journey_s3_title: 'Profesyonel Uygulama',
+    journey_s3_desc: 'Yüksek teknoloji donanımlı kliniğimizde veya anlaşmalı tam donanımlı hastanelerde operasyon.',
+    journey_s4_title: 'Sonuçlar ve Takip',
+    journey_s4_desc: 'İyileşme sürecinin yakından takibi ve hedeflenen doğal güzelliğe uzun vadeli ulaşım.',
+
+    htourism_tag: 'Uluslararası Hizmet',
+    htourism_title: 'Türkiye\'de Ayrıcalıklı Sağlık Turizmi',
+    htourism_sub: 'Yurt dışından gelen hastalarımız için havalimanı transferi, anlaşmalı otellerde konaklama ve süreç boyunca kişisel tercüman desteği ile kusursuz bir medikal deneyim sunuyoruz.',
+    htourism_wa: 'Sağlık turizmi paketleri hakkında bilgi almak istiyorum.',
+    htourism_cta: 'Uluslararası Hasta Danışmanı',
+    htourism_vip: 'VIP Transfer',
+    htourism_vip_sub: 'Havalimanı karşılama',
+    htourism_hotel: 'Konaklama',
+    htourism_hotel_sub: '5 yıldızlı oteller',
+    htourism_interp: 'Tercüman',
+    htourism_interp_sub: '7/24 dil desteği',
+    htourism_after: 'Sonrası Takip',
+    htourism_after_sub: 'Online kontroller',
+
     cta_tag: 'Randevu',
     cta_h2a: 'Kişiye özel',
     cta_h2b: 'ön görüşmenizi',
@@ -95,7 +129,7 @@ const HOME_STRINGS_DEFAULT = {
     services_title: 'Our Services',
     services_sub: 'Personalized planning, evidence-based techniques, transparent follow-up — comprehensive aesthetic solutions across six key areas.',
     services_cta: 'Explore →',
-    
+
     doctor_tag: 'Meet the Doctor',
     doctor_bio1: 'Graduate of Istanbul University Cerrahpaşa English Medicine. Specialized at Dışkapı Yıldırım Beyazıt Training Hospital ENT Clinic. Faculty member at Kırıkkale University Faculty of Medicine 2013–2021.',
     doctor_bio2: 'Associate Professor 2015, Full Professor 2021. Board Member of Turkish Society of Facial Plastic Surgery, member of European Academy of Facial Plastic Surgery. International advisory board of CMAC.',
@@ -103,7 +137,41 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'Academic citation index',
     doctor_s3: 'TYPCD Board Member',
     doctor_s4: 'International advisory board',
-    
+    badge_ministry: 'Turkish Ministry of Health',
+    badge_tourism1: 'Health Tourism',
+    badge_tourism2: 'Authorization',
+    badge_intl: 'International',
+    badge_tourism_title: 'International Health Tourism Authorization Certificate',
+    badge_tourism_alt: 'Health Tourism Authorization Certificate',
+    badge_typcd: 'TYPCD Member',
+    badge_cmac: 'CMAC Member',
+
+    journey_tag: 'Patient Journey',
+    journey_title: 'Step by Step to Beauty & Health',
+    journey_sub: 'From the moment you step into our clinic, a transparent, reliable and personalized process awaits you.',
+    journey_s1_title: 'Medical Examination',
+    journey_s1_desc: 'Detailed facial/body analysis and scientific evaluation of your expectations.',
+    journey_s2_title: 'Custom Planning',
+    journey_s2_desc: 'Determining the surgical or non-surgical protocol that will yield the most natural result.',
+    journey_s3_title: 'Professional Application',
+    journey_s3_desc: 'Operation in our high-tech clinic or contracted fully-equipped hospitals.',
+    journey_s4_title: 'Results & Follow-up',
+    journey_s4_desc: 'Close follow-up of the healing process and long-term achievement of targeted natural beauty.',
+
+    htourism_tag: 'International Services',
+    htourism_title: 'Exclusive Health Tourism in Turkey',
+    htourism_sub: 'For our international patients, we offer a flawless medical experience including airport transfers, accommodation in contracted hotels, and personal interpreter support throughout the process.',
+    htourism_wa: 'I would like to get information about health tourism packages.',
+    htourism_cta: 'International Patient Consultant',
+    htourism_vip: 'VIP Transfer',
+    htourism_vip_sub: 'Airport pick-up',
+    htourism_hotel: 'Accommodation',
+    htourism_hotel_sub: '5-star hotels',
+    htourism_interp: 'Interpreter',
+    htourism_interp_sub: '24/7 language support',
+    htourism_after: 'Aftercare',
+    htourism_after_sub: 'Online check-ups',
+
     cta_tag: 'Appointment',
     cta_h2a: 'Schedule your',
     cta_h2b: 'personalized',
@@ -124,6 +192,41 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'مؤشر الاقتباس الأكاديمي',
     doctor_s3: 'عضوية مجلس الإدارة',
     doctor_s4: 'مجلس استشاري دولي',
+    badge_ministry: 'وزارة الصحة التركية',
+    badge_tourism1: 'السياحة الصحية',
+    badge_tourism2: 'شهادة الترخيص',
+    badge_intl: 'دولي',
+    badge_tourism_title: 'شهادة ترخيص السياحة الصحية الدولية',
+    badge_tourism_alt: 'شهادة ترخيص السياحة الصحية',
+    badge_typcd: 'عضو TYPCD',
+    badge_cmac: 'عضو CMAC',
+
+    journey_tag: 'رحلة العلاج',
+    journey_title: 'خطوة بخطوة نحو الجمال والصحة',
+    journey_sub: 'منذ لحظة دخولك عيادتنا، تنتظرك عملية شفافة وموثوقة ومصممة خصيصاً لك.',
+    journey_s1_title: 'الفحص الطبي',
+    journey_s1_desc: 'تحليل تفصيلي للوجه والجسم وتقييم علمي لتوقعاتك.',
+    journey_s2_title: 'تخطيط شخصي',
+    journey_s2_desc: 'تحديد البروتوكول الجراحي أو غير الجراحي الذي يحقق أكثر النتائج طبيعية.',
+    journey_s3_title: 'تطبيق احترافي',
+    journey_s3_desc: 'إجراء العملية في عيادتنا المجهزة بأحدث التقنيات أو في مستشفيات متعاقد معها.',
+    journey_s4_title: 'النتائج والمتابعة',
+    journey_s4_desc: 'متابعة دقيقة لعملية الشفاء وتحقيق الجمال الطبيعي المستهدف على المدى البعيد.',
+
+    htourism_tag: 'الخدمات الدولية',
+    htourism_title: 'سياحة صحية متميزة في تركيا',
+    htourism_sub: 'نقدم لمرضانا الدوليين تجربة طبية لا تشوبها شائبة تشمل نقل المطار والإقامة في فنادق مختارة ودعم المترجم الشخصي طوال العملية.',
+    htourism_wa: 'أرغب في الحصول على معلومات حول باقات السياحة الصحية.',
+    htourism_cta: 'مستشار المرضى الدوليين',
+    htourism_vip: 'نقل VIP',
+    htourism_vip_sub: 'استقبال من المطار',
+    htourism_hotel: 'الإقامة',
+    htourism_hotel_sub: 'فنادق 5 نجوم',
+    htourism_interp: 'مترجم',
+    htourism_interp_sub: 'دعم لغوي 24/7',
+    htourism_after: 'الرعاية اللاحقة',
+    htourism_after_sub: 'متابعات أونلاين',
+
     cta_tag: 'موعد',
     cta_h2a: 'خططوا',
     cta_h2b: 'لاستشارتكم',
@@ -144,6 +247,41 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'академический индекс цитирования',
     doctor_s3: 'член правления',
     doctor_s4: 'международный совет',
+    badge_ministry: 'Министерство здравоохранения Турции',
+    badge_tourism1: 'Медицинский туризм',
+    badge_tourism2: 'Сертификат',
+    badge_intl: 'Международный',
+    badge_tourism_title: 'Международный сертификат медицинского туризма',
+    badge_tourism_alt: 'Сертификат медицинского туризма',
+    badge_typcd: 'Член TYPCD',
+    badge_cmac: 'Член CMAC',
+
+    journey_tag: 'Путь лечения',
+    journey_title: 'Шаг за шагом к красоте и здоровью',
+    journey_sub: 'С момента первого визита в нашу клинику вас ждёт прозрачный, надёжный и персональный процесс.',
+    journey_s1_title: 'Медицинский осмотр',
+    journey_s1_desc: 'Детальный анализ лица и тела, научная оценка ваших ожиданий.',
+    journey_s2_title: 'Персональное планирование',
+    journey_s2_desc: 'Выбор хирургического или нехирургического протокола для наиболее естественного результата.',
+    journey_s3_title: 'Профессиональное проведение',
+    journey_s3_desc: 'Процедура в нашей высокотехнологичной клинике или в аккредитованных больницах-партнёрах.',
+    journey_s4_title: 'Результаты и наблюдение',
+    journey_s4_desc: 'Тщательное наблюдение в период восстановления и долгосрочное достижение целевой естественной красоты.',
+
+    htourism_tag: 'Международный сервис',
+    htourism_title: 'Медицинский туризм в Турции',
+    htourism_sub: 'Для наших иностранных пациентов мы обеспечиваем трансфер из аэропорта, проживание в отелях-партнёрах и поддержку личного переводчика на протяжении всего процесса.',
+    htourism_wa: 'Хочу узнать о пакетах медицинского туризма.',
+    htourism_cta: 'Консультант для иностранных пациентов',
+    htourism_vip: 'VIP Трансфер',
+    htourism_vip_sub: 'Встреча в аэропорту',
+    htourism_hotel: 'Проживание',
+    htourism_hotel_sub: 'Отели 5 звёзд',
+    htourism_interp: 'Переводчик',
+    htourism_interp_sub: 'Поддержка 24/7',
+    htourism_after: 'Наблюдение',
+    htourism_after_sub: 'Онлайн-контроль',
+
     cta_tag: 'Запись',
     cta_h2a: 'Запланируйте',
     cta_h2b: 'персональную',
@@ -153,18 +291,53 @@ const HOME_STRINGS_DEFAULT = {
     cta_cta2: '+90 534 209 69 35'
   },
   fr: {
-    services_tag: 'Expertises',
-    services_title: 'Nos Services',
-    services_sub: 'Planification personnalisée, techniques fondées sur les preuves et suivi transparent.',
-    services_cta: 'Découvrir →',
-    doctor_tag: 'Rencontrer le médecin',
-    doctor_bio1: 'Diplômée de la Faculté de Médecine anglaise Cerrahpaşa de l’Université d’Istanbul, spécialisée en ORL à Dışkapı Yıldırım Beyazıt.',
-    doctor_bio2: 'Maître de conférences en 2015, Professeure en 2021. Membre de sociétés turques et européennes de chirurgie plastique faciale.',
-    doctor_s1: 'publications nationales et internationales',
-    doctor_s2: 'indice de citation académique',
-    doctor_s3: 'membre du conseil',
-    doctor_s4: 'conseil international',
-    cta_tag: 'Rendez-vous',
+    services_tag: ‘Expertises’,
+    services_title: ‘Nos Services’,
+    services_sub: ‘Planification personnalisée, techniques fondées sur les preuves et suivi transparent.’,
+    services_cta: ‘Découvrir →’,
+    doctor_tag: ‘Rencontrer le médecin’,
+    doctor_bio1: ‘Diplômée de la Faculté de Médecine anglaise Cerrahpaşa de l’Université d’Istanbul, spécialisée en ORL à Dışkapı Yıldırım Beyazıt.’,
+    doctor_bio2: ‘Maître de conférences en 2015, Professeure en 2021. Membre de sociétés turques et européennes de chirurgie plastique faciale.’,
+    doctor_s1: ‘publications nationales et internationales’,
+    doctor_s2: ‘indice de citation académique’,
+    doctor_s3: ‘membre du conseil’,
+    doctor_s4: ‘conseil international’,
+    badge_ministry: ‘Ministère de la Santé de Turquie’,
+    badge_tourism1: ‘Tourisme médical’,
+    badge_tourism2: ‘Certificat’,
+    badge_intl: ‘International’,
+    badge_tourism_title: ‘Certificat international de tourisme médical’,
+    badge_tourism_alt: ‘Certificat de tourisme médical’,
+    badge_typcd: ‘Membre TYPCD’,
+    badge_cmac: ‘Membre CMAC’,
+
+    journey_tag: ‘Parcours de soin’,
+    journey_title: ‘Beauté et santé pas à pas’,
+    journey_sub: ‘Dès votre arrivée dans notre clinique, un processus transparent, fiable et personnalisé vous attend.’,
+    journey_s1_title: ‘Examen médical’,
+    journey_s1_desc: ‘Analyse détaillée du visage et du corps, évaluation scientifique de vos attentes.’,
+    journey_s2_title: ‘Planification personnalisée’,
+    journey_s2_desc: ‘Définition du protocole chirurgical ou non chirurgical donnant le résultat le plus naturel.’,
+    journey_s3_title: ‘Application professionnelle’,
+    journey_s3_desc: ‘Opération dans notre clinique haute technologie ou dans des hôpitaux partenaires équipés.’,
+    journey_s4_title: ‘Résultats et suivi’,
+    journey_s4_desc: ‘Suivi attentif de la guérison et atteinte durable de la beauté naturelle recherchée.’,
+
+    htourism_tag: ‘Services internationaux’,
+    htourism_title: ‘Tourisme médical exclusif en Turquie’,
+    htourism_sub: ‘Pour nos patients internationaux, nous proposons une expérience médicale irréprochable : transferts aéroport, hébergement en hôtels partenaires et interprète personnel tout au long du séjour.’,
+    htourism_wa: ‘Je souhaite obtenir des informations sur les forfaits de tourisme médical.’,
+    htourism_cta: ‘Consultant patients internationaux’,
+    htourism_vip: ‘Transfert VIP’,
+    htourism_vip_sub: ‘Accueil à l’aéroport’,
+    htourism_hotel: ‘Hébergement’,
+    htourism_hotel_sub: ‘Hôtels 5 étoiles’,
+    htourism_interp: ‘Interprète’,
+    htourism_interp_sub: ‘Assistance 24h/24’,
+    htourism_after: ‘Suivi post-opératoire’,
+    htourism_after_sub: ‘Consultations en ligne’,
+
+    cta_tag: ‘Rendez-vous’,
     cta_h2a: 'Planifiez',
     cta_h2b: 'votre consultation',
     cta_h2c: 'personnalisée',
@@ -184,6 +357,41 @@ const HOME_STRINGS_DEFAULT = {
     doctor_s2: 'akademischer Zitationsindex',
     doctor_s3: 'Vorstandsmitglied',
     doctor_s4: 'internationaler Beirat',
+    badge_ministry: 'Türkisches Gesundheitsministerium',
+    badge_tourism1: 'Gesundheitstourismus',
+    badge_tourism2: 'Zertifikat',
+    badge_intl: 'International',
+    badge_tourism_title: 'Internationales Gesundheitstourismus-Zertifikat',
+    badge_tourism_alt: 'Gesundheitstourismus-Zertifikat',
+    badge_typcd: 'TYPCD-Mitglied',
+    badge_cmac: 'CMAC-Mitglied',
+
+    journey_tag: 'Behandlungsweg',
+    journey_title: 'Schritt für Schritt zu Schönheit und Gesundheit',
+    journey_sub: 'Von dem Moment an, in dem Sie unsere Klinik betreten, erwartet Sie ein transparenter, zuverlässiger und individueller Prozess.',
+    journey_s1_title: 'Medizinische Untersuchung',
+    journey_s1_desc: 'Detaillierte Gesichts- und Körperanalyse sowie wissenschaftliche Bewertung Ihrer Erwartungen.',
+    journey_s2_title: 'Individuelle Planung',
+    journey_s2_desc: 'Festlegung des chirurgischen oder nicht-chirurgischen Protokolls für das natürlichste Ergebnis.',
+    journey_s3_title: 'Professionelle Durchführung',
+    journey_s3_desc: 'Eingriff in unserer hochtechnologischen Klinik oder in akkreditierten Partnerkrankenhäusern.',
+    journey_s4_title: 'Ergebnisse und Nachsorge',
+    journey_s4_desc: 'Engmaschige Begleitung des Heilungsprozesses und langfristige Erreichung des angestrebten natürlichen Ergebnisses.',
+
+    htourism_tag: 'Internationale Dienste',
+    htourism_title: 'Exklusiver Gesundheitstourismus in der Türkei',
+    htourism_sub: 'Für unsere internationalen Patienten bieten wir eine makellose medizinische Erfahrung: Flughafentransfer, Unterkunft in Partnerhotels und persönliche Dolmetscherunterstützung.',
+    htourism_wa: 'Ich möchte Informationen über Gesundheitstourismuspakete erhalten.',
+    htourism_cta: 'Berater für internationale Patienten',
+    htourism_vip: 'VIP-Transfer',
+    htourism_vip_sub: 'Flughafenabholung',
+    htourism_hotel: 'Unterkunft',
+    htourism_hotel_sub: '5-Sterne-Hotels',
+    htourism_interp: 'Dolmetscher',
+    htourism_interp_sub: '24/7 Sprachunterstützung',
+    htourism_after: 'Nachsorge',
+    htourism_after_sub: 'Online-Kontrollen',
+
     cta_tag: 'Termin',
     cta_h2a: 'Planen Sie',
     cta_h2b: 'Ihre persönliche',
@@ -331,9 +539,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     }
   });
 
-  // Fallback to static objects if DB is empty for this locale
+  // Fallback to static objects if DB is empty for this locale; merge so new keys always have defaults
   const h = (heroData || HERO_DEFAULT[locale as keyof typeof HERO_DEFAULT] || HERO_DEFAULT.tr) as Record<string, string>;
-  const s = (homeStringsData || HOME_STRINGS_DEFAULT[locale as keyof typeof HOME_STRINGS_DEFAULT] || HOME_STRINGS_DEFAULT.tr) as Record<string, string>;
+  const sDefaults = { ...(HOME_STRINGS_DEFAULT.tr as Record<string, string>), ...(HOME_STRINGS_DEFAULT[locale as keyof typeof HOME_STRINGS_DEFAULT] as Record<string, string> || {}) };
+  const s = (homeStringsData ? { ...sDefaults, ...homeStringsData } : sDefaults) as Record<string, string>;
   const gallery = GALLERY_COPY[locale as keyof typeof GALLERY_COPY] || GALLERY_COPY.tr;
   const displayServices = (services.length ? services : SERVICE_FALLBACK)
     .filter((service) => {
@@ -407,16 +616,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="max-w-7xl mx-auto px-5 lg:px-6 relative py-8 lg:py-10 w-full">
           <div className="text-white max-w-[880px] sm:ml-4 md:ml-10 lg:ml-16 xl:ml-20">
             <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-[#e1c996]/35 rounded-full bg-white/10 text-[11px] text-[#f5dfab] font-bold tracking-[0.12em] uppercase shadow-sm backdrop-blur-md">
-              {h.badge || (locale === 'tr' ? 'Ankara & Antalya · KBB Uzmanı' : 'Ankara & Antalya · ENT Specialist')}
+              {h.badge || (HERO_DEFAULT[locale as keyof typeof HERO_DEFAULT]?.badge) || HERO_DEFAULT.tr.badge}
             </span>
             <h1 className="font-serif text-[clamp(32px,5vw,64px)] leading-[0.96] my-3 max-w-[820px]">
               {h.h1a || h.title || 'Doğal güzelliğin'}{' '}
               <span className="gold-gradient-text">{h.h1b || ''}</span>
             </h1>
             <p className="text-[15px] lg:text-[17px] text-[#efe8dc] max-w-[750px] mb-4 leading-relaxed">
-              {locale === 'tr' 
-                ? 'Ankara ve Antalya\'nın en çok tercih edilen estetik kliniği. Burun estetiği (Rinoplasti), Botoks, Dolgu ve Mezoterapi alanlarında 15+ yıllık akademik deneyimle kişiye özel doğal sonuçlar.'
-                : h.subtitle || h.description || ''}
+              {h.subtitle || h.description || ''}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 max-w-[720px]">
               <div className="hero-stat-card rounded-2xl p-3 text-xs text-[#48544f] min-h-[64px]"><strong className="block font-serif text-[#6f263d] text-[28px] leading-none font-semibold tracking-tight">15+</strong><span className="block mt-1.5 leading-tight">{h.stat1 || 'Yıl deneyim'}</span></div>
@@ -446,7 +653,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <div className="leading-none text-left">
                     <div className="text-[#E30A17] text-[22px] font-extrabold tracking-widest leading-none">HEALTH</div>
                     <div className="text-[#1a1a1a] text-[19px] tracking-[0.22em] font-semibold leading-none mt-1.5">TURKEY</div>
-                    <div className="text-[#48544f] text-[16px] leading-none mt-1.5 font-medium">T.C. Sağlık Bakanlığı</div>
+                    <div className="text-[#48544f] text-[16px] leading-none mt-1.5 font-medium">{s.badge_ministry}</div>
                   </div>
                 </a>
 
@@ -455,23 +662,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   href="/images/saglik-turizmi-belgesi.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Uluslararası Sağlık Turizmi Yetki Belgesi"
+                  title={s.badge_tourism_title}
                   className="flex items-center justify-center md:justify-start gap-4 opacity-90 hover:opacity-100 transition-opacity group md:border-x md:border-[#48544f]/15 py-4 md:py-0 md:px-5 w-full border-y border-[#48544f]/15 md:border-y-0"
                 >
                   <div className="relative w-24 h-16 rounded-md border border-[#48544f]/30 overflow-hidden flex-shrink-0 group-hover:border-[#6f263d]/50 transition-colors shadow-sm">
-                    <Image src="/images/saglik-turizmi-belgesi.jpg" alt="Sağlık Turizmi Yetki Belgesi" fill className="object-cover" sizes="96px"/>
+                    <Image src="/images/saglik-turizmi-belgesi.jpg" alt={s.badge_tourism_alt} fill className="object-cover" sizes="96px"/>
                   </div>
                   <div className="leading-tight text-left">
-                    <div className="text-[#1a1a1a] text-[19px] font-bold leading-snug">Sağlık Turizmi</div>
-                    <div className="text-[#48544f] text-[18px] font-medium leading-snug">Yetki Belgesi</div>
-                    <div className="text-[#6f263d] text-[16px] leading-snug">Uluslararası</div>
+                    <div className="text-[#1a1a1a] text-[19px] font-bold leading-snug">{s.badge_tourism1}</div>
+                    <div className="text-[#48544f] text-[18px] font-medium leading-snug">{s.badge_tourism2}</div>
+                    <div className="text-[#6f263d] text-[16px] leading-snug">{s.badge_intl}</div>
                   </div>
                 </a>
 
                 {/* Kolon 3 – TYPCD & CMAC (alt alta) */}
                 <div className="flex flex-row md:flex-col justify-center gap-3 md:pl-5 w-full">
-                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">TYPCD Üyesi</span>
-                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">CMAC Üyesi</span>
+                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">{s.badge_typcd}</span>
+                  <span className="border border-[#48544f]/35 text-[#48544f] text-[16px] md:text-[18px] font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-full tracking-wide text-center flex-1 md:flex-none">{s.badge_cmac}</span>
                 </div>
 
               </div>
@@ -610,14 +817,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-20 lg:py-28 bg-[#fbf8f2]">
         <div className="max-w-7xl mx-auto px-5 lg:px-6">
           <div className="text-center mb-16">
-            <span className="section-kicker mb-4">{locale === 'tr' ? 'Tedavi Yolculuğu' : 'Patient Journey'}</span>
+            <span className="section-kicker mb-4">{s.journey_tag}</span>
             <h2 className="font-serif text-[clamp(32px,4vw,56px)] leading-tight text-[#151714]">
-              {locale === 'tr' ? 'Adım Adım Güzellik ve Sağlık' : 'Step by Step to Beauty & Health'}
+              {s.journey_title}
             </h2>
             <p className="text-[#5d6964] mt-5 max-w-[600px] mx-auto">
-              {locale === 'tr' 
-                ? 'Kliniğimize adım attığınız andan itibaren şeffaf, güvenilir ve size özel bir süreç sizi bekliyor.' 
-                : 'From the moment you step into our clinic, a transparent, reliable and personalized process awaits you.'}
+              {s.journey_sub}
             </p>
           </div>
 
@@ -626,34 +831,26 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
               <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">1</div>
-              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Tıbbi Muayene' : 'Medical Examination'}</h3>
-              <p className="text-[#5d6964] text-sm leading-relaxed">
-                {locale === 'tr' ? 'Detaylı yüz/vücut analizi ve beklentilerinizin bilimsel temelde değerlendirilmesi.' : 'Detailed facial/body analysis and scientific evaluation of your expectations.'}
-              </p>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{s.journey_s1_title}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">{s.journey_s1_desc}</p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
               <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">2</div>
-              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Kişiye Özel Planlama' : 'Custom Planning'}</h3>
-              <p className="text-[#5d6964] text-sm leading-relaxed">
-                {locale === 'tr' ? 'En doğal sonucu verecek ameliyatlı veya ameliyatsız tedavi protokolünün belirlenmesi.' : 'Determining the surgical or non-surgical protocol that will yield the most natural result.'}
-              </p>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{s.journey_s2_title}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">{s.journey_s2_desc}</p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
               <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">3</div>
-              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Profesyonel Uygulama' : 'Professional Application'}</h3>
-              <p className="text-[#5d6964] text-sm leading-relaxed">
-                {locale === 'tr' ? 'Yüksek teknoloji donanımlı kliniğimizde veya anlaşmalı tam donanımlı hastanelerde operasyon.' : 'Operation in our high-tech clinic or contracted fully-equipped hospitals.'}
-              </p>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{s.journey_s3_title}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">{s.journey_s3_desc}</p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e8efe9] text-center relative group hover:-translate-y-2 transition-transform">
               <div className="w-16 h-16 mx-auto bg-[#111714] text-[#e1c996] rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform">4</div>
-              <h3 className="font-serif text-xl text-[#151714] mb-3">{locale === 'tr' ? 'Sonuçlar ve Takip' : 'Results & Follow-up'}</h3>
-              <p className="text-[#5d6964] text-sm leading-relaxed">
-                {locale === 'tr' ? 'İyileşme sürecinin yakından takibi ve hedeflenen doğal güzelliğe uzun vadeli ulaşım.' : 'Close follow-up of the healing process and long-term achievement of targeted natural beauty.'}
-              </p>
+              <h3 className="font-serif text-xl text-[#151714] mb-3">{s.journey_s4_title}</h3>
+              <p className="text-[#5d6964] text-sm leading-relaxed">{s.journey_s4_desc}</p>
             </div>
           </div>
         </div>
@@ -667,44 +864,42 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="max-w-7xl mx-auto px-5 lg:px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="max-w-[600px]">
             <span className="inline-block px-4 py-1.5 border border-[#e1c996]/40 rounded-full text-[#e1c996] text-xs font-bold tracking-widest uppercase mb-6">
-              {locale === 'tr' ? 'Uluslararası Hizmet' : 'International Services'}
+              {s.htourism_tag}
             </span>
             <h2 className="font-serif text-[clamp(32px,4vw,50px)] leading-tight mb-6">
-              {locale === 'tr' ? 'Türkiye\'de Ayrıcalıklı Sağlık Turizmi' : 'Exclusive Health Tourism in Turkey'}
+              {s.htourism_title}
             </h2>
             <p className="text-[#cbd8d3] text-[17px] leading-relaxed mb-8">
-              {locale === 'tr' 
-                ? 'Yurt dışından gelen hastalarımız için havalimanı transferi, anlaşmalı otellerde konaklama ve süreç boyunca kişisel tercüman desteği ile kusursuz bir medikal deneyim sunuyoruz.'
-                : 'For our international patients, we offer a flawless medical experience including airport transfers, accommodation in contracted hotels, and personal interpreter support throughout the process.'}
+              {s.htourism_sub}
             </p>
-            <a href={`https://wa.me/905342096935?text=${encodeURIComponent(locale === 'tr' ? 'Sağlık turizmi paketleri hakkında bilgi almak istiyorum.' : 'I would like to get information about health tourism packages.')}`} className="inline-flex items-center gap-3 bg-white text-[#111714] px-8 py-3.5 rounded-full font-bold hover:bg-[#e1c996] transition-colors">
+            <a href={`https://wa.me/905342096935?text=${encodeURIComponent(s.htourism_wa)}`} className="inline-flex items-center gap-3 bg-white text-[#111714] px-8 py-3.5 rounded-full font-bold hover:bg-[#e1c996] transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.01 2.014C6.5 2.014 2.028 6.485 2.028 11.996c0 1.748.455 3.45 1.32 4.954L2.01 22l5.183-1.359a9.92 9.92 0 004.817 1.252h.004c5.508 0 9.98-4.473 9.98-9.984 0-2.67-1.04-5.18-2.928-7.068a9.932 9.932 0 00-7.056-2.827z" />
               </svg>
-              {locale === 'tr' ? 'Uluslararası Hasta Danışmanı' : 'International Patient Consultant'}
+              {s.htourism_cta}
             </a>
           </div>
           
           <div className="grid grid-cols-2 gap-4 lg:gap-6 w-full max-w-[500px]">
              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
                <div className="text-3xl mb-3">✈️</div>
-               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'VIP Transfer' : 'VIP Transfer'}</h4>
-               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? 'Havalimanı karşılama' : 'Airport pick-up'}</p>
+               <h4 className="font-bold text-[#e1c996] mb-1">{s.htourism_vip}</h4>
+               <p className="text-xs text-[#cbd8d3]">{s.htourism_vip_sub}</p>
              </div>
              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
                <div className="text-3xl mb-3">🏨</div>
-               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Konaklama' : 'Accommodation'}</h4>
-               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? '5 yıldızlı oteller' : '5-star hotels'}</p>
+               <h4 className="font-bold text-[#e1c996] mb-1">{s.htourism_hotel}</h4>
+               <p className="text-xs text-[#cbd8d3]">{s.htourism_hotel_sub}</p>
              </div>
              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
                <div className="text-3xl mb-3">🗣️</div>
-               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Tercüman' : 'Interpreter'}</h4>
-               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? '7/24 dil desteği' : '24/7 language support'}</p>
+               <h4 className="font-bold text-[#e1c996] mb-1">{s.htourism_interp}</h4>
+               <p className="text-xs text-[#cbd8d3]">{s.htourism_interp_sub}</p>
              </div>
              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-center">
                <div className="text-3xl mb-3">❤️</div>
-               <h4 className="font-bold text-[#e1c996] mb-1">{locale === 'tr' ? 'Sonrası Takip' : 'Aftercare'}</h4>
-               <p className="text-xs text-[#cbd8d3]">{locale === 'tr' ? 'Online kontroller' : 'Online check-ups'}</p>
+               <h4 className="font-bold text-[#e1c996] mb-1">{s.htourism_after}</h4>
+               <p className="text-xs text-[#cbd8d3]">{s.htourism_after_sub}</p>
              </div>
           </div>
         </div>
