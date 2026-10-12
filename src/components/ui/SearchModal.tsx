@@ -99,7 +99,7 @@ export default function SearchModal({ locale }: { locale: string }) {
             ref={inputRef}
             type="text"
             className="flex-1 w-full bg-transparent outline-none text-[18px] text-[#1a1a1a] placeholder:text-[#48544f]/40"
-            placeholder={locale === 'tr' ? 'Aradığınız kelimeyi yazın...' : 'Search for something...'}
+            placeholder={({'tr':'Aradığınız kelimeyi yazın...','en':'Search for something...','ar':'اكتب ما تبحث عنه...','ru':'Введите поисковый запрос...','fr':'Tapez votre recherche...','de':'Suchbegriff eingeben...'} as Record<string,string>)[locale] ?? 'Aradığınız kelimeyi yazın...'}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -137,7 +137,7 @@ export default function SearchModal({ locale }: { locale: string }) {
         
         {query.length >= 2 && results.length === 0 && !isLoading && (
           <div className="p-8 text-center text-[#48544f]/60">
-            {locale === 'tr' ? 'Sonuç bulunamadı.' : 'No results found.'}
+            {({'tr':'Sonuç bulunamadı.','en':'No results found.','ar':'لا توجد نتائج.','ru':'Результаты не найдены.','fr':'Aucun résultat trouvé.','de':'Keine Ergebnisse gefunden.'} as Record<string,string>)[locale] ?? 'Sonuç bulunamadı.'}
           </div>
         )}
       </div>

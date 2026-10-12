@@ -391,12 +391,12 @@ export default function ClientPage({ params, settings }: PageProps & { settings:
                     <div className="mb-4 flex items-center justify-between gap-3">
                       <button type="button" onClick={() => shiftMonth(-1)} className="rounded-full border border-[#49685f]/15 px-3 py-1.5 text-sm text-[#17201e]">←</button>
                       <div className="text-sm font-bold text-[#17201e]">
-                        {new Intl.DateTimeFormat(locale === 'tr' ? 'tr-TR' : 'en-US', { month: 'long', year: 'numeric' }).format(new Date(`${calendarMonth}-01T00:00:00`))}
+                        {new Intl.DateTimeFormat(({'tr':'tr-TR','en':'en-US','ar':'ar-SA','ru':'ru-RU','fr':'fr-FR','de':'de-DE'} as Record<string,string>)[locale] ?? 'tr-TR', { month: 'long', year: 'numeric' }).format(new Date(`${calendarMonth}-01T00:00:00`))}
                       </div>
                       <button type="button" onClick={() => shiftMonth(1)} className="rounded-full border border-[#49685f]/15 px-3 py-1.5 text-sm text-[#17201e]">→</button>
                     </div>
                     <div className="mb-2 grid grid-cols-7 gap-1 text-center text-[11px] font-bold uppercase tracking-wide text-[#8a8177]">
-                      {['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'].map((day) => <span key={day}>{day}</span>)}
+                      {({'tr':['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],'en':['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],'ar':['إث','ثل','أر','خم','جم','سب','أح'],'ru':['Пн','Вт','Ср','Чт','Пт','Сб','Вс'],'fr':['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],'de':['Mo','Di','Mi','Do','Fr','Sa','So']} as Record<string,string[]>)[locale]?.map((day) => <span key={day}>{day}</span>) ?? ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'].map((day) => <span key={day}>{day}</span>)}
                     </div>
                     <div className="grid grid-cols-7 gap-1.5">
                       {calendarCells.map((day, index) => day ? (

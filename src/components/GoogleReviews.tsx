@@ -61,7 +61,7 @@ export default function GoogleReviews({ locale = 'tr' }: { locale?: string }) {
         setLoading(false);
       })
       .catch(() => {
-        setError('Yorumlar yüklenemedi.');
+        setError(({'tr':'Yorumlar yüklenemedi.','en':'Reviews could not be loaded.','ar':'تعذّر تحميل التقييمات.','ru':'Не удалось загрузить отзывы.','fr':'Les avis n\'ont pas pu être chargés.','de':'Bewertungen konnten nicht geladen werden.'} as Record<string,string>)[locale] ?? 'Yorumlar yüklenemedi.');
         setLoading(false);
       });
   }, []);

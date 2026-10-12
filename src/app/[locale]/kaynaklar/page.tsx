@@ -162,8 +162,8 @@ export default async function KaynakalarPage({ params }: { params: Promise<{ loc
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
-        { '@type': 'ListItem', position: 2, name: locale === 'tr' ? 'Kaynaklar' : 'References', item: canonicalUrl },
+        { '@type': 'ListItem', position: 1, name: ({tr:'Ana Sayfa',en:'Home',ar:'الرئيسية',ru:'Главная',fr:'Accueil',de:'Startseite'} as Record<string,string>)[locale] ?? 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+        { '@type': 'ListItem', position: 2, name: ({tr:'Kaynaklar',en:'References',ar:'المراجع',ru:'Источники',fr:'Références',de:'Quellen'} as Record<string,string>)[locale] ?? 'Kaynaklar', item: canonicalUrl },
       ],
     },
   };
@@ -301,22 +301,20 @@ export default async function KaynakalarPage({ params }: { params: Promise<{ loc
         {/* CTA */}
         <section className="text-center py-12 px-5 border-t border-[#49685f]/10">
           <p className="text-[#61706b] mb-4 text-sm">
-            {locale === 'tr'
-              ? 'Metodolojimiz ve hasta güvenliği yaklaşımımız hakkında daha fazla bilgi alın.'
-              : 'Learn more about our methodology and patient safety approach.'}
+            {({'tr':'Metodolojimiz ve hasta güvenliği yaklaşımımız hakkında daha fazla bilgi alın.','en':'Learn more about our methodology and patient safety approach.','ar':'تعرّف على منهجيتنا ونهجنا في سلامة المرضى.','ru':'Узнайте больше о нашей методологии и подходе к безопасности пациентов.','fr':'En savoir plus sur notre méthodologie et notre approche de la sécurité des patients.','de':'Erfahren Sie mehr über unsere Methodik und unseren Ansatz zur Patientensicherheit.'} as Record<string,string>)[locale] ?? 'Metodolojimiz ve hasta güvenliği yaklaşımımız hakkında daha fazla bilgi alın.'}
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href={`/${locale === 'tr' ? '' : locale + '/'}metodoloji`}
               className="inline-block border border-[#17201e] text-[#17201e] px-6 py-3 rounded-full font-bold text-sm hover:bg-[#17201e] hover:text-white transition-colors"
             >
-              {locale === 'tr' ? 'Metodolojimiz' : 'Our Methodology'}
+              {({'tr':'Metodolojimiz','en':'Our Methodology','ar':'منهجيتنا','ru':'Наша методология','fr':'Notre méthodologie','de':'Unsere Methodik'} as Record<string,string>)[locale] ?? 'Metodolojimiz'}
             </Link>
             <Link
               href={`/${locale === 'tr' ? '' : locale + '/'}iletisim`}
               className="inline-block bg-[#17201e] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#49685f] transition-colors"
             >
-              {locale === 'tr' ? 'Randevu Al' : 'Book Appointment'}
+              {({'tr':'Randevu Al','en':'Book Appointment','ar':'احجز موعداً','ru':'Записаться','fr':'Prendre RDV','de':'Termin buchen'} as Record<string,string>)[locale] ?? 'Randevu Al'}
             </Link>
           </div>
         </section>

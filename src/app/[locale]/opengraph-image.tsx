@@ -66,7 +66,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             }}>GÖ</div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ color: '#f0d48e', fontSize: 20, fontWeight: 700 }}>Prof. Dr. Gökçe Özel</span>
-              <span style={{ color: '#b8893c', fontSize: 12, letterSpacing: 3, textTransform: 'uppercase' as const }}>KBB · KBB Uzmanı</span>
+              <span style={{ color: '#b8893c', fontSize: 12, letterSpacing: 3, textTransform: 'uppercase' as const }}>{ ({tr:'KBB · KBB Uzmanı',en:'ENT · ENT Specialist',ar:'طب الأنف والأذن والحنجرة',ru:'ЛОР · Специалист ЛОР',fr:'ORL · Spécialiste ORL',de:'HNO · HNO-Fachärztin'} as Record<string,string>)[locale] ?? 'KBB · KBB Uzmanı' }</span>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
           justifyContent: 'center',
           gap: 32,
         }}>
-          {[['15+', 'Yıl'], ['100+', 'Yayın'], ['H-12', 'Index'], ['4.9★', 'Puan']].map(([val, lbl]) => (
+          {([['15+', ({tr:'Yıl',en:'Years',ar:'سنة',ru:'Лет',fr:'Ans',de:'Jahre'} as Record<string,string>)[locale] ?? 'Yıl'], ['100+', ({tr:'Yayın',en:'Pubs.',ar:'نشر',ru:'Публ.',fr:'Publ.',de:'Publ.'} as Record<string,string>)[locale] ?? 'Yayın'], ['H-12', 'Index'], ['4.9★', ({tr:'Puan',en:'Score',ar:'تقييم',ru:'Рейтинг',fr:'Score',de:'Score'} as Record<string,string>)[locale] ?? 'Puan']] as [string,string][]).map(([val, lbl]) => (
             <div key={lbl} style={{ textAlign: 'center' as const }}>
               <div style={{ color: '#d4b97a', fontSize: 34, fontWeight: 700 }}>{val}</div>
               <div style={{ color: '#9a8f7c', fontSize: 13 }}>{lbl}</div>

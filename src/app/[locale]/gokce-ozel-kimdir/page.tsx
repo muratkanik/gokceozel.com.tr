@@ -92,7 +92,7 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     givenName: 'Gökçe',
     familyName: 'Özel',
     honorificPrefix: 'Prof. Dr.',
-    jobTitle: 'Kulak Burun Boğaz Hastalıkları Uzmanı',
+    jobTitle: ({tr:'Kulak Burun Boğaz Hastalıkları Uzmanı',en:'Ear, Nose and Throat (ENT) Specialist',ar:'أخصائي أمراض الأذن والأنف والحنجرة',ru:'Специалист по болезням уха, горла и носа (ЛОР)',fr:'Spécialiste ORL',de:'HNO-Fachärztin'} as Record<string,string>)[locale] ?? 'Kulak Burun Boğaz Hastalıkları Uzmanı',
     description: descriptions[locale] || descriptions.tr,
     url: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir`,
     image: `${baseUrl}/images/dr-gokce-ozel.jpg`,
@@ -141,8 +141,8 @@ export default async function BiyografiPage({ params }: { params: Promise<{ loca
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
-      { '@type': 'ListItem', position: 2, name: 'Prof. Dr. Gökçe Özel Kimdir?', item: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir` },
+      { '@type': 'ListItem', position: 1, name: ({tr:'Ana Sayfa',en:'Home',ar:'الرئيسية',ru:'Главная',fr:'Accueil',de:'Startseite'} as Record<string,string>)[locale] ?? 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: ({tr:'Prof. Dr. Gökçe Özel Kimdir?',en:'About Prof. Dr. Gökçe Özel',ar:'من هي أ.د. غوكتشه أوزيل؟',ru:'О проф. д-ре Гёкче Озель',fr:'À propos du Prof. Dr. Gökçe Özel',de:'Über Prof. Dr. Gökçe Özel'} as Record<string,string>)[locale] ?? 'Prof. Dr. Gökçe Özel Kimdir?', item: locale === 'tr' ? `${baseUrl}/gokce-ozel-kimdir` : `${baseUrl}/${locale}/gokce-ozel-kimdir` },
     ],
   };
 

@@ -113,9 +113,7 @@ export default async function HizmetlerPage({ params }: { params: Promise<{ loca
             {heading[locale] || heading.tr}
           </h1>
           <p className="text-[#61706b] max-w-2xl mx-auto">
-            {locale === 'tr'
-              ? 'Yüzün doğal oranlarını, nefes fonksiyonunu ve kişisel beklentileri birlikte değerlendiren kapsamlı estetik uygulamalar.'
-              : 'Comprehensive aesthetic treatments planned around natural facial balance, function and personal expectations.'}
+            {({'tr':'Yüzün doğal oranlarını, nefes fonksiyonunu ve kişisel beklentileri birlikte değerlendiren kapsamlı estetik uygulamalar.','en':'Comprehensive aesthetic treatments planned around natural facial balance, function and personal expectations.','ar':'علاجات تجميلية شاملة مصممة بما يتناسب مع التوازن الطبيعي للوجه والوظيفة والتوقعات الشخصية.','ru':'Комплексные эстетические процедуры с учётом естественного баланса лица, функций и индивидуальных ожиданий.','fr':'Soins esthétiques complets planifiés autour de l\'équilibre naturel du visage, de sa fonction et des attentes personnelles.','de':'Umfassende ästhetische Behandlungen, die auf die natürliche Balance des Gesichts, dessen Funktion und persönliche Erwartungen abgestimmt sind.'} as Record<string,string>)[locale] ?? 'Yüzün doğal oranlarını, nefes fonksiyonunu ve kişisel beklentileri birlikte değerlendiren kapsamlı estetik uygulamalar.'}
           </p>
         </div>
 

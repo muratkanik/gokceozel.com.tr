@@ -155,8 +155,8 @@ export default async function MetodolojiPage({ params }: { params: Promise<{ loc
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
-        { '@type': 'ListItem', position: 2, name: 'Metodoloji', item: canonicalUrl },
+        { '@type': 'ListItem', position: 1, name: ({tr:'Ana Sayfa',en:'Home',ar:'الرئيسية',ru:'Главная',fr:'Accueil',de:'Startseite'} as Record<string,string>)[locale] ?? 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+        { '@type': 'ListItem', position: 2, name: ({tr:'Metodoloji',en:'Methodology',ar:'المنهجية',ru:'Методология',fr:'Méthodologie',de:'Methodik'} as Record<string,string>)[locale] ?? 'Metodoloji', item: canonicalUrl },
       ],
     },
   };

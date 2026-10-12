@@ -82,7 +82,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
 
         {posts.length === 0 ? (
           <p className="text-[#61706b] text-center py-16">
-            {locale === 'tr' ? 'Henüz blog yazısı bulunmamaktadır.' : 'No articles published yet.'}
+            {({'tr':'Henüz blog yazısı bulunmamaktadır.','en':'No articles published yet.','ar':'لم يتم نشر أي مقالات بعد.','ru':'Статьи ещё не опубликованы.','fr':'Aucun article publié pour l\'instant.','de':'Noch keine Artikel veröffentlicht.'} as Record<string,string>)[locale] ?? 'Henüz blog yazısı bulunmamaktadır.'}
           </p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

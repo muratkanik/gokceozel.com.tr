@@ -151,7 +151,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+      { '@type': 'ListItem', position: 1, name: ({tr:'Ana Sayfa',en:'Home',ar:'الرئيسية',ru:'Главная',fr:'Accueil',de:'Startseite'} as Record<string,string>)[locale] ?? 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: locale === 'tr' ? `${baseUrl}/blog` : `${baseUrl}/${locale}/blog` },
       { '@type': 'ListItem', position: 3, name: seo?.metaTitle || page.titleInternal, item: canonicalUrl },
     ],

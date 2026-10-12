@@ -117,14 +117,14 @@ export default async function HastaYorumlariPage({ params }: { params: Promise<{
       <main className="min-h-screen" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <section className="py-20 lg:py-24 px-5 text-center border-b border-[#49685f]/10">
           <p className="section-kicker mb-4">
-            {locale === 'tr' ? 'Gerçek Hastalar · Gerçek Deneyimler' : 'Real Patients · Real Experiences'}
+            {({'tr':'Gerçek Hastalar · Gerçek Deneyimler','en':'Real Patients · Real Experiences','ar':'مرضى حقيقيون · تجارب حقيقية','ru':'Реальные пациенты · Реальный опыт','fr':'Vrais Patients · Vraies Expériences','de':'Echte Patienten · Echte Erfahrungen'} as Record<string,string>)[locale] ?? 'Gerçek Hastalar · Gerçek Deneyimler'}
           </p>
           <h1 className="font-serif text-4xl md:text-6xl text-[#17201e] mb-5">{heading[locale] || heading.tr}</h1>
           {testimonials.length > 0 && (
             <div className="flex items-center justify-center gap-3 mt-4">
               <Stars rating={Math.round(Number(avgRating))} />
               <span className="text-[#b8893c] font-bold text-xl">{avgRating}</span>
-              <span className="text-[#61706b] text-sm">/ 5 · {testimonials.length} {locale === 'tr' ? 'yorum' : 'reviews'}</span>
+              <span className="text-[#61706b] text-sm">/ 5 · {testimonials.length} {({'tr':'yorum','en':'reviews','ar':'تقييم','ru':'отзывов','fr':'avis','de':'Bewertungen'} as Record<string,string>)[locale] ?? 'yorum'}</span>
             </div>
           )}
         </section>
@@ -159,7 +159,7 @@ export default async function HastaYorumlariPage({ params }: { params: Promise<{
             href={localePath(locale, '/iletisim')}
             className="inline-block bg-[#17201e] text-white px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-[#49685f] transition-colors"
           >
-            {locale === 'tr' ? 'Randevu Al' : locale === 'en' ? 'Book Appointment' : locale === 'ar' ? 'احجز موعداً' : locale === 'ru' ? 'Записаться' : 'Randevu Al'}
+            {({'tr':'Randevu Al','en':'Book Appointment','ar':'احجز موعداً','ru':'Записаться','fr':'Prendre RDV','de':'Termin buchen'} as Record<string,string>)[locale] ?? 'Randevu Al'}
           </a>
         </section>
       </main>

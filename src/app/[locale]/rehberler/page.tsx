@@ -143,8 +143,8 @@ export default async function RehberlerPage({ params }: { params: Promise<{ loca
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
-        { '@type': 'ListItem', position: 2, name: 'Rehberler', item: canonicalUrl },
+        { '@type': 'ListItem', position: 1, name: ({tr:'Ana Sayfa',en:'Home',ar:'الرئيسية',ru:'Главная',fr:'Accueil',de:'Startseite'} as Record<string,string>)[locale] ?? 'Ana Sayfa', item: locale === 'tr' ? baseUrl : `${baseUrl}/${locale}` },
+        { '@type': 'ListItem', position: 2, name: ({tr:'Rehberler',en:'Guides',ar:'الأدلة',ru:'Руководства',fr:'Guides',de:'Ratgeber'} as Record<string,string>)[locale] ?? 'Rehberler', item: canonicalUrl },
       ],
     },
   };
@@ -174,7 +174,7 @@ export default async function RehberlerPage({ params }: { params: Promise<{ loca
         {/* Hero */}
         <section className="py-20 lg:py-24 px-5 border-b border-[#49685f]/10 text-center">
           <p className="section-kicker mb-4">
-            {locale === 'tr' ? 'Kanıta Dayalı · Uzman İçerik' : 'Evidence-Based · Expert Content'}
+            {({'tr':'Kanıta Dayalı · Uzman İçerik','en':'Evidence-Based · Expert Content','ar':'طب قائم على الأدلة · محتوى متخصص','ru':'Доказательная медицина · Экспертный контент','fr':'Médecine fondée sur les preuves · Contenu expert','de':'Evidenzbasiert · Expertenwissen'} as Record<string,string>)[locale] ?? 'Kanıta Dayalı · Uzman İçerik'}
           </p>
           <h1 className="font-serif text-4xl md:text-6xl text-[#17201e] mb-4">{hero.h1}</h1>
           <p className="text-[#61706b] max-w-xl mx-auto">{hero.sub}</p>
@@ -196,7 +196,7 @@ export default async function RehberlerPage({ params }: { params: Promise<{ loca
                       href={`/${locale === 'tr' ? '' : locale + '/'}hizmetler/${cat.serviceSlug}`}
                       className="text-xs font-semibold uppercase tracking-wider text-[#b8893c] hover:text-[#17201e] transition-colors whitespace-nowrap"
                     >
-                      {locale === 'tr' ? 'Hizmete Git →' : 'View Service →'}
+                      {({'tr':'Hizmete Git →','en':'View Service →','ar':'عرض الخدمة →','ru':'К услуге →','fr':'Voir le soin →','de':'Zur Leistung →'} as Record<string,string>)[locale] ?? 'Hizmete Git →'}
                     </Link>
                   )}
                 </div>
@@ -228,7 +228,7 @@ export default async function RehberlerPage({ params }: { params: Promise<{ loca
           {byCategory['diger'] && byCategory['diger'].length > 0 && (
             <section>
               <h2 className="font-serif text-2xl text-[#17201e] mb-6">
-                {locale === 'tr' ? 'Diğer Makaleler' : locale === 'en' ? 'More Articles' : 'Articles'}
+                {({'tr':'Diğer Makaleler','en':'More Articles','ar':'مقالات أخرى','ru':'Другие статьи','fr':'Autres articles','de':'Weitere Artikel'} as Record<string,string>)[locale] ?? 'Diğer Makaleler'}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {byCategory['diger'].slice(0, 4).map(post => {
@@ -253,13 +253,13 @@ export default async function RehberlerPage({ params }: { params: Promise<{ loca
         {/* CTA */}
         <section className="text-center py-12 px-5 border-t border-[#49685f]/10">
           <p className="text-[#61706b] mb-4 text-sm">
-            {locale === 'tr' ? 'Kişisel değerlendirme için randevu alın.' : 'Book a consultation for a personalised assessment.'}
+            {({'tr':'Kişisel değerlendirme için randevu alın.','en':'Book a consultation for a personalised assessment.','ar':'احجز استشارة للتقييم الشخصي.','ru':'Запишитесь на консультацию для персональной оценки.','fr':'Prenez rendez-vous pour une évaluation personnalisée.','de':'Termin für eine persönliche Beratung buchen.'} as Record<string,string>)[locale] ?? 'Kişisel değerlendirme için randevu alın.'}
           </p>
           <Link
             href={`/${locale === 'tr' ? '' : locale + '/'}iletisim`}
             className="inline-block bg-[#17201e] text-white px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-[#49685f] transition-colors"
           >
-            {locale === 'tr' ? 'Randevu Al' : 'Book Appointment'}
+            {({'tr':'Randevu Al','en':'Book Appointment','ar':'احجز موعداً','ru':'Записаться','fr':'Prendre RDV','de':'Termin buchen'} as Record<string,string>)[locale] ?? 'Randevu Al'}
           </Link>
         </section>
       </main>

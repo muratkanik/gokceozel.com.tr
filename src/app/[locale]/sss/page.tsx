@@ -143,7 +143,7 @@ export default async function SssPage({ params }: { params: Promise<{ locale: st
         {/* CTA */}
         <section className="text-center py-16 px-4 border-t border-[#2a2a2a]">
           <p className="text-[#9a8f7c] mb-6">
-            {locale === 'tr' ? 'Sorunuz cevap bulamadı mı?' : 'Didn\'t find your answer?'}
+            {({'tr':'Sorunuz cevap bulamadı mı?','en':'Didn\'t find your answer?','ar':'لم تجد إجابة لسؤالك؟','ru':'Не нашли ответ на свой вопрос?','fr':'Vous n\'avez pas trouvé votre réponse ?','de':'Keine Antwort gefunden?'} as Record<string,string>)[locale] ?? 'Sorunuz cevap bulamadı mı?'}
           </p>
           <a
             href={`/${locale}/iletisim`}

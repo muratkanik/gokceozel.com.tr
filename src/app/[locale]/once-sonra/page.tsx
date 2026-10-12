@@ -96,15 +96,15 @@ export default async function OnceSonraPage({ params }: { params: Promise<{ loca
                 <div className="grid grid-cols-2 gap-0">
                   <div className="relative">
                     <div className="absolute top-3 left-3 bg-[#0a0a0a]/80 backdrop-blur-sm text-xs px-2.5 py-1 rounded-full text-[#9a8f7c] border border-[#2a2a2a] z-10">
-                      {locale === 'tr' ? 'Önce' : locale === 'en' ? 'Before' : locale === 'ar' ? 'قبل' : locale === 'ru' ? 'До' : 'Avant'}
+                      {({'tr':'Önce','en':'Before','ar':'قبل','ru':'До','fr':'Avant','de':'Vorher'} as Record<string,string>)[locale] ?? 'Önce'}
                     </div>
-                    <img src={c.beforeUrl} alt="Önce" className="w-full aspect-square object-cover object-top" loading="lazy" />
+                    <img src={c.beforeUrl} alt={({'tr':'Önce','en':'Before','ar':'قبل','ru':'До','fr':'Avant','de':'Vorher'} as Record<string,string>)[locale] ?? 'Önce'} className="w-full aspect-square object-cover object-top" loading="lazy" />
                   </div>
                   <div className="relative">
                     <div className="absolute top-3 left-3 bg-[#b8893c]/90 backdrop-blur-sm text-xs px-2.5 py-1 rounded-full text-white border border-[#b8893c] z-10 font-semibold">
-                      {locale === 'tr' ? 'Sonra' : locale === 'en' ? 'After' : locale === 'ar' ? 'بعد' : locale === 'ru' ? 'После' : 'Après'}
+                      {({'tr':'Sonra','en':'After','ar':'بعد','ru':'После','fr':'Après','de':'Nachher'} as Record<string,string>)[locale] ?? 'Sonra'}
                     </div>
-                    <img src={c.afterUrl} alt="Sonra" className="w-full aspect-square object-cover object-top" loading="lazy" />
+                    <img src={c.afterUrl} alt={({'tr':'Sonra','en':'After','ar':'بعد','ru':'После','fr':'Après','de':'Nachher'} as Record<string,string>)[locale] ?? 'Sonra'} className="w-full aspect-square object-cover object-top" loading="lazy" />
                   </div>
                 </div>
                 {c.caption && (
@@ -127,7 +127,7 @@ export default async function OnceSonraPage({ params }: { params: Promise<{ loca
           href={`/${locale}/iletisim`}
           className="inline-block bg-gradient-to-r from-[#d4b97a] to-[#8f6b2e] text-[#1a1410] px-8 py-3.5 rounded-full font-bold text-sm tracking-wide hover:opacity-90 transition-opacity"
         >
-          {locale === 'tr' ? 'Randevu Al' : locale === 'en' ? 'Book Appointment' : locale === 'ar' ? 'احجز موعداً' : locale === 'ru' ? 'Записаться' : 'Randevu Al'}
+          {({'tr':'Randevu Al','en':'Book Appointment','ar':'احجز موعداً','ru':'Записаться','fr':'Prendre RDV','de':'Termin buchen'} as Record<string,string>)[locale] ?? 'Randevu Al'}
         </a>
       </section>
     </main>

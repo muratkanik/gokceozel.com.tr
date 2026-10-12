@@ -210,7 +210,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
         </div>
         <header className="mb-10 md:mb-14">
           <p className="section-kicker mb-3">
-            {locale === 'tr' ? 'Hizmet Detayı' : 'Service Detail'}
+            {({'tr':'Hizmet Detayı','en':'Service Detail','ar':'تفاصيل الخدمة','ru':'Детали услуги','fr':'Détail du soin','de':'Leistungsdetail'} as Record<string,string>)[locale] ?? 'Hizmet Detayı'}
           </p>
           <h1 className="font-serif text-4xl md:text-6xl text-[#17201e] leading-tight">
             {title}
@@ -227,7 +227,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
             data-aeo-summary
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-[#b8893c] mb-2">
-              {locale === 'tr' ? 'Hızlı Cevap' : locale === 'en' ? 'Quick Answer' : locale === 'ar' ? 'إجابة سريعة' : locale === 'ru' ? 'Краткий ответ' : 'Réponse rapide'}
+              {({'tr':'Hızlı Cevap','en':'Quick Answer','ar':'إجابة سريعة','ru':'Краткий ответ','fr':'Réponse rapide','de':'Kurzantwort'} as Record<string,string>)[locale] ?? 'Hızlı Cevap'}
             </p>
             <p className="text-[#17201e] leading-relaxed">{seo.shortAnswer}</p>
           </div>
@@ -245,7 +245,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
                 {description || 'Bu hizmet için detaylı değerlendirme kişiye özel muayene ve beklenti analizi sonrasında planlanır.'}
               </p>
               <Link href={localePath(locale, '/iletisim')} className="inline-flex mt-7 bg-[#151714] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#315a52] transition-colors">
-                {locale === 'tr' ? 'Randevu Al' : 'Book Appointment'}
+                {({'tr':'Randevu Al','en':'Book Appointment','ar':'احجز موعداً','ru':'Записаться','fr':'Prendre RDV','de':'Termin buchen'} as Record<string,string>)[locale] ?? 'Randevu Al'}
               </Link>
             </div>
           </section>
@@ -269,7 +269,7 @@ export default async function HizmetDetailPage({ params }: { params: Promise<{ s
                   >
                     <h3 className="font-semibold text-[#17201e] text-sm leading-snug mb-1 line-clamp-2">{postTitle}</h3>
                     <span className="text-xs text-[#b8893c] font-semibold">
-                      {locale === 'tr' ? 'Devamını Oku →' : 'Read More →'}
+                      {({'tr':'Devamını Oku →','en':'Read More →','ar':'اقرأ المزيد →','ru':'Читать далее →','fr':'Lire →','de':'Lesen →'} as Record<string,string>)[locale] ?? 'Devamını Oku →'}
                     </span>
                   </Link>
                 );

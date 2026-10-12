@@ -371,9 +371,7 @@ export default function ChatWidget({ locale = 'tr' }: { locale?: string }) {
               {/* Disclaimer footer */}
               <div className="px-4 pt-1 pb-1 flex-shrink-0">
                 <p className="text-[10px] text-[#9ca3af] text-center leading-tight">
-                  {locale === 'tr'
-                    ? 'Bu sohbet tıbbi tavsiye değildir. Sağlık kararları için lütfen doktorunuza danışın.'
-                    : 'This chat is not medical advice. Please consult a physician for health decisions.'}
+                  {({'tr':'Bu sohbet tıbbi tavsiye değildir. Sağlık kararları için lütfen doktorunuza danışın.','en':'This chat is not medical advice. Please consult a physician for health decisions.','ar':'هذه المحادثة ليست نصيحة طبية. يرجى استشارة طبيب لاتخاذ قرارات صحية.','ru':'Этот чат не является медицинской консультацией. Для принятия медицинских решений обратитесь к врачу.','fr':'Cette conversation n\'est pas un avis médical. Veuillez consulter un médecin pour toute décision de santé.','de':'Dieser Chat ist keine medizinische Beratung. Bitte konsultieren Sie einen Arzt bei gesundheitlichen Entscheidungen.'} as Record<string,string>)[locale] ?? 'Bu sohbet tıbbi tavsiye değildir. Sağlık kararları için lütfen doktorunuza danışın.'}
                 </p>
               </div>
 
