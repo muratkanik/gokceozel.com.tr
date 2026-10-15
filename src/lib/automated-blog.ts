@@ -223,11 +223,15 @@ function parseArticle(raw: string): GeneratedArticle {
   try {
     parsed = JSON.parse(raw);
   } catch {
+    // Try extracting outermost JSON object
     const match = raw.match(/\{[\s\S]*\}/);
-    if (match) parsed = JSON.parse(match[0]);
+    if (match) {
+      try { parsed = JSON.parse(match[0]); } catch { /* fall through */ }
+    }
   }
 
   if (!parsed?.title || !parsed?.content) {
+    console.error('[daily-ai-blog] JSON parse başarısız. Ham içerik (ilk 600 karakter):', raw.slice(0, 600));
     throw new Error('AI geçerli makale JSON yanıtı üretmedi.');
   }
 
