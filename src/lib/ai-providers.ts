@@ -122,7 +122,11 @@ const openrouterStream: StreamFn = async (messages, opts) => {
 let anthropicClient: Anthropic | null = null;
 function anthropic() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY missing');
-  anthropicClient ??= new Anthropic();
+  anthropicClient ??= new Anthropic({
+    defaultHeaders: process.env.ANTHROPIC_WORKSPACE_ID
+      ? { 'anthropic-workspace-id': process.env.ANTHROPIC_WORKSPACE_ID }
+      : undefined,
+  });
   return anthropicClient;
 }
 
