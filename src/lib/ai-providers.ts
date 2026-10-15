@@ -164,7 +164,8 @@ function anthropicParams(
   const useThinking = !opts.json && !opts.effort?.startsWith?.('none');
   return {
     model: anthropicModel(),
-    max_tokens: Math.max(opts.maxTokens ?? 8000, 4000),
+    // Without extended thinking the 10-min guard is not triggered up to ~16k.
+    max_tokens: Math.max(opts.maxTokens ?? (opts.json ? 16000 : 8000), 4000),
     ...toAnthropic(messages),
     ...(useThinking ? { output_config: { effort: opts.effort ?? 'medium' } } : {}),
     // On a safety refusal, the API reruns the request on a fallback model.
