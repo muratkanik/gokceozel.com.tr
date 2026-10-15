@@ -231,7 +231,7 @@ function parseArticle(raw: string): GeneratedArticle {
   }
 
   if (!parsed?.title || !parsed?.content) {
-    console.error('[daily-ai-blog] JSON parse başarısız. Ham içerik (ilk 600 karakter):', raw.slice(0, 600));
+    console.error('[daily-ai-blog] JSON parse başarısız. Ham içerik (ilk 2000 karakter):', raw.slice(0, 2000));
     throw new Error('AI geçerli makale JSON yanıtı üretmedi.');
   }
 
