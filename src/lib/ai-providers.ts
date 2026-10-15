@@ -155,15 +155,15 @@ function anthropicParams(
   messages: AIMessage[],
   opts: AIOptions
 ): Anthropic.Beta.MessageCreateParamsNonStreaming {
+  // JSON-mode calls skip extended thinking entirely — thinking tokens inflate
+  // the estimated duration above the SDK's non-streaming 10-minute guard,
+  // and deterministic structured output doesn't benefit from reasoning.
+  const useThinking = !opts.json && !opts.effort?.startsWith?.('none');
   return {
     model: anthropicModel(),
-    // Thinking tokens count toward max_tokens, so keep headroom above the
-    // short caps callers tuned for OpenRouter (e.g. 200 for summaries).
-    // JSON-mode calls get more output budget and skip extended thinking so the
-    // structured response is never truncated mid-token.
-    max_tokens: Math.max(opts.maxTokens ?? (opts.json ? 24000 : 16000), 4000),
+    max_tokens: Math.max(opts.maxTokens ?? 8000, 4000),
     ...toAnthropic(messages),
-    output_config: { effort: opts.effort ?? (opts.json ? 'low' : 'medium') },
+    ...(useThinking ? { output_config: { effort: opts.effort ?? 'medium' } } : {}),
     // On a safety refusal, the API reruns the request on a fallback model.
     betas: ['server-side-fallback-2026-07-01'],
     fallbacks: 'default',
