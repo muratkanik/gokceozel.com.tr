@@ -159,9 +159,11 @@ function anthropicParams(
     model: anthropicModel(),
     // Thinking tokens count toward max_tokens, so keep headroom above the
     // short caps callers tuned for OpenRouter (e.g. 200 for summaries).
-    max_tokens: Math.max(opts.maxTokens ?? 16000, 4000),
+    // JSON-mode calls get more output budget and skip extended thinking so the
+    // structured response is never truncated mid-token.
+    max_tokens: Math.max(opts.maxTokens ?? (opts.json ? 24000 : 16000), 4000),
     ...toAnthropic(messages),
-    output_config: { effort: opts.effort ?? 'medium' },
+    output_config: { effort: opts.effort ?? (opts.json ? 'low' : 'medium') },
     // On a safety refusal, the API reruns the request on a fallback model.
     betas: ['server-side-fallback-2026-07-01'],
     fallbacks: 'default',
