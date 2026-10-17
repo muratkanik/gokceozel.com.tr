@@ -10,6 +10,24 @@ export const revalidate = 60;
 
 const SEO_BASE_URL = 'https://gokceozel.com.tr';
 const SEO_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+
+const SEO_TITLES: Record<string, string> = {
+  tr: 'Hizmetlerimiz | Prof. Dr. Gökçe Özel',
+  en: 'Our Services | Prof. Dr. Gökçe Özel',
+  ar: 'خدماتنا | أ.د. غوكتشه أوزيل',
+  ru: 'Наши услуги | Проф. д-р Гёкче Озель',
+  fr: 'Nos services | Prof. Dr. Gökçe Özel',
+  de: 'Unsere Leistungen | Prof. Dr. Gökçe Özel',
+};
+
+const SEO_DESCRIPTIONS: Record<string, string> = {
+  tr: 'Yüzün doğal oranlarını, nefes fonksiyonunu ve kişisel beklentileri birlikte değerlendiren kapsamlı estetik uygulamalar.',
+  en: 'Comprehensive aesthetic treatments planned around natural facial balance, function and personal expectations.',
+  ar: 'علاجات تجميلية شاملة مصممة بما يتناسب مع التوازن الطبيعي للوجه والوظيفة والتوقعات الشخصية.',
+  ru: 'Комплексные эстетические процедуры с учётом естественного баланса лица, функций и индивидуальных ожиданий.',
+  fr: "Soins esthétiques complets planifiés autour de l'équilibre naturel du visage, de sa fonction et des attentes personnelles.",
+  de: 'Umfassende ästhetische Behandlungen, die auf die natürliche Balance des Gesichts, dessen Funktion und persönliche Erwartungen abgestimmt sind.',
+};
 const seoUrl = (loc: string) => (loc === 'tr' ? `${SEO_BASE_URL}/${hizmetlerSegment(loc)}` : `${SEO_BASE_URL}/${loc}/${hizmetlerSegment(loc)}`);
 
 // Self-referencing canonical + hreflang (layout default points every page at the home page).
@@ -20,6 +38,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     languages[loc] = seoUrl(loc);
   });
   return {
+    title: SEO_TITLES[locale] ?? SEO_TITLES.tr,
+    description: SEO_DESCRIPTIONS[locale] ?? SEO_DESCRIPTIONS.tr,
     alternates: {
       canonical: seoUrl(locale),
       languages,
