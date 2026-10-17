@@ -6,6 +6,24 @@ export const revalidate = 60; // 1 minute revalidation
 
 const SEO_BASE_URL = 'https://gokceozel.com.tr';
 const SEO_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
+
+const SEO_TITLES: Record<string, string> = {
+  tr: 'İletişim & Randevu | Prof. Dr. Gökçe Özel',
+  en: 'Contact & Appointment | Prof. Dr. Gökçe Özel',
+  ar: 'التواصل والمواعيد | أ.د. غوكتشه أوزيل',
+  ru: 'Контакты и запись | Проф. д-р Гёкче Озель',
+  fr: 'Contact & Rendez-vous | Prof. Dr. Gökçe Özel',
+  de: 'Kontakt & Termin | Prof. Dr. Gökçe Özel',
+};
+
+const SEO_DESCRIPTIONS: Record<string, string> = {
+  tr: 'Sorularınız veya randevu talebiniz için bize ulaşın. Adres, telefon ve çalışma saatleri.',
+  en: 'Reach out to us for questions or to book an appointment. Address, phone and working hours.',
+  ar: 'تواصل معنا لأي استفسار أو لحجز موعد. العنوان والهاتف وساعات العمل.',
+  ru: 'Свяжитесь с нами по вопросам или для записи на приём. Адрес, телефон и рабочие часы.',
+  fr: 'Contactez-nous pour toute question ou pour prendre rendez-vous. Adresse, téléphone et horaires.',
+  de: 'Kontaktieren Sie uns für Fragen oder zur Terminbuchung. Adresse, Telefon und Öffnungszeiten.',
+};
 const seoUrl = (loc: string) => (loc === 'tr' ? `${SEO_BASE_URL}/iletisim` : `${SEO_BASE_URL}/${loc}/iletisim`);
 
 // Self-referencing canonical + hreflang (layout default points every page at the home page).
@@ -16,6 +34,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     languages[loc] = seoUrl(loc);
   });
   return {
+    title: SEO_TITLES[locale] ?? SEO_TITLES.tr,
+    description: SEO_DESCRIPTIONS[locale] ?? SEO_DESCRIPTIONS.tr,
     alternates: {
       canonical: seoUrl(locale),
       languages,
