@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Prof. Dr. Gökçe Özel — Ankara KBB ve Rinoplasti Uzmanı';
+export const alt = 'Prof. Dr. Gökçe Özel — Ankara & Antalya KBB Uzmanı';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -9,8 +9,8 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { locale } = await params;
 
   const titles: Record<string, string> = {
-    tr: 'Ankara\'nın Rinoplasti Uzmanı',
-    en: 'Rhinoplasty & ENT Specialist Ankara',
+    tr: 'Ankara & Antalya KBB Uzmanı',
+    en: 'ENT Specialist Ankara & Antalya',
     ar: 'أخصائية تجميل الأنف في أنقرة',
     ru: 'Специалист по ринопластике в Анкаре',
     fr: 'Rhinoplastie & ORL à Ankara',

@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
 
   const titles: Record<string, string> = {
-    tr: 'Prof. Dr. Gökçe Özel | Ankara & Antalya KBB ve Rinoplasti Uzmanı',
-    en: 'Prof. Dr. Gökçe Özel | ENT & Rhinoplasty Specialist in Ankara & Antalya',
+    tr: 'Prof. Dr. Gökçe Özel | Ankara & Antalya KBB Uzmanı',
+    en: 'Prof. Dr. Gökçe Özel | ENT Specialist in Ankara & Antalya',
     ar: 'أ.د. غوكتشه أوزيل | أخصائية أنف وأذن وحنجرة في أنقرة وأنطاليا',
-    ru: 'Проф. д-р Гёкче Озель | ЛОР и ринопластика в Анкаре и Анталье',
-    fr: 'Prof. Dr. Gökçe Özel | Spécialiste ORL et rhinoplastie à Ankara & Antalya',
-    de: 'Prof. Dr. Gökçe Özel | HNO und Rhinoplastik-Spezialistin in Ankara & Antalya',
+    ru: 'Проф. д-р Гёкче Озель | ЛОР-специалист в Анкаре и Анталье',
+    fr: 'Prof. Dr. Gökçe Özel | Spécialiste ORL à Ankara & Antalya',
+    de: 'Prof. Dr. Gökçe Özel | HNO-Spezialistin in Ankara & Antalya',
   };
 
   const descriptions: Record<string, string> = {
