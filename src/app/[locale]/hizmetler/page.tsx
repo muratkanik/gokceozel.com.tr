@@ -12,6 +12,17 @@ const SEO_BASE_URL = 'https://gokceozel.com.tr';
 const SEO_LOCALES = ['tr', 'en', 'ar', 'ru', 'fr', 'de'];
 const seoUrl = (loc: string) => (loc === 'tr' ? `${SEO_BASE_URL}/${hizmetlerSegment(loc)}` : `${SEO_BASE_URL}/${loc}/${hizmetlerSegment(loc)}`);
 
+// Sayfaya özel title/description (yinelenen ana sayfa meta'sını önler).
+// Sadece tr ve en tanımlı; diğer diller layout varsayılanını kullanmaya devam eder.
+const PAGE_TITLES: Record<string, string> = {
+  tr: 'Hizmetler: Rinoplasti, Endolift ve Yüz Estetiği | Prof. Dr. Gökçe Özel',
+  en: 'Services: Rhinoplasty, Endolift and Facial Aesthetics | Prof. Dr. Gökçe Özel',
+};
+const PAGE_DESCRIPTIONS: Record<string, string> = {
+  tr: "Rinoplasti, revizyon rinoplasti, blefaroplasti, botoks, dolgu ve mezoterapi dahil Prof. Dr. Gökçe Özel'in Ankara ve Antalya'daki tüm hizmetleri.",
+  en: 'Rhinoplasty, revision rhinoplasty, blepharoplasty, Botox, fillers and mesotherapy - all services offered by Prof. Dr. Gökçe Özel in Ankara and Antalya.',
+};
+
 // Self-referencing canonical + hreflang (layout default points every page at the home page).
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -19,7 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   SEO_LOCALES.forEach((loc) => {
     languages[loc] = seoUrl(loc);
   });
+  const title = PAGE_TITLES[locale];
+  const description = PAGE_DESCRIPTIONS[locale];
   return {
+    ...(title ? { title } : {}),
+    ...(description ? { description } : {}),
     alternates: {
       canonical: seoUrl(locale),
       languages,
