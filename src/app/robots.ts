@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/api/'],
+        disallow: ['/admin', '/admin/', '/auth/', '/api/'],
       },
       // Allow AI crawlers full access (AEO: ChatGPT, Perplexity, Gemini, Bing AI)
       {
@@ -23,17 +23,17 @@ export default function robots(): MetadataRoute.Robots {
           'Applebot-Extended',
         ],
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/api/', '/once-sonra'],
+        disallow: ['/admin', '/admin/', '/auth/', '/api/', '/once-sonra'],
       },
       {
         userAgent: ['PerplexityBot', 'Perplexity-User'],
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/api/', '/once-sonra'],
+        disallow: ['/admin', '/admin/', '/auth/', '/api/', '/once-sonra'],
       },
       {
         userAgent: 'GoogleOther',
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/api/'],
+        disallow: ['/admin', '/admin/', '/auth/', '/api/'],
       },
       {
         userAgent: 'Googlebot-Image',
